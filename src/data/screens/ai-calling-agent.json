@@ -1,0 +1,48 @@
+{
+ "app": "CallDesk",
+ "client": "Shubham Developers",
+ "screens": [
+  {
+   "file": "01-campaigns",
+   "title": "Campaigns",
+   "caption": "Every campaign with its progress, outcomes and cost per minute \u2014 the agent calls inside 30 seconds of an enquiry or on a schedule you set.",
+   "hl": null
+  },
+  {
+   "file": "02-live",
+   "title": "Live calls",
+   "caption": "Calls in progress with stage, sentiment and the transcript as it happens \u2014 a supervisor can listen in or take over with one click.",
+   "hl": null
+  },
+  {
+   "file": "03-log",
+   "title": "Call log",
+   "caption": "Every call becomes a record: transcript, sentiment, entities, next action \u2014 and the CRM write that happened because of it.",
+   "hl": null
+  },
+  {
+   "file": "04-script",
+   "title": "Agent script \u00b7 Anjali",
+   "caption": "The script is plain language: opening, goal, language mix, objections and the rules for handing over. Your sales head edits it, not an engineer.",
+   "hl": null
+  },
+  {
+   "file": "05-handover",
+   "title": "Handovers",
+   "caption": "Handover is designed in: the person gets the transcript, the sentiment, the CRM card and a suggested line \u2014 and joins the call or calls back within a promised time.",
+   "hl": null
+  },
+  {
+   "file": "06-reports",
+   "title": "Reports",
+   "caption": "Connect rates, outcomes, cost per minute and per hot lead \u2014 measured, not estimated, and compared against the human desk it replaced.",
+   "hl": null
+  },
+  {
+   "file": "07-crm-write",
+   "title": "What the call wrote",
+   "caption": "A call is only useful if it changes a record. Every outcome writes to your CRM, sends the WhatsApp follow-up and books the calendar \u2014 automatically.",
+   "hl": null
+  }
+ ]
+}

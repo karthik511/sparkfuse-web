@@ -1,0 +1,48 @@
+{
+ "app": "SiteDesk",
+ "client": "Shubham Developers",
+ "screens": [
+  {
+   "file": "01-today",
+   "title": "Today",
+   "caption": "Every enquiry from four portals, ads and walk-ins in one place \u2014 called within 30 seconds, followed up by the system, and shown to the sales head as a short list.",
+   "hl": null
+  },
+  {
+   "file": "02-lead",
+   "title": "Lead \u00b7 Priya Mehta",
+   "caption": "One lead, every touch: the AI call transcript, the WhatsApp thread, the visit, the units shown, the loan status \u2014 and what happens next without anyone remembering.",
+   "hl": null
+  },
+  {
+   "file": "03-pipeline",
+   "title": "Pipeline",
+   "caption": "Stages move from events \u2014 a call outcome, a visit logged on the phone, a token received \u2014 so the board is true without anyone updating it.",
+   "hl": null
+  },
+  {
+   "file": "04-visits",
+   "title": "Site visits",
+   "caption": "Visits booked by the AI on the call, reminded on WhatsApp, logged on the site team's phone \u2014 and a no-show gets a re-booking call, not a cold lead.",
+   "hl": null
+  },
+  {
+   "file": "05-inventory",
+   "title": "Inventory \u00b7 Vesu Heights",
+   "caption": "Unit inventory with live status \u2014 available, blocked on token, sold \u2014 so two salespeople never promise the same flat, and the AI never quotes a unit that is gone.",
+   "hl": null
+  },
+  {
+   "file": "06-campaigns",
+   "title": "Campaigns",
+   "caption": "The calling agent and WhatsApp ladders run as campaigns you can see: enquiry follow-up, visit reminders, token nudges, old-lead revival.",
+   "hl": null
+  },
+  {
+   "file": "07-reports",
+   "title": "Reports",
+   "caption": "Source to token by portal, ad and person; response times; where leads leak \u2014 the report the owner used to ask for on Monday, ready every morning.",
+   "hl": null
+  }
+ ]
+}

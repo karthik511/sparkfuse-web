@@ -1,0 +1,48 @@
+{
+ "app": "RunBook",
+ "client": "Annapoorna Group",
+ "screens": [
+  {
+   "file": "01-today",
+   "title": "Today \u00b7 7 outlets",
+   "caption": "The operations head's view: which workflows ran, which stalled waiting on a person, and the exceptions that need a decision \u2014 across every outlet.",
+   "hl": null
+  },
+  {
+   "file": "02-flow",
+   "title": "Workflow \u00b7 Wastage above limit",
+   "caption": "A workflow is a chain of detect \u2192 ask \u2192 wait \u2192 escalate, drawn in plain language. The AI does the reading and chasing; people do the deciding.",
+   "hl": null
+  },
+  {
+   "file": "03-runs",
+   "title": "Runs",
+   "caption": "Every run, step by step: what was detected, who was asked, what they replied, how long it took \u2014 the audit trail of the whole operation.",
+   "hl": null
+  },
+  {
+   "file": "04-exceptions",
+   "title": "Exceptions",
+   "caption": "Exceptions are the point: the workflow surfaces the few things that genuinely need a person, with the history and a suggested action attached.",
+   "hl": null
+  },
+  {
+   "file": "05-approvals",
+   "title": "Approvals",
+   "caption": "Purchase requests, refunds and vendor payments pass a policy check first, then a named person \u2014 on WhatsApp if they are not at a desk.",
+   "hl": null
+  },
+  {
+   "file": "06-connections",
+   "title": "Connections",
+   "caption": "Workflows read from the systems you already have \u2014 POS, Tally, sheets, WhatsApp, phone checklists \u2014 and write back to them. Nothing has to be replaced first.",
+   "hl": null
+  },
+  {
+   "file": "07-digest",
+   "title": "Owner digest",
+   "caption": "The owner reads one message a day. Every line in it came from a workflow \u2014 a number, a question, a person and a deadline.",
+   "hl": null
+  }
+ ]
+}

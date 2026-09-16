@@ -12,18 +12,21 @@ def svg(k): return f'<svg viewBox="0 0 24 24"><path d="{ICONS.get(k, ICONS["box"
 def shell(app, s):
     nav = ''.join(f'<a class="{"on" if k == s["nav"] else ""}">{svg(ic)}{lbl}{f"<span class=\"b{" g" if str(bd).startswith("g") else ""}\">{str(bd).lstrip("g")}</span>" if bd else ""}</a>' if k != '-' else f'<div class="grp">{lbl}</div>' for k, lbl, ic, bd in app['nav'])
     toast = f'<div class="toast"><i></i>{s["toast"]}</div>' if s.get('toast') else ''
+    act = app.get('activity', [])
+    fill = ('<div class="card" style="margin-top:auto"><div class="h">Recent activity<span class="mono">system + team</span></div><div class="list">' + ''.join(f'<div><span class="t">{t}</span><div>{x}</div></div>' for t, x in act) + '</div></div>') if s.get('fill') and act else ''
     return f'''<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="app.css"><style>{s.get('css','')}</style></head><body><div class="app">
 <aside class="sb"><div class="brand"><i></i><span>{app['brand']}<span class="sub">{app['sub']}</span></span></div>{nav}<div class="me"><div class="av">{app['user'][:1]}</div><div><b>{app['user']}</b><small>{app['role']} · {app['client']}</small></div></div></aside>
 <div class="main"><div class="top"><h1>{s['title']}</h1><span class="crumb">{s.get('crumb','')}</span><span class="sp"></span><div class="search">Search orders, people, documents…</div><div class="ic">🔔<i></i></div>{s.get('topbtn','')}</div>
-<div class="content" style="position:relative">{s['body']}{toast}<div class="watermark">MOCK · FICTIONAL DATA · {app['client'].upper()}</div></div></div></div></body></html>'''
+<div class="content" style="position:relative">{s['body']}{fill}{toast}<div class="watermark">MOCK · FICTIONAL DATA · {app['client'].upper()}</div></div></div></div></body></html>'''
 def main(slug):
-    spec = importlib.util.spec_from_file_location(slug, os.path.join(ROOT, 'tools', 'screens', slug.replace('-', '_') + '.py')); m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+    sys.path.insert(0, os.path.join(ROOT, 'tools', 'screens')); spec = importlib.util.spec_from_file_location(slug, os.path.join(ROOT, 'tools', 'screens', slug.replace('-', '_') + '.py')); m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
     out = os.path.join(ROOT, 'public', 'screens', slug); tmp = os.path.join(ROOT, 'tools', 'screens', '_tmp', slug); os.makedirs(out, exist_ok=True); os.makedirs(tmp, exist_ok=True); shutil.copy(os.path.join(ROOT, 'tools', 'screens', 'app.css'), os.path.join(tmp, 'app.css'))
     meta = []
     for i, s in enumerate(m.SCREENS, 1):
         name = f'{i:02d}-{s["slug"]}'; html = os.path.join(tmp, name + '.html'); png = os.path.join(tmp, name + '.png')
         open(html, 'w').write(shell(m.APP, s))
-        subprocess.run([CHROME, '--headless=new', '--disable-gpu', '--hide-scrollbars', '--force-device-scale-factor=1', '--virtual-time-budget=6000', '--window-size=1440,900', f'--screenshot={png}', 'file://' + html], capture_output=True)
+        try: subprocess.run([CHROME, '--headless=new', '--disable-gpu', '--hide-scrollbars', '--force-device-scale-factor=1', '--virtual-time-budget=6000', '--timeout=25000', '--window-size=1440,900', f'--screenshot={png}', 'file://' + html], capture_output=True, timeout=60)
+        except subprocess.TimeoutExpired: subprocess.run(['pkill', '-f', 'headless=new']); subprocess.run([CHROME, '--headless=new', '--disable-gpu', '--hide-scrollbars', '--force-device-scale-factor=1', '--timeout=20000', '--window-size=1440,900', f'--screenshot={png}', 'file://' + html], capture_output=True, timeout=60)
         im = Image.open(png).convert('RGB'); im.save(os.path.join(out, name + '.webp'), quality=84, method=6); im.resize((480, 300), Image.LANCZOS).save(os.path.join(out, name + '-thumb.webp'), quality=78)
         meta.append({'file': name, 'title': s['title'], 'caption': s['caption'], 'hl': s.get('hl')})
         print('rendered', name)

@@ -1,0 +1,48 @@
+{
+ "app": "OwnerView",
+ "client": "Annapoorna Group",
+ "screens": [
+  {
+   "file": "01-owner",
+   "title": "Owner view",
+   "caption": "One screen the owner actually opens: each outlet scored from real inputs \u2014 POS, checklists, attendance, Tally \u2014 with the questions already sent to the right people.",
+   "hl": null
+  },
+  {
+   "file": "02-outlet",
+   "title": "Outlet \u00b7 Thillai Nagar",
+   "caption": "Drill into one outlet: every KPI with its source and weight, the trend, and the chain of questions that a breach triggered.",
+   "hl": null
+  },
+  {
+   "file": "03-governance",
+   "title": "Governance",
+   "caption": "Governance rules turn a number into a question to a named person with a deadline \u2014 and an escalation when the deadline passes. The owner sees the exceptions, not the spreadsheet.",
+   "hl": null
+  },
+  {
+   "file": "04-collectors",
+   "title": "Collectors",
+   "caption": "Numbers are collected, not typed: phone checklists, POS and Tally connectors, attendance, WhatsApp \u2014 compiled every night into the formats the owner already uses.",
+   "hl": null
+  },
+  {
+   "file": "05-digest",
+   "title": "Digests",
+   "caption": "The digest is the product for most owners: five lines a day, each with a number, a person and a deadline, and a reply that opens the detail.",
+   "hl": null
+  },
+  {
+   "file": "06-kpis",
+   "title": "KPIs & weights",
+   "caption": "The owner sets what matters and how much: KPIs, their sources, weights and thresholds \u2014 the compile does the rest, every night, for every outlet.",
+   "hl": null
+  },
+  {
+   "file": "07-reports",
+   "title": "Reports \u00b7 weekly P&amp;L",
+   "caption": "The weekly P&L per outlet that used to take an accountant two days \u2014 compiled from POS and Tally on Sunday night, in the owner's own format.",
+   "hl": null
+  }
+ ]
+}

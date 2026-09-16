@@ -1,0 +1,48 @@
+{
+ "app": "DealerBot",
+ "client": "Gupta Pipes",
+ "screens": [
+  {
+   "file": "01-conversation",
+   "title": "Conversations \u00b7 Sharma Traders",
+   "caption": "A dealer asks \"order kab aayega?\" at 9 pm. The bot answers from the live order \u2014 dispatch time, LR number, ETA \u2014 in Hinglish, and knows when to hand over.",
+   "hl": null
+  },
+  {
+   "file": "02-today",
+   "title": "Today",
+   "caption": "What the bot handled today, what it handed over, and the questions it couldn't answer \u2014 each one a gap in the knowledge base you can close in a minute.",
+   "hl": null
+  },
+  {
+   "file": "03-knowledge",
+   "title": "Knowledge",
+   "caption": "The bot answers only from sources you approve \u2014 the live ERP, your price list, your policies \u2014 and shows which source every answer came from.",
+   "hl": null
+  },
+  {
+   "file": "04-handover",
+   "title": "Handovers",
+   "caption": "Handover is a feature, not a failure: price, complaints, frustration, VIP dealers and anything unknown go to a named person with the thread summarised.",
+   "hl": null
+  },
+  {
+   "file": "05-flows",
+   "title": "Flows \u00b7 New dealership enquiry",
+   "caption": "Structured flows for the questions that need a shape \u2014 a new dealer enquiry, a complaint with a photo, a reorder \u2014 mixed with free conversation where a script would be annoying.",
+   "hl": null
+  },
+  {
+   "file": "06-reports",
+   "title": "Reports",
+   "caption": "What the bot saved: after-hours questions answered, calls not made to the sales desk, and the questions that keep coming back.",
+   "hl": null
+  },
+  {
+   "file": "07-phone",
+   "title": "Dealer side",
+   "caption": "A complaint with a photo: the bot logs it against the delivery, asks the two questions dispatch needs, and hands over with everything attached \u2014 no \"please call our office\".",
+   "hl": null
+  }
+ ]
+}

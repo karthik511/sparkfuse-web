@@ -1,0 +1,48 @@
+{
+ "app": "PlantOS",
+ "client": "Deccan Protective",
+ "screens": [
+  {
+   "file": "01-today",
+   "title": "Today \u00b7 Plant 2",
+   "caption": "The plant head's morning: order book by stage, what will miss its date, idle stock with rupees attached, and the four decisions only he can take.",
+   "hl": null
+  },
+  {
+   "file": "02-orders",
+   "title": "Orders",
+   "caption": "Every order with its promised date, stage, material readiness and risk \u2014 the risk computed from the plan, not typed by a planner.",
+   "hl": null
+  },
+  {
+   "file": "03-planning",
+   "title": "Planning board \u00b7 Week 39",
+   "caption": "Capacity, changeovers and priorities on one board. Drag an order and the system tells you what else moves \u2014 and which promise breaks.",
+   "hl": null
+  },
+  {
+   "file": "04-inventory",
+   "title": "Inventory \u00b7 Plant 2 store",
+   "caption": "Stock you can trust, and dead stock with the rupees attached \u2014 every bin aged and valued, receipts and issues scanned on a phone.",
+   "hl": null
+  },
+  {
+   "file": "05-costing",
+   "title": "Cost estimation \u00b7 Safety helmet ABS \u00b7 5,000",
+   "caption": "A costing model that shows its working \u2014 materials, cycle time, changeovers, packing \u2014 learns from what the run actually consumed, and flags what changed since the last quote.",
+   "hl": null
+  },
+  {
+   "file": "06-vendors",
+   "title": "Vendors & portal",
+   "caption": "A vendor portal that answers \"when is my payment?\" \u2014 plus POs, GRNs, invoice status and rate disputes, so the phone stops ringing at accounts.",
+   "hl": null
+  },
+  {
+   "file": "07-approvals",
+   "title": "Approvals",
+   "caption": "Nothing moves money without a person. Invoices above PO, plan-date changes and freight decisions queue here with the working shown and the AI's recommendation.",
+   "hl": null
+  }
+ ]
+}

@@ -1,0 +1,48 @@
+{
+ "app": "LoomLine",
+ "client": "Arasu Knits",
+ "screens": [
+  {
+   "file": "01-today",
+   "title": "Today",
+   "caption": "Sourcing, sampling, T&A and inspections on one system \u2014 the merchandiser's morning is a short list, not seven spreadsheets.",
+   "hl": null
+  },
+  {
+   "file": "02-styles",
+   "title": "Styles & pricing",
+   "caption": "Every style that hits a mailbox is created with its tech pack; pricing runs on a 48-hour clock from receipt, benchmarked against similar confirmed styles.",
+   "hl": null
+  },
+  {
+   "file": "03-sampling",
+   "title": "Sampling \u00b7 631KX",
+   "caption": "Sample rounds with the buyer's comments read from email, the SLA anchored to the buyer's ask date, and the next sample due date computed \u2014 not remembered.",
+   "hl": null
+  },
+  {
+   "file": "04-ta",
+   "title": "Orders & T&A \u00b7 PO 4471",
+   "caption": "A time-and-action plan for every order, back-scheduled from the ship date across 28 stages, re-planned when a date moves \u2014 with skipped stages kept overdue until someone logs them.",
+   "hl": null
+  },
+  {
+   "file": "05-inspection",
+   "title": "Inspections \u00b7 PO 4459",
+   "caption": "Inspections logged on a phone at the factory: AQL sampling computed, defects photographed, pass/fail decided by the rule \u2014 and the report emailed to the buyer the same hour.",
+   "hl": null
+  },
+  {
+   "file": "06-shipments",
+   "title": "Shipments",
+   "caption": "Handover, vessel, documents and the buyer's portal in one row per shipment \u2014 \"on time\" is judged at handover, which is the factory's clock, not the vessel's.",
+   "hl": null
+  },
+  {
+   "file": "07-approvals",
+   "title": "Approvals",
+   "caption": "Plan-date changes, prices to buyers and invoices above PO wait for a named person. The AI shows the impact and recommends; a person decides.",
+   "hl": null
+  }
+ ]
+}

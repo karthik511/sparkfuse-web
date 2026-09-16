@@ -1,0 +1,48 @@
+{
+ "app": "StockSense",
+ "client": "Gupta Pipes",
+ "screens": [
+  {
+   "file": "01-today",
+   "title": "Today \u00b7 3 godowns",
+   "caption": "Stock you can trust, in one view: value, idle stock with rupees attached, what is below reorder, and what moved since yesterday.",
+   "hl": null
+  },
+  {
+   "file": "02-stock",
+   "title": "Stock",
+   "caption": "Every SKU with age, value and velocity \u2014 and next to the dead stock, what the system suggests doing with it.",
+   "hl": null
+  },
+  {
+   "file": "03-bins",
+   "title": "Bins \u00b7 Godown A",
+   "caption": "A live map of every bin: what is in it, how full, how old. Red is idle stock; amber is below reorder. Tap a bin to see its history.",
+   "hl": null
+  },
+  {
+   "file": "04-movements",
+   "title": "Movements",
+   "caption": "Receipts, issues, transfers and returns \u2014 every one scanned on a phone at the bin, timestamped, tied to a document. Nothing is typed twice.",
+   "hl": null
+  },
+  {
+   "file": "05-reorder",
+   "title": "Reorder",
+   "caption": "Reorder points that learn from velocity and lead time, and POs drafted for you \u2014 sent to the vendor on WhatsApp the moment you approve.",
+   "hl": null
+  },
+  {
+   "file": "06-count",
+   "title": "Counts \u00b7 phone",
+   "caption": "Counting on a phone, bin by bin, with the expected quantity hidden until the count is entered \u2014 variances explained on the spot, no clipboard.",
+   "hl": null
+  },
+  {
+   "file": "07-reports",
+   "title": "Reports",
+   "caption": "Ageing, turns, accuracy and the rupees recovered from dead stock \u2014 compiled every night, sent to the owner every Monday.",
+   "hl": null
+  }
+ ]
+}

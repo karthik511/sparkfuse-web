@@ -1,0 +1,48 @@
+{
+ "app": "FlowDesk",
+ "client": "Arasu Knits",
+ "screens": [
+  {
+   "file": "01-chat-to-plan",
+   "title": "Chats \u00b7 Nordic Retail \u2014 Lars",
+   "caption": "A buyer changes a date in a WhatsApp thread. The message is read, the plan is re-scheduled, tasks are created, and the chase to the factory is drafted \u2014 before anyone opens the ERP.",
+   "hl": null
+  },
+  {
+   "file": "02-today",
+   "title": "Today",
+   "caption": "The merchandiser's morning: what needs a decision, what the system already chased overnight, and which orders are quiet for too long.",
+   "hl": null
+  },
+  {
+   "file": "03-ladder",
+   "title": "Rules & ladders \u00b7 Stage due",
+   "caption": "A chase ladder per stage, in plain language: who is asked, how, when \u2014 and when it stops being polite. The wording is your team's, not a template.",
+   "hl": null
+  },
+  {
+   "file": "04-tasks",
+   "title": "Tasks",
+   "caption": "Nobody writes tasks. They appear from the plan, from messages and from documents \u2014 with the reason attached \u2014 and close themselves when the evidence arrives.",
+   "hl": null
+  },
+  {
+   "file": "05-orders",
+   "title": "Order \u00b7 PO 4471",
+   "caption": "Every chase, reply and re-plan is logged against the order \u2014 so when a date is missed, the history of who was asked what, and when, is one click away.",
+   "hl": null
+  },
+  {
+   "file": "06-digest",
+   "title": "Digests",
+   "caption": "One message every morning per role \u2014 what moved, what is stuck, what it costs \u2014 compiled from the plans and the chats, not typed by anyone.",
+   "hl": null
+  },
+  {
+   "file": "07-phone",
+   "title": "Factory side \u00b7 on the phone",
+   "caption": "Factories don't log in to anything. They reply on WhatsApp, in Hinglish, with a date \u2014 and that reply moves the plan.",
+   "hl": null
+  }
+ ]
+}

@@ -1,0 +1,48 @@
+{
+ "app": "DealerHub",
+ "client": "Gupta Pipes",
+ "screens": [
+  {
+   "file": "01-today",
+   "title": "Today",
+   "caption": "Dealer orders from WhatsApp and the app, credit checked before they are accepted, allocated across depots \u2014 and the money side visible on the same screen.",
+   "hl": null
+  },
+  {
+   "file": "02-order",
+   "title": "Order \u00b7 DO-26-1187",
+   "caption": "An order placed on WhatsApp at 9 pm: parsed, priced from the dealer's slab, credit-checked, allocated across two depots and confirmed back \u2014 before the office opened.",
+   "hl": null
+  },
+  {
+   "file": "03-dealers",
+   "title": "Dealers & credit",
+   "caption": "One credit position per dealer \u2014 limit, used, overdue, promise dates from the AI calls \u2014 and the rule for what happens when an order would cross the line.",
+   "hl": null
+  },
+  {
+   "file": "04-collections",
+   "title": "Collections",
+   "caption": "Collections chase themselves: reminder, WhatsApp, AI call for a date, field-rep visit, owner \u2014 and every promise is held against the dealer.",
+   "hl": null
+  },
+  {
+   "file": "05-schemes",
+   "title": "Schemes",
+   "caption": "Schemes computed on live orders \u2014 who has qualified, who is close, and the nudge that goes out to dealers within reach of the next slab.",
+   "hl": null
+  },
+  {
+   "file": "06-field",
+   "title": "Field app",
+   "caption": "Field reps see their beat, each dealer's credit and last order, and take orders or payments on the phone \u2014 synced when the signal returns.",
+   "hl": null
+  },
+  {
+   "file": "07-reports",
+   "title": "Reports",
+   "caption": "Orders, fill rate, receivables ageing and scheme cost \u2014 by depot, by rep, by dealer \u2014 compiled every night.",
+   "hl": null
+  }
+ ]
+}

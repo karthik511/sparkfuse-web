@@ -1,0 +1,48 @@
+{
+ "app": "DocFlow",
+ "client": "Arasu Knits",
+ "screens": [
+  {
+   "file": "01-queue",
+   "title": "Queue",
+   "caption": "Every document that arrived \u2014 by email, WhatsApp, portal or link \u2014 read, matched and sorted into clean or needs-a-decision. Nobody re-types anything.",
+   "hl": null
+  },
+  {
+   "file": "02-document",
+   "title": "Invoice DP/26-27/1183",
+   "caption": "The document beside what was read from it, field by field with confidence \u2014 and the match against the PO, the GRN and the arithmetic.",
+   "hl": null
+  },
+  {
+   "file": "03-matching",
+   "title": "Matching rules",
+   "caption": "Your matching rules in plain terms: tolerances, who approves what, which documents post on their own \u2014 the AI applies them, a person owns the exceptions.",
+   "hl": null
+  },
+  {
+   "file": "04-exceptions",
+   "title": "Exceptions",
+   "caption": "The exception queue is short and specific: what is wrong, what the system suggests, and one click to resolve \u2014 with the query already drafted.",
+   "hl": null
+  },
+  {
+   "file": "05-posting",
+   "title": "Posting",
+   "caption": "Clean documents post to your accounting system as vouchers, with the document attached \u2014 so the audit trail is the document itself.",
+   "hl": null
+  },
+  {
+   "file": "06-sources",
+   "title": "Sources",
+   "caption": "Email inboxes, WhatsApp numbers, buyer portals and transfer links \u2014 watched continuously. A missed document is reported as missed, never silently dropped.",
+   "hl": null
+  },
+  {
+   "file": "07-batch",
+   "title": "Batch \u00b7 30 tech packs from one link",
+   "caption": "One link, thirty PDFs. Each file is matched to its style by the code in the filename, filled in where the style exists, and creates an unconfirmed style where it doesn't.",
+   "hl": null
+  }
+ ]
+}
