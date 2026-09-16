@@ -2,11 +2,11 @@
 import Base from '../../layouts/Base.astro'; import CtaBand from '../../components/CtaBand.astro';
 const base = import.meta.env.BASE_URL.replace(/\/$/, ''); const u = p => `${base}${p}`;
 const team = [
-  { n: 'Karthik Narayan', r: 'Founder · leads every engagement', b: 'MBA, IIM Amritsar. Big 4 consulting; technology leadership at a proptech unicorn; founded and ran an independent technology venture. Scopes, designs and answers for every project.', img: 'founder-portrait-sm.jpg', ini: 'KN' },
+  { n: 'Karthik Narayan', r: 'Solutions Architect &amp; CPO · leads every engagement', b: 'MBA, IIM Amritsar. Big 4 consulting; technology leadership at a proptech unicorn; founded and ran an independent technology venture. Architects every solution, owns the product, and answers for the result.', img: 'founder-portrait-sm.jpg', ini: 'KN' },
   { n: 'Akhil', r: 'Chief Business Officer', b: 'MBA, IIM Amritsar. A founder himself before SparkFuse; marketing and growth is his craft. Owns the commercial side — who we work with, how engagements are scoped and priced, and the growth number after go-live. Your second phone number at SparkFuse.', img: 'akhil-sm.jpg', ini: 'A' },
 ];
 const title = 'About SparkFuse — a consulting practice that builds, and runs what it builds';
-const description = 'Boutique AI and process consultancy in Bengaluru, founder-led, grown out of the AI products it operates.';
+const description = 'Boutique AI and process consultancy in Bengaluru, led by two IIM Amritsar founders, grown out of the AI products it operates.';
 ---
 <Base title={title} description={description} section="about">
   <section class="sec">
@@ -18,7 +18,7 @@ const description = 'Boutique AI and process consultancy in Bengaluru, founder-l
           <p class="lede">SparkFuse Business Solutions LLP is a boutique AI and process consultancy in Bengaluru. It grew out of one consultant's practice — strategy, build, rollout and monitoring for owner-led Indian businesses — and out of the AI products that practice built and still operates. The products are why the advice is grounded: every module we recommend is one we've had to run, support and pay for ourselves.</p>
           <div style="display: flex; gap: 12px; flex-wrap: wrap;"><a class="btn red" href={u('/contact/')}>Tell us the process that hurts <span class="arr">→</span></a><a class="btn2" href={u('/services/ai-consulting/')}>The method</a></div>
         </div>
-        <div data-io style="max-width: 460px; width: 100%; justify-self: end;"><figure class="founder-fig"><img src={u('/media/founder.jpg')} alt="Karthik Narayan, founder of SparkFuse, at a client's office" width="720" height="900" loading="eager" /><figcaption class="mono">Founder · on a client's floor, Bengaluru</figcaption></figure></div>
+        <div data-io style="max-width: 460px; width: 100%; justify-self: end;"><figure class="founder-fig"><img src={u('/media/founder.jpg')} alt="Karthik Narayan, Solutions Architect and CPO, at a client's office" width="720" height="900" loading="eager" /><figcaption class="mono">Karthik · Solutions Architect &amp; CPO · on a client's floor</figcaption></figure></div>
       </div>
     </div>
   </section>
@@ -27,14 +27,15 @@ const description = 'Boutique AI and process consultancy in Bengaluru, founder-l
     <div class="container split" style="align-items: start;">
       <div data-io style="display: flex; flex-direction: column; gap: 16px;">
         <div class="eb">How we're different</div>
-        <h2 class="h2">Founder-led. <span class="g">One person answerable.</span></h2>
-        <p class="p">Every engagement is scoped, designed and led by the founder; the team builds under him. You never get handed to an account manager, and the person who chose the approach is the person who answers for the result.</p>
+        <h2 class="h2">Architect-led. <span class="g">One person answerable.</span></h2>
+        <p class="p">Every engagement is architected and led by Karthik, Solutions Architect and CPO; the team builds under him. Akhil, CBO, owns the commercial relationship from first call to growth number. You never get handed to an account manager, and the person who chose the approach is the person who answers for the result.</p>
         <div style="display: flex; flex-direction: column; gap: 10px;">{['Discovery on your floor, with the people who run the process', 'The process redesigned before a line of code is written', 'Semi-custom: ready modules we operate, fitted to how you run', 'A number agreed up front and tracked after go-live'].map(x => <div class="li">{x}</div>)}</div>
       </div>
       <div data-io style="display: flex; flex-direction: column; gap: 16px;">
         <div class="eb">Background</div>
-        <h2 class="h2">Ten years across <span class="g">business and technology.</span></h2>
-        <p class="p">MBA from IIM Amritsar. Consulting at a Big 4 firm; technology leadership at a leading Indian proptech unicorn. Founded and ran an independent technology venture; built and operates three AI products — a calling platform used by 400+ businesses, a vision tool for service centres, and a fine-tuned consumer companion.</p>
+        <h2 class="h2">Two IIM Amritsar founders, <span class="g">product and growth.</span></h2>
+        <p class="p"><b>Karthik</b> — Solutions Architect &amp; CPO. Consulting at a Big 4 firm; technology leadership at a leading Indian proptech unicorn. Founded and ran an independent technology venture; built and operates three AI products — a calling platform used by 400+ businesses, a vision tool for service centres, and a fine-tuned consumer companion.</p>
+        <p class="p"><b>Akhil</b> — Chief Business Officer. A founder himself before SparkFuse; marketing and growth is his craft. Owns who we work with, how engagements are scoped and priced, and the growth number after go-live.</p>
         <div class="grid3" style="gap: 12px;">{[['20+', 'projects delivered'], ['7', 'systems in production'], ['5', 'industries, this year']].map(([n, l]) => <div class="card flat" style="gap: 4px;"><div class="num" data-count={n}>{n}</div><div class="mono">{l}</div></div>)}</div>
       </div>
     </div>
