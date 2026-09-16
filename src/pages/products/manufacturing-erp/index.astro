@@ -1,13 +1,10 @@
 ---
 import Base from '../../../layouts/Base.astro';
-import raw from '../../../content/ProductManufacturingERP.html?raw';
-import '../../../content/ProductManufacturingERP.css';
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const html = raw.replace(/href="\//g, `href="${base}/`);
-const title = "Manufacturing ERP software for Indian factories \u2014 fitted to your plant | SparkFuse";
-const description = "Production planning, inventory and costing on one light system. Built for a protective-products manufacturer in Pune. Move the sliders to see what changes on your floor.";
+import Product from '../../../components/Product.astro';
+import d from '../../../data/products/manufacturing-erp.json';
+const schema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: d.faq.map(([q, a]) => ({ '@type': 'Question', name: q.replace(/<[^>]+>/g, ''), acceptedAnswer: { '@type': 'Answer', text: a.replace(/<[^>]+>/g, '') } })) };
 ---
-<Base title={title} description={description} section="products">
-  <Fragment set:html={html} />
+<Base title="Manufacturing ERP software for Indian factories \u2014 fitted to your plant | SparkFuse" description="Production planning, inventory and costing on one light system. Built for a protective-products manufacturer in Pune. Move the sliders to see what changes on your floor." section="products" schema={schema}>
+  <Product d={d} />
   <script>import '../../../scripts/erp.js';</script>
 </Base>

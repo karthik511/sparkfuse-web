@@ -1,13 +1,176 @@
 ---
 import Base from '../layouts/Base.astro';
-import raw from '../content/Main.html?raw';
-import '../content/Main.css';
+import MiniUI from '../components/MiniUI.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { products, industries, cases } from '../data/site.js';
+import wa from '../data/products/whatsapp-automation.json';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const html = raw.replace(/href="\//g, `href="${base}/`);
-const title = "SparkFuse \u2014 AI & process consulting, Bengaluru";
-const description = "Boutique AI and process consulting for owner-led Indian businesses. The systems you couldn\u2019t find as a product, built from modules we already run in production. One person answerable.";
+const u = (p) => `${base}${p}`;
+const kinds = { 'whatsapp-automation': 'chat', 'whatsapp-crm': 'crm', 'whatsapp-chatbot': 'bot', 'manufacturing-erp': 'kpi', 'inventory-management': 'bins', 'document-processing': 'doc', 'ai-workflow-automation': 'flow', 'ai-calling-agent': 'call', 'dealer-distributor-management': 'order', 'real-estate-crm': 'pipe', 'garment-erp': 'gantt', 'mis-dashboards': 'mis' };
+const mock = wa.mock.replace(/href="\//g, `href="${base}/`);
+const modules = ['WhatsApp Cloud API', 'Chase & escalation ladders', 'Email & portal intake', 'Time & action engine', 'Hindi/English voice pipeline', 'Document extraction', 'Vision on existing CCTV', 'Owner dashboards', 'Morning digests', 'Approval gates', 'Dealer portals', 'Cost estimation', 'Fine-tuned models', 'Tally posting', 'Audit log'];
 ---
-<Base title={title} description={description} section="">
-  <Fragment set:html={html} />
-  <script>import '../scripts/home.js';</script>
+<Base title="SparkFuse — AI & process consulting, Bengaluru" description="Boutique AI and process consulting for owner-led Indian businesses. The systems you couldn't find as a product, built from modules we already run in production. One person answerable." section="">
+
+<!-- HERO -->
+<section class="hero-sec">
+  <div class="container split" style="align-items: center; grid-template-columns: 1fr 1.1fr;">
+    <div style="display: flex; flex-direction: column; gap: 24px;">
+      <div class="eb" data-io>AI &amp; process consulting · Bengaluru</div>
+      <h1 class="h1" data-io style="font-size: clamp(38px, 4.4vw, 58px);">The AI-run system your business couldn't find as a product.</h1>
+      <p class="lede" data-io>Built from modules we already run in production, fitted to how your floor actually works — not to a vendor's template. Strategy, build, rollout and monitoring. One person answerable, start to finish.</p>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;" data-io><a class="btn red" href={u('/products/')}>I'm looking for a product <span class="arr">→</span></a><a class="btn2" href={u('/contact/')}>I have a process that hurts</a></div>
+      <div class="mono" data-io>= Strategy &nbsp;+ Build &nbsp;+ Rollout &nbsp;+ Monitoring</div>
+    </div>
+    <div class="glow" data-io>
+      <div class="frame mock" id="hero-mock">
+        <div class="bar"><i></i><i></i><i></i><div class="url">app.sparkfuse.in/orders/4471</div><div class="live">Live mock · type in it</div></div>
+        <Fragment set:html={mock} />
+      </div>
+      <div class="hint">Type “delivery moved to 19 Oct” into the chat.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF STRIP -->
+<section class="container" data-io>
+  <div class="proof">
+    <div><div class="num" data-count="7">7</div><div class="mono">systems shipped</div></div>
+    <div><div class="num" data-count="3">3</div><div class="mono">products we operate</div></div>
+    <div><div class="num" data-count="1M+">1M+</div><div class="mono">AI calls handled</div></div>
+    <div><div class="num" data-count="400+">400+</div><div class="mono">businesses on our calling product</div></div>
+    <div><div class="num">1</div><div class="mono">person answerable</div></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" style="margin-top: 40px;"><div class="track">{[...modules, ...modules].map(m => <span>{m}</span>)}</div></div>
+
+<!-- PROBLEM -->
+<section class="sec">
+  <div class="container">
+    <div class="split" style="align-items: start;">
+      <div data-io style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="eb">The problem</div>
+        <h2 class="h2">You've bought software before. <span class="g">Did it change your numbers?</span></h2>
+        <p class="lede" style="font-size: 17px;">Most businesses don't have an AI problem. They have an unclaimed-ownership problem — someone sells the tool, someone else installs it, and nobody is answerable for whether the process actually got better.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--line);">
+        {[['Tools nobody uses', 'The licence renews every year. The team quietly went back to the spreadsheet in month two, and nobody wants to say so out loud.'], ['Growth means hiring', 'Revenue climbs 30%, headcount climbs 30%. Every new rupee of business arrives carrying the same cost it always did.'], ['Pilots that never land', "The demo impressed everyone in the room. Nine months on it still isn't in production, and nobody can say exactly why."]].map(([t, p], i) => <div class="prob" data-io><span class="mono">0{i + 1}</span><div><div class="h3">{t}</div><p class="p" style="font-size: 15px; margin-top: 6px;">{p}</p></div></div>)}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="sec" style="background: var(--surface); border-block: 1px solid var(--line);">
+  <div class="container">
+    <div class="sec-head" data-io><div class="eb">Products</div><h2 class="h2">What you were searching for. <span class="g">Fitted to how you run.</span></h2><p class="lede" style="font-size: 17px;">Each of these is a system we've built for someone. About 70% is ready modules we already operate; 30% is fitted to your process in discovery. Every page has a mock you can play with.</p></div>
+    <div class="grid3">
+      {products.map((p, i) => <a class="card hover" href={u(`/products/${p.slug}/`)} data-io><MiniUI kind={kinds[p.slug]} /><div class="t" style="margin-top: 6px;">{p.name}</div><div class="d">{p.line}</div><span class="btn3" style="font-size: 14px; margin-top: 4px;">See the page <span class="arr">→</span></span></a>)}
+    </div>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section class="sec">
+  <div class="container">
+    <div class="sec-head" data-io><div class="eb">How it works</div><h2 class="h2">What happens <span class="g">if you say yes.</span></h2><p class="lede" style="font-size: 17px;">Every engagement is a defined project — a start, an end, and a number attached to it.</p></div>
+    <div class="steps">
+      {[['Discovery', 'A working session on your floor, with the people who actually run the process. We map it end to end, find where time and money leak out, and agree what success will be measured by.', 'A process map'], ['Design & build', 'The process is redesigned first, then software is built around it — models, apps, integrations — and tested against real data pulled from your business, not a sample set.', 'A working system'], ['Rollout', 'Deployment, data migration and hands-on training with your team. Time on the ground while people adjust, not a handover email and a PDF manual.', 'A team running it'], ['Measure', 'The metric agreed in phase one is tracked after go-live and reviewed with you month on month, with adjustments made where the numbers disagree with the plan.', 'Proof, in numbers']].map(([t, p, y], i) => <div class="step" data-io><div class="k">Phase 0{i + 1}</div><div class="h3">{t}</div><p class="p" style="font-size: 14.5px;">{p}</p><div class="mono" style="color: var(--ink);">You get → {y}</div></div>)}
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="sec" style="padding-top: 0;">
+  <div class="container">
+    <div class="dark band" data-io style="padding: clamp(28px, 4vw, 56px);">
+      <div class="split wide" style="align-items: center; position: relative;">
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div class="eb">Work · Case 01 · Garment sourcing ERP</div>
+          <h2 class="h2" style="color: #fff;">Built, <span style="color: var(--dark-muted);">not slideware.</span></h2>
+          <p class="p" style="font-size: 15.5px;">A sourcing business in Tiruppur running 200+ orders for European buyers out of spreadsheets and inboxes. Now one system the whole floor works from — with an AI layer that plans, assigns, reads and flags.</p>
+          <div style="display: flex; gap: 24px; flex-wrap: wrap; margin-top: 8px;">{[['$2.18M', 'live order book'], ['112', 'AI suggestions'], ['7', 'spreadsheets retired']].map(([n, l]) => <div><div class="num" style="color: #fff; font-size: 30px;" data-count={n}>{n}</div><div class="mono" style="color: var(--dark-muted);">{l}</div></div>)}</div>
+          <div style="display: flex; gap: 12px; margin-top: 10px; flex-wrap: wrap;"><a class="btn red" href={u('/work/garment-sourcing-erp/')}>Read the case <span class="arr">→</span></a><a class="btn2" href={u('/work/')} style="border-color: #3A3A37; color: #fff;">All work</a></div>
+        </div>
+        <div class="frame mock" style="position: relative;">
+          <div class="bar"><i></i><i></i><i></i><div class="url">app.sparkfuse.in/dashboard</div></div>
+          <div style="display: grid; grid-template-columns: 140px 1fr; min-height: 320px;">
+            <div style="background: var(--bg); border-right: 1px solid var(--line); padding: 12px 8px; display: flex; flex-direction: column; gap: 2px;">
+              <div style="font-weight: 700; font-size: 12px; padding: 4px 10px 12px;">Arasu Knits</div>
+              {['Dashboard', 'AI suggestions', 'Tasks', 'Styles', 'Sampling', 'Orders & T&A', 'Inspections', 'Logistics', 'Payments'].map((n, i) => <div class="nav" class:list={[{ on: i === 0 }]} style="padding: 6px 10px; font-size: 11.5px;">{n}{i === 1 && <span class="b">14</span>}</div>)}
+            </div>
+            <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 12px;">
+              <div style="display: flex; justify-content: space-between; align-items: center;"><div style="font-weight: 600; font-size: 13px;">Good morning, Suresh</div><div class="mono" style="font-size: 9.5px;">Tue 16 Sep · my day</div></div>
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;">{[['$2.18M', 'open order book', ''], ['3', 'will miss ETD', 'r'], ['62', 'styles in sampling', ''], ['9', 'quotes past 48h', 'r']].map(([v, l, c]) => <div class={`kpi ${c}`} style="padding: 10px 12px;"><div class="v" style="font-size: 18px;">{v}</div><div class="mono" style="font-size: 9px;">{l}</div></div>)}</div>
+              <div style="display: flex; flex-direction: column; gap: 5px;">{[['Received', 22, 'var(--ink)'], ['Sampling', 8, 'var(--muted)'], ['In production', 58, 'var(--red)'], ['Ready to ship', 6, 'var(--line2)'], ['Shipped', 6, 'var(--line2)']].map(([l, w, c]) => <div style="display: flex; align-items: center; gap: 10px;"><div class="mono" style="width: 84px; font-size: 9px;">{l}</div><div style="flex: 1; height: 8px; background: var(--bg2); border-radius: 4px;"><div style={`width: ${w}%; height: 100%; background: ${c}; border-radius: 4px;`}></div></div></div>)}</div>
+              <div class="sug" style="font-size: 11.5px;"><span class="tag r">ETD</span><div>4449: fabric 6 days late — re-book final inspection for 04 Oct and warn the buyer?</div><div class="act"><span class="btn sm" style="height: 26px; padding: 0 10px; font-size: 11px;">Do it</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="sec" style="padding-top: 0;">
+  <div class="container">
+    <div class="sec-head" data-io><div class="eb">Industries</div><h2 class="h2">People like you. <span class="g">The same five problems, every visit.</span></h2></div>
+    <div class="grid4">
+      {industries.map(i => <a class="card hover" href={u(`/industries/${i.slug}/`)} data-io><div class="t">{i.name}</div><div class="d">{i.line}</div><span class="btn3" style="font-size: 14px;">Open <span class="arr">→</span></span></a>)}
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT WORDS -->
+<section class="sec" style="background: var(--surface); border-block: 1px solid var(--line);">
+  <div class="container">
+    <div class="sec-head center" data-io><div class="eb">What we hear on the floor</div><h2 class="h2">Your words, not ours.</h2></div>
+    <div class="grid3">
+      {[['“Sab Excel aur Google Sheet par chal raha hai. Software liye, implement nahi ho paye.”', 'uPVC manufacturer, Agra'], ['“Give me a clear picture. Till date, I am very confused.”', 'Managing Director, multi-outlet restaurant group'], ["“Chasing updates was somebody's full-time job.”", "Sourcing business, Tiruppur"]].map(([q, w]) => <div class="card q quote-card" data-io><div class="qmark">“</div><div style="font-weight: 600; font-size: 18px; line-height: 1.4; letter-spacing: -.01em;">{q}</div><div class="mono">{w}</div></div>)}
+    </div>
+  </div>
+</section>
+
+<!-- PRICING TEASER + CTA -->
+<section class="sec">
+  <div class="container">
+    <div class="split" style="align-items: stretch; margin-bottom: 20px;">
+      <div class="card" data-io style="gap: 14px;">
+        <div class="eb">Pricing</div>
+        <div class="h3" style="font-size: 24px;">Two ways to work. Both start with a discovery session.</div>
+        <div class="grid2" style="gap: 12px;">
+          <div class="card flat" style="gap: 4px;"><div class="mono">Project-based</div><div style="font-weight: 700; font-size: 22px; letter-spacing: -.02em;">from ₹1.5 L</div><div class="d">A scoped build, cut into phases, each a finished product.</div></div>
+          <div class="card flat" style="gap: 4px;"><div class="mono">Retainer</div><div style="font-weight: 700; font-size: 22px; letter-spacing: -.02em;">from ₹1.5 L / month</div><div class="d">Founder days plus fixed team capacity, every month.</div></div>
+        </div>
+        <a class="btn3" href={u('/pricing/')}>See what similar work has cost <span class="arr">→</span></a>
+      </div>
+      <div class="card" data-io style="gap: 14px;">
+        <div class="eb">Lab</div>
+        <div class="h3" style="font-size: 24px;">Notes with a number in them.</div>
+        <div class="li">Cutting a voice agent's cost from ₹3.80 to under ₹1 a minute</div>
+        <div class="li">A 125-call speech bake-off that cancelled a GPU plan</div>
+        <div class="li">Why a voice-first learning app needs two rails</div>
+        <div class="li">The AI is the project manager, not a chat box</div>
+        <a class="btn3" href={u('/lab/')}>Read the Lab <span class="arr">→</span></a>
+      </div>
+    </div>
+    <CtaBand />
+  </div>
+</section>
+
+<script>import '../scripts/hero.js';</script>
+<style>
+  .hero-sec { padding-block: clamp(48px, 7vw, 96px) clamp(40px, 5vw, 64px); position: relative; }
+  .hero-sec::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 50% at 80% 10%, rgba(224,64,46,.10), transparent 70%), linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: auto, 48px 48px, 48px 48px; mask-image: radial-gradient(70% 70% at 60% 30%, #000 30%, transparent 100%); opacity: .55; z-index: -1; }
+  .hint { text-align: center; margin-top: 14px; font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .proof { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px; padding: 28px 0; border-block: 1px solid var(--line); }
+  .proof > div { display: flex; flex-direction: column; gap: 6px; }
+  .prob { display: grid; grid-template-columns: 40px 1fr; gap: 12px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+  .quote-card { position: relative; padding-top: 44px; } .qmark { position: absolute; top: 8px; left: 22px; font-size: 64px; line-height: 1; color: var(--red); opacity: .5; font-weight: 700; }
+  @media (max-width: 1000px) { .proof { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 600px) { .proof { grid-template-columns: repeat(2, 1fr); } }
+</style>
 </Base>

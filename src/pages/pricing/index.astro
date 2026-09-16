@@ -8,6 +8,6 @@ const title = "Pricing \u2014 what similar work has cost | SparkFuse";
 const description = "Two ways to work: project-based or retainer. Move the sliders to see indicative ranges. Every engagement starts with a discovery session.";
 ---
 <Base title={title} description={description} section="pricing">
-  <Fragment set:html={html} />
+  <div class="legacy" data-legacy><Fragment set:html={html} /></div>
   <script>import '../../scripts/pricing.js';</script>
 </Base>

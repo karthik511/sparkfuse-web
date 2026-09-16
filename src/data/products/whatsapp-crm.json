@@ -1,0 +1,172 @@
+{
+ "slug": "whatsapp-crm",
+ "chips": [
+  "WhatsApp & process automation",
+  "Real estate",
+  "Distribution",
+  "Services"
+ ],
+ "h1": "WhatsApp CRM.",
+ "h1g": "Leads don't die in chats any more.",
+ "lede": "Your sales happen on WhatsApp — enquiries, quotes, \"call me tomorrow\", \"send the price\". A CRM that lives inside those conversations: every lead a card, every promise a follow-up, every reply read for intent and budget, and a ladder that keeps nudging until the deal moves or the lead says no.",
+ "semi": "<b style=\"color: #1B1B1B;\">Built from the follow-up ladders</b> we designed for a Surat developer and a Pune manufacturer's dealer desk. About 70% is ready — WhatsApp Cloud API, lead cards, ladders, team inbox, reports. 30% is your pipeline stages, your ladder timing and your team.",
+ "tryit": "Try it → send the mock a new enquiry and watch the card fill.",
+ "mock": "<div style=\"display: flex; flex-direction: column; border: 1.5px solid #1B1B1B; background: #fff;\">\n<div style=\"display: flex; align-items: center; justify-content: space-between; padding: 8px 14px; background: #1B1B1B; color: #EFEEE9;\"><div class=\"mono\" style=\"color: #EFEEE9;\">Interactive mock · nothing you type is stored</div><div class=\"mono\" style=\"color: #8E8D87;\">Team inbox · Vesu Heights</div></div>\n<div style=\"display: grid; grid-template-columns: 300px 1fr; height: 460px;\">\n<div class=\"wa\">\n<div class=\"hd\"><div class=\"av\">SD</div><div style=\"display: flex; flex-direction: column;\"><div>Sneha Desai</div><div style=\"font-weight: 400; font-size: 10.5px; opacity: .85;\">+91 98••• ••742 · new</div></div></div>\n<div class=\"msgs\">\n<div class=\"bub\" style=\"border: 1.5px solid #D93A2B;\">Hi, saw your ad. 2 BHK in Vesu available? Budget around 75-80 lakh, need possession by next year. Loan possible?<div class=\"m\">14:02 · you typed this</div></div>\n<div class=\"bub me\">Hi Sneha, yes — 2 BHK at Vesu Heights from ₹76 L, possession March 2027. Loan desk available. Would you like a site visit this weekend? Kiran from our team will call you today.<div class=\"m\">14:02 · auto-reply, approved template</div></div>\n<div class=\"bub\">Sunday works. Send brochure please.<div class=\"m\">14:06</div></div>\n<div class=\"bub me\">Brochure and price sheet attached. Visit booked Sun 21 Sep, 11:00 — map link below. Kiran: +91 97••• ••118.<div class=\"m\">14:06</div></div>\n</div>\n<div style=\"display: flex; gap: 8px; padding: 10px; background: #F0F0F0; align-items: center;\"><div style=\"flex: 1; height: 36px; background: #fff; border-radius: 18px; padding: 0 14px; display: flex; align-items: center; font-size: 13px; color: #7A7975;\">Type a message…</div><div style=\"width: 36px; height: 36px; border-radius: 50%; background: #075E54;\"></div></div>\n</div>\n<div style=\"padding: 14px 18px; display: flex; flex-direction: column; gap: 6px; background: #F6F5F0;\">\n<div style=\"display: flex; align-items: center; justify-content: space-between;\"><div style=\"font-weight: 600; font-size: 13px;\">Lead card · written from the chat</div><div class=\"tag y\">Warm → visit booked</div></div>\n<div class=\"kv\"><div class=\"k\">Lead</div><div><b>Sneha Desai</b> · source: Instagram ad · 14:02</div></div>\n<div class=\"kv\"><div class=\"k\">Intent</div><div>2 BHK · Vesu · budget ₹75–80 L · possession by 2027 · loan needed</div></div>\n<div class=\"kv\"><div class=\"k\">Stage</div><div>Visit booked · Sun 21 Sep 11:00 · owner Kiran</div></div>\n<div class=\"kv\"><div class=\"k\">Sent</div><div>Brochure, price sheet, map — logged against the lead</div></div>\n<div class=\"kv\" style=\"border-bottom: 0;\"><div class=\"k\">Tasks</div><div>Kiran: call today before 6 · Rahul (loan): call Sat</div></div>\n<div style=\"margin-top: 6px;\">\n<div class=\"mono\" style=\"margin-bottom: 4px;\">Follow-up ladder · set automatically</div>\n<div class=\"lad\"><div class=\"w\">Sat 20:00</div><div>Visit reminder with map and Kiran's number</div><div class=\"tag k\">WhatsApp</div></div>\n<div class=\"lad\"><div class=\"w\">Sun 12:30</div><div>No check-in by Kiran → \"did the visit happen?\" to Kiran</div><div class=\"tag k\">Internal</div></div>\n<div class=\"lad\"><div class=\"w\">Mon 11:00</div><div>No-show → re-book call by our AI calling product</div><div class=\"tag k\">Call</div></div>\n<div class=\"lad\" style=\"border-bottom: 0;\"><div class=\"w\">Day 7</div><div>Still open → \"any questions after the visit?\" · hand to Kiran if replied</div><div class=\"tag k\">WhatsApp</div></div>\n</div>\n<div style=\"display: flex; gap: 8px; margin-top: auto;\"><div class=\"btn\" style=\"height: 34px; font-size: 12.5px; padding: 0 14px;\">Open pipeline</div><div class=\"btn2\" style=\"height: 34px; font-size: 12.5px; padding: 0 14px;\">Take over chat</div></div>\n</div>\n</div>\n</div>",
+ "ref_eb": "Where it comes from",
+ "ref_h": "Two very different sales desks,",
+ "ref_hg": "one ladder engine.",
+ "ref_p": "A real-estate developer with leads from four portals and a manufacturer with 300 dealers placing orders on WhatsApp have the same problem: the conversation is the record, and it lives on one salesperson's phone. The CRM reads the shared WhatsApp number, turns each thread into a lead or an order, and runs the follow-up so the rep hears about it only when the customer replies or goes quiet.",
+ "ref_li": [
+  "One business number, a team inbox, every chat assigned and searchable",
+  "Intent, budget and dates read from the message and written to the card",
+  "Approved templates for the first reply; a person for anything the template can't answer"
+ ],
+ "ref_nums": [
+  [
+   "< 1 min",
+   "first reply, any hour"
+  ],
+  [
+   "4-step",
+   "ladder set on every lead"
+  ],
+  [
+   "0",
+   "leads living on one phone"
+  ]
+ ],
+ "modules_title": "Modules included",
+ "modules": [
+  "WhatsApp Business (Cloud) API on your number",
+  "Team inbox with assignment and takeover",
+  "Lead cards read from the chat",
+  "Pipeline stages and a board",
+  "Follow-up ladders: WhatsApp, call, internal nudge",
+  "Approved templates, brochures, price sheets",
+  "Reports: response time, ladder outcomes, rep load"
+ ],
+ "fitted": [
+  "Fitted: your stages, your ladder timing, your templates",
+  "Fitted: what the first reply may promise without a person",
+  "Fitted: where it writes — your CRM, a sheet, or ours",
+  "Ready: API, inbox, cards, ladders, board, reports"
+ ],
+ "ai": [
+  "<b>Reads</b> intent, budget, dates and language from the chat",
+  "<b>Replies</b> first, within the template you approved",
+  "<b>Files</b> the lead with stage, owner and next action",
+  "<b>Runs</b> the ladder; escalates to a call when chats go quiet",
+  "<b>Hands</b> the thread to a person with the card already written"
+ ],
+ "engagement": [
+  [
+   "Wk 1",
+   "Discovery: 200 of your real chats; where deals stall; who follows up today"
+  ],
+  [
+   "Wk 2–3",
+   "Number connected, templates approved, cards and ladders built"
+  ],
+  [
+   "Wk 4–5",
+   "Live on new leads first; old threads imported as they reply"
+  ],
+  [
+   "Monthly",
+   "Measure: response time, visits/quotes per lead, ladder conversions"
+  ]
+ ],
+ "price": "₹1.5–3 L · 3–5 weeks",
+ "price_note": "",
+ "cmp_head": [
+  "",
+  "WhatsApp CRM SaaS",
+  "Regular CRM + WhatsApp plug-in",
+  "This"
+ ],
+ "cmp": [
+  [
+   "Reads the chat into the lead card",
+   "You tag it",
+   "You type it",
+   "Read automatically"
+  ],
+  [
+   "Ladder that escalates to a call",
+   "Scheduled messages",
+   "Reminders to the rep",
+   "WhatsApp → nudge → call"
+  ],
+  [
+   "Your stages and templates",
+   "Configured",
+   "Configured",
+   "Fitted on your real chats"
+  ],
+  [
+   "Who is answerable",
+   "Support desk",
+   "Support desk",
+   "One person, by name"
+  ],
+  [
+   "Cost to start",
+   "₹2–8K / user / month",
+   "CRM fee + plug-in fee",
+   "₹1.5–3 L, yours + API at cost"
+  ]
+ ],
+ "cmp_note": "",
+ "faq": [
+  [
+   "Can reps keep their own numbers?",
+   "The business number is the one customers write to and the one the CRM reads. Reps can still call from their phones; the chat stays on the shared inbox where it can be assigned and seen."
+  ],
+  [
+   "What's an approved template?",
+   "The first message to a customer outside a 24-hour window must use a template approved on the WhatsApp platform. We write and register them for you; free-form replies are allowed once the customer has written in."
+  ],
+  [
+   "Does it send bulk marketing?",
+   "No — it runs conversations with people who wrote to you or opted in. Broadcast tools get numbers banned; this is built to keep yours."
+  ],
+  [
+   "Can it work with the CRM we have?",
+   "Yes — it writes leads and activities into it. If you don't have one, the built-in pipeline is enough for most teams."
+  ],
+  [
+   "What does the API cost?",
+   "Per conversation, billed by the platform at cost — typically a few hundred to a few thousand rupees a month for a sales team. Shown before go-live."
+  ],
+  [
+   "Hindi, Gujarati, Tamil?",
+   "Yes — intent reading and templates in the languages your customers write in."
+  ]
+ ],
+ "faq_h": "Questions sales teams ask.",
+ "related": [
+  [
+   "WhatsApp automation",
+   "/products/whatsapp-automation/"
+  ],
+  [
+   "WhatsApp chatbot",
+   "/products/whatsapp-chatbot/"
+  ],
+  [
+   "Real-estate CRM",
+   "/products/real-estate-crm/"
+  ],
+  [
+   "AI calling agent",
+   "/products/ai-calling-agent/"
+  ]
+ ],
+ "cta_h": "Show us your last 20 chats.",
+ "cta_p": "We'll show you the cards and the ladder they'd have run.",
+ "cta_l": "Talk to us",
+ "extra": [],
+ "uses": [],
+ "mods": [],
+ "usecard": []
+}

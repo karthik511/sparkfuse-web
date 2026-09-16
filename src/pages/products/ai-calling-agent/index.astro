@@ -1,13 +1,10 @@
 ---
 import Base from '../../../layouts/Base.astro';
-import raw from '../../../content/ProductAICalling.html?raw';
-import '../../../content/ProductAICalling.css';
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const html = raw.replace(/href="\//g, `href="${base}/`);
-const title = "AI calling agent \u2014 Hindi & English voice agents for sales and support | SparkFuse";
-const description = "Our own AI calling product, fitted to your flow: first call in 30 seconds, follow-ups on schedule, every call written to your CRM. 1M+ production calls.";
+import Product from '../../../components/Product.astro';
+import d from '../../../data/products/ai-calling-agent.json';
+const schema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: d.faq.map(([q, a]) => ({ '@type': 'Question', name: q.replace(/<[^>]+>/g, ''), acceptedAnswer: { '@type': 'Answer', text: a.replace(/<[^>]+>/g, '') } })) };
 ---
-<Base title={title} description={description} section="products">
-  <Fragment set:html={html} />
+<Base title="AI calling agent \u2014 Hindi & English voice agents for sales and support | SparkFuse" description="Our own AI calling product, fitted to your flow: first call in 30 seconds, follow-ups on schedule, every call written to your CRM. 1M+ production calls." section="products" schema={schema}>
+  <Product d={d} />
   <script>import '../../../scripts/calling.js';</script>
 </Base>

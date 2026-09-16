@@ -1,13 +1,10 @@
 ---
 import Base from '../../../layouts/Base.astro';
-import raw from '../../../content/ProductWhatsApp.html?raw';
-import '../../../content/ProductWhatsApp.css';
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const html = raw.replace(/href="\//g, `href="${base}/`);
-const title = "WhatsApp automation for business \u2014 semi-custom, built from proven modules | SparkFuse";
-const description = "WhatsApp threads that update the plan, create the work and chase the right person. Built for a garment exporter; fitted to your floor in 3\u20135 weeks. Try the mock.";
+import Product from '../../../components/Product.astro';
+import d from '../../../data/products/whatsapp-automation.json';
+const schema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: d.faq.map(([q, a]) => ({ '@type': 'Question', name: q.replace(/<[^>]+>/g, ''), acceptedAnswer: { '@type': 'Answer', text: a.replace(/<[^>]+>/g, '') } })) };
 ---
-<Base title={title} description={description} section="products">
-  <Fragment set:html={html} />
+<Base title="WhatsApp automation for business \u2014 semi-custom, built from proven modules | SparkFuse" description="WhatsApp threads that update the plan, create the work and chase the right person. Built for a garment exporter; fitted to your floor in 3\u20135 weeks. Try the mock." section="products" schema={schema}>
+  <Product d={d} />
   <script>import '../../../scripts/whatsapp.js';</script>
 </Base>

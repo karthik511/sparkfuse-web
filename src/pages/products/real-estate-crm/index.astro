@@ -1,13 +1,10 @@
 ---
 import Base from '../../../layouts/Base.astro';
-import raw from '../../../content/ProductRealEstateCRM.html?raw';
-import '../../../content/ProductRealEstateCRM.css';
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const html = raw.replace(/href="\//g, `href="${base}/`);
-const title = "Real-estate CRM with AI calling & WhatsApp \u2014 first response in 30 seconds | SparkFuse";
-const description = "Portal leads, walk-ins and brokers in one inbox; every lead called by an AI agent in 30 seconds, qualified, booked and handed over. Designed for a Surat developer.";
+import Product from '../../../components/Product.astro';
+import d from '../../../data/products/real-estate-crm.json';
+const schema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: d.faq.map(([q, a]) => ({ '@type': 'Question', name: q.replace(/<[^>]+>/g, ''), acceptedAnswer: { '@type': 'Answer', text: a.replace(/<[^>]+>/g, '') } })) };
 ---
-<Base title={title} description={description} section="products">
-  <Fragment set:html={html} />
+<Base title="Real-estate CRM with AI calling & WhatsApp \u2014 first response in 30 seconds | SparkFuse" description="Portal leads, walk-ins and brokers in one inbox; every lead called by an AI agent in 30 seconds, qualified, booked and handed over. Designed for a Surat developer." section="products" schema={schema}>
+  <Product d={d} />
   <script>import '../../../scripts/realestate.js';</script>
 </Base>

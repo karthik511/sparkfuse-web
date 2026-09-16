@@ -1,13 +1,10 @@
 ---
 import Base from '../../../layouts/Base.astro';
-import raw from '../../../content/ProductInventory.html?raw';
-import '../../../content/ProductInventory.css';
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const html = raw.replace(/href="\//g, `href="${base}/`);
-const title = "Inventory & warehouse management software \u2014 custom-fit | SparkFuse";
-const description = "Stock you can trust and the money sitting still made visible. Lot traceability, reorder points, dead-stock with the rupees attached. Built for a Pune manufacturer.";
+import Product from '../../../components/Product.astro';
+import d from '../../../data/products/inventory-management.json';
+const schema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: d.faq.map(([q, a]) => ({ '@type': 'Question', name: q.replace(/<[^>]+>/g, ''), acceptedAnswer: { '@type': 'Answer', text: a.replace(/<[^>]+>/g, '') } })) };
 ---
-<Base title={title} description={description} section="products">
-  <Fragment set:html={html} />
+<Base title="Inventory & warehouse management software \u2014 custom-fit | SparkFuse" description="Stock you can trust and the money sitting still made visible. Lot traceability, reorder points, dead-stock with the rupees attached. Built for a Pune manufacturer." section="products" schema={schema}>
+  <Product d={d} />
   <script>import '../../../scripts/inventory.js';</script>
 </Base>

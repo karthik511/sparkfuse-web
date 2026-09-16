@@ -1,0 +1,207 @@
+{
+ "slug": "manufacturing-erp",
+ "chips": [
+  "ERP / CRM systems",
+  "Manufacturing",
+  "Plastics & pipes",
+  "Pharma & chemical"
+ ],
+ "h1": "Manufacturing ERP software.",
+ "h1g": "Production planning, inventory and costing — fitted to your plant.",
+ "lede": "For the factory that runs on Excel, WhatsApp and seventeen people re-typing the same numbers. One system for orders, planning, stock, vendors and costing — where the AI does the compiling, the chasing and the warning, and your people do the deciding.",
+ "semi": "<b style=\"color: #1B1B1B;\">Built for a protective-products manufacturer in Pune.</b> About 70% is ready modules — orders, inventory &amp; traceability, planning, portals, dashboards. 30% is fitted to how your floor runs.",
+ "tryit": "Try it → move the three sliders on the right.",
+ "mock": "<div style=\"display: flex; flex-direction: column; border: 1.5px solid #1B1B1B; background: #fff;\">\n<div style=\"display: flex; align-items: center; justify-content: space-between; padding: 8px 14px; background: #1B1B1B; color: #EFEEE9;\">\n<div class=\"mono\" style=\"color: #EFEEE9;\">Interactive mock · an estimate, not a quote</div>\n<div class=\"mono\" style=\"color: #8E8D87;\">Based on what changed at the reference plant</div>\n</div>\n<div style=\"display: grid; grid-template-columns: 250px 1fr; min-height: 440px;\">\n<div style=\"background: #F6F5F0; border-right: 1px solid #E1E0D9; padding: 18px 16px; display: flex; flex-direction: column; gap: 20px;\">\n<div class=\"mono\" style=\"color: #1B1B1B;\">Your numbers</div>\n<div class=\"sl\"><div class=\"lab\"><div class=\"mono\">Orders / month</div><div class=\"v\"><span data-b=\"o.orders\"></span></div></div><input data-act=\"setOrders\" data-val=\"o.ordersRaw\" max=\"2000\" min=\"50\" step=\"50\" type=\"range\"/></div>\n<div class=\"sl\"><div class=\"lab\"><div class=\"mono\">Live SKUs</div><div class=\"v\"><span data-b=\"o.skus\"></span></div></div><input data-act=\"setSkus\" data-val=\"o.skusRaw\" max=\"5000\" min=\"100\" step=\"100\" type=\"range\"/></div>\n<div class=\"sl\"><div class=\"lab\"><div class=\"mono\">People on data entry</div><div class=\"v\"><span data-b=\"o.people\"></span></div></div><input data-act=\"setPeople\" data-val=\"o.peopleRaw\" max=\"25\" min=\"1\" step=\"1\" type=\"range\"/></div>\n<div style=\"margin-top: auto; font-size: 11.5px; color: #7A7975; line-height: 1.4;\">Assumptions: 60% of re-typing removed; 12% of SKUs non-moving at ₹8,000 average; ₹25,000/month per data-entry role. Your discovery replaces these with your figures.</div>\n</div>\n<div style=\"padding: 18px; display: flex; flex-direction: column; gap: 12px;\">\n<div style=\"display: flex; align-items: center; justify-content: space-between;\"><div style=\"font-weight: 600; font-size: 13px;\">What changes on your floor</div><div class=\"tag r\">Estimate</div></div>\n<div style=\"display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;\">\n<div class=\"kpi r\"><div class=\"v\"><span data-b=\"o.hours\"></span> h</div><div class=\"mono\">re-typing removed / month</div><div class=\"s\"><span data-b=\"o.hoursNote\"></span></div></div>\n<div class=\"kpi\"><div class=\"v\"><span data-b=\"o.stock\"></span></div><div class=\"mono\">stock sitting still, made visible</div><div class=\"s\"><span data-b=\"o.stockNote\"></span></div></div>\n<div class=\"kpi\"><div class=\"v\"><span data-b=\"o.otif\"></span> days</div><div class=\"mono\">warning before an OTIF breach</div><div class=\"s\">Today: about 1 day, found too late to recover.</div></div>\n<div class=\"kpi r\"><div class=\"v\"><span data-b=\"o.saving\"></span></div><div class=\"mono\">people-cost freed / year</div><div class=\"s\">Redeployed to buying, planning and QC — not headcount cuts.</div></div>\n</div>\n<div style=\"display: flex; flex-direction: column;\">\n<div class=\"row\" style=\"font-family: 'IBM Plex Mono', Menlo, monospace; font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: #7A7975;\"><div>Where the numbers come from today</div><div>Now</div><div>With the system</div><div></div></div>\n<div class=\"row\"><div>Order intake &amp; acknowledgement</div><div style=\"color: #7A7975;\">Email → Excel, by hand</div><div><b>Read by AI, one click</b></div><div class=\"tag g\">Live wk 4</div></div>\n<div class=\"row\"><div>Stock position by location</div><div style=\"color: #7A7975;\">Counted, weekly</div><div><b>Continuous, traceable</b></div><div class=\"tag g\">Live wk 6</div></div>\n<div class=\"row\"><div>Vendor payment queries</div><div style=\"color: #7A7975;\"><span data-b=\"o.vendorNow\"></span></div><div><b>Vendor portal, self-served</b></div><div class=\"tag k\">Phase 2</div></div>\n<div class=\"row\"><div>Quote cost estimate</div><div style=\"color: #7A7975;\">One person's judgement</div><div><b>Costing model, shows working</b></div><div class=\"tag k\">Phase 2</div></div>\n</div>\n</div>\n</div>\n</div>",
+ "ref_eb": "The reference build",
+ "ref_h": "Built for a protective-products manufacturer in Pune.",
+ "ref_hg": "Two days on site, fourteen people, nine sessions — then the system.",
+ "ref_p": "Seven departments, seventeen people on full-time data entry, and a buying team spending a third of its week chasing rather than buying. The build started with the process — what to automate, what to leave alone, which number to move — and only then the modules: inventory and material traceability first, customer and vendor portals, planning and dashboards, cost estimation added at the owner's instruction.",
+ "ref_li": [
+  "Ten modules, phased so every phase is usable on its own",
+  "Data brought in from the floor, not re-typed from it",
+  "A costing model that shows its working and learns from actual runs"
+ ],
+ "ref_nums": [
+  [
+   "₹3 Cr",
+   "of stock not moving, found in discovery"
+  ],
+  [
+   "17",
+   "people on full-time data entry, before"
+  ],
+  [
+   "1 → 8",
+   "days of warning before an OTIF breach"
+  ]
+ ],
+ "modules_title": "Modules included",
+ "modules": [],
+ "fitted": [
+  "Fitted: your product families, units, routings and roles",
+  "Fitted: which numbers trigger a warning, and to whom",
+  "Ready: orders, inventory, portals, planning board, digests, audit log"
+ ],
+ "ai": [
+  "<b>Reads</b> orders, invoices and vendor messages into the system",
+  "<b>Compiles</b> the reports nobody has time to compile",
+  "<b>Warns</b> a week out — OTIF, stock-outs, ageing stock",
+  "<b>Chases</b> vendors and customers in your team's voice",
+  "<b>Estimates</b> cost with its working shown"
+ ],
+ "engagement": [
+  [
+   "Wk 1–2",
+   "Discovery on site: every department, the field workbook, the number we'll move"
+  ],
+  [
+   "Wk 3–8",
+   "Phase 1 build — inventory & traceability, orders — on your real data"
+  ],
+  [
+   "Wk 9–12",
+   "Rollout in waves; then phase 2 (portals, planning, costing)"
+  ],
+  [
+   "Monthly",
+   "Measure: OTIF, stock ageing, hours re-typed, quote turnaround"
+  ]
+ ],
+ "price": "₹6–12 L · 8–12 weeks",
+ "price_note": "",
+ "cmp_head": [
+  "",
+  "Off-the-shelf ERP",
+  "Custom from scratch",
+  "This"
+ ],
+ "cmp": [
+  [
+   "Fits how your plant actually runs",
+   "You bend to it — \"implement nahi hua\"",
+   "Yes, in 6–9 months",
+   "Yes, phase 1 in 8–12 weeks"
+  ],
+  [
+   "Reads emails, invoices and chats in",
+   "Rarely; manual entry",
+   "If you build it",
+   "Yes (ready module)"
+  ],
+  [
+   "Runs light — one IT person is enough",
+   "Often needs a partner on retainer",
+   "Depends on your team",
+   "Yes, by design"
+  ],
+  [
+   "Who is answerable when it doesn't stick",
+   "The reseller",
+   "Your dev team",
+   "One person, by name"
+  ],
+  [
+   "Cost to start",
+   "₹3–15 L licences + implementation",
+   "₹25 L+",
+   "₹6–12 L, phase-cut"
+  ]
+ ],
+ "cmp_note": "If a standard ERP genuinely fits your process, we'll say so on the first call — and help you choose it.",
+ "faq": [
+  [
+   "We already bought an ERP and nobody uses it. Why would this be different?",
+   "Because the process gets redesigned first and the software is built around it — then rolled out by the people who built it, on your floor, until your team runs it. Software that bends the team to it is what gets abandoned."
+  ],
+  [
+   "Does it replace Tally?",
+   "No. Tally stays your books; this runs the floor and posts to Tally. Same for an existing SAP or Busy setup."
+  ],
+  [
+   "Our data is in twenty spreadsheets. Can it be migrated?",
+   "Yes — that's most of week 3. Sheets become the backup, not the system."
+  ],
+  [
+   "Can it start with one module?",
+   "Yes. Inventory &amp; traceability is usually first because it finds money on day one. Every phase is usable alone."
+  ],
+  [
+   "We have one IT person. Is that enough?",
+   "Yes. It's built to be light — cloud-hosted, no servers on site, your IT person trained to administer users and reports."
+  ],
+  [
+   "How is the AI kept from making a wrong call?",
+   "It reads, compiles, warns and drafts. Anything that changes stock, price or a plan asks a person first — until you decide, per action, that it may act alone."
+  ]
+ ],
+ "faq_h": "Questions plant owners ask.",
+ "related": [
+  [
+   "Inventory & warehouse",
+   "/products/inventory-management/"
+  ],
+  [
+   "Dealer & distributor management",
+   "/products/dealer-distributor-management/"
+  ],
+  [
+   "MIS dashboards",
+   "/products/mis-dashboards/"
+  ],
+  [
+   "Industry: manufacturing",
+   "/industries/manufacturing/"
+  ]
+ ],
+ "cta_h": "Tell us your process.",
+ "cta_p": "One conversation, then a scoped proposal. Nothing locked in.",
+ "cta_l": "Talk to us",
+ "extra": [
+  "<div class=\"card q\" style=\"gap: 12px;\">\n<div style=\"display: flex; justify-content: space-between; align-items: center;\"><div class=\"eb\">Cost estimation · a number that shows its working</div><div class=\"tag k\">Static screen</div></div>\n<div style=\"background: #fff; border: 1px solid #D4D3CB; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px;\">\n<div style=\"display: flex; justify-content: space-between; align-items: center;\"><div style=\"font-weight: 600; font-size: 13px;\">Estimate · Safety helmet, ABS shell, 5,000 units</div><div class=\"mono\">Deccan Protective · rev 3</div></div>\n<div class=\"cost\" style=\"font-family: 'IBM Plex Mono', Menlo, monospace; font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: #7A7975;\"><div>Line</div><div>Rate</div><div>Per unit</div><div>vs last run</div></div>\n<div class=\"cost\"><div>ABS granules · 0.42 kg</div><div>₹186/kg</div><div>₹78.12</div><div style=\"color: #D93A2B;\">+₹3.40 (rate ↑)</div></div>\n<div class=\"cost\"><div>Suspension &amp; strap set</div><div>₹31.00</div><div>₹31.00</div><div style=\"color: #7A7975;\">—</div></div>\n<div class=\"cost\"><div>Moulding · 38 s cycle</div><div>₹640/hr</div><div>₹6.76</div><div style=\"color: #2E7D4F;\">−₹0.40 (cycle ↓)</div></div>\n<div class=\"cost\"><div>Changeover · amortised</div><div>₹4,200/set-up</div><div>₹0.84</div><div style=\"color: #7A7975;\">quantified for the first time</div></div>\n<div class=\"cost\"><div>Testing &amp; packing</div><div>—</div><div>₹4.10</div><div style=\"color: #7A7975;\">—</div></div>\n<div class=\"cost\" style=\"border-bottom: 0; font-weight: 700;\"><div>Cost per unit</div><div></div><div>₹120.82</div><div style=\"color: #D93A2B;\">+2.5% vs rev 2</div></div>\n</div>\n<div class=\"p\" style=\"font-size: 12.5px;\">Nudge one material rate and the estimate re-prices line by line; after the run, actual consumption is written back so the next estimate is better.</div>\n</div>",
+  "<div class=\"card q\" style=\"gap: 12px;\">\n<div class=\"eb\">Screens</div>\n<div style=\"display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px;\">\n<div class=\"screen\" style=\"height: 170px;\"><div class=\"top\"><div class=\"dotc\"></div><div class=\"dotc\"></div><div class=\"dotc\"></div></div><div style=\"padding: 10px; display: flex; flex-direction: column; gap: 6px;\"><div class=\"mono\" style=\"font-size: 9px;\">Stock by age · Plant 2</div><div class=\"bar\" style=\"width: 90%; background: #1B1B1B;\"></div><div class=\"bar\" style=\"width: 60%;\"></div><div class=\"bar\" style=\"width: 35%; background: #D93A2B;\"></div><div class=\"bar\" style=\"width: 20%; background: #D93A2B;\"></div><div class=\"bar\" style=\"width: 75%;\"></div></div></div>\n<div class=\"screen\" style=\"height: 170px;\"><div class=\"top\"><div class=\"dotc\"></div><div class=\"dotc\"></div><div class=\"dotc\"></div></div><div style=\"padding: 10px; display: flex; flex-direction: column; gap: 6px;\"><div class=\"mono\" style=\"font-size: 9px;\">Planning board · week 39</div><div class=\"bar\" style=\"width: 55%;\"></div><div class=\"bar\" style=\"width: 80%; background: #1B1B1B;\"></div><div class=\"bar\" style=\"width: 40%; background: #D93A2B;\"></div><div class=\"bar\" style=\"width: 70%;\"></div><div class=\"bar\" style=\"width: 65%;\"></div></div></div>\n<div class=\"screen\" style=\"height: 170px;\"><div class=\"top\"><div class=\"dotc\"></div><div class=\"dotc\"></div><div class=\"dotc\"></div></div><div style=\"padding: 10px; display: flex; flex-direction: column; gap: 6px;\"><div class=\"mono\" style=\"font-size: 9px;\">Vendor portal · payment status</div><div class=\"bar\" style=\"width: 85%;\"></div><div class=\"bar\" style=\"width: 85%; background: #1B1B1B;\"></div><div class=\"bar\" style=\"width: 50%;\"></div><div class=\"bar\" style=\"width: 30%; background: #D93A2B;\"></div><div class=\"bar\" style=\"width: 70%;\"></div></div></div>\n</div>\n<div class=\"p\" style=\"font-size: 12.5px;\">Stock by age · planning board · vendor portal — mockups of systems we've built, with fictional data.</div>\n</div>"
+ ],
+ "uses": [],
+ "mods": [
+  [
+   "M1",
+   "Inventory & material traceability",
+   "Every lot from receipt to dispatch; stock by location, age and value; dead-stock flags with the ₹ attached."
+  ],
+  [
+   "M2",
+   "Orders & customer portal",
+   "Orders read from email and portals, acknowledged in one click; customers see status without calling."
+  ],
+  [
+   "M3",
+   "Vendors & procurement",
+   "Purchase orders, deliveries, payment status. A vendor portal that answers the \"when is our payment\" call."
+  ],
+  [
+   "M4",
+   "Production planning",
+   "Capacity, changeovers and priorities on one board; OTIF risk visible a week out, not a day."
+  ],
+  [
+   "M5",
+   "Cost estimation",
+   "A costing model under the estimator's judgement — repeatable, traceable, compared against what the run actually consumed."
+  ],
+  [
+   "M6",
+   "Quality inspection",
+   "Incoming, in-line and final checks on a phone; AQL pass/fail, defects logged, reports generated and sent."
+  ],
+  [
+   "M7",
+   "Dashboards & digests",
+   "The owner's view and a morning digest per department; governance triggers when a number crosses a line."
+  ],
+  [
+   "M8",
+   "WhatsApp desk & chasing",
+   "Vendor and customer threads read into the system; follow-ups drafted, escalated, closed."
+  ]
+ ],
+ "usecard": []
+}

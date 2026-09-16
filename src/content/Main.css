@@ -1,26 +1,9 @@
 
-    .eb { font-family: "IBM Plex Mono", Menlo, monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #D93A2B; }
-    .mono { font-family: "IBM Plex Mono", Menlo, monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #7A7975; }
-    .h1 { font-weight: 700; font-size: 56px; line-height: 1.04; letter-spacing: -.02em; margin: 0; }
-    .h1 .g { color: #7A7975; }
-    .h2 { font-weight: 700; font-size: 34px; line-height: 1.1; letter-spacing: -.015em; margin: 0; }
-    .h2 .g { color: #7A7975; }
-    .h3 { font-weight: 600; font-size: 18px; line-height: 1.3; margin: 0; }
-    .p { color: #4A4A47; margin: 0; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; height: 48px; padding: 0 22px; background: #D93A2B; color: #fff; font-weight: 600; font-size: 14px; border-radius: 2px; }
-    .btn2 { display: inline-flex; align-items: center; justify-content: center; height: 48px; padding: 0 22px; background: transparent; color: #1B1B1B; font-weight: 600; font-size: 14px; border: 1.5px solid #1B1B1B; border-radius: 2px; }
     .panel { background: #E6E5DF; }
-    .rule { border-top: 3px solid #D93A2B; }
-    .card { background: #E6E5DF; padding: 20px 22px; display: flex; flex-direction: column; gap: 8px; border-top: 3px solid #D93A2B; }
-    .card .t { font-weight: 600; font-size: 16px; line-height: 1.25; }
-    .card .d { color: #4A4A47; font-size: 13.5px; }
     .thumb { height: 92px; background: #fff; border: 1px solid #D4D3CB; display: flex; flex-direction: column; gap: 5px; padding: 9px; }
     .thumb .bar { height: 6px; background: #E6E5DF; border-radius: 1px; }
     .thumb .bar.r { background: #D93A2B; }
     .thumb .bar.k { background: #1B1B1B; }
-    .num { font-weight: 700; font-size: 34px; line-height: 1; letter-spacing: -.01em; }
-    .dark { background: #171716; color: #EFEEE9; }
-    .dark .p { color: #C9C8C1; }
     .quote { display: flex; gap: 14px; align-items: flex-start; padding: 16px 18px; border: 1.5px solid #D4D3CB; background: #fff; cursor: pointer; }
     .quote.on { border-color: #D93A2B; background: #FFF7F5; }
     .quote .q { font-weight: 600; font-size: 15px; line-height: 1.35; }

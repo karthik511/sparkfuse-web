@@ -1,0 +1,168 @@
+{
+ "slug": "real-estate-crm",
+ "chips": [
+  "ERP / CRM systems",
+  "Voice AI",
+  "Real estate & construction"
+ ],
+ "h1": "Real-estate CRM with AI calling & WhatsApp.",
+ "h1g": "First response in 30 seconds. Nothing dropped after.",
+ "lede": "Portal leads, walk-ins, broker referrals and site-visit forms — all in one inbox, each one called by an AI agent within 30 seconds, qualified, booked for a visit and handed to a salesperson with the record already written. Follow-up ladders on call and WhatsApp until the visit happens or the lead says no.",
+ "semi": "<b style=\"color: #1B1B1B;\">Designed for a developer in Surat</b> with three live projects and leads from four portals. About 70% is ready — inbox, dialer, AI first call, ladders, owner dashboard. 30% is your projects, inventory, brokers and team.",
+ "tryit": "Try it → drop a new enquiry into the inbox.",
+ "mock": "<div style=\"display: flex; flex-direction: column; border: 1.5px solid #1B1B1B; background: #fff;\">\n<div style=\"display: flex; align-items: center; justify-content: space-between; padding: 8px 14px; background: #1B1B1B; color: #EFEEE9;\"><div class=\"mono\" style=\"color: #EFEEE9;\">Interactive mock · Vesu Heights · today</div><div class=\"mono\" style=\"color: #8E8D87;\">New enquiry just landed</div></div>\n<div style=\"display: grid; grid-template-columns: 1.4fr 1fr; min-height: 440px;\">\n<div style=\"padding: 14px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; border-right: 1px solid #E1E0D9;\">\n<div class=\"col\"><div class=\"h\"><span>New</span><span>3</span></div>\n<div class=\"lead new\"><div class=\"nm\">Priya Mehta</div><div>2 BHK · ₹80 L · portal</div><div class=\"m\">11:42 · AI calling in 0:18…</div><div><span class=\"tag r\">First call</span></div></div>\n<div class=\"lead\"><div class=\"nm\">Rakesh Patel</div><div>3 BHK · ₹1.2 Cr · walk-in</div><div class=\"m\">10:05 · called · no answer ×1</div></div>\n<div class=\"lead\"><div class=\"nm\">Broker · Nilesh</div><div>2 clients · Vesu</div><div class=\"m\">09:30 · referral</div></div>\n</div>\n<div class=\"col\"><div class=\"h\"><span>Qualified</span><span>7</span></div>\n<div class=\"lead\"><div class=\"nm\">Sneha Desai</div><div>2 BHK · loan needed</div><div class=\"m\">warm · ladder day 3</div><div><span class=\"tag y\">Warm</span></div></div>\n<div class=\"lead\"><div class=\"nm\">Amit Shah</div><div>3 BHK · NRI · cash</div><div class=\"m\">hot · visit pending</div><div><span class=\"tag r\">Hot</span></div></div>\n<div class=\"lead\"><div class=\"nm\">Kavita Joshi</div><div>2 BHK · investment</div><div class=\"m\">nurture · day 7</div><div><span class=\"tag k\">Nurture</span></div></div>\n</div>\n<div class=\"col\"><div class=\"h\"><span>Visit booked</span><span>5</span></div>\n<div class=\"lead\"><div class=\"nm\">Harsh Modi</div><div>Sun 21 Sep · 11:00</div><div class=\"m\">Kiran · reminder sent</div></div>\n<div class=\"lead\"><div class=\"nm\">Deepa Rao</div><div>Sat 20 Sep · 4:00</div><div class=\"m\">Kiran · loan desk copied</div></div>\n<div class=\"lead\"><div class=\"nm\">Rohan Jain</div><div>Sun 21 Sep · 3:00</div><div class=\"m\">Vikram</div></div>\n</div>\n<div class=\"col\"><div class=\"h\"><span>Negotiation</span><span>2</span></div>\n<div class=\"lead\"><div class=\"nm\">Manish Agarwal</div><div>3 BHK · 1204 · ₹1.18 Cr</div><div class=\"m\">token expected Fri</div><div><span class=\"tag r\">Hot</span></div></div>\n<div class=\"lead\"><div class=\"nm\">Bhavna Trivedi</div><div>2 BHK · 803</div><div class=\"m\">price discussion</div></div>\n</div>\n</div>\n<div style=\"padding: 14px 18px; display: flex; flex-direction: column; gap: 6px; background: #F6F5F0;\">\n<div style=\"display: flex; align-items: center; justify-content: space-between;\"><div style=\"font-weight: 600; font-size: 13px;\">Priya Mehta · what the system did</div><div class=\"tag g\">Hot · visit booked</div></div>\n<div class=\"lad\"><div class=\"w\">11:42:04</div><div>Enquiry from portal · Vesu Heights · 2 BHK</div><div class=\"tag k\">Received</div></div>\n<div class=\"lad\"><div class=\"w\">11:42:22</div><div>AI first call placed — answered, 31 s, Hindi</div><div class=\"tag g\">Done</div></div>\n<div class=\"lad\"><div class=\"w\">11:42:53</div><div>Qualified: budget ₹80 L, possession 2027, loan needed</div><div class=\"tag r\">Hot</div></div>\n<div class=\"lad\"><div class=\"w\">11:43:10</div><div>Site visit booked Sun 21 Sep 3:00 · assigned Kiran</div><div class=\"tag g\">Booked</div></div>\n<div class=\"lad\"><div class=\"w\">11:43:12</div><div>WhatsApp confirmation with map and Kiran's number</div><div class=\"tag g\">Sent</div></div>\n<div class=\"lad\"><div class=\"w\">11:43:12</div><div>Loan-desk task: Rahul to call Sat 20 Sep</div><div class=\"tag k\">Task</div></div>\n<div class=\"lad\"><div class=\"w\">Ladder</div><div>Reminder Sat 8 pm · no-show → re-book call Mon · day 7 WhatsApp</div><div class=\"tag k\">Set</div></div>\n<div class=\"lad\" style=\"border-bottom: 0;\"><div class=\"w\">Owner</div><div>Appears in tomorrow's digest: 1 new hot lead, 5 visits this weekend</div><div class=\"tag k\">Digest</div></div>\n<div style=\"display: flex; gap: 8px; margin-top: auto;\"><div class=\"btn\" style=\"height: 34px; font-size: 12.5px; padding: 0 14px;\">Listen to the call</div><div class=\"btn2\" style=\"height: 34px; font-size: 12.5px; padding: 0 14px;\">Open lead</div></div>\n</div>\n</div>\n</div>",
+ "ref_eb": "The reference build",
+ "ref_h": "Designed for a developer in Surat.",
+ "ref_hg": "Three phases, each a finished product.",
+ "ref_p": "Leads arrived from four portals into three inboxes and a spreadsheet; the fastest first call was the next morning; follow-ups depended on whoever remembered. The plan cut fourteen modules into three phases — a sales core the team runs the whole day inside, then the AI voice agent and WhatsApp ladders, then owner dashboards and broker management — priced so that nothing depends on the phase after it.",
+ "ref_li": [
+  "One inbox for portals, walk-ins, brokers and forms; automatic assignment by project and load",
+  "30-second AI first call in Hindi, Gujarati or English; qualification written to the lead",
+  "Follow-up ladders that stop only on a visit, a no, or a human taking over"
+ ],
+ "ref_nums": [
+  [
+   "30 s",
+   "first response, any hour"
+  ],
+  [
+   "4 → 1",
+   "lead sources into one inbox"
+  ],
+  [
+   "3",
+   "phases, from ₹3.1 L"
+  ]
+ ],
+ "modules_title": "Modules included",
+ "modules": [
+  "Lead inbox: portals, walk-ins, brokers, forms, missed calls",
+  "Assignment engine by project, language and load",
+  "AI first call and qualification (our AI calling product)",
+  "Dialer and call recording for the team",
+  "WhatsApp follow-up ladders and brochures",
+  "Site-visit scheduler with reminders and no-show handling",
+  "Inventory, token and booking tracking",
+  "Owner dashboard and daily digest"
+ ],
+ "fitted": [
+  "Fitted: your projects, unit inventory, price sheets, brokers",
+  "Fitted: the call script, languages and objection handling",
+  "Fitted: your ladder timing and when a human takes over",
+  "Ready: inbox, dialer, voice agent, WhatsApp, scheduler, dashboards"
+ ],
+ "ai": [
+  "<b>Calls</b> every new lead within 30 seconds",
+  "<b>Qualifies</b> budget, configuration, timeline, loan need",
+  "<b>Books</b> the visit and writes the record",
+  "<b>Follows up</b> by ladder until visit, no, or handover",
+  "<b>Tells</b> the owner each morning what's hot and who's slipping"
+ ],
+ "engagement": [
+  [
+   "Wk 1",
+   "Discovery at the sales office: sources, team, script, what a good lead is"
+  ],
+  [
+   "Wk 2–5",
+   "Sales core live: inbox, assignment, dialer, scheduler, sheet sync"
+  ],
+  [
+   "Wk 6–9",
+   "AI first call and WhatsApp ladders on a slice of leads, then all"
+  ],
+  [
+   "Monthly",
+   "Measure: speed to first call, visit rate, no-shows, bookings per lead"
+  ]
+ ],
+ "price": "₹3–6 L · 5–8 weeks",
+ "price_note": "",
+ "cmp_head": [
+  "",
+  "Real-estate CRM SaaS",
+  "Generic CRM + telecallers",
+  "This"
+ ],
+ "cmp": [
+  [
+   "First call to a new lead",
+   "Next available caller",
+   "Office hours",
+   "30 seconds, any hour"
+  ],
+  [
+   "Follow-up that doesn't depend on memory",
+   "Reminders to the rep",
+   "Reminders to the rep",
+   "Ladder runs itself"
+  ],
+  [
+   "Hindi / Gujarati calls",
+   "Your callers",
+   "Your callers",
+   "AI agent, tuned on your calls"
+  ],
+  [
+   "Who is answerable",
+   "A support desk",
+   "A team lead",
+   "One person, by name"
+  ],
+  [
+   "Cost to start",
+   "₹1,000–2,500 / user / month",
+   "₹1.5–3 L / month in people",
+   "₹3–6 L, yours + minutes at cost"
+  ]
+ ],
+ "cmp_note": "",
+ "faq": [
+  [
+   "Will buyers mind being called by an AI?",
+   "They mind waiting until tomorrow more. The agent says it's an assistant, calls within seconds, books the visit, and hands the buyer to a named person. Visit rates go up because nobody is forgotten."
+  ],
+  [
+   "We work with brokers. Does it handle them?",
+   "Yes — broker leads are tagged at source, commissions tracked against bookings, and brokers get their own status updates on WhatsApp."
+  ],
+  [
+   "Which portals does it pull from?",
+   "Any that email or export leads, plus your website forms and missed-call numbers. New sources are added in an hour."
+  ],
+  [
+   "Can the team keep using their sheet?",
+   "For the first weeks it stays in sync as a backup. By week five nobody opens it."
+  ],
+  [
+   "Does it manage inventory and tokens?",
+   "Yes — units, holds, tokens and bookings, so sales and accounts see the same availability."
+  ],
+  [
+   "What does calling cost to run?",
+   "Telephony and voice minutes at cost, roughly ₹1–4 a minute, shown before go-live."
+  ]
+ ],
+ "faq_h": "Questions developers ask.",
+ "related": [
+  [
+   "AI calling agent",
+   "/products/ai-calling-agent/"
+  ],
+  [
+   "WhatsApp CRM",
+   "/products/whatsapp-crm/"
+  ],
+  [
+   "Industry: real estate & construction",
+   "/industries/real-estate-and-construction/"
+  ]
+ ],
+ "cta_h": "Send us ten leads.",
+ "cta_p": "We'll run the first call live on the demo, in your language, with your script.",
+ "cta_l": "Book the demo",
+ "extra": [],
+ "uses": [],
+ "mods": [],
+ "usecard": []
+}

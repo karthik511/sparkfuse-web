@@ -1,0 +1,166 @@
+{
+ "slug": "inventory-management",
+ "chips": [
+  "ERP / CRM systems",
+  "Manufacturing",
+  "Distribution & dealers"
+ ],
+ "h1": "Inventory & warehouse management.",
+ "h1g": "Stock you can trust, and the money sitting still made visible.",
+ "lede": "Every lot from receipt to dispatch, by location, age and value. Counted continuously instead of weekly; reorder points that fire before the line stops; and a dead-stock list with the rupees attached — the finding that pays for the system in the first month.",
+ "semi": "<b style=\"color: #1B1B1B;\">Built for a protective-products manufacturer in Pune</b>, where discovery found ₹3 crore of stock that hadn't moved — some of it since 2018. About 70% is ready modules; 30% is fitted to your bins, units and people.",
+ "tryit": "Try it → click a bin on the warehouse map.",
+ "mock": "<div style=\"display: flex; flex-direction: column; border: 1.5px solid #1B1B1B; background: #fff;\">\n<div style=\"display: flex; align-items: center; justify-content: space-between; padding: 8px 14px; background: #1B1B1B; color: #EFEEE9;\"><div class=\"mono\" style=\"color: #EFEEE9;\">Interactive mock · Plant 2 · raw material store</div><div class=\"mono\" style=\"color: #8E8D87;\">Bin D-07 selected</div></div>\n<div style=\"display: grid; grid-template-columns: 1.1fr 1fr; min-height: 440px;\">\n<div style=\"padding: 16px; display: flex; flex-direction: column; gap: 10px; border-right: 1px solid #E1E0D9;\">\n<div style=\"display: flex; justify-content: space-between; align-items: center;\"><div style=\"font-weight: 600; font-size: 13px;\">Rack D · 24 bins</div><div style=\"display: flex; gap: 6px;\"><span class=\"tag k\">Fill</span><span class=\"tag r\">Idle 180d+</span><span class=\"tag\" style=\"background: #FFF6E5; color: #B26A00;\">Below reorder</span></div></div>\n<div style=\"display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px;\">\n<div class=\"bin\"><div>D-01</div><div class=\"f\"><i style=\"width: 80%;\"></i></div></div><div class=\"bin\"><div>D-02</div><div class=\"f\"><i style=\"width: 45%;\"></i></div></div><div class=\"bin low\"><div>D-03</div><div class=\"f\"><i style=\"width: 12%;\"></i></div></div><div class=\"bin\"><div>D-04</div><div class=\"f\"><i style=\"width: 70%;\"></i></div></div><div class=\"bin\"><div>D-05</div><div class=\"f\"><i style=\"width: 90%;\"></i></div></div><div class=\"bin dead\"><div>D-06</div><div class=\"f\"><i style=\"width: 100%;\"></i></div></div>\n<div class=\"bin dead sel\"><div>D-07</div><div class=\"f\"><i style=\"width: 100%;\"></i></div></div><div class=\"bin\"><div>D-08</div><div class=\"f\"><i style=\"width: 35%;\"></i></div></div><div class=\"bin\"><div>D-09</div><div class=\"f\"><i style=\"width: 60%;\"></i></div></div><div class=\"bin low\"><div>D-10</div><div class=\"f\"><i style=\"width: 8%;\"></i></div></div><div class=\"bin\"><div>D-11</div><div class=\"f\"><i style=\"width: 55%;\"></i></div></div><div class=\"bin\"><div>D-12</div><div class=\"f\"><i style=\"width: 75%;\"></i></div></div>\n<div class=\"bin\"><div>D-13</div><div class=\"f\"><i style=\"width: 65%;\"></i></div></div><div class=\"bin\"><div>D-14</div><div class=\"f\"><i style=\"width: 40%;\"></i></div></div><div class=\"bin dead\"><div>D-15</div><div class=\"f\"><i style=\"width: 95%;\"></i></div></div><div class=\"bin\"><div>D-16</div><div class=\"f\"><i style=\"width: 50%;\"></i></div></div><div class=\"bin\"><div>D-17</div><div class=\"f\"><i style=\"width: 85%;\"></i></div></div><div class=\"bin\"><div>D-18</div><div class=\"f\"><i style=\"width: 30%;\"></i></div></div>\n<div class=\"bin\"><div>D-19</div><div class=\"f\"><i style=\"width: 70%;\"></i></div></div><div class=\"bin low\"><div>D-20</div><div class=\"f\"><i style=\"width: 15%;\"></i></div></div><div class=\"bin\"><div>D-21</div><div class=\"f\"><i style=\"width: 60%;\"></i></div></div><div class=\"bin\"><div>D-22</div><div class=\"f\"><i style=\"width: 45%;\"></i></div></div><div class=\"bin\"><div>D-23</div><div class=\"f\"><i style=\"width: 80%;\"></i></div></div><div class=\"bin\"><div>D-24</div><div class=\"f\"><i style=\"width: 25%;\"></i></div></div>\n</div>\n<div style=\"display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: auto;\">\n<div style=\"background: #F6F5F0; padding: 10px; display: flex; flex-direction: column; gap: 2px;\"><div style=\"font-weight: 700; font-size: 18px;\">₹2.94 Cr</div><div class=\"mono\" style=\"font-size: 9.5px;\">stock idle 180d+ · plant total</div></div>\n<div style=\"background: #F6F5F0; padding: 10px; display: flex; flex-direction: column; gap: 2px;\"><div style=\"font-weight: 700; font-size: 18px;\">3</div><div class=\"mono\" style=\"font-size: 9.5px;\">bins below reorder · this rack</div></div>\n<div style=\"background: #F6F5F0; padding: 10px; display: flex; flex-direction: column; gap: 2px;\"><div style=\"font-weight: 700; font-size: 18px;\">99.2%</div><div class=\"mono\" style=\"font-size: 9.5px;\">count accuracy · last cycle</div></div>\n</div>\n</div>\n<div style=\"padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; background: #F6F5F0;\">\n<div style=\"display: flex; align-items: center; justify-content: space-between;\"><div style=\"font-weight: 600; font-size: 13px;\">Bin D-07 · ABS granules, black</div><div class=\"tag r\">Idle 412 days</div></div>\n<div class=\"kv\"><div class=\"k\">On hand</div><div><b>1,840 kg</b> · 46 bags · lot L-2024-0913</div></div>\n<div class=\"kv\"><div class=\"k\">Value</div><div><b>₹3.42 L</b> at last purchase rate ₹186/kg</div></div>\n<div class=\"kv\"><div class=\"k\">Last movement</div><div>Issued 22 kg to moulding · 31 Jul 2025</div></div>\n<div class=\"kv\"><div class=\"k\">Why it's stuck</div><div>Product line discontinued Aug 2025; no BOM consumes this grade</div></div>\n<div class=\"kv\" style=\"border-bottom: 0;\"><div class=\"k\">AI suggests</div><div>Offer to Deccan's sister plant (uses the same grade, 2.1 t/month) or sell to the granule trader at ₹150/kg — <b>recover ₹2.7–3.4 L</b></div></div>\n<div style=\"display: flex; flex-direction: column; margin-top: 4px;\">\n<div class=\"mono\" style=\"margin-bottom: 4px;\">Movements · this lot</div>\n<div class=\"mv\"><div class=\"mono\" style=\"font-size: 9.5px;\">13 Sep 24</div><div>Received · 2,000 kg · GRN 4471 · Deccan Polymers</div><div class=\"tag g\" style=\"justify-self: end;\">Traced</div></div>\n<div class=\"mv\"><div class=\"mono\" style=\"font-size: 9.5px;\">02 Jun 25</div><div>Issued 138 kg · work order 2211</div><div></div></div>\n<div class=\"mv\" style=\"border-bottom: 0;\"><div class=\"mono\" style=\"font-size: 9.5px;\">31 Jul 25</div><div>Issued 22 kg · work order 2340</div><div></div></div>\n</div>\n<div style=\"display: flex; gap: 8px; margin-top: auto;\"><div class=\"btn\" style=\"height: 34px; font-size: 12.5px; padding: 0 14px;\">Create disposal task</div><div class=\"btn2\" style=\"height: 34px; font-size: 12.5px; padding: 0 14px;\">Full dead-stock list</div></div>\n</div>\n</div>\n</div>",
+ "ref_eb": "The reference build",
+ "ref_h": "The first module we built at the Pune plant,",
+ "ref_hg": "because it finds money on day one.",
+ "ref_p": "Stock was counted weekly, by hand, in each of six stores; nobody could say what a product line had consumed, or what was sitting in a corner since 2018. Inventory and material traceability went in first: every receipt, issue and return scanned, every lot linked to the work order that used it, every bin aged and valued. The dead-stock list came out of the first full count.",
+ "ref_li": [
+  "Phone-based receiving, issue and count — no handheld scanners to buy",
+  "Reorder points that fire to the buyer on WhatsApp, with the supplier's lead time built in",
+  "Lot-level traceability: which material went into which order, for audits and complaints"
+ ],
+ "ref_nums": [
+  [
+   "₹3 Cr",
+   "non-moving stock, found"
+  ],
+  [
+   "6 → 1",
+   "stock registers into one view"
+  ],
+  [
+   "Weekly → live",
+   "stock position"
+  ]
+ ],
+ "modules_title": "Modules included",
+ "modules": [
+  "Receiving, issue, return and transfer — on a phone",
+  "Bins, racks and multi-location stores",
+  "Lot / batch traceability to work orders",
+  "Cycle counts and variance reports",
+  "Reorder points with supplier lead times",
+  "Ageing, valuation and dead-stock list",
+  "Posting to Tally / your books"
+ ],
+ "fitted": [
+  "Fitted: your item master, units, grades and locations",
+  "Fitted: who counts, who approves a write-off, what triggers a reorder",
+  "Ready: scanning, movements, traceability, ageing, valuation, reports"
+ ],
+ "ai": [
+  "<b>Reads</b> supplier invoices and delivery notes into receipts",
+  "<b>Watches</b> consumption and re-sets reorder points as it changes",
+  "<b>Flags</b> idle stock with a recovery suggestion and a rupee value",
+  "<b>Chases</b> the buyer, the supplier and the store — in that order",
+  "<b>Explains</b> a variance instead of just reporting it"
+ ],
+ "engagement": [
+  [
+   "Wk 1",
+   "Discovery in the stores: item master, locations, who touches stock"
+  ],
+  [
+   "Wk 2–5",
+   "Build; opening count done with the system, not before it"
+  ],
+  [
+   "Wk 6–8",
+   "Live store by store; first ageing and dead-stock report"
+  ],
+  [
+   "Monthly",
+   "Measure: count accuracy, stock-outs, idle value recovered"
+  ]
+ ],
+ "price": "₹3–6 L · 5–8 weeks",
+ "price_note": "",
+ "cmp_head": [
+  "",
+  "Inventory SaaS",
+  "ERP module",
+  "This"
+ ],
+ "cmp": [
+  [
+   "Fits your bins, grades and units",
+   "Generic item master",
+   "Configured by a partner",
+   "Fitted in discovery"
+  ],
+  [
+   "Lot traceability to the work order",
+   "Rarely",
+   "If implemented",
+   "Yes, standard"
+  ],
+  [
+   "Dead-stock with a recovery plan",
+   "An ageing report",
+   "An ageing report",
+   "A list with ₹ and a suggested buyer"
+  ],
+  [
+   "Scanners",
+   "Buy handhelds",
+   "Buy handhelds",
+   "Phones your team has"
+  ],
+  [
+   "Cost to start",
+   "₹5–20K / month, forever",
+   "Part of a ₹10 L+ rollout",
+   "₹3–6 L, yours"
+  ]
+ ],
+ "cmp_note": "",
+ "faq": [
+  [
+   "Our item master is a mess. Do we clean it first?",
+   "No — it gets cleaned inside the build, item by item, as the opening count happens. Cleaning it in Excel first is how these projects stall."
+  ],
+  [
+   "Do we need barcode printers and handhelds?",
+   "A label printer, yes. Handhelds, no — receiving, issue and count run on the phones your storekeepers already carry."
+  ],
+  [
+   "Can it handle six stores and two plants?",
+   "Yes; multi-location is standard, with transfers between them tracked like any movement."
+  ],
+  [
+   "Does it post to Tally?",
+   "Yes — receipts and issues post as vouchers, so the books and the floor stop disagreeing."
+  ],
+  [
+   "What happens to a write-off?",
+   "It's a task with an approver — usually the owner above a threshold you set — with the reason and the value logged."
+  ],
+  [
+   "Can this start before the full ERP?",
+   "It usually does. Inventory first, then orders and planning on top — every phase usable alone."
+  ]
+ ],
+ "faq_h": "Questions store managers ask.",
+ "related": [
+  [
+   "Manufacturing ERP",
+   "/products/manufacturing-erp/"
+  ],
+  [
+   "Dealer & distributor management",
+   "/products/dealer-distributor-management/"
+  ],
+  [
+   "Invoice & PO processing",
+   "/products/document-processing/"
+  ]
+ ],
+ "cta_h": "Tell us your process.",
+ "cta_p": "One conversation, then a scoped proposal. Nothing locked in.",
+ "cta_l": "Talk to us",
+ "extra": [],
+ "uses": [],
+ "mods": [],
+ "usecard": []
+}

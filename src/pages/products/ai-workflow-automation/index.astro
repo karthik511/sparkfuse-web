@@ -1,13 +1,10 @@
 ---
 import Base from '../../../layouts/Base.astro';
-import raw from '../../../content/ProductWorkflow.html?raw';
-import '../../../content/ProductWorkflow.css';
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const html = raw.replace(/href="\//g, `href="${base}/`);
-const title = "AI workflow automation \u2014 the system chases, assigns and escalates | SparkFuse";
-const description = "Every stage has an owner, a due date and a chase ladder. When something slips the right people hear in the right order, and a human is asked only for real decisions.";
+import Product from '../../../components/Product.astro';
+import d from '../../../data/products/ai-workflow-automation.json';
+const schema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: d.faq.map(([q, a]) => ({ '@type': 'Question', name: q.replace(/<[^>]+>/g, ''), acceptedAnswer: { '@type': 'Answer', text: a.replace(/<[^>]+>/g, '') } })) };
 ---
-<Base title={title} description={description} section="products">
-  <Fragment set:html={html} />
+<Base title="AI workflow automation \u2014 the system chases, assigns and escalates | SparkFuse" description="Every stage has an owner, a due date and a chase ladder. When something slips the right people hear in the right order, and a human is asked only for real decisions." section="products" schema={schema}>
+  <Product d={d} />
   <script>import '../../../scripts/workflow.js';</script>
 </Base>

@@ -1,0 +1,171 @@
+{
+ "slug": "dealer-distributor-management",
+ "chips": [
+  "ERP / CRM systems",
+  "Distribution & dealers",
+  "Manufacturing"
+ ],
+ "h1": "Dealer & distributor order management.",
+ "h1g": "For manufacturers selling through a network.",
+ "lede": "Three hundred dealers, twenty states, and every order a phone call to a sales rep who writes it on paper. This gives each dealer a portal on their phone — place the order, see the credit, track the dispatch — and gives you one order book, one credit position and a sales team that sells instead of taking dictation.",
+ "semi": "<b style=\"color: #1B1B1B;\">Built for a uPVC and pipes manufacturer in Agra</b> with 300+ dealers, six warehouses and one IT person. About 70% is ready — portal, orders, credit, dispatch, WhatsApp updates. 30% is your price lists, schemes and territories.",
+ "tryit": "Try it → place an order on the dealer's phone and watch it move.",
+ "mock": "<div style=\"display: flex; flex-direction: column; border: 1.5px solid #1B1B1B; background: #fff;\">\n<div style=\"display: flex; align-items: center; justify-content: space-between; padding: 8px 14px; background: #1B1B1B; color: #EFEEE9;\"><div class=\"mono\" style=\"color: #EFEEE9;\">Interactive mock · dealer portal → your order book</div><div class=\"mono\" style=\"color: #8E8D87;\">One order, zero phone calls</div></div>\n<div style=\"display: grid; grid-template-columns: 290px 1fr; min-height: 470px;\">\n<div style=\"padding: 16px; display: flex; align-items: flex-start; justify-content: center; border-right: 1px solid #E1E0D9; background: #F6F5F0;\">\n<div class=\"phone\">\n<div class=\"ph\"><div class=\"mono\" style=\"color: #8E8D87; font-size: 9px;\">Dealer portal</div><div style=\"font-weight: 600; font-size: 12px;\">Gupta Pipes &amp; Sanitary, Lucknow</div><div class=\"mono\" style=\"color: #C9C8C1; font-size: 9px;\">Credit available ₹4.2 L of ₹6 L</div></div>\n<div style=\"padding: 12px; display: flex; flex-direction: column;\">\n<div class=\"mono\" style=\"font-size: 9.5px; margin-bottom: 4px;\">New order · 16 Sep</div>\n<div class=\"line\"><div>CPVC pipe 1\" · 3 m</div><div class=\"qty\"><div>−</div><div style=\"border: 0; font-weight: 700;\">200</div><div>+</div></div></div>\n<div class=\"line\"><div>CPVC elbow 1\"</div><div class=\"qty\"><div>−</div><div style=\"border: 0; font-weight: 700;\">400</div><div>+</div></div></div>\n<div class=\"line\"><div>SWR pipe 110 mm · 3 m</div><div class=\"qty\"><div>−</div><div style=\"border: 0; font-weight: 700;\">60</div><div>+</div></div></div>\n<div class=\"line\" style=\"border-bottom: 0;\"><div class=\"mono\" style=\"font-size: 9.5px;\">Scheme applied</div><div style=\"color: #2E7D4F; font-size: 11px;\">Monsoon 3% ✓</div></div>\n<div style=\"display: flex; justify-content: space-between; padding: 8px 0; font-weight: 700; font-size: 12px; border-top: 1px solid #1B1B1B;\"><div>Total</div><div>₹1,86,400</div></div>\n<div class=\"btn\" style=\"height: 38px; font-size: 12px; margin-top: 4px;\">Place order</div>\n<div style=\"font-size: 10px; color: #7A7975; margin-top: 8px; text-align: center;\">Dispatch ETA shown after credit check</div>\n</div>\n</div>\n</div>\n<div style=\"padding: 16px 18px; display: flex; flex-direction: column; gap: 4px;\">\n<div style=\"display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;\"><div style=\"font-weight: 600; font-size: 13px;\">Order DO-26-1187 · what happened next</div><div class=\"tag g\">Confirmed · 11:03</div></div>\n<div class=\"step\"><div class=\"n\">1</div><div><div>Order received from Gupta Pipes, Lucknow · ₹1,86,400 · 3 lines</div><div class=\"t\">11:02:14 · dealer portal</div></div></div>\n<div class=\"step\"><div class=\"n\">2</div><div><div>Credit check: ₹4.2 L available, 0 overdue → <b>approved automatically</b></div><div class=\"t\">11:02:15 · rule: within limit, nothing overdue</div></div></div>\n<div class=\"step\"><div class=\"n\">3</div><div><div>Stock allocated at Agra warehouse; SWR 110 mm short by 12 → <b>split: 48 now, 12 from Kanpur on 19 Sep</b></div><div class=\"t\">11:02:17 · nearest stock, dealer's default depot</div></div></div>\n<div class=\"step\"><div class=\"n\">4</div><div><div>Dispatch ETA 18 Sep by Sharma Transport; e-way bill prepared for accounts to release</div><div class=\"t\">11:02:40 · logistics rules · needs 1 approval</div></div></div>\n<div class=\"step\"><div class=\"n\">5</div><div><div>WhatsApp to the dealer: confirmation, ETA, split note, invoice to follow</div><div class=\"t\">11:03:01 · sent · read 11:05</div></div></div>\n<div class=\"step\"><div class=\"n wait\">6</div><div><div>Sales rep Vikram notified: \"Gupta ordered ₹1.86 L — up 22% on last month; scheme working\"</div><div class=\"t\">digest · 07:30 tomorrow</div></div></div>\n<div class=\"step\" style=\"border-bottom: 0;\"><div class=\"n wait\">7</div><div><div>Payment due 16 Oct · reminder ladder set: 3 days before, on due, +7 with a call</div><div class=\"t\">collections</div></div></div>\n<div style=\"display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: auto;\">\n<div style=\"background: #F6F5F0; padding: 10px;\"><div style=\"font-weight: 700; font-size: 18px;\">38 s</div><div class=\"mono\" style=\"font-size: 9.5px;\">order to confirmation</div></div>\n<div style=\"background: #F6F5F0; padding: 10px;\"><div style=\"font-weight: 700; font-size: 18px;\">1</div><div class=\"mono\" style=\"font-size: 9.5px;\">human approval (e-way bill)</div></div>\n<div style=\"background: #F6F5F0; padding: 10px;\"><div style=\"font-weight: 700; font-size: 18px;\">0</div><div class=\"mono\" style=\"font-size: 9.5px;\">calls to the rep</div></div>\n</div>\n</div>\n</div>\n</div>",
+ "ref_eb": "The reference build",
+ "ref_h": "\"Ek jagah sab software chale.\"",
+ "ref_hg": "One system, light enough for one IT person.",
+ "ref_p": "A uPVC and pipes manufacturer in Agra — eight pipe families, three profile series, 300+ dealers across 20 states — had bought software twice and never got it implemented, because the product stopped where their process started. The roadmap built the system one working piece at a time: dealer ordering and credit first, then dispatch and collections, then the dashboards — each piece live and used before the next began.",
+ "ref_li": [
+  "Dealer portal on the phone — no app to install, works on WhatsApp too",
+  "Credit, schemes and territory pricing enforced by the system, not the rep",
+  "Collections chased by ladder; the rep hears only about promises broken"
+ ],
+ "ref_nums": [
+  [
+   "300+",
+   "dealers, 20 states"
+  ],
+  [
+   "6",
+   "warehouses on one stock view"
+  ],
+  [
+   "1",
+   "IT person needed to run it"
+  ]
+ ],
+ "modules_title": "Modules included",
+ "modules": [
+  "Dealer portal: catalogue, prices, schemes, order, track",
+  "Credit limits, ageing and automatic holds",
+  "Stock allocation across depots; split dispatches",
+  "Dispatch, transporter and e-way bill workflow",
+  "Collections ladder with promise-to-pay logging",
+  "Sales-rep app: territory, targets, visit notes",
+  "Scheme and claim settlement"
+ ],
+ "fitted": [
+  "Fitted: your price lists, schemes, territories, credit rules",
+  "Fitted: which orders auto-approve and which need a person",
+  "Fitted: dealer onboarding in the languages your network speaks",
+  "Ready: portal, orders, credit engine, allocation, dispatch, collections"
+ ],
+ "ai": [
+  "<b>Reads</b> orders that still arrive on WhatsApp or by photo",
+  "<b>Decides</b> credit and allocation by your rules, asks on exceptions",
+  "<b>Chases</b> dues by ladder, escalates broken promises to the rep",
+  "<b>Tells</b> each rep what changed in their territory every morning",
+  "<b>Spots</b> dealers going quiet before they churn"
+ ],
+ "engagement": [
+  [
+   "Wk 1–2",
+   "Discovery with sales, dispatch and accounts; ride along with two reps"
+  ],
+  [
+   "Wk 3–7",
+   "Portal, credit and dispatch built on your price lists and dealer master"
+  ],
+  [
+   "Wk 8–10",
+   "Pilot with 30 dealers in one territory; then the network, state by state"
+  ],
+  [
+   "Monthly",
+   "Measure: orders via portal, order-to-dispatch time, DSO, rep calls taken"
+  ]
+ ],
+ "price": "₹6–12 L · 8–12 weeks",
+ "price_note": "",
+ "cmp_head": [
+  "",
+  "DMS / SFA SaaS",
+  "ERP add-on",
+  "This"
+ ],
+ "cmp": [
+  [
+   "Dealers order without calling a rep",
+   "Yes, if they install the app",
+   "Rarely built",
+   "Yes — phone browser or WhatsApp"
+  ],
+  [
+   "Your schemes, territories and credit rules",
+   "Configured to a template",
+   "Configured by a partner",
+   "Fitted in discovery"
+  ],
+  [
+   "Collections chased automatically",
+   "Reminders",
+   "Reports",
+   "Ladder, then a call"
+  ],
+  [
+   "Runs with one IT person",
+   "Yes",
+   "Usually not",
+   "Yes, by design"
+  ],
+  [
+   "Cost to start",
+   "₹300–800 / user / month",
+   "Part of a ₹10 L+ rollout",
+   "₹6–12 L, yours"
+  ]
+ ],
+ "cmp_note": "",
+ "faq": [
+  [
+   "Our dealers won't use an app.",
+   "They don't have to. The portal runs in a phone browser from a WhatsApp link, and an order sent as a WhatsApp message or a photo of a slip is read into the system the same way."
+  ],
+  [
+   "What happens to the sales reps?",
+   "They stop taking dictation and start selling: the system tells them each morning which dealers are up, down, quiet or overdue in their territory."
+  ],
+  [
+   "Can it handle schemes and claims?",
+   "Yes — schemes apply at order time by your rules, and claims settle against invoices with an audit trail."
+  ],
+  [
+   "Multiple depots and transporters?",
+   "Standard. Allocation picks the nearest stock by your rules; dispatch works with whichever transporters you use."
+  ],
+  [
+   "Does it replace Tally?",
+   "No. Invoices and receipts post to Tally; this runs the order and dealer side."
+  ],
+  [
+   "Can we start with one territory?",
+   "That's how we always start — one territory, thirty dealers, then the network state by state."
+  ]
+ ],
+ "faq_h": "Questions sales heads ask.",
+ "related": [
+  [
+   "Manufacturing ERP",
+   "/products/manufacturing-erp/"
+  ],
+  [
+   "Inventory & warehouse",
+   "/products/inventory-management/"
+  ],
+  [
+   "AI calling agent",
+   "/products/ai-calling-agent/"
+  ],
+  [
+   "Industry: distribution & dealers",
+   "/industries/distribution-and-dealers/"
+  ]
+ ],
+ "cta_h": "Tell us about your network.",
+ "cta_p": "One conversation, then a scoped proposal. Nothing locked in.",
+ "cta_l": "Talk to us",
+ "extra": [],
+ "uses": [],
+ "mods": [],
+ "usecard": []
+}

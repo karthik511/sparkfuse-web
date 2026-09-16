@@ -8,6 +8,6 @@ const title = "Contact \u2014 tell us the process that hurts | SparkFuse";
 const description = "One human reply within a business day. WhatsApp, email, or the form.";
 ---
 <Base title={title} description={description} section="contact">
-  <Fragment set:html={html} />
+  <div class="legacy" data-legacy><Fragment set:html={html} /></div>
   <script>import '../../scripts/contact.js';</script>
 </Base>

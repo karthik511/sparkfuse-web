@@ -1,0 +1,172 @@
+{
+ "slug": "garment-erp",
+ "chips": [
+  "ERP / CRM systems",
+  "Garment & textile",
+  "Document AI"
+ ],
+ "h1": "Garment & textile ERP.",
+ "h1g": "Sourcing, sampling, time &amp; action and inspections — on one system the whole floor works from.",
+ "lede": "Built for buying houses and exporters running European and domestic buyers out of Excel and inboxes: styles and tech packs read in from email, a T&amp;A plan generated for every order and re-planned when a date slips, sampling and pricing on their own clocks, inspections logged on a phone, and an order book you can read by value and stage.",
+ "semi": "<b style=\"color: #1B1B1B;\">Built for a sourcing business in Tiruppur</b> shipping to three European buyers from a dozen factories — our deepest reference. About 70% is ready modules; 30% is your buyers' portals, your stages and your factories.",
+ "tryit": "Try it → drag the ETD on the plan and watch every stage move.",
+ "mock": "<div style=\"display: flex; flex-direction: column; border: 1.5px solid #1B1B1B; background: #fff;\">\n<div style=\"display: flex; align-items: center; justify-content: space-between; padding: 8px 14px; background: #1B1B1B; color: #EFEEE9;\"><div class=\"mono\" style=\"color: #EFEEE9;\">Interactive mock · PO 4471 · style 612KX · Nordic Retail</div><div class=\"mono\" style=\"color: #8E8D87;\">ETD dragged 05 Oct → 12 Oct</div></div>\n<div style=\"display: grid; grid-template-columns: 1.5fr 1fr; min-height: 440px;\">\n<div style=\"padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; border-right: 1px solid #E1E0D9;\">\n<div class=\"gr\" style=\"border-bottom: 0;\"><div class=\"mono\" style=\"font-size: 9.5px;\">Stage · plan → new</div><div class=\"wk\"><div>W36</div><div>W37</div><div>W38</div><div>W39</div><div>W40</div><div>W41</div><div>W42</div><div>W43</div></div></div>\n<div class=\"gr\"><div>Fabric in-house <span class=\"tag g\">done</span></div><div class=\"track\"><div class=\"bar done\" style=\"left: 4%; width: 10%;\"></div><div class=\"etd\" style=\"left: 82%;\"></div></div></div>\n<div class=\"gr\"><div>Lab dip approval <span class=\"tag g\">done</span></div><div class=\"track\"><div class=\"bar done\" style=\"left: 10%; width: 8%;\"></div><div class=\"etd\" style=\"left: 82%;\"></div></div></div>\n<div class=\"gr\"><div>Size set</div><div class=\"track\"><div class=\"bar old\" style=\"left: 18%; width: 12%;\"></div><div class=\"bar\" style=\"left: 27%; width: 12%;\"></div><div class=\"etd\" style=\"left: 82%;\"></div></div></div>\n<div class=\"gr\"><div>PP meeting</div><div class=\"track\"><div class=\"bar old\" style=\"left: 32%; width: 6%;\"></div><div class=\"bar\" style=\"left: 41%; width: 6%;\"></div><div class=\"etd\" style=\"left: 82%;\"></div></div></div>\n<div class=\"gr\"><div>Cutting &amp; sewing</div><div class=\"track\"><div class=\"bar old\" style=\"left: 38%; width: 22%;\"></div><div class=\"bar\" style=\"left: 47%; width: 22%;\"></div><div class=\"etd\" style=\"left: 82%;\"></div></div></div>\n<div class=\"gr\"><div>Mid-line inspection</div><div class=\"track\"><div class=\"bar old\" style=\"left: 50%; width: 4%;\"></div><div class=\"bar\" style=\"left: 59%; width: 4%;\"></div><div class=\"etd\" style=\"left: 82%;\"></div></div></div>\n<div class=\"gr\"><div>Final inspection</div><div class=\"track\"><div class=\"bar old\" style=\"left: 62%; width: 5%;\"></div><div class=\"bar\" style=\"left: 71%; width: 5%;\"></div><div class=\"etd\" style=\"left: 82%;\"></div></div></div>\n<div class=\"gr\"><div>Ex-factory</div><div class=\"track\"><div class=\"bar old\" style=\"left: 68%; width: 3%;\"></div><div class=\"bar\" style=\"left: 77%; width: 3%;\"></div><div class=\"etd\" style=\"left: 82%;\"></div></div></div>\n<div class=\"gr\" style=\"border-bottom: 0;\"><div>Handover to forwarder</div><div class=\"track\"><div class=\"bar old\" style=\"left: 71%; width: 3%;\"></div><div class=\"bar late\" style=\"left: 80%; width: 3%;\"></div><div class=\"etd\" style=\"left: 82%;\"></div></div></div>\n<div style=\"display: flex; gap: 14px; margin-top: 8px; font-size: 11px; color: #4A4A47; align-items: center;\"><span style=\"display: inline-block; width: 12px; height: 8px; background: #D4D3CB;\"></span> old plan <span style=\"display: inline-block; width: 12px; height: 8px; background: #1B1B1B;\"></span> new plan <span style=\"display: inline-block; width: 12px; height: 8px; background: #D93A2B;\"></span> at risk <span style=\"display: inline-block; width: 2px; height: 14px; background: #D93A2B;\"></span> ETD</div>\n</div>\n<div style=\"padding: 14px 18px; display: flex; flex-direction: column; gap: 6px; background: #F6F5F0;\">\n<div style=\"display: flex; align-items: center; justify-content: space-between;\"><div style=\"font-weight: 600; font-size: 13px;\">Re-planned · 7 stages moved</div><div class=\"tag r\">1 at risk</div></div>\n<div class=\"kv\"><div class=\"k\">Anchor</div><div>ETD 12 Oct · back-scheduled from handover</div></div>\n<div class=\"kv\"><div class=\"k\">Kept</div><div>Fabric in-house, lab dip — already done, not moved</div></div>\n<div class=\"kv\"><div class=\"k\">Risk</div><div>Handover lands 2 days before ETD — under the 5-day buffer</div></div>\n<div class=\"kv\"><div class=\"k\">Tasks</div><div>Confirm revised ex-factory with Koso Tex (Meena) · re-book final inspection 02 Oct (Shridhar)</div></div>\n<div class=\"kv\"><div class=\"k\">Pricing clock</div><div>Buyer price sent 03 Sep · 48 h clock stopped ✓</div></div>\n<div class=\"kv\" style=\"border-bottom: 0;\"><div class=\"k\">Sampling</div><div>Size set due Thu · 14-day SLA from buyer request, day 9</div></div>\n<div style=\"background: #fff; border: 1px solid #E1E0D9; padding: 10px 12px; font-size: 12px; margin-top: 4px;\"><b>AI suggests:</b> ask Koso Tex to pull cutting forward 2 days to restore the buffer; draft ready in Meena's voice.</div>\n<div style=\"display: flex; gap: 8px; margin-top: auto;\"><div class=\"btn\" style=\"height: 34px; font-size: 12.5px; padding: 0 14px;\">Send to factory</div><div class=\"btn2\" style=\"height: 34px; font-size: 12.5px; padding: 0 14px;\">Accept risk</div></div>\n</div>\n</div>\n</div>",
+ "ref_eb": "The reference build",
+ "ref_h": "Our deepest reference:",
+ "ref_hg": "200+ live orders, three buyers, twelve factories, one system.",
+ "ref_p": "Time &amp; action plans lived in Excel, one file per order; sampling updates were missed until the buyer asked; status was buried in threads and portals; nobody could say what the order book was worth today. The build read the buyers' portals and inboxes in, generated a T&amp;A for every order, gave sampling and pricing their own clocks, put inspections on a phone and gave the owner a live order book — with an AI layer that plans, assigns, reads and flags.",
+ "ref_li": [
+  "Tech packs and POs pulled from email and portals; buyer documents sanitised before factories see them",
+  "28-stage T&amp;A back-scheduled from ETD; skipped stages surface as overdue",
+  "Pricing to buyer inside 48 h; sampling inside 14 days — both timed from the buyer's ask"
+ ],
+ "ref_nums": [
+  [
+   "$2.18M",
+   "live order book by stage"
+  ],
+  [
+   "7",
+   "spreadsheets retired"
+  ],
+  [
+   "196",
+   "exceptions flagged, not hunted"
+  ]
+ ],
+ "modules_title": "Modules included",
+ "modules": [
+  "Styles and tech packs — intake, validation, sanitised factory copies",
+  "Pricing: factory quote → buyer price, 48-hour clock, margin watch",
+  "Sampling rounds with the 14-day SLA",
+  "Orders and combos with a generated T&amp;A per order",
+  "Inspections on a phone: in-line, mid-line, pre-final, final, AQL",
+  "Logistics: handover, BL, shipment documents",
+  "Payments and factory settlements",
+  "Owner dashboard, digests, AI suggestions"
+ ],
+ "fitted": [
+  "Fitted: your buyers' portals and PO formats",
+  "Fitted: your T&amp;A stages, buffers and who owns each",
+  "Fitted: your factories, inspection formats and report templates",
+  "Ready: intake, T&amp;A engine, sampling, pricing, inspections, logistics, payments"
+ ],
+ "ai": [
+  "<b>Reads</b> POs, amendments and tech packs as they arrive",
+  "<b>Plans</b> every order and re-plans when dates slip",
+  "<b>Assigns</b> the work per stage without a manager writing it",
+  "<b>Chases</b> factories and flags what will miss ETD",
+  "<b>Watches</b> the pricing and sampling clocks"
+ ],
+ "engagement": [
+  [
+   "Wk 1–2",
+   "Discovery: buyers, factories, the real T&A, where orders go quiet"
+  ],
+  [
+   "Wk 3–8",
+   "Orders, T&A and intake live first; sampling and pricing next"
+  ],
+  [
+   "Wk 9–12",
+   "Inspections, logistics, payments; merch team fully on the system"
+  ],
+  [
+   "Monthly",
+   "Measure: on-time handover, sampling SLA, quote turnaround, exceptions"
+  ]
+ ],
+ "price": "₹6–12 L · 8–12 weeks",
+ "price_note": "",
+ "cmp_head": [
+  "",
+  "Apparel ERP package",
+  "Excel + WhatsApp",
+  "This"
+ ],
+ "cmp": [
+  [
+   "Reads your buyers' POs and tech packs in",
+   "Manual entry",
+   "Manual entry",
+   "Yes, from email and portals"
+  ],
+  [
+   "T&A that re-plans itself",
+   "Static templates",
+   "One file per order",
+   "Generated per order, re-planned on slips"
+  ],
+  [
+   "Pricing and sampling clocks",
+   "No",
+   "Memory",
+   "Timed from the buyer's ask"
+  ],
+  [
+   "Inspections on a phone with AQL",
+   "Some",
+   "Paper + photos",
+   "Yes, reports generated"
+  ],
+  [
+   "Cost to start",
+   "₹8–20 L + per-user fees",
+   "Free, and expensive",
+   "₹6–12 L, yours"
+  ]
+ ],
+ "cmp_note": "",
+ "faq": [
+  [
+   "Our buyers each have a different portal and PO format.",
+   "That's the fitted 30%. Each buyer's portal and format is mapped in discovery; amendments arrive as changes to the order, not as new documents to re-read."
+  ],
+  [
+   "What happens when a stage is skipped?",
+   "It shows as overdue until someone logs it — deliberately. Skipped stages are how orders go quiet, so the system nudges rather than hides."
+  ],
+  [
+   "Can factories see buyer prices?",
+   "No. Buyer documents are sanitised before factories see them — names, prices and logos removed — and factory quotes are kept apart from buyer prices."
+  ],
+  [
+   "Do inspectors need laptops?",
+   "A phone. In-line, mid-line, pre-final and final checks with AQL sampling, defects and photos, and the report generated and emailed from the app."
+  ],
+  [
+   "Does it handle combos and colourways?",
+   "Yes — one production plan per combo inside a PO, sharing the ETD and shipment."
+  ],
+  [
+   "We're a factory, not a buying house. Does it fit?",
+   "The T&amp;A, inspections and sampling modules do; the sourcing and buyer-pricing side is dropped. That's the manufacturing ERP page."
+  ]
+ ],
+ "faq_h": "Questions merchandisers ask.",
+ "related": [
+  [
+   "Case: garment sourcing ERP",
+   "/work/garment-sourcing-erp/"
+  ],
+  [
+   "Invoice & PO processing",
+   "/products/document-processing/"
+  ],
+  [
+   "AI workflow automation",
+   "/products/ai-workflow-automation/"
+  ],
+  [
+   "Industry: garment & textile",
+   "/industries/garment-and-textile/"
+  ]
+ ],
+ "cta_h": "Bring one buyer's orders.",
+ "cta_p": "We'll show them on the plan on the first call.",
+ "cta_l": "Talk to us",
+ "extra": [],
+ "uses": [],
+ "mods": [],
+ "usecard": []
+}

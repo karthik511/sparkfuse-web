@@ -1,13 +1,10 @@
 ---
 import Base from '../../../layouts/Base.astro';
-import raw from '../../../content/ProductWhatsAppChatbot.html?raw';
-import '../../../content/ProductWhatsAppChatbot.css';
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const html = raw.replace(/href="\//g, `href="${base}/`);
-const title = "WhatsApp chatbot \u2014 answers from your real data, in Hinglish | SparkFuse";
-const description = "Order, dispatch and payment status answered from your system on WhatsApp, with a human one tap away. Built as a dealer and vendor desk for a Pune manufacturer.";
+import Product from '../../../components/Product.astro';
+import d from '../../../data/products/whatsapp-chatbot.json';
+const schema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: d.faq.map(([q, a]) => ({ '@type': 'Question', name: q.replace(/<[^>]+>/g, ''), acceptedAnswer: { '@type': 'Answer', text: a.replace(/<[^>]+>/g, '') } })) };
 ---
-<Base title={title} description={description} section="products">
-  <Fragment set:html={html} />
+<Base title="WhatsApp chatbot \u2014 answers from your real data, in Hinglish | SparkFuse" description="Order, dispatch and payment status answered from your system on WhatsApp, with a human one tap away. Built as a dealer and vendor desk for a Pune manufacturer." section="products" schema={schema}>
+  <Product d={d} />
   <script>import '../../../scripts/chatbot.js';</script>
 </Base>

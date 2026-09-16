@@ -1,0 +1,172 @@
+{
+ "slug": "mis-dashboards",
+ "chips": [
+  "Dashboards & analytics",
+  "Restaurants & food",
+  "Manufacturing",
+  "Every multi-outlet business"
+ ],
+ "h1": "MIS dashboards.",
+ "h1g": "Reports that compile themselves. Governance that triggers itself.",
+ "lede": "Every business collects data and then pays someone to compile it into a report nobody reads in full. This does the compiling every night, shows each person only what they need by 7:30, and when a number crosses a line it doesn't just turn red — it asks the responsible manager a question, by name, with a deadline.",
+ "semi": "<b style=\"color: #1B1B1B;\">Designed for a restaurant group in Trichy</b> whose owner said: \"The whole governance should happen through the software.\" About 70% is ready — data-in, compile, present, trigger. 30% is your report formats, your lines and your chain of command.",
+ "tryit": "Try it → pick which outlet had a bad day; watch the digest and the trigger change.",
+ "mock": "<div style=\"display: flex; flex-direction: column; border: 1.5px solid #1B1B1B; background: #fff;\">\n<div style=\"display: flex; align-items: center; justify-content: space-between; padding: 8px 14px; background: #1B1B1B; color: #EFEEE9;\"><div class=\"mono\" style=\"color: #EFEEE9;\">Interactive mock · Annapoorna Group · 6 outlets · yesterday</div><div class=\"mono\" style=\"color: #8E8D87;\">Outlet 3 selected</div></div>\n<div style=\"display: grid; grid-template-columns: 300px 1fr; min-height: 440px;\">\n<div style=\"padding: 14px; display: flex; flex-direction: column; gap: 6px; border-right: 1px solid #E1E0D9; background: #F6F5F0;\">\n<div class=\"mono\" style=\"margin-bottom: 4px;\">Daily scorecard · 15 Sep</div>\n<div class=\"out\"><div>Cantonment</div><div class=\"sc\" style=\"color: #2E7D4F;\">92</div></div>\n<div class=\"out\"><div>Thillai Nagar</div><div class=\"sc\" style=\"color: #2E7D4F;\">89</div></div>\n<div class=\"out bad\"><div><b>Srirangam</b></div><div class=\"sc\" style=\"color: #D93A2B;\">61</div></div>\n<div class=\"out\"><div>Woraiyur</div><div class=\"sc\" style=\"color: #2E7D4F;\">87</div></div>\n<div class=\"out\"><div>Central bus stand</div><div class=\"sc\" style=\"color: #B26A00;\">78</div></div>\n<div class=\"out\"><div>Banquets</div><div class=\"sc\" style=\"color: #2E7D4F;\">94</div></div>\n<div style=\"margin-top: auto; font-size: 11px; color: #7A7975; line-height: 1.4;\">Score = hygiene checklist, wastage, billing variance, staff punctuality, guest complaints — weighted the way the MD weights them.</div>\n</div>\n<div style=\"padding: 14px 18px; display: flex; flex-direction: column; gap: 10px;\">\n<div class=\"dg\">\n<div style=\"display: flex; justify-content: space-between; align-items: center;\"><div class=\"h\">Morning digest · MD · 07:30</div><div class=\"tag k\">WhatsApp + email</div></div>\n<div>Five outlets normal. <b>Srirangam scored 61</b> — wastage 9.4% (limit 5%), hygiene checklist 7 of 12 done, two guest complaints about wait time. Billing variance normal. Central bus stand punctuality slipping for the third day.</div>\n<div style=\"color: #7A7975;\">Compiled from 6 checklists, POS, CCTV counts and the complaints line. No one typed this.</div>\n</div>\n<div style=\"display: flex; flex-direction: column;\">\n<div style=\"display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;\"><div style=\"font-weight: 600; font-size: 13px;\">Governance triggered</div><div class=\"tag r\">2 open</div></div>\n<div class=\"gv\" style=\"font-family: 'IBM Plex Mono', Menlo, monospace; font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: #7A7975;\"><div>Rule crossed</div><div>Who is asked</div><div>By when</div></div>\n<div class=\"gv\"><div>Wastage &gt; 5% two days running · Srirangam</div><div><b>Outlet manager Ramesh</b> — \"What was wasted and why?\" · photo of the wastage log required</div><div><span class=\"tag r\">Today 12:00</span></div></div>\n<div class=\"gv\"><div>Hygiene checklist &lt; 10/12 · Srirangam</div><div><b>Area supervisor Lakshmi</b> — surprise visit scheduled; checklist re-done on site</div><div><span class=\"tag r\">Today</span></div></div>\n<div class=\"gv\" style=\"border-bottom: 0;\"><div>Punctuality 3-day trend · Central bus stand</div><div><b>HR</b> — roster review; not yet a breach</div><div><span class=\"tag k\">Watch</span></div></div>\n</div>\n<div style=\"display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: auto;\">\n<div style=\"background: #F6F5F0; padding: 10px;\"><div style=\"font-weight: 700; font-size: 18px;\">11</div><div class=\"mono\" style=\"font-size: 9.5px;\">reports compiled overnight</div></div>\n<div style=\"background: #F6F5F0; padding: 10px;\"><div style=\"font-weight: 700; font-size: 18px;\">3</div><div class=\"mono\" style=\"font-size: 9.5px;\">people asked a question</div></div>\n<div style=\"background: #F6F5F0; padding: 10px;\"><div style=\"font-weight: 700; font-size: 18px;\">0</div><div class=\"mono\" style=\"font-size: 9.5px;\">reports the MD had to open</div></div>\n</div>\n</div>\n</div>\n</div>",
+ "ref_eb": "The reference build",
+ "ref_h": "\"Ultimately we want the software to be a catching tool.\"",
+ "ref_hg": "Four layers, drawn by the owner himself.",
+ "ref_p": "A multi-outlet restaurant group had every report format already — checklists, scorecards, wastage logs, complaint registers — and no way to get data in, compile it, or act on it without a person in the middle. The strategy followed the owner's own four layers: bringing data in (phones, POS, cameras), compiling it (automatically, nightly), presenting it (one screen per role, a digest per morning), and governance (rules that ask a named person a question with a deadline).",
+ "ref_li": [
+  "Data in from checklists on phones, POS, CCTV counts, the complaints line — not from typing",
+  "Your existing report formats kept; the compiling removed",
+  "Governance rules with an owner, a question and a deadline — and an audit of who answered"
+ ],
+ "ref_nums": [
+  [
+   "4",
+   "layers: in, compile, present, govern"
+  ],
+  [
+   "07:30",
+   "digest, every role, every day"
+  ],
+  [
+   "0",
+   "reports compiled by hand"
+  ]
+ ],
+ "modules_title": "Modules included",
+ "modules": [
+  "Data-in: phone checklists, POS/ERP/Tally connectors, sheets, cameras",
+  "Nightly compile into your report formats",
+  "One screen per role: owner, area, outlet, department",
+  "Morning digest on WhatsApp and email",
+  "Governance rules: threshold → question → owner → deadline",
+  "Audit trail of answers and actions",
+  "Power BI or in-app dashboards — your choice"
+ ],
+ "fitted": [
+  "Fitted: your KPIs, weights, report formats and lines",
+  "Fitted: your chain of command and escalation timing",
+  "Fitted: the data sources you actually have",
+  "Ready: collectors, compile engine, role screens, digests, rules engine, audit"
+ ],
+ "ai": [
+  "<b>Compiles</b> the reports nobody has time to compile",
+  "<b>Writes</b> the digest in plain words, per person",
+  "<b>Spots</b> the trend before it becomes a breach",
+  "<b>Asks</b> the responsible person the specific question",
+  "<b>Explains</b> a variance instead of just reporting it"
+ ],
+ "engagement": [
+  [
+   "Wk 1",
+   "Discovery: every report you have, where its data comes from, who reads it"
+  ],
+  [
+   "Wk 2–4",
+   "Collectors and connectors; first compiled reports side by side with the manual ones"
+  ],
+  [
+   "Wk 5–6",
+   "Digests live; governance rules switched on one at a time"
+  ],
+  [
+   "Monthly",
+   "Measure: hours of compiling removed, questions answered on time, breaches caught early"
+  ]
+ ],
+ "price": "₹3–6 L · 5–8 weeks",
+ "price_note": "",
+ "cmp_head": [
+  "",
+  "BI tool + consultant",
+  "MIS person + Excel",
+  "This"
+ ],
+ "cmp": [
+  [
+   "Data gets in without typing",
+   "If connectors exist",
+   "No",
+   "Phones, POS, cameras, connectors"
+  ],
+  [
+   "Report compiled without a person",
+   "Yes, once built",
+   "No",
+   "Yes, nightly"
+  ],
+  [
+   "Someone is asked a question when a line is crossed",
+   "An alert, to everyone",
+   "If the owner notices",
+   "Named person, deadline, audit"
+  ],
+  [
+   "Your report formats kept",
+   "Rebuilt in the tool",
+   "Yes",
+   "Yes"
+  ],
+  [
+   "Cost to start",
+   "₹2–5 L + licences",
+   "₹3–5 L / year in salary",
+   "₹3–6 L, yours"
+  ]
+ ],
+ "cmp_note": "",
+ "faq": [
+  [
+   "We already have Power BI. Is this different?",
+   "Power BI presents; this brings the data in and acts on it. It can feed your Power BI, or replace it with role screens — your choice in discovery."
+  ],
+  [
+   "Our data is on paper checklists.",
+   "Then the first module is the phone checklist that replaces them — same questions, same format, photos where you want proof."
+  ],
+  [
+   "Won't managers feel policed?",
+   "The question goes to one person, privately, with the data attached. Most managers prefer that to a group WhatsApp from the owner."
+  ],
+  [
+   "Can it read CCTV?",
+   "For counts and presence — footfall, staff at station, kitchen activity — on your existing cameras. Details on the Vision AI page."
+  ],
+  [
+   "How many rules is too many?",
+   "Start with five. Every rule has an owner and a deadline; if nobody would act on it, it isn't a rule, it's a report."
+  ],
+  [
+   "Does it work for a factory or a sales team?",
+   "Yes — the same four layers, different data sources. This page's example is restaurants because that's where the owner drew it."
+  ]
+ ],
+ "faq_h": "Questions owners ask.",
+ "related": [
+  [
+   "AI workflow automation",
+   "/products/ai-workflow-automation/"
+  ],
+  [
+   "Manufacturing ERP",
+   "/products/manufacturing-erp/"
+  ],
+  [
+   "Solutions: Vision AI",
+   "/solutions/vision-ai/"
+  ],
+  [
+   "Industry: restaurants & food",
+   "/industries/"
+  ]
+ ],
+ "cta_h": "Send us your reports.",
+ "cta_p": "We'll show which ones compile themselves and which need a rule.",
+ "cta_l": "Talk to us",
+ "extra": [],
+ "uses": [],
+ "mods": [],
+ "usecard": []
+}
