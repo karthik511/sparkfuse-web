@@ -333,3 +333,4 @@ a.card:hover, .card.hover:hover { transform: translateY(-3px); box-shadow: var(-
 .legacy .thumb.shot { height: auto; padding: 0; overflow: hidden; border-radius: 10px; border: 1px solid var(--line); background: #fff; } .legacy .thumb.shot img { width: 100%; height: auto; display: block; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
 .legacy .frame.legacyshot { box-shadow: var(--sh2); } .legacy .frame.legacyshot img { width: 100%; height: auto; display: block; }
 .thumb.shot { height: auto; padding: 0; overflow: hidden; border-radius: 10px; border: 1px solid var(--line); background: #fff; }
+.legacy .phoneshot { margin: 0; display: flex; flex-direction: column; gap: 8px; align-items: center; } .legacy .phoneshot img { width: 100%; max-width: 260px; height: auto; border-radius: 26px; border: 6px solid var(--ink); box-shadow: 0 20px 50px -20px rgba(0,0,0,.4); display: block; }

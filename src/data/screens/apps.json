@@ -1,0 +1,43 @@
+{
+ "app": "Apps",
+ "client": "Consumer products",
+ "screens": [
+  {
+   "file": "01-creator-feed",
+   "title": "Creator platform \u00b7 feed",
+   "caption": "Short video feed with creator earnings and rewards \u2014 27,000 downloads.",
+   "hl": null
+  },
+  {
+   "file": "02-creator-earnings",
+   "title": "Creator platform \u00b7 earnings",
+   "caption": "Creator payouts computed from gifts and views; OTP onboarding; rewards ledger that can't be gamed.",
+   "hl": null
+  },
+  {
+   "file": "03-learn-practice",
+   "title": "Voice-first teacher \u00b7 practice",
+   "caption": "The practice rail runs on the phone at near-zero cost; only open conversation touches a server.",
+   "hl": null
+  },
+  {
+   "file": "04-learn-talk",
+   "title": "Voice-first teacher \u00b7 conversation",
+   "caption": "The conversation rail: an AI teacher that corrects kindly and remembers every mistake for the next session.",
+   "hl": null
+  },
+  {
+   "file": "05-companion-chat",
+   "title": "Companion \u00b7 chat",
+   "caption": "A fine-tuned companion model with guardrails built in \u2014 3,000 monthly actives within days of launch.",
+   "hl": null
+  },
+  {
+   "file": "06-vehicle-inspection",
+   "title": "Vehicle inspection \u00b7 207 checkpoints",
+   "caption": "Used-vehicle inspection app: 207 checkpoints with photos, condition scoring and a live resale price \u2014 one standard for every evaluator.",
+   "hl": null
+  }
+ ],
+ "mode": "phone"
+}
