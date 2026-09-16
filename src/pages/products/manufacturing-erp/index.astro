@@ -1,10 +1,11 @@
 ---
 import Base from '../../../layouts/Base.astro';
+import AppShell from '../../../components/demos/AppShell.astro'; import DemoSection from '../../../components/demos/DemoSection.astro';
 import Product from '../../../components/Product.astro';
 import d from '../../../data/products/manufacturing-erp.json';
 const schema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: d.faq.map(([q, a]) => ({ '@type': 'Question', name: q.replace(/<[^>]+>/g, ''), acceptedAnswer: { '@type': 'Answer', text: a.replace(/<[^>]+>/g, '') } })) };
 ---
 <Base title="Manufacturing ERP software for Indian factories \u2014 fitted to your plant | SparkFuse" description="Production planning, inventory and costing on one light system. Built for a protective-products manufacturer in Pune. Move the sliders to see what changes on your floor." section="products" schema={schema}>
-  <Product d={d} />
+  <Product d={d}><DemoSection slot="demo" h="The whole system, not one screen." p="A today-first shell: what needs you, orders by ETD, the production board, inventory with rupees attached, and an approvals queue that nothing costing money can skip." tight><AppShell /></DemoSection></Product>
   <script>import '../../../scripts/erp.js';</script>
 </Base>

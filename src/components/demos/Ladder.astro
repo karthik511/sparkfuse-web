@@ -1,0 +1,44 @@
+---
+// Chase-ladder simulator: slide "hours since the task was due" and watch what the system does, on WhatsApp and beyond. Fictional.
+const steps = [[0, 'Due', 'Task created for Ganesh (Print) · “Print end for 588MC due today”', 'k-wa'], [4, '+4 h', 'First chase on WhatsApp · asks for a date, not a status', 'k-wa'], [24, '+1 day', 'Second chase · copies Meena (merchandiser) · offers two options', 'k-wa'], [36, '+1.5 days', 'Phone call from the AI agent · captures the revised date verbally', 'k-call'], [48, '+2 days', 'Escalated to the unit head · plan impact shown: ETD at risk by 3 days', 'k-esc'], [72, '+3 days', 'In the owner’s morning digest · one line, with the number attached', 'k-owner']];
+---
+<div class="frame mock lad2" data-lad>
+  <div class="chrome"><i></i><i></i><i></i><div class="url">app.sparkfuse.in/automation · chase ladder</div><div class="live">Interactive · fictional data</div></div>
+  <div class="wrap">
+    <div class="left">
+      <div class="sl"><div class="lab"><span class="mono">Hours since the task was due</span><span class="v" data-hv>0 h</span></div><input type="range" min="0" max="72" value="0" step="1" data-h /><div class="stops"><span>Due</span><span>+1 day</span><span>+2 days</span><span>+3 days</span></div></div>
+      <div class="ladder">{steps.map(([h, w, t, k]) => <div class={`rung ${k}`} data-rung={h}><div class="w mono">{w}</div><div class="dot"></div><div class="t">{t}</div></div>)}</div>
+      <div class="small">The ladder is configured per stage and per client: timings, wording, who gets copied, and where it stops being polite. Every rung is logged against the order.</div>
+    </div>
+    <div class="wa"><div class="hd"><div class="av">GP</div><div>Ganesh · Print unit</div><span class="mono" style="margin-left: auto; color: #B7E4C7;">business</span></div><div class="msgs" data-msgs><div class="bub me">588MC print end is due today (02 Oct). Are we on track?<div class="m">09:00 ✓✓</div></div></div></div>
+  </div>
+</div>
+
+<style is:global>
+  .lad2 .wrap { display: grid; grid-template-columns: 1.2fr 1fr; background: #fff; min-height: 460px; }
+  .lad2 .left { padding: 16px 18px; display: flex; flex-direction: column; gap: 16px; border-right: 1px solid var(--line); }
+  .lad2 .ladder { display: flex; flex-direction: column; }
+  .lad2 .rung { display: grid; grid-template-columns: 64px 18px 1fr; gap: 10px; align-items: flex-start; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 12.5px; color: var(--muted); transition: color .2s; }
+  .lad2 .rung .w { padding-top: 2px; } .lad2 .rung .dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--line2); margin-top: 3px; transition: all .2s; }
+  .lad2 .rung.on { color: var(--ink); } .lad2 .rung.on .dot { background: var(--ok); border-color: var(--ok); } .lad2 .rung.on.k-esc .dot, .lad2 .rung.on.k-owner .dot { background: var(--red); border-color: var(--red); } .lad2 .rung.on.k-call .dot { background: var(--ink); border-color: var(--ink); }
+  .lad2 .rung.now .t { font-weight: 600; }
+  .lad2 .wa { min-height: 0; }
+  @media (max-width: 760px) { .lad2 .wrap { grid-template-columns: 1fr; } .lad2 .left { border-right: 0; border-bottom: 1px solid var(--line); } }
+</style>
+
+<script>
+  const root = document.querySelector('[data-lad]');
+  if (root) {
+    const h = root.querySelector('[data-h]'), hv = root.querySelector('[data-hv]'), rungs = [...root.querySelectorAll('[data-rung]')], msgs = root.querySelector('[data-msgs]');
+    const M = { 4: ['me', 'Ganesh, quick one — print end for 588MC was due today. Kya date de sakte ho? Aaj ya kal?'], 24: ['me', 'Still no date on 588MC print. Copying Meena. Two options: (a) finish by 04 Oct, sewing starts 06 Oct, ETD holds; (b) tell us now and we re-plan.'], 36: ['sys', '📞 AI agent called Ganesh · 0:48 · “Machine issue, print done by 06 Oct.” · date captured → plan updated'], 48: ['sys', '⚠ Escalated to Ravi (unit head) · ETD for PO 4468 at risk by 3 days · options shown'], 72: ['sys', '☀ In the owner’s 06:00 digest: “PO 4468 · print 4 days late · ETD at risk · ₹1.84 L air freight if not recovered by 08 Oct”'] };
+    const render = () => {
+      const v = +h.value; hv.textContent = v + ' h';
+      let last = null; rungs.forEach(r => { const on = +r.dataset.rung <= v; r.classList.toggle('on', on); r.classList.remove('now'); if (on) last = r; }); last?.classList.add('now');
+      msgs.innerHTML = '<div class="bub me">588MC print end is due today (02 Oct). Are we on track?<div class="m">09:00 ✓✓</div></div>';
+      Object.keys(M).map(Number).sort((a, b) => a - b).forEach(k => { if (k <= v) { const [c, t] = M[k]; const d = document.createElement('div'); if (c === 'sys') { d.className = 'sys2'; d.textContent = t; } else { d.className = 'bub me'; d.innerHTML = `${t}<div class="m">+${k} h ✓✓</div>`; } msgs.appendChild(d); } });
+      if (v >= 8 && v < 36) { const d = document.createElement('div'); d.className = 'bub'; d.innerHTML = 'Sir machine issue hai, kal batata hoon<div class="m">+8 h</div>'; msgs.insertBefore(d, msgs.children[2] || null); }
+      msgs.scrollTop = msgs.scrollHeight;
+    };
+    h.addEventListener('input', render); render();
+  }
+</script>

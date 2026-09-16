@@ -1,10 +1,11 @@
 ---
 import Base from '../../../layouts/Base.astro';
+import VoiceOps from '../../../components/demos/VoiceOps.astro'; import DemoSection from '../../../components/demos/DemoSection.astro';
 import Product from '../../../components/Product.astro';
 import d from '../../../data/products/ai-calling-agent.json';
 const schema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: d.faq.map(([q, a]) => ({ '@type': 'Question', name: q.replace(/<[^>]+>/g, ''), acceptedAnswer: { '@type': 'Answer', text: a.replace(/<[^>]+>/g, '') } })) };
 ---
 <Base title="AI calling agent \u2014 Hindi & English voice agents for sales and support | SparkFuse" description="Our own AI calling product, fitted to your flow: first call in 30 seconds, follow-ups on schedule, every call written to your CRM. 1M+ production calls." section="products" schema={schema}>
-  <Product d={d} />
+  <Product d={d}><DemoSection slot="demo" h="What your team sees while it runs." p="Campaigns, live calls, the log, and the script you edit in plain language. This is the operator side of the same product — fitted to your flow." tight><VoiceOps /></DemoSection></Product>
   <script>import '../../../scripts/calling.js';</script>
 </Base>

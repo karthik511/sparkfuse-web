@@ -1,12 +1,70 @@
 ---
-import Base from '../../layouts/Base.astro'; import MiniUI from '../../components/MiniUI.astro'; import CtaBand from '../../components/CtaBand.astro'; import '../../content/_shared.css';
-import { products } from '../../data/site.js';
+import Base from '../../layouts/Base.astro'; import MiniUI from '../../components/MiniUI.astro'; import CtaBand from '../../components/CtaBand.astro';
+import { products, categories, industries } from '../../data/site.js';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const kinds = { 'whatsapp-automation': 'chat', 'whatsapp-crm': 'crm', 'whatsapp-chatbot': 'bot', 'manufacturing-erp': 'kpi', 'inventory-management': 'bins', 'document-processing': 'doc', 'ai-workflow-automation': 'flow', 'ai-calling-agent': 'call', 'dealer-distributor-management': 'order', 'real-estate-crm': 'pipe', 'garment-erp': 'gantt', 'mis-dashboards': 'mis' };
+const indName = Object.fromEntries(industries.map(i => [i.slug, i.name]));
 ---
-<Base title="Products — semi-custom systems built from proven modules | SparkFuse" description="Twelve systems we've built for someone, each about 70% ready modules and 30% fitted to how you run. Every page has a mock you can play with." section="products">
-  <div class="hero"><div class="eb">Products</div><h1 class="h1">What you were searching for. <span class="g">Fitted to how you run.</span></h1><p class="p" style="font-size: 16px;">Each of these is a system we've built for someone. About 70% is ready modules we already operate; 30% is fitted to your process in discovery. Every page has an interactive mock — type into it, drag it, play it.</p></div>
-  <div class="sec"><div class="grid3">{products.map((p, i) => <a class="card hover" href={`${base}/products/${p.slug}/`} data-io><MiniUI kind={kinds[p.slug]} /><div class="t">{p.name}</div><div class="d">{p.line}</div><span style="font-weight: 600; font-size: 13px; color: var(--red);">See the page →</span></a>)}</div></div>
-  <div class="sec"><div class="grid2"><div class="card q"><div class="eb">Coming as proof lands</div><div class="t">Hotel, guest-house &amp; homestay management</div><div class="d">Bookings, owner payouts and finance for multi-property operators — page ships when the 45-property build is live.</div></div><div class="card q"><div class="eb">Not a product page, on purpose</div><div class="t">Vision AI, quality inspection, call analytics</div><div class="d">Capabilities people are shown, not ones they search for. They live under Solutions and inside the ERP and calling pages.</div></div></div></div>
-  <CtaBand />
+<Base title="Products — semi-custom systems built from proven modules | SparkFuse" description="Twelve systems we've built for someone, grouped by capability and industry. Filter by what you need; every page has a mock you can play with." section="products">
+  <section class="sec" style="padding-bottom: 24px;">
+    <div class="container">
+      <div class="sec-head" data-io style="margin-bottom: 28px;"><div class="eb">Products</div><h1 class="h1">What you were searching for. <span class="g">Fitted to how you run.</span></h1><p class="lede">Each of these is a system we've built for someone — about 70% ready modules we already operate, 30% fitted to your process. Pick a category or an industry; every page has an interactive mock.</p></div>
+      <div class="filters" data-io>
+        <div class="tabs" role="tablist" aria-label="Category">
+          <button class="tab on" data-cat="all" role="tab" aria-selected="true">All <span class="n">{products.length}</span></button>
+          {categories.map(c => <button class="tab" data-cat={c} role="tab" aria-selected="false">{c} <span class="n">{products.filter(p => p.cat === c).length}</span></button>)}
+        </div>
+        <div class="row2">
+          <div class="chips" aria-label="Industry"><span class="mono">Industry</span>{industries.map(i => <button class="chip" data-ind={i.slug}>{i.name}</button>)}</div>
+          <label class="sort"><span class="mono">Sort</span><select data-sort aria-label="Sort products"><option value="pop">Recommended</option><option value="az">A → Z</option><option value="lo">Starting price, low → high</option><option value="wk">Quickest to live</option></select></label>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="sec" style="padding-top: 0;">
+    <div class="container">
+      <div class="grid3" data-grid>
+        {products.map((p, i) => <a class="card hover pcard" href={`${base}/products/${p.slug}/`} data-cat={p.cat} data-ind={p.ind.join(' ')} data-pop={p.pop} data-lo={p.lo} data-wk={p.weeks} data-name={p.name} style={`--i:${i}`}><MiniUI kind={kinds[p.slug]} /><div class="chip" style="align-self: flex-start; margin-top: 8px;">{p.cat}</div><div class="t">{p.name}</div><div class="d">{p.line}</div><div class="meta"><span>from ₹{p.lo} L</span><span>·</span><span>{p.weeks}–{p.weeks + 2} weeks</span><span>·</span><span>{p.ind.map(x => indName[x]).join(', ')}</span></div><span class="btn3" style="font-size: 14px;">See the page <span class="arr">→</span></span></a>)}
+      </div>
+      <div class="empty hidden" data-empty><div class="h3">Nothing in this combination yet.</div><p class="p">Clear a filter — or tell us the process; that's usually how a new product page starts.</p></div>
+    </div>
+  </section>
+  <section class="sec" style="padding-top: 0;">
+    <div class="container">
+      <div class="grid2"><div class="card q"><div class="eb">Coming as proof lands</div><div class="t">Hotel, guest-house &amp; homestay management</div><div class="d">Bookings, owner payouts and finance for multi-property operators — page ships when the 45-property build is live.</div></div><div class="card q"><div class="eb">Not a product page, on purpose</div><div class="t">Vision AI, quality inspection, call analytics</div><div class="d">Capabilities people are shown, not ones they search for. They live under <a href={`${base}/solutions/`}>Solutions</a> — with demos — and inside the ERP and calling pages.</div></div></div>
+      <div style="height: 40px;"></div>
+      <CtaBand />
+    </div>
+  </section>
+  <style>
+    .filters { display: flex; flex-direction: column; gap: 14px; padding: 16px 0; border-block: 1px solid var(--line); }
+    .tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+    .tab { height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line2); background: var(--surface); color: var(--ink2); font-weight: 500; font-size: 14px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: all .15s; }
+    .tab:hover { border-color: var(--ink); color: var(--ink); } .tab.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+    .tab .n { font-family: var(--mono); font-size: 10.5px; opacity: .7; }
+    .row2 { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .chips { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; } .chips .chip { cursor: pointer; transition: all .15s; } .chips .chip:hover { border-color: var(--ink); } .chips .chip.on { background: var(--red); border-color: var(--red); color: #fff; }
+    .sort { display: flex; align-items: center; gap: 10px; } .sort select { height: 40px; border-radius: 999px; border: 1px solid var(--line2); background: var(--surface); padding: 0 14px; font: inherit; font-size: 14px; color: var(--ink); }
+    .pcard .meta { display: flex; gap: 8px; flex-wrap: wrap; font-family: var(--mono); font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+    .pcard.hide { display: none; }
+    .empty { text-align: center; padding: 60px 0; }
+  </style>
+  <script>
+    const grid = document.querySelector('[data-grid]'); const cards = [...grid.querySelectorAll('.pcard')]; const tabs = [...document.querySelectorAll('.tab')]; const chips = [...document.querySelectorAll('.chips .chip')]; const sort = document.querySelector('[data-sort]'); const empty = document.querySelector('[data-empty]');
+    const st = { cat: 'all', ind: new Set(), sort: 'pop' };
+    const q = new URLSearchParams(location.search); if (q.get('cat')) st.cat = q.get('cat'); if (q.get('ind')) st.ind.add(q.get('ind'));
+    function apply() {
+      tabs.forEach(t => { const on = t.dataset.cat === st.cat; t.classList.toggle('on', on); t.setAttribute('aria-selected', String(on)); });
+      chips.forEach(c => c.classList.toggle('on', st.ind.has(c.dataset.ind)));
+      const vis = cards.filter(c => (st.cat === 'all' || c.dataset.cat === st.cat) && (st.ind.size === 0 || [...st.ind].every(i => c.dataset.ind.split(' ').includes(i))));
+      cards.forEach(c => c.classList.toggle('hide', !vis.includes(c)));
+      const k = st.sort; vis.sort((a, b) => k === 'az' ? a.dataset.name.localeCompare(b.dataset.name) : k === 'lo' ? a.dataset.lo - b.dataset.lo || b.dataset.pop - a.dataset.pop : k === 'wk' ? a.dataset.wk - b.dataset.wk || b.dataset.pop - a.dataset.pop : b.dataset.pop - a.dataset.pop);
+      vis.forEach(c => grid.appendChild(c)); empty.classList.toggle('hidden', vis.length > 0);
+      const u = new URL(location); u.searchParams.delete('cat'); u.searchParams.delete('ind'); if (st.cat !== 'all') u.searchParams.set('cat', st.cat); if (st.ind.size) u.searchParams.set('ind', [...st.ind][0]); history.replaceState(null, '', u);
+    }
+    tabs.forEach(t => t.addEventListener('click', () => { st.cat = t.dataset.cat; apply(); }));
+    chips.forEach(c => c.addEventListener('click', () => { st.ind.has(c.dataset.ind) ? st.ind.delete(c.dataset.ind) : st.ind.add(c.dataset.ind); apply(); }));
+    sort.addEventListener('change', () => { st.sort = sort.value; apply(); });
+    apply();
+  </script>
 </Base>

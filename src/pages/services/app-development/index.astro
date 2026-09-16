@@ -3,7 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import raw from '../../../content/ServiceAppDev.html?raw';
 import '../../../content/ServiceAppDev.css';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const html = raw.replace(/href="\//g, `href="${base}/`);
+const html = raw.replace(/href="\//g, `href="${base}/`).replace(/src="\//g, `src="${base}/`);
 const title = "MVP & mobile app development, Bengaluru \u2014 shipped to the store | SparkFuse";
 const description = "Twelve weeks to something on the store with the unit economics worked out first. Consumer apps to 27,000 downloads; three products we run ourselves.";
 ---

@@ -1,13 +1,67 @@
 ---
-import Base from '../../layouts/Base.astro';
-import raw from '../../content/About.html?raw';
-import '../../content/About.css';
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const html = raw.replace(/href="\//g, `href="${base}/`);
-const title = "About SparkFuse \u2014 a consulting practice that builds, and runs what it builds";
-const description = "Boutique AI and process consultancy in Bengaluru, founder-led, grown out of the AI products it operates.";
+import Base from '../../layouts/Base.astro'; import CtaBand from '../../components/CtaBand.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, ''); const u = p => `${base}${p}`;
+const team = [
+  { n: 'Karthik Narayan', r: 'Founder · leads every engagement', b: 'MBA, IIM Amritsar. Big 4 consulting; technology leadership at a proptech unicorn; founded and ran an independent technology venture. Scopes, designs and answers for every project.', img: 'founder-sm.jpg', ini: 'KN' },
+  { n: 'Akhil', r: 'Chief Business Officer', b: 'Owns the commercial side — who we work with, how engagements are scoped and priced, and the relationship after go-live. Your second phone number at SparkFuse.', img: 'akhil-sm.jpg', ini: 'A' },
+];
+const title = 'About SparkFuse — a consulting practice that builds, and runs what it builds';
+const description = 'Boutique AI and process consultancy in Bengaluru, founder-led, grown out of the AI products it operates.';
 ---
 <Base title={title} description={description} section="about">
-  <div class="legacy" data-legacy><Fragment set:html={html} /></div>
-  
+  <section class="sec">
+    <div class="container">
+      <div class="split wide" style="align-items: center;">
+        <div data-io style="display: flex; flex-direction: column; gap: 20px;">
+          <div class="eb">About</div>
+          <h1 class="h1">A consulting practice that builds. <span class="g">And runs what it builds.</span></h1>
+          <p class="lede">SparkFuse Business Solutions LLP is a boutique AI and process consultancy in Bengaluru. It grew out of one consultant's practice — strategy, build, rollout and monitoring for owner-led Indian businesses — and out of the AI products that practice built and still operates. The products are why the advice is grounded: every module we recommend is one we've had to run, support and pay for ourselves.</p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;"><a class="btn red" href={u('/contact/')}>Tell us the process that hurts <span class="arr">→</span></a><a class="btn2" href={u('/services/ai-consulting/')}>The method</a></div>
+        </div>
+        <div data-io style="max-width: 460px; width: 100%; justify-self: end;"><figure class="founder-fig"><img src={u('/media/founder.jpg')} alt="Karthik Narayan, founder of SparkFuse, at a client's office" width="720" height="900" loading="eager" /><figcaption class="mono">Founder · on a client's floor, Bengaluru</figcaption></figure></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="background: var(--surface); border-block: 1px solid var(--line);">
+    <div class="container split" style="align-items: start;">
+      <div data-io style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="eb">How we're different</div>
+        <h2 class="h2">Founder-led. <span class="g">One person answerable.</span></h2>
+        <p class="p">Every engagement is scoped, designed and led by the founder; the team builds under him. You never get handed to an account manager, and the person who chose the approach is the person who answers for the result.</p>
+        <div style="display: flex; flex-direction: column; gap: 10px;">{['Discovery on your floor, with the people who run the process', 'The process redesigned before a line of code is written', 'Semi-custom: ready modules we operate, fitted to how you run', 'A number agreed up front and tracked after go-live'].map(x => <div class="li">{x}</div>)}</div>
+      </div>
+      <div data-io style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="eb">Background</div>
+        <h2 class="h2">Ten years across <span class="g">business and technology.</span></h2>
+        <p class="p">MBA from IIM Amritsar. Consulting at a Big 4 firm; technology leadership at a leading Indian proptech unicorn. Founded and ran an independent technology venture; built and operates three AI products — a calling platform used by 400+ businesses, a vision tool for service centres, and a fine-tuned consumer companion.</p>
+        <div class="grid3" style="gap: 12px;">{[['20+', 'projects delivered'], ['7', 'systems in production'], ['5', 'industries, this year']].map(([n, l]) => <div class="card flat" style="gap: 4px;"><div class="num" data-count={n}>{n}</div><div class="mono">{l}</div></div>)}</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="container">
+      <div class="sec-head" data-io><div class="eb">The team</div><h2 class="h2">Small, senior, on your floor.</h2><p class="lede" style="font-size: 17px;">Two people you'll deal with directly, and a build team under them — engineers on systems, voice and models, mobile, and rollout and training.</p></div>
+      <div class="grid2" style="max-width: 900px;">
+        {team.map(t => <div class="card hover person" data-io><div class="ph"><img src={u(`/media/${t.img}`)} alt={t.n} loading="lazy" onerror="this.style.display='none'" /><span class="ini">{t.ini}</span></div><div class="t">{t.n}</div><div class="mono" style="color: var(--red);">{t.r}</div><div class="d">{t.b}</div></div>)}
+      </div>
+      <div class="grid4" style="margin-top: 16px;">
+        {[['Systems', 'ERP/CRM, portals, integrations'], ['Voice & models', 'Pipelines, fine-tuning, evals'], ['Mobile & product', 'Apps, dashboards, inspection tools'], ['Rollout & training', 'On your floor until it sticks']].map(([k, v]) => <div class="card flat" data-io style="gap: 4px;"><div class="t" style="font-size: 15px;">{k}</div><div class="d">{v}</div></div>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top: 0;">
+    <div class="container"><CtaBand h="Tell us the process that hurts." p="One conversation on your floor, then a scoped proposal with a fixed number. Nothing locked in." /></div>
+  </section>
+  <style is:global>
+    .person { flex-direction: row; gap: 18px; align-items: flex-start; flex-wrap: wrap; }
+    .person .ph { width: 112px; height: 140px; border-radius: 14px; overflow: hidden; background: var(--ink); position: relative; flex: none; display: flex; align-items: center; justify-content: center; }
+    .person .ph img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.9) contrast(1.04); position: relative; z-index: 1; }
+    .person .ph .ini { color: #fff; font-weight: 700; font-size: 26px; letter-spacing: -.02em; position: absolute; }
+    .person .t { width: 100%; margin-top: 0; } .person > .t { flex: 1 1 100%; }
+    .person { display: grid; grid-template-columns: 112px 1fr; grid-template-rows: auto auto 1fr; column-gap: 18px; row-gap: 4px; }
+    .person .ph { grid-row: 1 / span 3; }
+  </style>
 </Base>

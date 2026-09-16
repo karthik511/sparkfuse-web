@@ -1,10 +1,11 @@
 ---
 import Base from '../../../layouts/Base.astro';
+import Ladder from '../../../components/demos/Ladder.astro'; import DemoSection from '../../../components/demos/DemoSection.astro';
 import Product from '../../../components/Product.astro';
 import d from '../../../data/products/ai-workflow-automation.json';
 const schema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: d.faq.map(([q, a]) => ({ '@type': 'Question', name: q.replace(/<[^>]+>/g, ''), acceptedAnswer: { '@type': 'Answer', text: a.replace(/<[^>]+>/g, '') } })) };
 ---
 <Base title="AI workflow automation \u2014 the system chases, assigns and escalates | SparkFuse" description="Every stage has an owner, a due date and a chase ladder. When something slips the right people hear in the right order, and a human is asked only for real decisions." section="products" schema={schema}>
-  <Product d={d} />
+  <Product d={d}><DemoSection slot="demo" h="Slide the clock. Watch the ladder climb." p="Every stage gets a ladder: who is chased, how, and when it stops being polite. Configured per client, logged per order." tight><Ladder /></DemoSection></Product>
   <script>import '../../../scripts/workflow.js';</script>
 </Base>

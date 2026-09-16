@@ -1,13 +1,14 @@
 ---
-import Base from '../../../layouts/Base.astro';
+import Base from '../../../layouts/Base.astro'; import Ladder from '../../../components/demos/Ladder.astro'; import DemoSection from '../../../components/demos/DemoSection.astro';
 import raw from '../../../content/IndustryDistribution.html?raw';
 import '../../../content/IndustryDistribution.css';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const html = raw.replace(/href="\//g, `href="${base}/`);
+const html = raw.replace(/href="\//g, `href="${base}/`).replace(/src="\//g, `src="${base}/`);
 const title = "Dealer & distributor systems for manufacturers | SparkFuse";
 const description = "Dealers ordering on their phones, one credit position, collections that run themselves. 300+ dealers, 20 states, one IT person.";
 ---
 <Base title={title} description={description} section="industries">
   <div class="legacy" data-legacy><Fragment set:html={html} /></div>
+  <DemoSection h="Collections that chase themselves." p="Slide the clock: reminder, chase, call, escalation, owner digest — the same ladder runs for dealer payments." eb="Interactive"><Ladder /></DemoSection>
   
 </Base>

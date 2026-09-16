@@ -1,0 +1,162 @@
+---
+// Vision AI demo: two real recordings of our detection stack + a simulated theft-detection scene + a defect-scoring batch.
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const { compact = false } = Astro.props;
+---
+<div class="frame mock vis" data-vis>
+  <div class="chrome"><i></i><i></i><i></i><div class="url">app.sparkfuse.in/vision · cam-03</div><div class="live">Recordings + simulation</div></div>
+  <div class="vtabs" role="tablist">
+    <button class="vt on" data-vt="single" role="tab">Single-entity tracking</button>
+    <button class="vt" data-vt="multi" role="tab">Crowd · 22 people</button>
+    <button class="vt" data-vt="theft" role="tab">Theft detection <span class="sim">sim</span></button>
+    {!compact && <button class="vt" data-vt="defect" role="tab">Defect scoring <span class="sim">sim</span></button>}
+  </div>
+
+  <div class="vp on" data-vp="single">
+    <video controls muted playsinline loop preload="none" poster={`${base}/media/vision-single.jpg`}><source src={`${base}/media/vision-single.mp4`} type="video/mp4" /></video>
+    <div class="cap"><span class="mono">Recording · our stack on a sample clip</span><span>One person tracked across frames — ID held, zone entry logged, face pass 22 ms. Runs on the CCTV you already own.</span></div>
+  </div>
+  <div class="vp" data-vp="multi">
+    <video controls muted playsinline loop preload="none" poster={`${base}/media/vision-multi.jpg`}><source src={`${base}/media/vision-multi.mp4`} type="video/mp4" /></video>
+    <div class="cap"><span class="mono">Recording · 22 people, 4 fps on CPU</span><span>Every person gets an ID, a trail and a zone. Heatmap on, line counts optional. This is counting and presence — for retail, plants, gates.</span></div>
+  </div>
+
+  <div class="vp" data-vp="theft">
+    <div class="theft">
+      <div class="cam">
+        <canvas data-cv width="640" height="360" aria-label="Simulated CCTV frame with detection boxes"></canvas>
+        <div class="hud"><span class="rec">● REC</span><span class="mono" data-clock>14:32:07</span><span class="mono">CAM 03 · SHELF B → EXIT</span></div>
+        <div class="alert hidden" data-alert><b>⚠ Unpaid item leaving zone</b><span>Person #7 · 1 item · billing not seen · sent to Vikram (WhatsApp) + store speaker</span></div>
+      </div>
+      <div class="side">
+        <div class="ctl">
+          <button class="btn red" data-run>Run scenario</button>
+          <label class="sw"><span class="tg" data-legit></span><span>Person pays at the counter first</span></label>
+        </div>
+        <div class="stats"><div class="kpi"><div class="v" data-st="people">0</div><div class="s">people in view</div></div><div class="kpi"><div class="v" data-st="items">0</div><div class="s">items picked</div></div><div class="kpi r"><div class="v" data-st="alerts">0</div><div class="s">alerts today</div></div></div>
+        <div class="log" data-log><div class="ev"><div class="w">14:31</div><div>Shift open · 3 cameras healthy · rules: shelf-pick → billing → exit</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  {!compact && <div class="vp" data-vp="defect">
+    <div class="defect">
+      <div class="tiles" data-tiles>
+        {[0,1,2,3,4,5,6,7].map(i => <div class="tile" data-tile={i}><i class="sw1"></i><i class="sw2"></i><div class="bx hidden"></div><div class="sc mono"></div></div>)}
+      </div>
+      <div class="side">
+        <div class="ctl"><button class="btn red" data-scan>Scan batch of 8</button><span class="mono" data-scanst>Knit panels · lot 4471 · 280 gsm</span></div>
+        <div class="stats"><div class="kpi"><div class="v" data-st="pass">—</div><div class="s">pass</div></div><div class="kpi r"><div class="v" data-st="fail">—</div><div class="s">flagged</div></div><div class="kpi"><div class="v" data-st="ms">—</div><div class="s">ms per panel</div></div></div>
+        <div class="log" data-dlog><div class="ev"><div class="w">Rule</div><div>Flag if hole ≥ 0.80 or stain ≥ 0.75 · flagged panels go to a human, not to the bin.</div></div></div>
+      </div>
+    </div>
+  </div>}
+</div>
+
+<style is:global>
+  .vis { display: flex; flex-direction: column; }
+.vis .vtabs { display: flex; gap: 4px; padding: 10px 12px 0; background: #111; flex-wrap: wrap; }
+.vis .vt { background: transparent; border: 0; color: #9A9A94; font: inherit; font-size: 12.5px; font-weight: 500; padding: 8px 12px; border-radius: 8px 8px 0 0; cursor: pointer; display: inline-flex; gap: 6px; align-items: center; }
+.vis .vt:hover { color: #fff; }.vis .vt.on { background: #1B1B1B; color: #fff; }
+.vis .vt .sim { font-family: var(--mono); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; padding: 1px 5px; border-radius: 4px; background: var(--red); color: #fff; }
+.vis .vp { display: none; background: #1B1B1B; color: #EFEEE9; }.vis .vp.on { display: block; }
+.vis .vp video { width: 100%; display: block; aspect-ratio: 16 / 9; background: #000; }
+.vis .cap { display: flex; flex-direction: column; gap: 4px; padding: 12px 16px; font-size: 13px; color: #C9C8C1; border-top: 1px solid #2A2A27; }.vis .cap .mono { color: #9A9A94; }
+.vis .theft, .vis .defect { display: grid; grid-template-columns: 1.5fr 1fr; }
+.vis .cam { position: relative; background: #000; }.vis .cam canvas { width: 100%; height: auto; display: block; aspect-ratio: 16 / 9; }
+.vis .hud { position: absolute; top: 10px; left: 12px; right: 12px; display: flex; gap: 14px; font-size: 11px; color: #fff; text-shadow: 0 1px 2px #000; }.vis .hud .rec { color: #FF4D3D; animation: blink 1.2s infinite; }.vis .hud .mono { color: #fff; }
+  @keyframes blink { 50% { opacity: .2; } }
+.vis .alert { position: absolute; left: 12px; right: 12px; bottom: 12px; background: var(--red); color: #fff; padding: 10px 14px; border-radius: 10px; display: flex; flex-direction: column; gap: 2px; font-size: 12.5px; box-shadow: 0 8px 24px rgba(0,0,0,.4); }.vis .alert.hidden { display: none; }.vis .alert span { font-size: 11.5px; opacity: .92; }
+.vis .side { display: flex; flex-direction: column; gap: 12px; padding: 14px; border-left: 1px solid #2A2A27; min-width: 0; }
+.vis .ctl { display: flex; flex-direction: column; gap: 10px; }
+  .vis .sw { background: #242422; border-color: #2A2A27; color: #C9C8C1; cursor: pointer; } .vis .kpi { background: #242422; border-color: #2A2A27; } .vis .kpi.r { background: #2A1C1A; border-color: #4A2620; } .vis .kpi .s { color: #9A9A94; } .vis .kpi .v { color: #fff; }
+.vis .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.vis .log { display: flex; flex-direction: column; max-height: 150px; overflow: auto; font-size: 12px; }.vis .ev { border-color: #2A2A27; color: #C9C8C1; }.vis .ev .w { color: #9A9A94; }.vis .ev.hot { color: #fff; } .vis .ev b, .vis .cap b, .vis .alert b { color: #fff; }.vis .ev.hot .w { color: var(--red); }
+.vis .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; padding: 14px; background: #0F0F0E; }
+.vis .tile { position: relative; aspect-ratio: 1; border-radius: 6px; overflow: hidden; background: #6E7A8A; background-image: repeating-linear-gradient(0deg, rgba(255,255,255,.08) 0 2px, transparent 2px 6px), repeating-linear-gradient(90deg, rgba(0,0,0,.08) 0 1px, transparent 1px 5px); transition: outline .2s; outline: 2px solid transparent; }
+.vis .tile.scan { outline-color: #fff; }.vis .tile.ok { outline-color: var(--ok); }.vis .tile.bad { outline-color: var(--red); }
+.vis .tile i { position: absolute; display: block; border-radius: 50%; opacity: 0; }.vis .tile .sw1 { width: 14px; height: 9px; background: #2B2B2B; left: 30%; top: 40%; transform: rotate(-20deg); }.vis .tile .sw2 { width: 26px; height: 18px; background: rgba(60,40,20,.55); left: 55%; top: 60%; filter: blur(2px); }
+.vis .tile.hole .sw1, .vis .tile.stain .sw2 { opacity: 1; }
+.vis .tile .bx { position: absolute; border: 1.5px solid var(--red); border-radius: 3px; }.vis .tile .bx.hidden { display: none; }
+.vis .tile .sc { position: absolute; left: 4px; bottom: 4px; font-size: 9.5px; color: #fff; text-shadow: 0 1px 2px #000; }
+  @media (max-width: 760px) {.vis .hud { font-size: 9.5px; gap: 8px; } .vis .hud .mono:last-child { display: none; }.vis .theft, .vis .defect { grid-template-columns: 1fr; }.vis .side { border-left: 0; border-top: 1px solid #2A2A27; }  }
+</style>
+
+<script>
+  const root = document.querySelector('[data-vis]');
+  if (root) {
+    // tabs
+    const tabs = [...root.querySelectorAll('.vt')], panes = [...root.querySelectorAll('.vp')];
+    tabs.forEach(t => t.addEventListener('click', () => { tabs.forEach(x => x.classList.toggle('on', x === t)); panes.forEach(p => { const on = p.dataset.vp === t.dataset.vt; p.classList.toggle('on', on); if (!on) p.querySelector('video')?.pause(); }); if (t.dataset.vt === 'theft') drawFrame(0, false); }));
+
+    // ---- theft-detection simulation on canvas
+    const cv = root.querySelector('[data-cv]'); const ctx = cv.getContext('2d'); const W = cv.width, H = cv.height;
+    const st = { people: 0, items: 0, alerts: 0 }; const stEl = k => root.querySelector(`[data-st="${k}"]`);
+    const log = root.querySelector('[data-log]'), alertBox = root.querySelector('[data-alert]'), clock = root.querySelector('[data-clock]'), legitTg = root.querySelector('[data-legit]'), runBtn = root.querySelector('[data-run]');
+    let legit = false; legitTg.classList.add('off'); legitTg.addEventListener('click', () => { legit = !legit; legitTg.classList.toggle('off', !legit); });
+    const addLog = (t, hot) => { const d = document.createElement('div'); d.className = 'ev' + (hot ? ' hot' : ''); d.innerHTML = `<div class="w">${t[0]}</div><div>${t[1]}</div>`; log.prepend(d); };
+    const shelves = [[40, 60, 120, 240], [200, 60, 120, 240]]; const counter = [380, 250, 110, 50]; const exitX = 560;
+    let tick = 0, timer = null;
+    function drawFrame(p, withItem, paid, personX, personY) {
+      ctx.fillStyle = '#17181A'; ctx.fillRect(0, 0, W, H);
+      // floor grid
+      ctx.strokeStyle = 'rgba(255,255,255,.05)'; for (let x = 0; x < W; x += 32) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); } for (let y = 0; y < H; y += 32) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
+      // shelves
+      shelves.forEach(([x, y, w, h]) => { ctx.fillStyle = '#2B2E33'; ctx.fillRect(x, y, w, h); ctx.strokeStyle = '#3C4047'; for (let i = 1; i < 5; i++) { ctx.beginPath(); ctx.moveTo(x, y + i * h / 5); ctx.lineTo(x + w, y + i * h / 5); ctx.stroke(); } for (let r = 0; r < 5; r++) for (let c = 0; c < 4; c++) { ctx.fillStyle = ['#C9563F', '#3F7FC9', '#D9B23F', '#5FA85F'][(r + c) % 4]; ctx.fillRect(x + 8 + c * 28, y + 6 + r * h / 5, 18, 22); } });
+      // shelf item that gets picked (missing once picked)
+      if (!withItem) { ctx.fillStyle = '#C9563F'; ctx.fillRect(shelves[1][0] + 8 + 28, shelves[1][1] + 6 + 2 * 48, 18, 22); } else { ctx.fillStyle = '#1F2226'; ctx.fillRect(shelves[1][0] + 8 + 28, shelves[1][1] + 6 + 2 * 48, 18, 22); }
+      // billing counter
+      ctx.fillStyle = '#3A3226'; ctx.fillRect(...counter); ctx.fillStyle = '#EFEEE9'; ctx.font = '10px IBM Plex Mono, monospace'; ctx.fillText('BILLING', counter[0] + 8, counter[1] + 30);
+      // zones
+      ctx.setLineDash([6, 4]); ctx.strokeStyle = 'rgba(255,220,80,.7)'; ctx.strokeRect(counter[0] - 20, counter[1] - 40, counter[2] + 40, counter[3] + 60); ctx.fillStyle = 'rgba(255,220,80,.9)'; ctx.fillText('zone: billing', counter[0] - 18, counter[1] - 46);
+      ctx.strokeStyle = 'rgba(255,80,60,.8)'; ctx.beginPath(); ctx.moveTo(exitX, 20); ctx.lineTo(exitX, H - 20); ctx.stroke(); ctx.fillStyle = 'rgba(255,80,60,.9)'; ctx.fillText('EXIT LINE', exitX + 6, 32); ctx.setLineDash([]);
+      // person
+      if (personX != null) {
+        const w = 34, h = 74; ctx.fillStyle = '#5B6270'; ctx.fillRect(personX - w / 2 + 6, personY - h / 2 + 18, w - 12, h - 18); ctx.fillStyle = '#C9A27E'; ctx.beginPath(); ctx.arc(personX, personY - h / 2 + 10, 9, 0, Math.PI * 2); ctx.fill();
+        if (withItem) { ctx.fillStyle = '#C9563F'; ctx.fillRect(personX + 8, personY + 4, 12, 16); }
+        const col = withItem && !paid ? '#FF4D3D' : '#5FE08A'; ctx.strokeStyle = col; ctx.lineWidth = 1.5; ctx.strokeRect(personX - w / 2 - 4, personY - h / 2 - 6, w + 8, h + 12);
+        ctx.fillStyle = col; ctx.fillRect(personX - w / 2 - 4, personY - h / 2 - 20, 116, 14); ctx.fillStyle = '#000'; ctx.font = '10px IBM Plex Mono, monospace'; ctx.fillText(`#7 · ${withItem ? (paid ? 'item · paid' : 'item · unpaid') : 'browsing'} · 0.9${(p % 7)}`, personX - w / 2 - 1, personY - h / 2 - 9);
+        ctx.lineWidth = 1;
+      }
+    }
+    function run() {
+      if (timer) return; runBtn.disabled = true; alertBox.classList.add('hidden'); tick = 0;
+      st.people = 1; stEl('people').textContent = 1; addLog(['14:32', 'Person #7 entered from door · tracked'], false);
+      const path = []; // waypoints
+      path.push([80, 320], [230, 300], [245, 240]); // to shelf B
+      if (legit) path.push([330, 300], [430, 300], [430, 300], [430, 300], [520, 300], [610, 300]); else path.push([330, 330], [470, 340], [610, 330]);
+      let seg = 0, t = 0, withItem = false, paid = false, alerted = false, logged = {};
+      timer = setInterval(() => {
+        tick++; const s = 7 + Math.floor(tick / 10); clock.textContent = `14:32:${String(s).padStart(2, '0')}`;
+        const a = path[seg], b = path[seg + 1] || a; t += 0.06; const x = a[0] + (b[0] - a[0]) * t, y = a[1] + (b[1] - a[1]) * t;
+        if (seg === 2 && !withItem && t > 0.3) { withItem = true; st.items++; stEl('items').textContent = st.items; addLog(['14:32', 'Shelf-pick · shelf B row 3 · 1 item · #7 now carries 1'], false); }
+        if (legit && x > counter[0] - 10 && x < counter[0] + counter[2] + 10 && !paid && withItem) { if (!logged.bill) { logged.bill = 1; addLog(['14:33', 'Entered billing zone · waiting for POS event…'], false); } if (t > 0.7 && seg >= 5) { paid = true; addLog(['14:33', 'POS bill #4471 matched to #7 · item cleared'], false); } }
+        if (x >= exitX && withItem) { if (!paid && !alerted) { alerted = true; st.alerts++; stEl('alerts').textContent = st.alerts; alertBox.classList.remove('hidden'); addLog(['14:33', '<b>Unpaid item crossed exit line</b> · clip saved · WhatsApp to Vikram · speaker announced'], true); } else if (paid && !logged.ok) { logged.ok = 1; addLog(['14:33', 'Exit with paid item · no action · logged'], false); } }
+        drawFrame(tick, withItem, paid, x, y);
+        if (t >= 1) { t = 0; seg++; }
+        if (seg >= path.length - 1 && x >= 610) { clearInterval(timer); timer = null; runBtn.disabled = false; runBtn.textContent = 'Run again'; st.people = 0; stEl('people').textContent = 0; setTimeout(() => drawFrame(0, false), 800); }
+      }, 50);
+    }
+    runBtn.addEventListener('click', run); drawFrame(0, false);
+
+    // ---- defect scoring
+    const scan = root.querySelector('[data-scan]'); const tiles = [...root.querySelectorAll('[data-tile]')]; const dlog = root.querySelector('[data-dlog]');
+    if (scan) {
+      const truth = { 2: ['hole', 0.91, [28, 36, 26, 18]], 5: ['stain', 0.84, [50, 56, 40, 32]] }; tiles.forEach((t, i) => { if (truth[i]) t.classList.add(truth[i][0]); });
+      let busy = false;
+      scan.addEventListener('click', () => {
+        if (busy) return; busy = true; let pass = 0, fail = 0; tiles.forEach(t => { t.classList.remove('ok', 'bad', 'scan'); t.querySelector('.bx').classList.add('hidden'); t.querySelector('.sc').textContent = ''; }); [...dlog.querySelectorAll('.ev.hot')].forEach(e => e.remove());
+        tiles.forEach((t, i) => setTimeout(() => {
+          tiles.forEach(x => x.classList.remove('scan')); t.classList.add('scan');
+          setTimeout(() => {
+            t.classList.remove('scan'); const tr = truth[i];
+            if (tr) { fail++; t.classList.add('bad'); const bx = t.querySelector('.bx'); bx.classList.remove('hidden'); bx.style.cssText = `left:${tr[2][0]}%;top:${tr[2][1]}%;width:${tr[2][2]}%;height:${tr[2][3]}%`; t.querySelector('.sc').textContent = `${tr[0]} ${tr[1]}`; const d = document.createElement('div'); d.className = 'ev hot'; d.innerHTML = `<div class="w">Panel ${i + 1}</div><div><b>${tr[0]} ${tr[1]}</b> → held for Meena (QC) · photo + score attached</div>`; dlog.prepend(d); }
+            else { pass++; t.classList.add('ok'); t.querySelector('.sc').textContent = `ok 0.0${3 + (i * 7) % 6}`; }
+            root.querySelector('[data-st="pass"]').textContent = pass; root.querySelector('[data-st="fail"]').textContent = fail; root.querySelector('[data-st="ms"]').textContent = 38 + (i * 13) % 20;
+            if (i === tiles.length - 1) { busy = false; scan.textContent = 'Scan again'; }
+          }, 260);
+        }, i * 340));
+      });
+    }
+  }
+</script>

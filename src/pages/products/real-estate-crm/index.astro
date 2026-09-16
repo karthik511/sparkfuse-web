@@ -1,10 +1,11 @@
 ---
 import Base from '../../../layouts/Base.astro';
+import VoiceOps from '../../../components/demos/VoiceOps.astro'; import DemoSection from '../../../components/demos/DemoSection.astro';
 import Product from '../../../components/Product.astro';
 import d from '../../../data/products/real-estate-crm.json';
 const schema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: d.faq.map(([q, a]) => ({ '@type': 'Question', name: q.replace(/<[^>]+>/g, ''), acceptedAnswer: { '@type': 'Answer', text: a.replace(/<[^>]+>/g, '') } })) };
 ---
 <Base title="Real-estate CRM with AI calling & WhatsApp \u2014 first response in 30 seconds | SparkFuse" description="Portal leads, walk-ins and brokers in one inbox; every lead called by an AI agent in 30 seconds, qualified, booked and handed over. Designed for a Surat developer." section="products" schema={schema}>
-  <Product d={d} />
+  <Product d={d}><DemoSection slot="demo" h="The calling side, live." p="Every enquiry called inside 30 seconds by the agent; hot leads, callbacks and handovers written straight into the CRM you just saw." tight><VoiceOps start="live" /></DemoSection></Product>
   <script>import '../../../scripts/realestate.js';</script>
 </Base>

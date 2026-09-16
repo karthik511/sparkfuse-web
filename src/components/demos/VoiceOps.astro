@@ -1,0 +1,144 @@
+---
+// Operator console for the AI calling product — indicative screens (campaigns, live calls, call log, agent script). Fictional data.
+const { start = 'campaigns' } = Astro.props;
+const tabs = [['campaigns', 'Campaigns'], ['live', 'Live calls'], ['log', 'Call log'], ['script', 'Agent script']];
+const camps = [['Vesu 2BHK · enquiry follow-up', 'Shubham Developers', 640, 900, 'running'], ['Overdue EMI · gentle reminder', 'Gupta Pipes dealers', 212, 340, 'running'], ['Service due · 10,000 km', 'Annapoorna Motors', 1180, 1180, 'done'], ['Renewal · Diwali offer', 'Deccan Protective', 0, 2200, 'scheduled 20 Sep 10:00']];
+const logRows = [['14:31', 'Priya Mehta', '+91 98••• 4471', '2:14', 'Hot', 'Visit booked · Sun 3:00'], ['14:29', 'Ramesh K', '+91 99••• 1180', '0:41', 'Callback', 'Asked for evening · 7:30'], ['14:27', 'Suresh Iyer', '+91 97••• 2290', '3:02', 'Hot', 'Wants 3 BHK · budget 1.1 Cr'], ['14:26', 'Unknown', '+91 90••• 0034', '0:00', 'No answer', 'Retry in 2 h (attempt 2/3)'], ['14:22', 'Kavita Rao', '+91 96••• 8812', '1:12', 'Not interested', 'Already booked elsewhere'], ['14:20', 'Anil Gupta', '+91 98••• 5567', '1:48', 'Handover', 'Price question → Vikram joined'], ['14:18', 'Deepa S', '+91 95••• 3301', '2:31', 'Hot', 'Visit · Sat 11:00 · with spouse']];
+---
+<div class="frame mock vops" data-vops>
+  <div class="chrome"><i></i><i></i><i></i><div class="url">app.sparkfuse.in/calling · operator</div><div class="live">Indicative screens · fictional data</div></div>
+  <div class="shell">
+    <aside class="sb">
+      <div class="brand"><span class="mark"></span>Calling</div>
+      {tabs.map(([k, l]) => <button class={`nv${k === start ? ' on' : ''}`} data-nv={k}>{l}{k === 'live' && <span class="b" data-livecount>4</span>}</button>)}
+      <div class="sbfoot mono">Shubham Developers · Surat<br/>₹0.81 / min · 3 numbers</div>
+    </aside>
+    <div class="main">
+      <!-- CAMPAIGNS -->
+      <div class={`pane${start === 'campaigns' ? ' on' : ''}`} data-pane="campaigns">
+        <div class="ph2"><div><div class="h">Today</div><div class="mono">Tue 16 Sep · 14:32 IST</div></div><button class="btn red">New campaign</button></div>
+        <div class="kpis"><div class="kpi"><div class="v" data-count="1,284">1,284</div><div class="s">calls placed</div></div><div class="kpi"><div class="v" data-count="62%">62%</div><div class="s">connected</div></div><div class="kpi r"><div class="v" data-count="91">91</div><div class="s">hot leads</div></div><div class="kpi"><div class="v" data-count="₹0.81">₹0.81</div><div class="s">per minute</div></div></div>
+        <div class="tbl">
+          <div class="tr th"><span>Campaign</span><span>Account</span><span>Progress</span><span>Status</span></div>
+          {camps.map(([n, a, d, t, s]) => <div class="tr"><span class="nm">{n}</span><span class="mono">{a}</span><span class="pg"><span class="trk"><i style={`width:${Math.round(d / t * 100)}%`}></i></span><em class="mono">{d}/{t}</em></span><span class={`st ${s.split(' ')[0]}`}>{s}</span></div>)}
+        </div>
+        <div class="two">
+          <div class="card2"><div class="h">Outcome mix · today</div><div class="bars">{[['Hot', 91, 'r'], ['Callback', 164, ''], ['Handover', 22, 'k'], ['Not interested', 310, ''], ['No answer', 486, 'g']].map(([l, n, c]) => <div class="br"><span>{l}</span><i class={c} style={`width:${Math.round(n / 4.9)}%`}></i><b class="mono">{n}</b></div>)}</div></div>
+          <div class="card2"><div class="h">Written to CRM · last hour</div><div class="ev"><div class="w">14:31</div><div><b>Priya Mehta</b> → Hot · visit Sun 3:00 · Kiran assigned</div></div><div class="ev"><div class="w">14:27</div><div><b>Suresh Iyer</b> → Hot · 3 BHK · budget noted</div></div><div class="ev"><div class="w">14:20</div><div><b>Anil Gupta</b> → Handover · Vikram on call · price</div></div><div class="ev"><div class="w">14:18</div><div><b>Deepa S</b> → Hot · visit Sat 11:00</div></div></div>
+        </div>
+      </div>
+      <!-- LIVE -->
+      <div class={`pane${start === 'live' ? ' on' : ''}`} data-pane="live">
+        <div class="ph2"><div><div class="h">Live calls</div><div class="mono"><span data-livecount2>4</span> in progress · 3 lines free</div></div><span class="pulse mono">● live</span></div>
+        <div class="calls" data-calls></div>
+        <div class="card2" style="margin-top: 12px;"><div class="h">Listening in · Priya Mehta</div><div class="tr2" data-tr></div></div>
+      </div>
+      <!-- LOG -->
+      <div class={`pane${start === 'log' ? ' on' : ''}`} data-pane="log">
+        <div class="ph2"><div><div class="h">Call log</div><div class="mono">Vesu 2BHK · today</div></div><div class="chips">{['All', 'Hot', 'Callback', 'Handover', 'No answer'].map((c, i) => <button class={`chip${i === 0 ? ' on' : ''}`} data-f={c}>{c}</button>)}</div></div>
+        <div class="tbl log">
+          <div class="tr th"><span>Time</span><span>Caller</span><span>Number</span><span>Dur.</span><span>Outcome</span><span>Note</span></div>
+          {logRows.map(r => <div class="tr" data-o={r[4]}><span class="mono">{r[0]}</span><span class="nm">{r[1]}</span><span class="mono">{r[2]}</span><span class="mono">{r[3]}</span><span class={`st ${r[4].replace(/ /g, '-')}`}>{r[4]}</span><span>{r[5]}</span></div>)}
+        </div>
+        <div class="small" style="padding: 10px 2px; color: var(--muted);">Click a row for the transcript, sentiment and the CRM write. Every call is recorded; the summary is what your team reads.</div>
+        <div class="card2 hidden" data-detail></div>
+      </div>
+      <!-- SCRIPT -->
+      <div class={`pane${start === 'script' ? ' on' : ''}`} data-pane="script">
+        <div class="ph2"><div><div class="h">Agent script · Anjali</div><div class="mono">Vesu 2BHK · v7 · edited by Vikram</div></div><button class="btn2" data-test>Test a line</button></div>
+        <div class="two">
+          <div class="form">
+            <label><span class="k">Opening</span><textarea rows="3" data-open>Namaste, &#123;name&#125; ji. Main Shubham Developers se Anjali bol rahi hoon. Aapne abhi Vesu project ke liye enquiry ki thi — kya main do minute le sakti hoon?</textarea></label>
+            <label><span class="k">Language mix</span><div class="sl"><div class="lab"><span class="mono">Hindi</span><span class="v mono" data-mixv>60 / 40</span><span class="mono">English</span></div><input type="range" min="0" max="100" value="60" data-mix /></div></label>
+            <label><span class="k">Goal</span><div class="tog" data-goal><div class="on">Book a visit</div><div>Qualify only</div><div>Collect payment</div></div></label>
+            <div class="sw"><span class="tg" data-tg="price"></span><span>Hand over to a human on any <b>price</b> question</span></div>
+            <div class="sw"><span class="tg" data-tg="angry"></span><span>Hand over on <b>frustration</b> (sentiment &lt; −0.4)</span></div>
+            <div class="sw"><span class="tg off" data-tg="night"></span><span>Allow calls after 8 pm</span></div>
+          </div>
+          <div class="form">
+            <div class="k">Objections · how Anjali answers</div>
+            {[['“Bahut mehenga hai”', 'Acknowledge, mention 76 L starting, offer to send the price sheet on WhatsApp, ask what budget works.'], ['“Baad mein call karo”', 'Ask for a specific time, confirm it back, schedule a callback — never a vague “later”.'], ['“Kaun bol raha hai?”', 'Repeat name and company, mention the enquiry source and time, offer to send a verification message.']].map(([q, a]) => <div class="obj"><b>{q}</b><span>{a}</span></div>)}
+            <div class="k" style="margin-top: 6px;">Test line</div>
+            <div class="draft" data-testout>Press “Test a line” — Anjali reads the opening with your current language mix.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  .vops .shell { display: grid; grid-template-columns: 160px 1fr; min-height: 520px; background: #fff; }
+  .vops .sb { background: var(--bg); border-right: 1px solid var(--line); padding: 12px 10px; display: flex; flex-direction: column; gap: 4px; }
+  .vops .brand { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 13px; padding: 4px 8px 12px; } .vops .brand .mark { width: 14px; height: 14px; border-radius: 4px; background: var(--red); }
+  .vops .nv { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border: 0; background: transparent; font: inherit; font-size: 12.5px; color: var(--ink2); border-radius: 8px; cursor: pointer; text-align: left; }
+  .vops .nv.on { background: #fff; color: var(--ink); font-weight: 600; box-shadow: inset 3px 0 0 var(--red); } .vops .nv:hover { color: var(--ink); }
+  .vops .nv .b { margin-left: auto; font-family: var(--mono); font-size: 10px; background: var(--red); color: #fff; padding: 1px 6px; border-radius: 999px; }
+  .vops .sb .sbfoot { margin-top: auto; padding: 8px; color: var(--muted); line-height: 1.5; }
+  .vops .main { padding: 16px 18px; min-width: 0; }
+  .vops .pane { display: none; flex-direction: column; gap: 12px; } .vops .pane.on { display: flex; }
+  .vops .ph2 { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; } .vops .h { font-weight: 600; font-size: 14px; }
+  .vops .kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+  .vops .tbl { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; font-size: 12.5px; }
+  .vops .tr { display: grid; grid-template-columns: 1.6fr 1.1fr 1.2fr 1fr; gap: 10px; padding: 9px 12px; border-bottom: 1px solid var(--line); align-items: center; } .vops .tr:last-child { border-bottom: 0; }
+  .vops .tbl.log .tr { grid-template-columns: 46px 1fr 1.1fr 46px .9fr 1.6fr; cursor: pointer; } .vops .tbl.log .tr:not(.th):hover { background: var(--bg); } .vops .tbl.log .tr.sel { background: #FFFBFA; }
+  .vops .tr.th { background: var(--bg); font-family: var(--mono); font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); cursor: default; }
+  .vops .nm { font-weight: 600; }
+  .vops .pg { display: flex; align-items: center; gap: 8px; } .vops .pg .trk { flex: 1; height: 6px; background: var(--bg2); border-radius: 3px; overflow: hidden; } .vops .pg i { display: block; height: 100%; background: var(--ink); border-radius: 3px; } .vops .pg em { font-style: normal; font-size: 10px; color: var(--muted); }
+  .vops .st { font-family: var(--mono); font-size: 10px; letter-spacing: .04em; } .vops .st.running { color: var(--ok); } .vops .st.done { color: var(--muted); } .vops .st.scheduled { color: var(--ink2); }
+  .vops .st.Hot { color: var(--red); font-weight: 600; } .vops .st.Callback { color: var(--warn); } .vops .st.Handover { color: var(--ink); } .vops .st.No-answer, .vops .st.Not-interested { color: var(--muted); }
+  .vops .two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .vops .card2 { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; font-size: 12.5px; } .vops .card2.hidden { display: none; }
+  .vops .bars { display: flex; flex-direction: column; gap: 6px; } .vops .br { display: grid; grid-template-columns: 90px 1fr 36px; gap: 8px; align-items: center; font-size: 11.5px; } .vops .br i { height: 8px; border-radius: 4px; background: var(--ink); display: block; } .vops .br i.r { background: var(--red); } .vops .br i.g { background: var(--line2); } .vops .br i.k { background: var(--ink2); } .vops .br b { text-align: right; font-weight: 500; }
+  .vops .pulse { color: var(--red); animation: vblink 1.4s infinite; } @keyframes vblink { 50% { opacity: .3; } }
+  .vops .calls { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .vops .call { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; display: flex; flex-direction: column; gap: 6px; font-size: 12px; animation: vin .4s var(--ease); } @keyframes vin { from { opacity: 0; transform: translateY(6px); } }
+  .vops .call .top { display: flex; justify-content: space-between; align-items: center; } .vops .call .dur { font-family: var(--mono); font-size: 11px; color: var(--ink2); } .vops .call .stg { font-family: var(--mono); font-size: 9.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--red); }
+  .vops .call .wave { height: 22px; } .vops .call .wave i { width: 2px; transition: height .25s; }
+  .vops .call .sent { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); } .vops .call .sent i { display: block; height: 6px; width: 60px; border-radius: 3px; background: linear-gradient(90deg, var(--red), var(--warn), var(--ok)); position: relative; } .vops .call .sent i::after { content: ""; position: absolute; top: -3px; width: 12px; height: 12px; border-radius: 50%; background: #fff; border: 2px solid var(--ink); left: var(--p, 50%); transform: translateX(-50%); transition: left .5s; }
+  .vops .call.end { opacity: .5; }
+  .vops .tr2 { display: flex; flex-direction: column; gap: 6px; max-height: 120px; overflow: auto; }
+  .vops .chips { display: flex; gap: 6px; flex-wrap: wrap; } .vops .chip { cursor: pointer; } .vops .chip.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .vops .form { display: flex; flex-direction: column; gap: 10px; } .vops .form label { display: flex; flex-direction: column; gap: 6px; } .vops .form .k { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .vops textarea { font: inherit; font-size: 12.5px; line-height: 1.45; border: 1px solid var(--line2); border-radius: 8px; padding: 8px 10px; resize: vertical; color: var(--ink); }
+  .vops .obj { display: flex; flex-direction: column; gap: 3px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; font-size: 12px; } .vops .obj b { font-size: 12.5px; } .vops .obj span { color: var(--ink2); }
+  @media (max-width: 760px) { .vops .shell { grid-template-columns: 1fr; } .vops .sb { flex-direction: row; flex-wrap: wrap; border-right: 0; border-bottom: 1px solid var(--line); } .vops .sb .sbfoot, .vops .brand { display: none; } .vops .kpis, .vops .two, .vops .calls { grid-template-columns: 1fr 1fr; } .vops .tbl { overflow-x: auto; } .vops .tr { min-width: 560px; } .vops .tbl.log .tr { grid-template-columns: 46px 1fr 1fr 46px .9fr 1.6fr; min-width: 640px; } }
+</style>
+
+<script>
+  const root = document.querySelector('[data-vops]');
+  if (root) {
+    const nvs = [...root.querySelectorAll('[data-nv]')], panes = [...root.querySelectorAll('[data-pane]')];
+    nvs.forEach(n => n.addEventListener('click', () => { nvs.forEach(x => x.classList.toggle('on', x === n)); panes.forEach(p => p.classList.toggle('on', p.dataset.pane === n.dataset.nv)); }));
+
+    // live calls
+    const calls = root.querySelector('[data-calls]'); const names = [['Priya Mehta', 'Booking visit'], ['Ramesh K', 'Qualifying'], ['Suresh Iyer', 'Objection · price'], ['Deepa S', 'Opening'], ['Anil Gupta', 'Callback set'], ['Kavita Rao', 'Qualifying'], ['Mohan L', 'Opening'], ['Farah S', 'Booking visit']];
+    let live = []; let id = 0;
+    const mk = ([n, s], dur) => { const d = document.createElement('div'); d.className = 'call'; d.dataset.dur = dur; d.dataset.sent = 40 + Math.round(Math.random() * 50); d.innerHTML = `<div class="top"><b>${n}</b><span class="dur">0:00</span></div><div class="stg">${s}</div><div class="wave">${Array.from({ length: 34 }, () => `<i style="height:${4 + Math.round(Math.random() * 16)}px" class="on"></i>`).join('')}</div><div class="sent"><i style="--p:${d.dataset.sent}%"></i>sentiment</div>`; return d; };
+    const seed = () => { live = [mk(names[0], 134), mk(names[1], 41), mk(names[2], 88), mk(names[3], 6)]; live.forEach(c => calls.appendChild(c)); };
+    seed();
+    const stages = ['Opening', 'Qualifying', 'Booking visit', 'Objection · price', 'Confirming', 'Closing'];
+    setInterval(() => {
+      if (!root.querySelector('[data-pane="live"]').classList.contains('on')) return;
+      live.forEach(c => { if (c.classList.contains('end')) return; const t = ++c.dataset.dur; c.querySelector('.dur').textContent = `${Math.floor(t / 60)}:${String(t % 60).padStart(2, '0')}`; c.querySelectorAll('.wave i').forEach(i => { i.style.height = (4 + Math.round(Math.random() * 16)) + 'px'; }); if (t % 25 === 0) c.querySelector('.stg').textContent = stages[Math.min(stages.length - 1, Math.floor(t / 25))]; if (t % 9 === 0) { const s = Math.max(10, Math.min(95, +c.dataset.sent + Math.round((Math.random() - .4) * 20))); c.dataset.sent = s; c.querySelector('.sent i').style.setProperty('--p', s + '%'); } if (t > 150 + (id % 3) * 20) { c.classList.add('end'); c.querySelector('.stg').textContent = 'Ended · written to CRM'; setTimeout(() => { c.remove(); live = live.filter(x => x !== c); const n = mk(names[(id++) % names.length], 0); live.push(n); calls.appendChild(n); }, 2200); } });
+      root.querySelectorAll('[data-livecount],[data-livecount2]').forEach(e => e.textContent = live.filter(c => !c.classList.contains('end')).length);
+    }, 1000);
+    // listening-in transcript
+    const tr = root.querySelector('[data-tr]'); const lines = [['Agent', 'Vesu mein 2 BHK 76 se 84 lakh mein hai, possession March 2027. Aap site visit ke liye kab free hain?'], ['Priya', 'Sunday afternoon chalega.'], ['Agent', 'Perfect — Sunday 3 baje, Kiran aapko site par milenge. Main abhi WhatsApp par location bhej deti hoon.'], ['Priya', 'Theek hai, thank you.'], ['Agent', 'Dhanyavaad, Priya ji. Sunday milte hain.']];
+    let li = 0; const pushLine = () => { if (!tr || li >= lines.length) return; const [w, t] = lines[li++]; const d = document.createElement('div'); d.className = 'line' + (w === 'Agent' ? ' ai' : ''); d.innerHTML = `<div class="who">${w}</div><div>${t}</div>`; tr.appendChild(d); tr.scrollTop = tr.scrollHeight; };
+    setInterval(() => { if (root.querySelector('[data-pane="live"]').classList.contains('on')) { if (li >= lines.length) { tr.innerHTML = ''; li = 0; } pushLine(); } }, 2600);
+
+    // log filters + detail
+    const rows = [...root.querySelectorAll('.tbl.log .tr:not(.th)')]; const chips = [...root.querySelectorAll('[data-f]')]; const det = root.querySelector('[data-detail]');
+    chips.forEach(c => c.addEventListener('click', () => { chips.forEach(x => x.classList.toggle('on', x === c)); rows.forEach(r => r.style.display = (c.dataset.f === 'All' || r.dataset.o === c.dataset.f) ? '' : 'none'); }));
+    const details = { 'Priya Mehta': ['Sentiment +0.62 · 2:14', 'Wants 2 BHK, budget ~80 L, Sunday 3:00 visit confirmed. Location sent on WhatsApp. Kiran assigned in CRM.'], 'Ramesh K': ['Sentiment +0.10 · 0:41', 'Busy at work; asked for 7:30 pm. Callback scheduled; no details captured yet.'], 'Suresh Iyer': ['Sentiment +0.55 · 3:02', '3 BHK, budget up to 1.1 Cr, prefers higher floor. Brochure sent. Visit not yet fixed — follow-up ladder started.'], 'Unknown': ['No answer · attempt 2 of 3', 'Retry at 16:26. After the third miss, a WhatsApp message goes instead of a fourth call.'], 'Kavita Rao': ['Sentiment −0.05 · 1:12', 'Already booked with another builder. Marked not interested; no further calls for 90 days.'], 'Anil Gupta': ['Sentiment −0.32 · 1:48', 'Asked for a discount twice. Rule: price question → human. Vikram joined at 1:05 with the transcript on screen.'], 'Deepa S': ['Sentiment +0.71 · 2:31', 'Visit Saturday 11:00 with spouse. Asked about school nearby — answer sent from the project FAQ.'] };
+    rows.forEach(r => r.addEventListener('click', () => { rows.forEach(x => x.classList.toggle('sel', x === r)); const n = r.querySelector('.nm').textContent; const d = details[n]; if (!d) return; det.classList.remove('hidden'); det.innerHTML = `<div class="h">${n} · ${d[0]}</div><div>${d[1]}</div><div class="mono" style="color: var(--muted);">Recording · transcript · CRM write · all attached</div>`; }));
+
+    // script controls
+    const mix = root.querySelector('[data-mix]'), mixv = root.querySelector('[data-mixv]'); mix?.addEventListener('input', () => { mixv.textContent = `${mix.value} / ${100 - mix.value}`; });
+    root.querySelectorAll('[data-tg]').forEach(t => t.addEventListener('click', () => t.classList.toggle('off')));
+    const goal = root.querySelector('[data-goal]'); goal?.querySelectorAll('div').forEach(d => d.addEventListener('click', () => { goal.querySelectorAll('div').forEach(x => x.classList.toggle('on', x === d)); }));
+    const test = root.querySelector('[data-test]'), out = root.querySelector('[data-testout]'), open = root.querySelector('[data-open]');
+    test?.addEventListener('click', () => { const v = +mix.value; let text = open.value.replace('{name}', 'Priya'); if (v < 35) text = 'Hello Priya, this is Anjali from Shubham Developers. You enquired about the Vesu project a moment ago — may I take two minutes?'; else if (v > 80) text = 'Namaste Priya ji, main Shubham Developers se Anjali bol rahi hoon. Aapne abhi Vesu project ke liye poochh-taachh ki thi — kya main do minute le sakti hoon?'; out.textContent = ''; let i = 0; const t = setInterval(() => { out.textContent = text.slice(0, ++i); if (i >= text.length) clearInterval(t); }, 18); });
+  }
+</script>

@@ -1,0 +1,57 @@
+---
+// Base vs fine-tuned voice: real clips from our tuning run. Same text, same TTS stack — only the model differs.
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const rows = [
+  { id: 'sales', t: 'Sales opening · English', text: '“Hi, this is Anjali from Shubham Developers — you enquired about Vesu a moment ago. Do you have two minutes?”', b: 'base-1_sales_open.mp3', tn: 'tuned-1_sales_open.mp3', j: ['Robotic pacing, flat on the question', 'Natural pause before the ask; warmer'], s: [6.1, 8.7] },
+  { id: 'hindi', t: 'Pure Hindi · courtesy line', text: '“Namaste. Aapka samay dene ke liye dhanyavaad — kya main aapko project ke baare mein bata sakti hoon?”', b: 'base-3_hindi_pure.mp3', tn: 'tuned-3_hindi_pure.mp3', j: ['Anglicised vowels; “dhanyavaad” clipped', 'Native stress; sentence breathes'], s: [5.4, 8.9] },
+];
+---
+<div class="frame mock vab" data-vab>
+  <div class="chrome"><i></i><i></i><i></i><div class="url">lab.sparkfuse.in/voice · base vs fine-tuned</div><div class="live">Real clips · ~6 s each</div></div>
+  <div class="body">
+    <div class="intro"><b>Same sentence, same speech stack. Only the model differs.</b><span>Left is the provider’s base voice; right is after fine-tuning on ~40 minutes of our own recordings. Scores are an LLM judge on naturalness, 0–10, averaged over 25 listeners’ pairs.</span></div>
+    {rows.map(r => <div class="row">
+      <div class="txt"><div class="mono">{r.t}</div><div class="q">{r.text}</div></div>
+      <div class="pair">
+        {[['Base', r.b, r.j[0], r.s[0], ''], ['Fine-tuned', r.tn, r.j[1], r.s[1], 'win']].map(([l, f, j, s, c]) => <div class={`clip ${c}`} data-clip>
+          <audio preload="none" src={`${base}/media/${f}`}></audio>
+          <button class="play" aria-label={`Play ${l}`} data-play><span class="ic"></span></button>
+          <div class="meta"><div class="l">{l} <span class="mono" data-time>0:00</span></div><div class="wave">{Array.from({ length: 28 }, (_, i) => <i style={`height:${6 + ((i * 7) % 13)}px`}></i>)}</div><div class="j">{j}</div></div>
+          <div class="score"><b>{s}</b><span class="mono">/10</span></div>
+        </div>)}
+      </div>
+    </div>)}
+    <div class="vfoot mono">Judge prompt, training set size and the 25-pair sheet are in the Lab note. Clips are ours; names in the sentences are fictional.</div>
+  </div>
+</div>
+
+<style is:global>
+  .vab .body { padding: 16px 18px; display: flex; flex-direction: column; gap: 14px; background: #fff; }
+  .vab .intro { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--ink2); } .vab .intro b { color: var(--ink); font-size: 14px; }
+  .vab .row { display: grid; grid-template-columns: 1fr 1.6fr; gap: 14px; padding: 12px 0; border-top: 1px solid var(--line); align-items: center; }
+  .vab .txt { display: flex; flex-direction: column; gap: 6px; } .vab .q { font-size: 13px; line-height: 1.45; }
+  .vab .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .vab .clip { display: grid; grid-template-columns: 36px 1fr auto; gap: 10px; align-items: center; border: 1px solid var(--line); border-radius: 10px; padding: 10px; background: var(--bg); } .vab .clip.win { border-color: var(--red); background: #FFFBFA; }
+  .vab .play { width: 36px; height: 36px; border-radius: 50%; border: 0; background: var(--ink); cursor: pointer; display: flex; align-items: center; justify-content: center; } .vab .clip.win .play { background: var(--red); }
+  .vab .play .ic { width: 0; height: 0; border-left: 11px solid #fff; border-top: 7px solid transparent; border-bottom: 7px solid transparent; margin-left: 3px; } .vab .clip.playing .play .ic { width: 10px; height: 12px; border: 0; border-left: 3.5px solid #fff; border-right: 3.5px solid #fff; margin: 0; }
+  .vab .meta { display: flex; flex-direction: column; gap: 4px; min-width: 0; } .vab .l { font-size: 12px; font-weight: 600; display: flex; gap: 8px; align-items: baseline; } .vab .l .mono { color: var(--muted); font-weight: 400; }
+  .vab .wave { height: 22px; } .vab .wave i { width: 3px; background: var(--line2); transition: background .15s; } .vab .clip.playing .wave i.on { background: var(--ink); } .vab .clip.win.playing .wave i.on { background: var(--red); }
+  .vab .j { font-size: 11px; color: var(--ink2); line-height: 1.35; }
+  .vab .score { display: flex; align-items: baseline; gap: 2px; } .vab .score b { font-size: 20px; letter-spacing: -.02em; } .vab .clip.win .score b { color: var(--red); }
+  .vab .vfoot { color: var(--muted); font-size: 10.5px; }
+  @media (max-width: 760px) { .vab .row, .vab .pair { grid-template-columns: 1fr; } }
+</style>
+
+<script>
+  const root = document.querySelector('[data-vab]');
+  if (root) {
+    const clips = [...root.querySelectorAll('[data-clip]')];
+    clips.forEach(c => {
+      const a = c.querySelector('audio'), b = c.querySelector('[data-play]'), t = c.querySelector('[data-time]'), bars = [...c.querySelectorAll('.wave i')];
+      b.addEventListener('click', () => { if (!a.paused) { a.pause(); return; } clips.forEach(x => x.querySelector('audio').pause()); a.currentTime = 0; a.play().catch(() => {}); });
+      a.addEventListener('play', () => c.classList.add('playing')); a.addEventListener('pause', () => { c.classList.remove('playing'); bars.forEach(i => i.classList.remove('on')); });
+      a.addEventListener('ended', () => { c.classList.remove('playing'); t.textContent = '0:00'; bars.forEach(i => i.classList.remove('on')); });
+      a.addEventListener('timeupdate', () => { const k = a.duration ? a.currentTime / a.duration : 0; t.textContent = `0:${String(Math.floor(a.currentTime)).padStart(2, '0')}`; bars.forEach((i, n) => i.classList.toggle('on', n / bars.length <= k)); });
+    });
+  }
+</script>

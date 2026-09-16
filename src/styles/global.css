@@ -118,7 +118,7 @@ a.card:hover, .card.hover:hover { transform: translateY(-3px); box-shadow: var(-
 .frame { background: var(--surface); border-radius: 16px; box-shadow: var(--sh2); overflow: hidden; border: 1px solid rgba(20,20,19,.06); }
 .frame .chrome { height: 38px; display: flex; align-items: center; gap: 8px; padding: 0 14px; background: #FAFAF7; border-bottom: 1px solid var(--line); }
 .frame .chrome i { width: 10px; height: 10px; border-radius: 50%; background: #E3E2DA; } .frame .chrome i:nth-child(1) { background: #F0B4AD; } .frame .chrome i:nth-child(2) { background: #F3D9A4; } .frame .chrome i:nth-child(3) { background: #BFE3CB; }
-.frame .chrome .url { margin-left: 10px; height: 22px; flex: 1; max-width: 420px; border-radius: 6px; background: var(--surface); border: 1px solid var(--line); font-family: var(--mono); font-size: 10.5px; color: var(--muted); display: flex; align-items: center; padding: 0 10px; }
+.frame .chrome .url { margin-left: 10px; height: 22px; flex: 1; max-width: 420px; border-radius: 6px; background: var(--surface); border: 1px solid var(--line); font-family: var(--mono); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; font-size: 10.5px; color: var(--muted); display: flex; align-items: center; padding: 0 10px; }
 .frame .chrome .live { margin-left: auto; display: flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 .frame .chrome .live::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 4px var(--ok-soft); }
 .glow { position: relative; }
@@ -267,7 +267,21 @@ a.card:hover, .card.hover:hover { transform: translateY(-3px); box-shadow: var(-
 /* mock sizing: fixed artboard heights → content-driven, composer never clipped */
 .mock [style*="height: 470px"], .mock [style*="height: 460px"], .mock [style*="min-height: 470px"], .mock [style*="min-height: 440px"], .mock [style*="min-height: 450px"] { height: auto !important; min-height: 0 !important; }
 .mock > [style*="grid-template-columns"] { align-items: stretch; }
-.mock .wa { max-height: 520px; }
+.mock .wa { max-height: none; height: 100%; }
 .mock .wa input.f { font-size: 13px; }
 .mock .wa button[type=submit] { flex: none; }
-.mock .sys, .mock > [style*="grid-template-columns"] > div:last-child { overflow: auto; max-height: 520px; }
+.mock > [style*="grid-template-columns"] { align-items: stretch; }
+.mock > [style*="grid-template-columns"] > div:last-child { overflow: auto; max-height: 560px; }
+.mock > [style*="grid-template-columns"] > .wa, .mock > [style*="grid-template-columns"] > div:first-child:has(.wa) { max-height: 560px; }
+
+.nav .menu.mega { grid-template-columns: repeat(4, minmax(0, 1fr)); min-width: 820px; gap: 10px; }
+.nav .menu.mega .col { display: flex; flex-direction: column; gap: 2px; } .nav .menu.mega .k { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--red); padding: 8px 12px 6px; }
+.nav .menu.mega a { padding: 7px 12px; } .nav .menu.mega a b { font-size: 13.5px; font-weight: 500; }
+
+/* founder portrait */
+.founder-fig { margin: 0; position: relative; border-radius: 20px; overflow: hidden; background: var(--ink); aspect-ratio: 4 / 5; max-height: 560px; }
+.founder-fig img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.92) contrast(1.04); }
+.founder-fig::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(20,20,18,.55)); pointer-events: none; }
+.founder-fig figcaption { position: absolute; left: 16px; bottom: 14px; color: #fff; z-index: 1; font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; opacity: .9; }
+.legacy .founder-fig { aspect-ratio: 4 / 5; height: auto !important; }
+.mock .sys2 { align-self: center; font-size: 11.5px; background: #FFF6D6; color: #5B4A12; border-radius: 8px; padding: 6px 10px; max-width: 92%; text-align: center; }

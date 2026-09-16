@@ -1,17 +1,75 @@
 ---
-import Base from '../../../layouts/Base.astro'; import Thumb from '../../../components/Thumb.astro'; import CtaBand from '../../../components/CtaBand.astro'; import '../../../content/_shared.css';
-import { hubs, products } from '../../../data/site.js';
+import Base from '../../../layouts/Base.astro'; import MiniUI from '../../../components/MiniUI.astro'; import CtaBand from '../../../components/CtaBand.astro';
+import VisionDemo from '../../../components/demos/VisionDemo.astro'; import VoiceOps from '../../../components/demos/VoiceOps.astro'; import VoiceAB from '../../../components/demos/VoiceAB.astro'; import AppShell from '../../../components/demos/AppShell.astro'; import Ladder from '../../../components/demos/Ladder.astro';
+import { hubs, products, cases, lab } from '../../../data/site.js';
+import docs from '../../../data/products/document-processing.json'; import mis from '../../../data/products/mis-dashboards.json';
 export function getStaticPaths() { return hubs.map(h => ({ params: { slug: h.slug }, props: { h } })); }
-const { h } = Astro.props; const base = import.meta.env.BASE_URL.replace(/\/$/, ''); const onTop = products.filter(p => p.hub === h.slug);
+const { h } = Astro.props; const base = import.meta.env.BASE_URL.replace(/\/$/, ''); const u = p => `${base}${p}`;
+const onTop = products.filter(p => p.hub === h.slug);
+const kinds = { 'whatsapp-automation': 'chat', 'whatsapp-crm': 'crm', 'whatsapp-chatbot': 'bot', 'manufacturing-erp': 'kpi', 'inventory-management': 'bins', 'document-processing': 'doc', 'ai-workflow-automation': 'flow', 'ai-calling-agent': 'call', 'dealer-distributor-management': 'order', 'real-estate-crm': 'pipe', 'garment-erp': 'gantt', 'mis-dashboards': 'mis' };
+const demo = { 'vision-ai': ['Two recordings of our detection stack, and two simulations you can run.', 'Play the single-person and crowd clips; then run the theft scenario and scan a batch of knit panels.'], 'voice-ai': ['The operator console behind our AI calling product.', 'Campaigns, live calls ticking, a call log you can click into, and the agent script you actually edit.'], 'custom-ai-models': ['Hear what fine-tuning changes. Same sentence, base vs tuned.', 'Two pairs of real clips from our own tuning run, with the judge scores.'], 'erp-crm-systems': ['An ERP shell the way we build it: today-first, approvals gated, AI in the middle.', 'Click through Today, Orders, Production, Inventory and Approvals. Approve something.'], 'whatsapp-and-process-automation': ['Slide the clock and watch the chase ladder climb.', 'Hours since a task was due → WhatsApp, a call, an escalation, the owner’s digest.'], 'document-ai': ['Drop a document; watch the fields land with confidence scores.', 'Switch between a supplier invoice, a buyer PO and a tech pack.'], 'dashboards-and-analytics': ['The owner’s morning view for a multi-outlet group.', 'Click an outlet; the governance questions and owners change with it.'] }[h.slug];
+const mocks = { 'document-ai': docs.mock, 'dashboards-and-analytics': mis.mock };
+const caseMap = { 'vision-ai': ['service-centre-vision', 'vehicle-inspection'], 'voice-ai': ['voice-platform'], 'custom-ai-models': ['companion-model', 'voice-platform'], 'erp-crm-systems': ['garment-sourcing-erp'], 'whatsapp-and-process-automation': ['garment-sourcing-erp'], 'document-ai': ['garment-sourcing-erp'], 'dashboards-and-analytics': ['garment-sourcing-erp'] };
+const labMap = { 'voice-ai': ['voice-agent-cost', 'asr-bake-off'], 'custom-ai-models': ['asr-bake-off', 'voice-agent-cost', 'two-rail-learning-app'], 'whatsapp-and-process-automation': ['ai-is-the-project-manager'], 'erp-crm-systems': ['ai-is-the-project-manager'], 'document-ai': ['ai-is-the-project-manager'] };
+const rel = (caseMap[h.slug] || []).map(s => cases.find(c => c.slug === s)).filter(Boolean); const notes = (labMap[h.slug] || []).map(s => lab.find(l => l.slug === s)).filter(Boolean);
 ---
 <Base title={`${h.name} — what we build with it, and what it's built from | SparkFuse`} description={`${h.line} Reusable parts, what's custom per client, what's shipped, and where it isn't a fit.`} section="solutions">
-  <div class="hero"><div class="mono">Solutions › {h.name}</div><h1 class="h1">{h.name}. <span class="g">{h.line}</span></h1></div>
-  <div class="sec"><div class="grid3">
-    <div class="card" style="gap: 10px;"><div class="eb">What it's made of</div>{h.parts.map(x => <div class="li">{x}</div>)}</div>
-    <div class="card" style="gap: 10px;"><div class="eb">What's custom per client</div><div style="display: flex; height: 14px;"><div style="width: 70%; background: var(--ink);"></div><div style="width: 30%; background: var(--red);"></div></div><div style="display: flex; justify-content: space-between;"><div class="mono">≈70% ready</div><div class="mono" style="color: var(--red);">≈30% fitted</div></div>{h.custom.map(x => <div class="li">{x}</div>)}</div>
-    <div class="card" style="gap: 10px;"><div class="eb">What we've shipped on it</div>{h.proof.map(x => <div class="li">{x}</div>)}<a href={`${base}/work/`} style="font-weight: 600; font-size: 13px;">See the work →</a></div>
-  </div></div>
-  {onTop.length > 0 && <div class="sec"><div style="display: flex; flex-direction: column; gap: 8px;"><div class="eb">Products on top</div><h2 class="h2">What you can buy on this capability.</h2></div><div class="grid4">{onTop.map((p, i) => <a class="card" href={`${base}/products/${p.slug}/`}><Thumb i={i} /><div class="t">{p.name}</div><div class="d">{p.line}</div></a>)}</div></div>}
-  <div class="sec"><div class="grid2"><div class="card q" style="gap: 10px;"><div class="mono">Good fit</div>{h.fit.map(x => <div class="li">{x}</div>)}</div><div class="card q" style="gap: 10px;"><div class="mono" style="color: var(--red);">We'll tell you so if</div>{h.nofit.map(x => <div class="li g">{x}</div>)}</div></div></div>
-  <CtaBand />
+  <section class="sec" style="padding-bottom: clamp(32px, 4vw, 48px);">
+    <div class="container">
+      <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 26px;" data-io><a class="mono" href={u('/solutions/')} style="color: var(--muted);">Solutions</a><span class="mono">›</span><span class="chip">{h.name}</span>{onTop.length > 0 && <span class="chip">{onTop.length} product{onTop.length > 1 ? 's' : ''} on top</span>}</div>
+      <div class="sec-head" data-io style="margin-bottom: 0;"><div class="eb">Capability</div><h1 class="h1" style="font-size: clamp(30px, 4.2vw, 54px); max-width: 980px;">{h.name}. <span class="g">{h.line}</span></h1></div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top: 0;">
+    <div class="container">
+      <div class="split wide" style="align-items: start; margin-bottom: clamp(24px, 3vw, 40px);">
+        <div data-io style="display: flex; flex-direction: column; gap: 12px;"><div class="eb">See it</div><h2 class="h2">{demo[0]}</h2><p class="lede" style="font-size: 16px;">{demo[1]}</p><div class="mono" style="color: var(--red);">Every screen is a mock with fictional data — except the recordings, which are ours.</div></div>
+        <div data-io style="display: flex; flex-direction: column; gap: 10px;">{h.parts.slice(0, 4).map(x => <div class="li">{x}</div>)}</div>
+      </div>
+      <div class="glow" data-io>
+        {h.slug === 'vision-ai' && <VisionDemo />}
+        {h.slug === 'voice-ai' && <VoiceOps />}
+        {h.slug === 'custom-ai-models' && <VoiceAB />}
+        {h.slug === 'erp-crm-systems' && <AppShell />}
+        {h.slug === 'whatsapp-and-process-automation' && <Ladder />}
+        {mocks[h.slug] && <div class="frame mock"><div class="chrome"><i></i><i></i><i></i><div class="url">app.sparkfuse.in/{h.slug}</div><div class="live">Interactive mock</div></div><Fragment set:html={mocks[h.slug].replace(/href="\//g, `href="${base}/`)} /></div>}
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="background: var(--surface); border-block: 1px solid var(--line);">
+    <div class="container">
+      <div class="grid3" style="gap: clamp(28px, 4vw, 56px);">
+        <div data-io style="display: flex; flex-direction: column; gap: 14px;"><div class="eb">What it's made of</div><h3 class="h3">Parts we already run.</h3><div style="display: flex; flex-direction: column; gap: 10px;">{h.parts.map(x => <div class="li">{x}</div>)}</div></div>
+        <div data-io style="display: flex; flex-direction: column; gap: 14px;"><div class="eb">What's custom per client</div><h3 class="h3">About 70% ready. 30% fitted.</h3><div class="ratio"><div></div><div></div></div><div style="display: flex; justify-content: space-between;"><span class="mono">≈70% ready</span><span class="mono" style="color: var(--red);">≈30% fitted</span></div><div style="display: flex; flex-direction: column; gap: 10px;">{h.custom.map(x => <div class="li">{x}</div>)}</div></div>
+        <div data-io style="display: flex; flex-direction: column; gap: 14px;"><div class="eb">What we've shipped on it</div><h3 class="h3">Proof, not a roadmap.</h3><div style="display: flex; flex-direction: column; gap: 10px;">{h.proof.map(x => <div class="li g">{x}</div>)}</div><a class="btn3" href={u('/work/')}>See the work <span class="arr">→</span></a></div>
+      </div>
+    </div>
+  </section>
+
+  {onTop.length > 0 && <section class="sec">
+    <div class="container">
+      <div class="sec-head" data-io><div class="eb">Products on top</div><h2 class="h2">What you can buy on this capability.</h2><p class="lede" style="font-size: 17px;">Each has its own page with an interactive mock, a reference build and a price band.</p></div>
+      <div class="grid3">{onTop.map(p => <a class="card hover" href={u(`/products/${p.slug}/`)} data-io><MiniUI kind={kinds[p.slug]} /><div class="chip" style="align-self: flex-start; margin-top: 8px;">{p.cat}</div><div class="t">{p.name}</div><div class="d">{p.line}</div><span class="btn3" style="font-size: 14px; margin-top: 4px;">See the page <span class="arr">→</span></span></a>)}</div>
+      <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 20px;" data-io><span class="mono">Filter all products by this capability</span><a class="chip" href={u(`/products/?cat=${encodeURIComponent(onTop[0].cat)}`)}>{onTop[0].cat} →</a></div>
+    </div>
+  </section>}
+
+  {(rel.length > 0 || notes.length > 0) && <section class="sec" style="padding-top: 0;">
+    <div class="container grid2">
+      {rel.map(c => <a class="card hover" href={u(`/work/${c.slug}/`)} data-io style="gap: 10px;"><div class="mono" style="color: var(--red);">{c.tag}</div><div class="t">{c.name}</div><div style="display: flex; gap: 16px; flex-wrap: wrap;">{c.nums.map(([n, l]) => <div><div style="font-weight: 700; font-size: 20px; letter-spacing: -.02em;">{n}</div><div class="mono">{l}</div></div>)}</div></a>)}
+      {notes.map(n => <a class="card hover" href={u(`/lab/${n.slug}/`)} data-io style="gap: 10px;"><div class="mono">Lab note</div><div class="t">{n.title}</div><div class="d">{n.tldr}</div></a>)}
+    </div>
+  </section>}
+
+  <section class="sec" style="padding-top: 0;">
+    <div class="container">
+      <div class="grid2"><div class="card flat" data-io style="gap: 10px;"><div class="eb">Good fit</div>{h.fit.map(x => <div class="li">{x}</div>)}</div><div class="card flat" data-io style="gap: 10px;"><div class="eb" style="color: var(--red);">We'll tell you so if</div>{h.nofit.map(x => <div class="li g">{x}</div>)}</div></div>
+      <div style="height: 40px;"></div>
+      <CtaBand h={`Tell us where ${h.name.toLowerCase()} would change a number.`} p="One conversation on your floor, then a scoped proposal with a fixed price." />
+    </div>
+  </section>
+  {h.slug === 'document-ai' && <script src="../../../scripts/documents.js"></script>}
+  {h.slug === 'dashboards-and-analytics' && <script src="../../../scripts/mis.js"></script>}
 </Base>

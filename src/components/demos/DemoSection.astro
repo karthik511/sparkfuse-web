@@ -1,0 +1,18 @@
+---
+// Wrapper for an indicative demo dropped into a page: eyebrow, heading, note, then the framed demo in the default slot.
+const { eb = 'Indicative screens', h, p, note = 'Mock with fictional data — the shape of what you get, not a screenshot of a client system.', tight = false } = Astro.props;
+---
+<section class={`sec demo-sec${tight ? ' tight' : ''}`}>
+  <div class="container">
+    <div class="split wide" style="align-items: end; margin-bottom: clamp(20px, 3vw, 32px);" data-io>
+      <div style="display: flex; flex-direction: column; gap: 10px;"><div class="eb">{eb}</div><h2 class="h2">{h}</h2>{p && <p class="lede" style="font-size: 16px;">{p}</p>}</div>
+      <div class="mono" style="color: var(--red); max-width: 420px; justify-self: end;">{note}</div>
+    </div>
+    <div class="glow" data-io><slot /></div>
+  </div>
+</section>
+<style is:global>
+  .demo-sec.tight { padding-top: 0; }
+  .legacy + .demo-sec, [data-legacy] + .demo-sec { margin-top: -20px; }
+  @media (max-width: 1000px) { .demo-sec .mono[style*="justify-self"] { justify-self: start !important; } }
+</style>

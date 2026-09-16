@@ -1,0 +1,81 @@
+---
+// ERP / CRM app shell — indicative screens: an owner dashboard, orders, production board, approvals. Fictional data (Arasu Knits).
+const nav = [['home', 'Today'], ['orders', 'Orders'], ['prod', 'Production'], ['stock', 'Inventory'], ['appr', 'Approvals']];
+const orders = [['PO 4471', 'Nordic Retail', '631KX · Boys hoodie', '12,000', '14 Oct', 'Sewing', 'ok'], ['PO 4468', 'Koso Tex', '588MC · Girls set', '6,400', '02 Oct', 'Print', 'late'], ['PO 4462', 'Nordic Retail', '512KU · Leggings', '18,000', '28 Sep', 'Packing', 'ok'], ['PO 4459', 'Laxmi Exports', '309KU · Colour set', '9,600', '21 Sep', 'Final insp.', 'ok'], ['PO 4455', 'Koso Tex', '985KK · MLC set', '4,200', '19 Sep', 'Dispatched', 'done']];
+---
+<div class="frame mock apps" data-apps>
+  <div class="chrome"><i></i><i></i><i></i><div class="url">app.sparkfuse.in/erp · Arasu Knits</div><div class="live">Indicative screens · fictional data</div></div>
+  <div class="shell">
+    <aside class="sb">
+      <div class="brand"><span class="mark"></span>Arasu ERP</div>
+      {nav.map(([k, l], i) => <button class={`nv${i === 0 ? ' on' : ''}`} data-nv={k}>{l}{k === 'appr' && <span class="b">3</span>}</button>)}
+      <div class="sbfoot mono">Meena · Merchandiser<br/>Tue 16 Sep · 09:12</div>
+    </aside>
+    <div class="main">
+      <div class="pane on" data-pane="home">
+        <div class="ph2"><div><div class="h">Good morning, Meena</div><div class="mono">4 things need you today · compiled 06:00</div></div></div>
+        <div class="kpis"><div class="kpi"><div class="v">$2.18M</div><div class="s">open order book</div></div><div class="kpi r"><div class="v">3</div><div class="s">orders will miss ETD</div></div><div class="kpi"><div class="v">₹3.1 Cr</div><div class="s">idle stock</div></div><div class="kpi"><div class="v">112</div><div class="s">AI suggestions this month</div></div></div>
+        <div class="two">
+          <div class="card2"><div class="h">Needs you</div>{[['PO 4468 · Print', 'Koso Tex · 4 days late at print. Chase sent to Ganesh twice. Call?', 'r'], ['Sample 631KX · Rev 2', 'Buyer comment received 22:14. Draft reply ready.', 'k'], ['Fabric GRN · 1,960 kg', 'Rate on invoice ₹186 vs PO ₹181.50 · approve or dispute?', 'r'], ['Inspection · PO 4459', 'Final inspection tomorrow 10:00 · Uttarasami assigned', 'g']].map(([t, p, c]) => <div class={`sug ${c}`}><div><b>{t}</b><div class="small">{p}</div></div><div class="act"><span class="btn2">Open</span></div></div>)}</div>
+          <div class="card2"><div class="h">Order book by stage</div><div class="bars">{[['Sampling', 14], ['Fabric', 22], ['Cutting', 9], ['Sewing', 31], ['Finishing', 12], ['Inspection', 6], ['Dispatch', 6]].map(([l, n]) => <div class="br"><span>{l}</span><i style={`width:${n * 2.6}%`}></i><b class="mono">{n}</b></div>)}</div><div class="small">100 live POs · 3 buyers · 6 factories</div></div>
+        </div>
+      </div>
+      <div class="pane" data-pane="orders">
+        <div class="ph2"><div><div class="h">Orders</div><div class="mono">5 of 100 · sorted by ETD</div></div><div class="chips">{['All', 'Late', 'This week', 'Nordic'].map((c, i) => <span class={`chip${i === 0 ? ' on' : ''}`}>{c}</span>)}</div></div>
+        <div class="tbl"><div class="tr th"><span>PO</span><span>Buyer</span><span>Style</span><span>Qty</span><span>ETD</span><span>Stage</span></div>{orders.map(r => <div class="tr" data-row><span class="nm">{r[0]}</span><span>{r[1]}</span><span>{r[2]}</span><span class="mono">{r[3]}</span><span class="mono">{r[4]}</span><span class={`st ${r[6]}`}>{r[5]}</span></div>)}</div>
+        <div class="card2 hidden" data-orow><div class="h">PO 4468 · Koso Tex · 588MC</div><div class="gr"><span>Fabric</span><div class="track"><i class="bar done" style="left: 2%; width: 20%;"></i></div></div><div class="gr"><span>Print</span><div class="track"><i class="bar late" style="left: 24%; width: 18%;"></i><i class="etd" style="left: 36%;"></i></div></div><div class="gr"><span>Sewing</span><div class="track"><i class="bar" style="left: 44%; width: 26%;"></i></div></div><div class="gr"><span>Packing</span><div class="track"><i class="bar" style="left: 72%; width: 14%;"></i></div></div><div class="small">Print is 4 days behind plan. If sewing starts 22 Sep the ETD still holds with 1 day of slack; the system has already asked Ganesh for a revised date.</div></div>
+      </div>
+      <div class="pane" data-pane="prod">
+        <div class="ph2"><div><div class="h">Production board</div><div class="mono">Unit 2 · today</div></div><span class="mono">Drag is disabled in the mock</span></div>
+        <div class="kan">{[['Cutting', ['512KU · 18,000 · 84%', '631KX · 12,000 · 30%']], ['Sewing', ['631KX · line 3 · 1,180/day', '309KU · line 1 · 940/day', '588MC · waiting on print']], ['Finishing', ['512KU · 6,200 done']], ['Packing', ['4459 · 9,600 · cartons 84/120']]].map(([h, items]) => <div class="col"><div class="h">{h} <span>{items.length}</span></div>{items.map(t => <div class={`lead${/waiting/.test(t) ? ' new' : ''}`}><div class="nm">{t.split(' · ')[0]}</div><div class="m">{t.split(' · ').slice(1).join(' · ')}</div></div>)}</div>)}</div>
+      </div>
+      <div class="pane" data-pane="stock">
+        <div class="ph2"><div><div class="h">Inventory</div><div class="mono">Fabric store · 42 bins</div></div></div>
+        <div class="kpis"><div class="kpi"><div class="v">₹6.4 Cr</div><div class="s">stock value</div></div><div class="kpi r"><div class="v">₹3.1 Cr</div><div class="s">idle &gt; 90 days</div></div><div class="kpi"><div class="v">7</div><div class="s">below reorder</div></div><div class="kpi"><div class="v">98.2%</div><div class="s">count accuracy</div></div></div>
+        <div class="bins">{[[80, ''], [45, ''], [12, 'low'], [100, 'dead'], [70, ''], [100, 'dead'], [35, ''], [60, ''], [8, 'low'], [55, ''], [75, ''], [100, 'dead'], [40, ''], [90, ''], [22, ''], [66, ''], [15, 'low'], [88, '']].map(([w, c], i) => <div class={`bin ${c}`}><span>B-{String(i + 1).padStart(2, '0')}</span><div class="f"><i style={`width:${w}%`}></i></div></div>)}</div>
+        <div class="small">Red bins are idle stock with rupees attached — the AI suggests a use (a running style, a buyer who takes surplus) or a sale.</div>
+      </div>
+      <div class="pane" data-pane="appr">
+        <div class="ph2"><div><div class="h">Approvals</div><div class="mono">3 waiting · anything that costs money stops here</div></div></div>
+        {[['Fabric invoice DP/26-27/1183', 'Rate ₹186 vs PO ₹181.50 · 1,960 kg · difference ₹8,820', 'Deccan Fabrics'], ['Plan date change · PO 4468', 'Print end moved 02 Oct → 06 Oct · requested by Ganesh · ETD still holds', 'Production'], ['Air freight · PO 4459', '₹1.84 L to hold the ETD · sea would miss by 6 days', 'Logistics']].map(([t, p, w]) => <div class="sug" data-appr><div><b>{t}</b><div class="small">{p}</div></div><div class="act"><span class="mono">{w}</span><span class="btn2" data-ok>Approve</span><span class="btn2" data-no>Query</span></div></div>)}
+        <div class="small">Approved items post to the ERP and Tally; queries go back to the requester with your note. Nothing moves money without a person.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  .apps .shell { display: grid; grid-template-columns: 160px 1fr; min-height: 520px; background: #fff; }
+  .apps .sb { background: var(--bg); border-right: 1px solid var(--line); padding: 12px 10px; display: flex; flex-direction: column; gap: 4px; }
+  .apps .brand { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 13px; padding: 4px 8px 12px; } .apps .brand .mark { width: 14px; height: 14px; border-radius: 4px; background: var(--ink); }
+  .apps .nv { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border: 0; background: transparent; font: inherit; font-size: 12.5px; color: var(--ink2); border-radius: 8px; cursor: pointer; text-align: left; }
+  .apps .nv.on { background: #fff; color: var(--ink); font-weight: 600; box-shadow: inset 3px 0 0 var(--red); } .apps .nv .b { margin-left: auto; font-family: var(--mono); font-size: 10px; background: var(--red); color: #fff; padding: 1px 6px; border-radius: 999px; }
+  .apps .sb .sbfoot { margin-top: auto; padding: 8px; color: var(--muted); line-height: 1.5; }
+  .apps .main { padding: 16px 18px; min-width: 0; } .apps .pane { display: none; flex-direction: column; gap: 12px; } .apps .pane.on { display: flex; }
+  .apps .ph2 { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; } .apps .h { font-weight: 600; font-size: 14px; }
+  .apps .kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; } .apps .two { display: grid; grid-template-columns: 1.2fr 1fr; gap: 12px; }
+  .apps .card2 { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; font-size: 12.5px; } .apps .card2.hidden { display: none; }
+  .apps .sug { align-items: flex-start; } .apps .sug.r { border-color: var(--red-soft); background: #FFFBFA; } .apps .sug .act { align-items: center; } .apps .sug.ok { opacity: .55; }
+  .apps .bars { display: flex; flex-direction: column; gap: 6px; } .apps .br { display: grid; grid-template-columns: 74px 1fr 30px; gap: 8px; align-items: center; font-size: 11.5px; } .apps .br i { height: 8px; border-radius: 4px; background: var(--ink); display: block; } .apps .br b { text-align: right; font-weight: 500; }
+  .apps .tbl { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; font-size: 12.5px; } .apps .tr { display: grid; grid-template-columns: 70px 1fr 1.4fr 60px 60px 90px; gap: 10px; padding: 9px 12px; border-bottom: 1px solid var(--line); align-items: center; cursor: pointer; } .apps .tr:last-child { border-bottom: 0; } .apps .tr:not(.th):hover { background: var(--bg); } .apps .tr.sel { background: #FFFBFA; }
+  .apps .tr.th { background: var(--bg); font-family: var(--mono); font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); cursor: default; } .apps .nm { font-weight: 600; }
+  .apps .st { font-family: var(--mono); font-size: 10px; } .apps .st.late { color: var(--red); font-weight: 600; } .apps .st.done { color: var(--muted); } .apps .st.ok { color: var(--ok); }
+  .apps .chips { display: flex; gap: 6px; } .apps .chip.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .apps .kan { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; } .apps .col { min-height: 220px; }
+  .apps .bins { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 6px; }
+  .apps .gr { grid-template-columns: 70px 1fr; }
+  @media (max-width: 760px) { .apps .shell { grid-template-columns: 1fr; } .apps .sb { flex-direction: row; flex-wrap: wrap; border-right: 0; border-bottom: 1px solid var(--line); } .apps .sb .sbfoot, .apps .brand { display: none; } .apps .kpis, .apps .two, .apps .kan { grid-template-columns: 1fr 1fr; } .apps .bins { grid-template-columns: repeat(6, minmax(0, 1fr)); } .apps .tbl { overflow-x: auto; } .apps .tr { min-width: 560px; } }
+</style>
+
+<script>
+  const root = document.querySelector('[data-apps]');
+  if (root) {
+    const nvs = [...root.querySelectorAll('[data-nv]')], panes = [...root.querySelectorAll('[data-pane]')];
+    nvs.forEach(n => n.addEventListener('click', () => { nvs.forEach(x => x.classList.toggle('on', x === n)); panes.forEach(p => p.classList.toggle('on', p.dataset.pane === n.dataset.nv)); }));
+    const rows = [...root.querySelectorAll('[data-row]')], orow = root.querySelector('[data-orow]');
+    rows.forEach(r => r.addEventListener('click', () => { rows.forEach(x => x.classList.toggle('sel', x === r)); orow.classList.remove('hidden'); orow.querySelector('.h').textContent = `${r.children[0].textContent} · ${r.children[1].textContent} · ${r.children[2].textContent.split(' · ')[0]}`; }));
+    root.querySelectorAll('[data-appr]').forEach(s => { s.querySelector('[data-ok]').addEventListener('click', () => { s.classList.add('ok'); s.querySelector('.act').innerHTML = '<span class="mono" style="color: var(--ok);">Approved · posted to Tally</span>'; }); s.querySelector('[data-no]').addEventListener('click', () => { s.querySelector('.act').innerHTML = '<span class="mono">Query sent to requester</span>'; }); });
+    // badge count
+    root.addEventListener('click', () => { const n = root.querySelectorAll('[data-appr]:not(.ok)').length; const b = root.querySelector('[data-nv="appr"] .b'); if (b) b.textContent = n; });
+  }
+</script>

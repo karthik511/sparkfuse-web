@@ -108,6 +108,8 @@ const fitted = (d.fitted || []).filter(x => /^Fitted/.test(x)); const ready = (d
   </div>
 </section>
 
+<slot name="demo" />
+
 <!-- COMPARISON -->
 {d.cmp && <section class="sec" style="padding-top: 0;">
   <div class="container">

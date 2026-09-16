@@ -1,10 +1,11 @@
 ---
 import Base from '../../../layouts/Base.astro';
+import AppShell from '../../../components/demos/AppShell.astro'; import DemoSection from '../../../components/demos/DemoSection.astro';
 import Product from '../../../components/Product.astro';
 import d from '../../../data/products/garment-erp.json';
 const schema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: d.faq.map(([q, a]) => ({ '@type': 'Question', name: q.replace(/<[^>]+>/g, ''), acceptedAnswer: { '@type': 'Answer', text: a.replace(/<[^>]+>/g, '') } })) };
 ---
 <Base title="Garment & textile ERP \u2014 sourcing, sampling, T&A and inspections | SparkFuse" description="One system the whole floor works from: POs and tech packs read in, a T&A per order that re-plans itself, inspections on a phone, a live order book. Our deepest reference." section="products" schema={schema}>
-  <Product d={d} />
+  <Product d={d}><DemoSection slot="demo" h="Click through the shell we run for a Tiruppur exporter." p="Same modules, your buyers and stages. Approve the fabric invoice; open PO 4468 to see the plan slip and what the system already did about it." tight><AppShell /></DemoSection></Product>
   <script>import '../../../scripts/garment.js';</script>
 </Base>
