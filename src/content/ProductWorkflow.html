@@ -1,0 +1,130 @@
+
+
+  <div style="display: flex; flex-direction: column; gap: 22px; padding: 44px var(--gx) 0;">
+    <div style="display: flex; align-items: center; gap: 12px;"><div class="mono">Products › AI workflow automation</div><div class="chip">WhatsApp &amp; process automation</div><div class="chip">Every industry</div></div>
+    <div style="display: grid; grid-template-columns: 1.05fr 1.5fr; gap: 56px; align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 20px; padding-top: 8px;">
+        <h1 class="h1">AI workflow automation. <span class="g">The system chases, assigns and escalates — so your team doesn't.</span></h1>
+        <p class="p" style="font-size: 16px;">Most businesses run on someone remembering: to chase the supplier, to tell the buyer, to move the plan when a date slips. This makes the process itself remember. Every stage has an owner, a due date and a chase ladder; when something slips, the right people hear about it in the right order — and a human is asked only when a real decision is needed.</p>
+        <p class="p" style="font-size: 14px;"><b style="color: #1B1B1B;">Built as the AI project manager inside a garment exporter's ERP</b>, where it raised 112 suggestions and created every task for 200+ orders without a manager writing one. About 70% is ready — the engine, ladders, tasks, digests. 30% is your stages, your people, your rules.</p>
+        <div style="display: flex; gap: 12px;"><a class="btn" href="/contact/">See it on a call</a><a class="btn2" href="/pricing/">How pricing works</a></div>
+        <div class="mono">Try it → flip "supplier is late" and watch what the system does.</div>
+      </div>
+      <!-- MOCK: workflow -->
+      <div style="display: flex; flex-direction: column; border: 1.5px solid #1B1B1B; background: #fff;">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 14px; background: #1B1B1B; color: #EFEEE9;"><div class="mono" style="color: #EFEEE9;">Interactive mock · order 4463 · fabric stage</div><div class="mono" style="color: #8E8D87;">What happens without a human</div></div>
+        <div style="display: grid; grid-template-columns: 1.35fr 1fr; min-height: 440px;">
+          <div style="padding: 16px; display: flex; flex-direction: column; gap: 14px; border-right: 1px solid #E1E0D9;">
+            <div class="sw"><div class="tg"></div><div><b>Supplier is late</b> — Laxmi Mills fabric due 08 Sep, not received by 10 Sep</div></div>
+            <div style="display: flex; align-items: center; gap: 0; overflow: hidden;">
+              <div class="node fire"><div class="s">Day 0 · 10 Sep 09:00</div><div class="t">Detect slip</div><div class="s">no GRN against due date</div></div>
+              <div class="arrow on"></div>
+              <div class="node fire"><div class="s">Day 0 · 09:02</div><div class="t">Chase supplier</div><div class="s">WhatsApp · Ravi, Laxmi Mills</div></div>
+              <div class="arrow on"></div>
+              <div class="node fire"><div class="s">Day 1 · no reply</div><div class="t">Escalate</div><div class="s">call · Laxmi owner + Meena</div></div>
+              <div class="arrow on"></div>
+              <div class="node fire"><div class="s">Day 2</div><div class="t">Re-plan</div><div class="s">3 stages move · ETD at risk</div></div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0; overflow: hidden;">
+              <div class="node done"><div class="s">Day 2 · 10:15</div><div class="t">Ask a human</div><div class="s">Suresh: warn buyer now, or wait?</div></div>
+              <div class="arrow"></div>
+              <div class="node"><div class="s">On decision</div><div class="t">Draft to buyer</div><div class="s">in Meena's voice · needs approval</div></div>
+              <div class="arrow"></div>
+              <div class="node"><div class="s">Every morning</div><div class="t">Digest</div><div class="s">owner + merch team · WhatsApp</div></div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: auto;">
+              <div style="background: #F6F5F0; padding: 10px; display: flex; flex-direction: column; gap: 2px;"><div style="font-weight: 700; font-size: 18px;">6</div><div class="mono" style="font-size: 9.5px;">actions taken by the system</div></div>
+              <div style="background: #F6F5F0; padding: 10px; display: flex; flex-direction: column; gap: 2px;"><div style="font-weight: 700; font-size: 18px;">1</div><div class="mono" style="font-size: 9.5px;">decision asked of a human</div></div>
+              <div style="background: #F6F5F0; padding: 10px; display: flex; flex-direction: column; gap: 2px;"><div style="font-weight: 700; font-size: 18px;">0</div><div class="mono" style="font-size: 9.5px;">reminders anyone had to set</div></div>
+            </div>
+          </div>
+          <div style="padding: 16px 18px; display: flex; flex-direction: column; gap: 6px; background: #F6F5F0;">
+            <div style="display: flex; align-items: center; justify-content: space-between;"><div style="font-weight: 600; font-size: 13px;">Timeline · who heard what, when</div><div class="tag r">Live</div></div>
+            <div class="ev"><div class="w">10 Sep 09:00</div><div>Slip detected: fabric for 4463 two days past due, no GRN. Stage owner: Meena.</div></div>
+            <div class="ev"><div class="w">09:02</div><div>WhatsApp to Ravi (Laxmi Mills): "4463 fabric was due 08 Sep — dispatch date?" <span class="tag k">sent</span></div></div>
+            <div class="ev"><div class="w">11 Sep 09:00</div><div>No reply in 24 h → call placed to Laxmi owner by our AI calling product; Meena copied. <span class="tag k">answered · "dispatch 13 Sep"</span></div></div>
+            <div class="ev"><div class="w">11 Sep 09:06</div><div>Promise logged; new fabric-in date 14 Sep; plan re-computed: size set, PP meeting, ex-factory move; ETD 30 Sep now at risk.</div></div>
+            <div class="ev"><div class="w">12 Sep 10:15</div><div>Decision raised to Suresh: warn Nordic Retail now (protects the relationship) or wait for 13 Sep dispatch (protects the price)? <span class="tag r">awaiting</span></div></div>
+            <div class="ev" style="border-bottom: 0;"><div class="w">Daily 07:30</div><div>Digest to owner and merch team: 4463 at risk, 2 tasks open, 1 decision pending.</div></div>
+            <div style="display: flex; gap: 8px; margin-top: auto;"><div class="btn" style="height: 34px; font-size: 12.5px; padding: 0 14px;">Warn buyer — send draft</div><div class="btn2" style="height: 34px; font-size: 12.5px; padding: 0 14px;">Wait for dispatch</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dark" style="margin: 56px var(--gx) 0; padding: 40px 48px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center;">
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div class="eb">The reference build</div>
+      <div style="font-weight: 700; font-size: 26px; line-height: 1.15; color: #fff;">The AI is the project manager. <span style="color: #8E8D87;">Not a chat box in the corner.</span></div>
+      <p class="p" style="font-size: 14px;">In the garment exporter's ERP, the AI sits at the centre of the workflow: it builds the plan for every order, creates the tasks for the right person at the right stage, reads the inputs from email and portals so the system updates itself, and flags the handful of things that need a human decision each morning. The old process depended on people remembering; the new one asks for a human only when a decision is genuinely needed.</p>
+      <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 4px;">
+        <div class="li" style="color: #EFEEE9;">Every stage has an owner, a due date and a chase ladder</div>
+        <div class="li" style="color: #EFEEE9;">Escalation in your order — WhatsApp, then a call, then the owner</div>
+        <div class="li" style="color: #EFEEE9;">Anything that costs money asks first; everything else just happens</div>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px;">
+      <div style="background: #232322; padding: 18px; border-top: 3px solid #D93A2B;"><div style="font-weight: 700; font-size: 30px; color: #fff;">112</div><div class="mono" style="color: #8E8D87;">suggestions raised to the team</div></div>
+      <div style="background: #232322; padding: 18px; border-top: 3px solid #D93A2B;"><div style="font-weight: 700; font-size: 30px; color: #fff;">196</div><div class="mono" style="color: #8E8D87;">exceptions flagged, not hunted</div></div>
+      <div style="background: #232322; padding: 18px; border-top: 3px solid #D93A2B;"><div style="font-weight: 700; font-size: 30px; color: #fff;">200+</div><div class="mono" style="color: #8E8D87;">orders with tasks nobody wrote</div></div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 22px; padding: 56px var(--gx) 0;">
+    <div style="display: flex; flex-direction: column; gap: 8px;"><div class="eb">Workflows we fit most often</div><h2 class="h2">The repetitive middle of the business.</h2></div>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px;">
+      <div class="card q"><div class="mono">Manufacturing</div><div class="h3">Order to dispatch</div><p class="p" style="font-size: 13px;">Every stage chased against the plan; OTIF risk raised a week out; the buyer told before they ask.</p></div>
+      <div class="card q"><div class="mono">Sales</div><div class="h3">Lead to visit</div><p class="p" style="font-size: 13px;">Day 1/3/7 follow-ups by call and WhatsApp; leads reach a person only when warm.</p></div>
+      <div class="card q"><div class="mono">Finance</div><div class="h3">Invoice to cash</div><p class="p" style="font-size: 13px;">Reminders before due, escalation after, promises to pay logged, disputes routed.</p></div>
+      <div class="card q"><div class="mono">Operations</div><div class="h3">Daily governance</div><p class="p" style="font-size: 13px;">A number crosses a line → the right manager is asked the right question by 8 am.</p></div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 16px var(--gx) 0;">
+    <div class="card" style="gap: 12px;"><div class="eb">Modules included</div><div class="li">Stage model with owners, due dates and dependencies</div><div class="li">Slip detection from real inputs (email, WhatsApp, portals, ERP)</div><div class="li">Chase &amp; escalation ladders — WhatsApp, call, email</div><div class="li">Task creation and assignment</div><div class="li">Decision requests with options and a draft</div><div class="li">Morning digests per role</div><div class="li">Audit log of every action the system took</div></div>
+    <div class="card" style="gap: 12px;"><div class="eb">Ready vs fitted</div><div style="display: flex; height: 14px;"><div style="width: 70%; background: #1B1B1B;"></div><div style="width: 30%; background: #D93A2B;"></div></div><div style="display: flex; justify-content: space-between;"><div class="mono">≈70% ready</div><div class="mono" style="color: #D93A2B;">≈30% fitted to you</div></div><div class="li">Fitted: your stages, owners and escalation order</div><div class="li">Fitted: what may act alone vs must ask first</div><div class="li">Fitted: the wording of every chase, in your team's voice</div><div class="li g">Ready: engine, ladders, tasks, digests, audit, integrations</div></div>
+    <div class="card" style="gap: 12px;"><div class="eb">What the AI actually does</div><div class="li"><b>Detects</b> a slip from evidence, not a reminder</div><div class="li"><b>Chases</b> the right person on the right channel</div><div class="li"><b>Escalates</b> in your order when nobody answers</div><div class="li"><b>Re-plans</b> and shows what moved</div><div class="li"><b>Asks</b> a human one clear question, with a draft ready</div></div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 12px; padding: 12px var(--gx) 0;">
+    <div class="card" style="gap: 10px;">
+      <div class="eb">How an engagement runs</div>
+      <div style="display: flex; gap: 8px; align-items: center;"><div class="mono" style="width: 60px;">Wk 1</div><div style="font-size: 13.5px;">Discovery: map the process, name every owner, find where it stalls</div></div>
+      <div style="display: flex; gap: 8px; align-items: center;"><div class="mono" style="width: 60px;">Wk 2–4</div><div style="font-size: 13.5px;">Stages, ladders and inputs built; runs in "ask first" mode on live work</div></div>
+      <div style="display: flex; gap: 8px; align-items: center;"><div class="mono" style="width: 60px;">Wk 5–6</div><div style="font-size: 13.5px;">Actions promoted to "just do it" one at a time as trust builds</div></div>
+      <div style="display: flex; gap: 8px; align-items: center;"><div class="mono" style="width: 60px;">Monthly</div><div style="font-size: 13.5px;">Measure: slips caught early, chases sent, decisions asked, hours freed</div></div>
+      <div style="border-top: 1px solid #D4D3CB; padding-top: 10px; display: flex; justify-content: space-between; align-items: center;"><div><div class="mono">Typical</div><div style="font-weight: 700; font-size: 18px;">₹3–6 L · 5–8 weeks</div></div><a href="/pricing/" style="font-weight: 600; font-size: 13px;">Pricing →</a></div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <h2 class="h2">Honest comparison.</h2>
+      <table>
+        <tr><th></th><th>No-code automation tool</th><th>Project-management SaaS</th><th>This</th></tr>
+        <tr><td>Knows a stage slipped without someone updating it</td><td>No — triggers on data you enter</td><td>No — someone moves the card</td><td>Yes, from the inputs</td></tr>
+        <tr><td>Chases and escalates on its own</td><td>Sends one message</td><td>Sends a reminder to you</td><td>Ladder, then a call, then the owner</td></tr>
+        <tr><td>Asks a human a decision with a draft ready</td><td>No</td><td>No</td><td>Yes</td></tr>
+        <tr><td>Fits your process, not a template</td><td>You build it</td><td>You bend to it</td><td>Fitted in discovery</td></tr>
+        <tr><td>Cost to start</td><td>₹2–10K / month + your time</td><td>₹500–1,500 / user / month</td><td>₹3–6 L, yours</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 56px var(--gx) 0;">
+    <div style="display: flex; flex-direction: column;">
+      <h2 class="h2" style="margin-bottom: 8px;">Questions owners ask.</h2>
+      <div class="faq"><div class="q">Will my team feel policed?</div><div class="a">The chases go to suppliers and buyers first; internally it creates tasks and asks questions, it doesn't grade people. Teams tend to like it because it takes the remembering off them.</div></div>
+      <div class="faq"><div class="q">What if it chases the wrong person?</div><div class="a">Every action starts in "ask first" mode and is promoted one at a time once you've seen it behave. Ownership rules are yours to edit.</div></div>
+      <div class="faq"><div class="q">Does it need an ERP?</div><div class="a">No. It reads from what you have — sheets, email, WhatsApp, Tally — and writes tasks and digests. An ERP makes it stronger, not necessary.</div></div>
+    </div>
+    <div style="display: flex; flex-direction: column;">
+      <div class="faq" style="border-top: 0; padding-top: 44px;"><div class="q">How does it know a supplier is late?</div><div class="a">From evidence: no goods-receipt against a due date, no reply to a message, a portal status unchanged — not from someone remembering to tick a box.</div></div>
+      <div class="faq"><div class="q">Can it make phone calls?</div><div class="a">Yes — escalation can place a call through our AI calling product, with the transcript logged against the order.</div></div>
+      <div class="faq"><div class="q">Who sees the audit log?</div><div class="a">You. Every message, task and decision the system took is logged with the evidence it acted on.</div></div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 12px; padding: 56px var(--gx) 80px;">
+    <div class="card q" style="flex-direction: row; gap: 24px; align-items: center;"><div class="mono">Related</div><a href="/products/whatsapp-automation/" style="font-weight: 600; font-size: 14px;">WhatsApp automation →</a><a href="/products/ai-calling-agent/" style="font-weight: 600; font-size: 14px;">AI calling agent →</a><a href="/products/mis-dashboards/" style="font-weight: 600; font-size: 14px;">MIS dashboards →</a><a href="/lab/ai-is-the-project-manager/" style="font-weight: 600; font-size: 14px;">Lab: the AI is the project manager →</a></div>
+    <div class="dark" style="padding: 22px 24px; display: flex; flex-direction: column; gap: 10px;"><div style="font-weight: 700; font-size: 20px; color: #fff;">Tell us where it stalls.</div><p class="p" style="font-size: 13.5px;">One conversation, then a scoped proposal. Nothing locked in.</p><a class="btn" style="align-self: flex-start;" href="/contact/">Talk to us</a></div>
+  </div>
+  

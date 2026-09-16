@@ -1,0 +1,186 @@
+[
+ {
+  "name": "Main",
+  "route": "/",
+  "title": "SparkFuse \u2014 AI & process consulting, Bengaluru",
+  "desc": "Boutique AI and process consulting for owner-led Indian businesses. The systems you couldn\u2019t find as a product, built from modules we already run in production. One person answerable.",
+  "section": "",
+  "script": "home"
+ },
+ {
+  "name": "ProductWhatsApp",
+  "route": "/products/whatsapp-automation/",
+  "title": "WhatsApp automation for business \u2014 semi-custom, built from proven modules | SparkFuse",
+  "desc": "WhatsApp threads that update the plan, create the work and chase the right person. Built for a garment exporter; fitted to your floor in 3\u20135 weeks. Try the mock.",
+  "section": "products",
+  "script": "whatsapp"
+ },
+ {
+  "name": "ProductWhatsAppCRM",
+  "route": "/products/whatsapp-crm/",
+  "title": "WhatsApp CRM \u2014 leads that don\u2019t die in chats | SparkFuse",
+  "desc": "A CRM inside your WhatsApp conversations: every lead a card, every promise a follow-up, ladders that run themselves. Fitted in 3\u20135 weeks.",
+  "section": "products",
+  "script": "whatsappcrm"
+ },
+ {
+  "name": "ProductWhatsAppChatbot",
+  "route": "/products/whatsapp-chatbot/",
+  "title": "WhatsApp chatbot \u2014 answers from your real data, in Hinglish | SparkFuse",
+  "desc": "Order, dispatch and payment status answered from your system on WhatsApp, with a human one tap away. Built as a dealer and vendor desk for a Pune manufacturer.",
+  "section": "products",
+  "script": "chatbot"
+ },
+ {
+  "name": "ProductManufacturingERP",
+  "route": "/products/manufacturing-erp/",
+  "title": "Manufacturing ERP software for Indian factories \u2014 fitted to your plant | SparkFuse",
+  "desc": "Production planning, inventory and costing on one light system. Built for a protective-products manufacturer in Pune. Move the sliders to see what changes on your floor.",
+  "section": "products",
+  "script": "erp"
+ },
+ {
+  "name": "ProductAICalling",
+  "route": "/products/ai-calling-agent/",
+  "title": "AI calling agent \u2014 Hindi & English voice agents for sales and support | SparkFuse",
+  "desc": "Our own AI calling product, fitted to your flow: first call in 30 seconds, follow-ups on schedule, every call written to your CRM. 1M+ production calls.",
+  "section": "products",
+  "script": "calling"
+ },
+ {
+  "name": "ProductInventory",
+  "route": "/products/inventory-management/",
+  "title": "Inventory & warehouse management software \u2014 custom-fit | SparkFuse",
+  "desc": "Stock you can trust and the money sitting still made visible. Lot traceability, reorder points, dead-stock with the rupees attached. Built for a Pune manufacturer.",
+  "section": "products",
+  "script": "inventory"
+ },
+ {
+  "name": "ProductDocuments",
+  "route": "/products/document-processing/",
+  "title": "Invoice & purchase-order processing \u2014 AI reads the document, your ERP gets the data | SparkFuse",
+  "desc": "Supplier invoices, buyer POs and delivery notes read as they land, matched against the PO and receipt, posted to Tally. Built for a garment exporter.",
+  "section": "products",
+  "script": "documents"
+ },
+ {
+  "name": "ProductWorkflow",
+  "route": "/products/ai-workflow-automation/",
+  "title": "AI workflow automation \u2014 the system chases, assigns and escalates | SparkFuse",
+  "desc": "Every stage has an owner, a due date and a chase ladder. When something slips the right people hear in the right order, and a human is asked only for real decisions.",
+  "section": "products",
+  "script": "workflow"
+ },
+ {
+  "name": "ProductDealer",
+  "route": "/products/dealer-distributor-management/",
+  "title": "Dealer & distributor order management for manufacturers | SparkFuse",
+  "desc": "Dealers order on their phones; one order book, one credit engine, collections that run themselves. Built for a uPVC manufacturer with 300+ dealers.",
+  "section": "products",
+  "script": "dealer"
+ },
+ {
+  "name": "ProductRealEstateCRM",
+  "route": "/products/real-estate-crm/",
+  "title": "Real-estate CRM with AI calling & WhatsApp \u2014 first response in 30 seconds | SparkFuse",
+  "desc": "Portal leads, walk-ins and brokers in one inbox; every lead called by an AI agent in 30 seconds, qualified, booked and handed over. Designed for a Surat developer.",
+  "section": "products",
+  "script": "realestate"
+ },
+ {
+  "name": "ProductGarmentERP",
+  "route": "/products/garment-erp/",
+  "title": "Garment & textile ERP \u2014 sourcing, sampling, T&A and inspections | SparkFuse",
+  "desc": "One system the whole floor works from: POs and tech packs read in, a T&A per order that re-plans itself, inspections on a phone, a live order book. Our deepest reference.",
+  "section": "products",
+  "script": "garment"
+ },
+ {
+  "name": "ProductMIS",
+  "route": "/products/mis-dashboards/",
+  "title": "MIS dashboards \u2014 reports that compile themselves, governance that triggers itself | SparkFuse",
+  "desc": "Data in from phones, POS and cameras; compiled nightly; a digest per role by 7:30; governance rules that ask a named person a question with a deadline.",
+  "section": "products",
+  "script": "mis"
+ },
+ {
+  "name": "CaseGarment",
+  "route": "/work/garment-sourcing-erp/",
+  "title": "Case study: garment sourcing ERP \u2014 the process, rewritten | SparkFuse",
+  "desc": "A Tiruppur sourcing business running 200+ orders out of spreadsheets, now on one system with an AI project manager. $2.18M live order book, 112 AI suggestions, 7 spreadsheets retired.",
+  "section": "work",
+  "script": ""
+ },
+ {
+  "name": "Pricing",
+  "route": "/pricing/",
+  "title": "Pricing \u2014 what similar work has cost | SparkFuse",
+  "desc": "Two ways to work: project-based or retainer. Move the sliders to see indicative ranges. Every engagement starts with a discovery session.",
+  "section": "pricing",
+  "script": "pricing"
+ },
+ {
+  "name": "IndustryManufacturing",
+  "route": "/industries/manufacturing/",
+  "title": "AI & ERP for manufacturers \u2014 one system for the plant that runs on Excel | SparkFuse",
+  "desc": "Inventory, planning, dealers and documents for owner-led factories with one IT person. Built from a ten-module programme at a Pune manufacturer.",
+  "section": "industries",
+  "script": ""
+ },
+ {
+  "name": "IndustryGarment",
+  "route": "/industries/garment-and-textile/",
+  "title": "AI & ERP for garment exporters and buying houses | SparkFuse",
+  "desc": "From buyer PO to handover on one system. Our deepest reference: 200+ live orders, three buyers, twelve factories.",
+  "section": "industries",
+  "script": ""
+ },
+ {
+  "name": "IndustryRealEstate",
+  "route": "/industries/real-estate-and-construction/",
+  "title": "AI CRM & calling for real-estate developers | SparkFuse",
+  "desc": "Every lead called in 30 seconds, follow-ups run by the system, site visits booked. Three phases, each a finished product.",
+  "section": "industries",
+  "script": ""
+ },
+ {
+  "name": "IndustryDistribution",
+  "route": "/industries/distribution-and-dealers/",
+  "title": "Dealer & distributor systems for manufacturers | SparkFuse",
+  "desc": "Dealers ordering on their phones, one credit position, collections that run themselves. 300+ dealers, 20 states, one IT person.",
+  "section": "industries",
+  "script": ""
+ },
+ {
+  "name": "ServiceAIConsulting",
+  "route": "/services/ai-consulting/",
+  "title": "AI consulting services & custom AI development, Bengaluru | SparkFuse",
+  "desc": "Strategy, build, rollout and monitoring \u2014 one person answerable for all four. Voice, documents, vision, ERP/CRM, custom models. Founder-led.",
+  "section": "about",
+  "script": ""
+ },
+ {
+  "name": "ServiceAppDev",
+  "route": "/services/app-development/",
+  "title": "MVP & mobile app development, Bengaluru \u2014 shipped to the store | SparkFuse",
+  "desc": "Twelve weeks to something on the store with the unit economics worked out first. Consumer apps to 27,000 downloads; three products we run ourselves.",
+  "section": "about",
+  "script": ""
+ },
+ {
+  "name": "About",
+  "route": "/about/",
+  "title": "About SparkFuse \u2014 a consulting practice that builds, and runs what it builds",
+  "desc": "Boutique AI and process consultancy in Bengaluru, founder-led, grown out of the AI products it operates.",
+  "section": "about",
+  "script": ""
+ },
+ {
+  "name": "Contact",
+  "route": "/contact/",
+  "title": "Contact \u2014 tell us the process that hurts | SparkFuse",
+  "desc": "One human reply within a business day. WhatsApp, email, or the form.",
+  "section": "contact",
+  "script": "contact"
+ }
+]

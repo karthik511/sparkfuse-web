@@ -1,0 +1,13 @@
+---
+import Base from '../../../layouts/Base.astro';
+import raw from '../../../content/ProductWhatsAppCRM.html?raw';
+import '../../../content/ProductWhatsAppCRM.css';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const html = raw.replace(/href="\//g, `href="${base}/`);
+const title = "WhatsApp CRM \u2014 leads that don\u2019t die in chats | SparkFuse";
+const description = "A CRM inside your WhatsApp conversations: every lead a card, every promise a follow-up, ladders that run themselves. Fitted in 3\u20135 weeks.";
+---
+<Base title={title} description={description} section="products">
+  <Fragment set:html={html} />
+  <script>import '../../../scripts/whatsappcrm.js';</script>
+</Base>

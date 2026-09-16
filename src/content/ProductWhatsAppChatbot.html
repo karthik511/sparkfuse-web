@@ -1,0 +1,112 @@
+
+
+  <div style="display: flex; flex-direction: column; gap: 22px; padding: 44px var(--gx) 0;">
+    <div style="display: flex; align-items: center; gap: 12px;"><div class="mono">Products › WhatsApp automation › WhatsApp chatbot</div><div class="chip">WhatsApp &amp; process automation</div><div class="chip">Distribution</div><div class="chip">Hospitality</div><div class="chip">Services</div></div>
+    <div style="display: grid; grid-template-columns: 1.05fr 1.5fr; gap: 56px; align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 20px; padding-top: 8px;">
+        <h1 class="h1">WhatsApp chatbot. <span class="g">Answers from your real data, in Hinglish, with a human one tap away.</span></h1>
+        <p class="p" style="font-size: 16px;">"Order kab aayega?" "Payment status?" "Room available hai?" — the questions that eat your team's day. A chatbot that looks the answer up in your actual system, replies in the customer's language, and hands the thread to a person the moment it shouldn't be guessing.</p>
+        <p class="p" style="font-size: 14px;"><b style="color: #1B1B1B;">Built as the customer and vendor desk for a Pune manufacturer</b> where three-quarters of vendor calls were "when is our payment?". About 70% is ready — WhatsApp API, the lookup engine, handoff, tickets. 30% is your systems, your answers and your tone.</p>
+        <div style="display: flex; gap: 12px;"><a class="btn" href="/contact/">See it on a call</a><a class="btn2" href="/pricing/">How pricing works</a></div>
+        <div class="mono">Try it → ask it something in Hinglish, then flip "hand to human".</div>
+      </div>
+      <div style="display: flex; flex-direction: column; border: 1.5px solid #1B1B1B; background: #fff;">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 14px; background: #1B1B1B; color: #EFEEE9;"><div class="mono" style="color: #EFEEE9;">Interactive mock · dealer desk · nothing is stored</div><div class="mono" style="color: #8E8D87;">Looks up a mock order book</div></div>
+        <div style="display: grid; grid-template-columns: 300px 1fr; height: 460px;">
+          <div class="wa">
+            <div class="hd"><div class="av">GP</div><div style="display: flex; flex-direction: column;"><div>Gupta Pipes, Lucknow</div><div style="font-weight: 400; font-size: 10.5px; opacity: .85;">Dealer · credit OK</div></div></div>
+            <div class="msgs">
+              <div class="bub" style="border: 1.5px solid #D93A2B;">order kab aayega? DO-26-1187<div class="m">16:40 · you typed this</div></div>
+              <div class="bub me">Gupta ji, order DO-26-1187 (₹1,86,400) dispatched aaj 14:10 se Agra warehouse, Sharma Transport, LR 44821. Expected delivery Thu 18 Sep. SWR 110 mm ke 12 pieces Kanpur se 19 Sep ko alag aayenge. E-way bill attached.<div class="m">16:40 · from the order book</div></div>
+              <div class="bub">aur pichle month ka payment credit hua?<div class="m">16:41</div></div>
+              <div class="bub me">Haan — ₹1,52,300 received 12 Sep, receipt R-8812. Outstanding ab ₹0. Credit available ₹4.2 L.<div class="m">16:41 · from Tally</div></div>
+              <div class="bub">rate revise hua kya CPVC ka? Vikram bol raha tha<div class="m">16:42</div></div>
+              <div class="bub me">Price ke baare mein main Vikram ko connect kar raha hoon — woh aapko 10 minute mein call karenge. Ticket #2231 bana diya.<div class="m">16:42 · handed to human</div></div>
+            </div>
+            <div style="display: flex; gap: 8px; padding: 10px; background: #F0F0F0; align-items: center;"><div style="flex: 1; height: 36px; background: #fff; border-radius: 18px; padding: 0 14px; display: flex; align-items: center; font-size: 13px; color: #7A7975;">Type a message…</div><div style="width: 36px; height: 36px; border-radius: 50%; background: #075E54;"></div></div>
+          </div>
+          <div style="padding: 14px 18px; display: flex; flex-direction: column; gap: 6px; background: #F6F5F0;">
+            <div style="display: flex; align-items: center; justify-content: space-between;"><div style="font-weight: 600; font-size: 13px;">Behind the replies</div><div class="tag g">3 answered · 1 handed over</div></div>
+            <div class="ev"><div class="w">16:40:02</div><div>Intent: delivery status · order DO-26-1187 recognised</div><div class="tag k">Lookup</div></div>
+            <div class="ev"><div class="w">16:40:03</div><div>Read dispatch record, LR number, split note; attached e-way bill</div><div class="tag g">Answered</div></div>
+            <div class="ev"><div class="w">16:41:10</div><div>Intent: payment status · dealer ledger from Tally</div><div class="tag g">Answered</div></div>
+            <div class="ev"><div class="w">16:42:05</div><div>Intent: price negotiation → <b>not allowed to answer</b> (rule: pricing = human)</div><div class="tag r">Handoff</div></div>
+            <div class="ev" style="border-bottom: 0;"><div class="w">16:42:06</div><div>Ticket #2231 to Vikram (territory rep) with the full thread; SLA 15 min</div><div class="tag k">Ticket</div></div>
+            <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 6px;">
+              <div class="mono">Rules you set</div>
+              <div class="sw"><div class="tg"></div>Answer order, dispatch and payment status without asking</div>
+              <div class="sw"><div class="tg off"></div>Discuss prices, discounts or schemes</div>
+              <div class="sw"><div class="tg"></div>Hand to a human on anger, complaint or "call me"</div>
+            </div>
+            <div style="display: flex; gap: 8px; margin-top: auto;"><div class="btn" style="height: 34px; font-size: 12.5px; padding: 0 14px;">Open ticket</div><div class="btn2" style="height: 34px; font-size: 12.5px; padding: 0 14px;">Take over chat</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dark" style="margin: 56px var(--gx) 0; padding: 40px 48px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center;">
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div class="eb">The reference build</div>
+      <div style="font-weight: 700; font-size: 26px; line-height: 1.15; color: #fff;">"75% of vendor calls are asking about payment." <span style="color: #8E8D87;">So the desk answers that first.</span></div>
+      <p class="p" style="font-size: 14px;">At the Pune manufacturer, discovery counted the calls: most were vendors asking when they'd be paid and customers asking where their order was — answers that already sat in the system, behind a person. The customer and vendor desk reads the ledger and the dispatch record and answers on WhatsApp in seconds; anything about price, quality or a complaint goes straight to a named person with the thread attached.</p>
+      <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 4px;">
+        <div class="li" style="color: #EFEEE9;">Answers from your data — ERP, Tally, booking sheet — never from a guess</div>
+        <div class="li" style="color: #EFEEE9;">Rules for what it may say alone; everything else becomes a ticket with an SLA</div>
+        <div class="li" style="color: #EFEEE9;">Hindi, English, Marathi, Tamil — whichever the customer writes in</div>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px;">
+      <div style="background: #232322; padding: 18px; border-top: 3px solid #D93A2B;"><div style="font-weight: 700; font-size: 30px; color: #fff;">75%</div><div class="mono" style="color: #8E8D87;">of vendor calls were "payment?"</div></div>
+      <div style="background: #232322; padding: 18px; border-top: 3px solid #D93A2B;"><div style="font-weight: 700; font-size: 30px; color: #fff;">Seconds</div><div class="mono" style="color: #8E8D87;">to an answer from the ledger</div></div>
+      <div style="background: #232322; padding: 18px; border-top: 3px solid #D93A2B;"><div style="font-weight: 700; font-size: 30px; color: #fff;">1 tap</div><div class="mono" style="color: #8E8D87;">to a human, with the thread</div></div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 56px var(--gx) 0;">
+    <div class="card" style="gap: 12px;"><div class="eb">Modules included</div><div class="li">WhatsApp Business (Cloud) API on your number</div><div class="li">Lookup engine into your systems (ERP, Tally, sheets, booking tools)</div><div class="li">Answer rules: what it may say alone, what it must hand over</div><div class="li">Handoff with the thread, tickets with SLAs</div><div class="li">Language handling, tone fitted to your business</div><div class="li">Website chat widget using the same brain</div><div class="li">Reports: questions asked, answered, handed over, missed</div></div>
+    <div class="card" style="gap: 12px;"><div class="eb">Ready vs fitted</div><div style="display: flex; height: 14px;"><div style="width: 70%; background: #1B1B1B;"></div><div style="width: 30%; background: #D93A2B;"></div></div><div style="display: flex; justify-content: space-between;"><div class="mono">≈70% ready</div><div class="mono" style="color: #D93A2B;">≈30% fitted to you</div></div><div class="li">Fitted: your systems and which fields it may read</div><div class="li">Fitted: your answer rules, tone and languages</div><div class="li">Fitted: who receives which handoff, and the SLA</div><div class="li g">Ready: API, lookup engine, rules, tickets, widget, reports</div></div>
+    <div class="card" style="gap: 12px;"><div class="eb">What the AI actually does</div><div class="li"><b>Understands</b> the question, in any mix of languages</div><div class="li"><b>Looks up</b> the answer in your system, not its memory</div><div class="li"><b>Replies</b> only within the rules you set</div><div class="li"><b>Hands over</b> on price, anger, complaints, or "call me"</div><div class="li"><b>Reports</b> the questions it couldn't answer, so you can decide</div></div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 12px; padding: 12px var(--gx) 0;">
+    <div class="card" style="gap: 10px;">
+      <div class="eb">How an engagement runs</div>
+      <div style="display: flex; gap: 8px; align-items: center;"><div class="mono" style="width: 60px;">Wk 1</div><div style="font-size: 13.5px;">Discovery: a week of real questions, counted and grouped; which systems hold the answers</div></div>
+      <div style="display: flex; gap: 8px; align-items: center;"><div class="mono" style="width: 60px;">Wk 2–3</div><div style="font-size: 13.5px;">Lookups wired, rules agreed, tone written with your team</div></div>
+      <div style="display: flex; gap: 8px; align-items: center;"><div class="mono" style="width: 60px;">Wk 4–5</div><div style="font-size: 13.5px;">Live with a human reading every handoff; rules widened weekly</div></div>
+      <div style="display: flex; gap: 8px; align-items: center;"><div class="mono" style="width: 60px;">Monthly</div><div style="font-size: 13.5px;">Measure: answered alone, handed over, response time, calls avoided</div></div>
+      <div style="border-top: 1px solid #D4D3CB; padding-top: 10px; display: flex; justify-content: space-between; align-items: center;"><div><div class="mono">Typical</div><div style="font-weight: 700; font-size: 18px;">₹1.5–3 L · 3–5 weeks</div></div><a href="/pricing/" style="font-weight: 600; font-size: 13px;">Pricing →</a></div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <h2 class="h2">Honest comparison.</h2>
+      <table>
+        <tr><th></th><th>Menu-button bot</th><th>Generic AI chatbot</th><th>This</th></tr>
+        <tr><td>Answers from your live data</td><td>Canned text</td><td>From documents you upload</td><td>Reads the ERP / ledger / sheet</td></tr>
+        <tr><td>Knows what it must not answer</td><td>Only what's in the menu</td><td>Guesses</td><td>Rules, then handoff</td></tr>
+        <tr><td>Hinglish and regional languages</td><td>Buttons</td><td>Variable</td><td>Yes, fitted</td></tr>
+        <tr><td>Handoff with the thread and an SLA</td><td>Rarely</td><td>Sometimes</td><td>Yes, standard</td></tr>
+        <tr><td>Cost to start</td><td>₹2–5K / month</td><td>₹5–20K / month</td><td>₹1.5–3 L, yours + API at cost</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 56px var(--gx) 0;">
+    <div style="display: flex; flex-direction: column;">
+      <h2 class="h2" style="margin-bottom: 8px;">Questions support heads ask.</h2>
+      <div class="faq"><div class="q">Will it make things up?</div><div class="a">It answers only from lookups in your systems; if the answer isn't there, it says so and hands over. It never improvises a price, a date or a policy.</div></div>
+      <div class="faq"><div class="q">What if a customer is angry?</div><div class="a">Anger, complaints and "call me" are handoff triggers by default. A person gets the thread and an SLA; the customer gets a name.</div></div>
+      <div class="faq"><div class="q">Can it take orders or bookings?</div><div class="a">Yes, for structured ones — a dealer re-order, a table booking, an appointment — written into your system and confirmed back.</div></div>
+    </div>
+    <div style="display: flex; flex-direction: column;">
+      <div class="faq" style="border-top: 0; padding-top: 44px;"><div class="q">Does it work on our website too?</div><div class="a">Same brain, a chat widget on the site — with the same rules and the same handoff.</div></div>
+      <div class="faq"><div class="q">What does the API cost?</div><div class="a">Per conversation, billed by the platform at cost; service conversations are cheap. Shown before go-live.</div></div>
+      <div class="faq"><div class="q">Is our data used to train anything?</div><div class="a">No. Lookups run against your systems in your account; nothing is shared across clients.</div></div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 12px; padding: 56px var(--gx) 80px;">
+    <div class="card q" style="flex-direction: row; gap: 24px; align-items: center;"><div class="mono">Related</div><a href="/products/whatsapp-automation/" style="font-weight: 600; font-size: 14px;">WhatsApp automation →</a><a href="/products/whatsapp-crm/" style="font-weight: 600; font-size: 14px;">WhatsApp CRM →</a><a href="/products/dealer-distributor-management/" style="font-weight: 600; font-size: 14px;">Dealer &amp; distributor management →</a><a href="/products/ai-calling-agent/" style="font-weight: 600; font-size: 14px;">AI calling agent →</a></div>
+    <div class="dark" style="padding: 22px 24px; display: flex; flex-direction: column; gap: 10px;"><div style="font-weight: 700; font-size: 20px; color: #fff;">Count your questions for a week.</div><p class="p" style="font-size: 13.5px;">Send us the list; we'll show which ones it answers alone.</p><a class="btn" style="align-self: flex-start;" href="/contact/">Talk to us</a></div>
+  </div>
+  

@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro';
+import raw from '../content/Main.html?raw';
+import '../content/Main.css';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const html = raw.replace(/href="\//g, `href="${base}/`);
+const title = "SparkFuse \u2014 AI & process consulting, Bengaluru";
+const description = "Boutique AI and process consulting for owner-led Indian businesses. The systems you couldn\u2019t find as a product, built from modules we already run in production. One person answerable.";
+---
+<Base title={title} description={description} section="">
+  <Fragment set:html={html} />
+  <script>import '../scripts/home.js';</script>
+</Base>

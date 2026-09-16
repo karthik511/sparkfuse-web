@@ -1,0 +1,119 @@
+
+
+  <div style="display: flex; flex-direction: column; gap: 22px; padding: 44px var(--gx) 0;">
+    <div style="display: flex; align-items: center; gap: 12px;"><div class="mono">Products › Invoice &amp; purchase-order processing</div><div class="chip">Document AI</div><div class="chip">Manufacturing</div><div class="chip">Garment &amp; textile</div><div class="chip">Distribution</div></div>
+    <div style="display: grid; grid-template-columns: 1.05fr 1.5fr; gap: 56px; align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 20px; padding-top: 8px;">
+        <h1 class="h1">Invoice &amp; purchase-order processing. <span class="g">AI reads the document. Your ERP gets the data.</span></h1>
+        <p class="p" style="font-size: 16px;">Buyer POs, supplier invoices, delivery notes and tech packs arrive by email, WhatsApp and portal — and somebody re-types every one. This reads them as they land, checks them against what you expected, posts the clean ones and flags the rest.</p>
+        <p class="p" style="font-size: 14px;"><b style="color: #1B1B1B;">Built for a garment exporter</b> whose buyer POs and amendments came from three European portals and two inboxes. About 70% is ready — intake, extraction, matching, posting. 30% is your document types and your rules.</p>
+        <div style="display: flex; gap: 12px;"><a class="btn" href="/contact/">See it on a call</a><a class="btn2" href="/pricing/">How pricing works</a></div>
+        <div class="mono">Try it → drop a PO or invoice, or pick a sample. Processed in your browser; nothing is uploaded.</div>
+      </div>
+      <!-- MOCK: doc drop -->
+      <div style="display: flex; flex-direction: column; border: 1.5px solid #1B1B1B; background: #fff;">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 14px; background: #1B1B1B; color: #EFEEE9;"><div class="mono" style="color: #EFEEE9;">Interactive mock · processed in the browser</div><div style="display: flex; gap: 6px;"><div class="sample on">Supplier invoice</div><div class="sample" style="color: #EFEEE9;">Buyer PO</div><div class="sample" style="color: #EFEEE9;">Delivery note</div></div></div>
+        <div style="display: grid; grid-template-columns: 1fr 1.1fr; min-height: 450px;">
+          <div style="padding: 14px; display: flex; flex-direction: column; gap: 10px; border-right: 1px solid #E1E0D9; background: #F6F5F0;">
+            <div class="drop"><div style="width: 22px; height: 22px; border: 1.5px solid #7A7975; border-radius: 2px;"></div>Drop a PDF or photo here, or pick a sample above</div>
+            <div class="doc">
+              <div class="dl"><div style="font-weight: 700; color: #1B1B1B; font-size: 12px;">DECCAN POLYMERS PVT LTD</div><div>TAX INVOICE</div></div>
+              <div class="dl"><div>Invoice no. <span class="hl">DP/26-27/1183</span></div><div>Date <span class="hl">12-09-2026</span></div></div>
+              <div class="dl"><div>GSTIN 27AABCD1234E1Z5</div><div>PO ref <span class="hl">PO-4471</span></div></div>
+              <div style="border-top: 1px solid #ECEBE5; margin: 4px 0;"></div>
+              <div class="dl"><div>Bill to: Arasu Knits, Tiruppur</div><div>Ship to: Unit 2</div></div>
+              <div style="border-top: 1px solid #ECEBE5; margin: 4px 0;"></div>
+              <div class="dl"><div><span class="hl">ABS granules, black, 25 kg bags</span></div><div><span class="hl">2,000 kg</span> × <span class="hl">₹186.00</span></div></div>
+              <div class="dl"><div>HSN 39033000</div><div>₹3,72,000.00</div></div>
+              <div class="dl"><div>CGST 9% + SGST 9%</div><div>₹66,960.00</div></div>
+              <div class="dl" style="font-weight: 700; color: #1B1B1B;"><div>Total</div><div><span class="hl g">₹4,38,960.00</span></div></div>
+              <div style="margin-top: 6px; color: #7A7975;">Payment terms: 45 days · Bank: HDFC ····8821</div>
+            </div>
+            <div class="mono" style="font-size: 9.5px;">Fields light up as they're read · 1.8 s</div>
+          </div>
+          <div style="padding: 14px 18px; display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; align-items: center; justify-content: space-between;"><div style="font-weight: 600; font-size: 13px;">Extracted → matched against PO-4471</div><div class="tag r">1 exception</div></div>
+            <div class="fld"><div class="k">Supplier</div><div>Deccan Polymers Pvt Ltd · GSTIN verified</div><div class="c">99%</div></div>
+            <div class="fld"><div class="k">Invoice</div><div>DP/26-27/1183 · 12 Sep 2026</div><div class="c">99%</div></div>
+            <div class="fld"><div class="k">PO match</div><div>PO-4471 · open · 2,000 kg ordered</div><div class="c">match</div></div>
+            <div class="fld"><div class="k">Item</div><div>ABS granules black · item RM-0142</div><div class="c">98%</div></div>
+            <div class="fld"><div class="k">Quantity</div><div>2,000 kg · GRN 4471 received <b>1,960 kg</b></div><div class="c">97%</div></div>
+            <div class="fld bad"><div class="k">Rate</div><div>₹186.00/kg · <b>PO says ₹181.50</b> (+2.5%)</div><div class="c">mismatch</div></div>
+            <div class="fld"><div class="k">Tax</div><div>18% GST · ₹66,960 · arithmetic checks</div><div class="c">ok</div></div>
+            <div class="fld" style="border-bottom: 0;"><div class="k">Due</div><div>27 Oct 2026 · 45 days</div><div class="c">ok</div></div>
+            <div style="background: #FDECEA; padding: 10px 12px; font-size: 12.5px; display: flex; flex-direction: column; gap: 4px; margin-top: 4px;">
+              <div style="font-weight: 600;">Held for approval — rate is 2.5% above PO and 40 kg short-received.</div>
+              <div style="color: #4A4A47;">Suggested: accept at PO rate for 1,960 kg (₹3,55,740 + GST) and ask Deccan for a revised invoice. Draft reply ready.</div>
+            </div>
+            <div style="display: flex; gap: 8px; margin-top: auto;"><div class="btn" style="height: 34px; font-size: 12.5px; padding: 0 14px;">Approve at PO rate</div><div class="btn2" style="height: 34px; font-size: 12.5px; padding: 0 14px;">Send query to supplier</div><div class="mono" style="margin-left: auto; align-self: center;">Posts to Tally on approval</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dark" style="margin: 56px var(--gx) 0; padding: 40px 48px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center;">
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div class="eb">The reference build</div>
+      <div style="font-weight: 700; font-size: 26px; line-height: 1.15; color: #fff;">Built for a garment exporter <span style="color: #8E8D87;">whose orders arrived five different ways.</span></div>
+      <p class="p" style="font-size: 14px;">Purchase orders and amendments from three buyer portals, tech packs as email attachments and transfer links, factory invoices on WhatsApp. Every one was opened, read and re-typed into a sheet — and the ones nobody opened became the late shipments. Now intake watches every channel, reads the document, creates or updates the order, and raises only the ones that need a decision: a date moved, a price changed, a quantity that doesn't match.</p>
+      <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 4px;">
+        <div class="li" style="color: #EFEEE9;">Email, WhatsApp and portal intake — attachments, links and photos</div>
+        <div class="li" style="color: #EFEEE9;">Extraction checked against the PO, the GRN and the arithmetic before anything posts</div>
+        <div class="li" style="color: #EFEEE9;">Buyer documents sanitised before they go to the factory — names, prices and logos removed</div>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px;">
+      <div style="background: #232322; padding: 18px; border-top: 3px solid #D93A2B;"><div style="font-weight: 700; font-size: 30px; color: #fff;">5 → 1</div><div class="mono" style="color: #8E8D87;">intake channels into one queue</div></div>
+      <div style="background: #232322; padding: 18px; border-top: 3px solid #D93A2B;"><div style="font-weight: 700; font-size: 30px; color: #fff;">0</div><div class="mono" style="color: #8E8D87;">documents re-typed</div></div>
+      <div style="background: #232322; padding: 18px; border-top: 3px solid #D93A2B;"><div style="font-weight: 700; font-size: 30px; color: #fff;">Minutes</div><div class="mono" style="color: #8E8D87;">from inbox to order, not days</div></div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 56px var(--gx) 0;">
+    <div class="card" style="gap: 12px;"><div class="eb">Documents it reads</div><div class="li">Supplier invoices and credit notes</div><div class="li">Buyer purchase orders and amendments</div><div class="li">Delivery notes, GRNs, e-way bills</div><div class="li">Bank statements and payment advices</div><div class="li">Tech packs, spec sheets, test reports</div><div class="li">Photos of any of the above, on WhatsApp</div></div>
+    <div class="card" style="gap: 12px;"><div class="eb">Ready vs fitted</div><div style="display: flex; height: 14px;"><div style="width: 70%; background: #1B1B1B;"></div><div style="width: 30%; background: #D93A2B;"></div></div><div style="display: flex; justify-content: space-between;"><div class="mono">≈70% ready</div><div class="mono" style="color: #D93A2B;">≈30% fitted to you</div></div><div class="li">Fitted: your document types, suppliers' formats, item codes</div><div class="li">Fitted: your matching rules and approval thresholds</div><div class="li">Fitted: where it posts — Tally, your ERP, a sheet</div><div class="li g">Ready: intake, extraction, verification, exception queue, audit trail</div></div>
+    <div class="card" style="gap: 12px;"><div class="eb">What the AI actually does</div><div class="li"><b>Reads</b> the document, including handwriting and photos</div><div class="li"><b>Matches</b> it to the PO, the receipt and the arithmetic</div><div class="li"><b>Posts</b> the clean ones without asking</div><div class="li"><b>Holds</b> the exceptions with a suggested resolution</div><div class="li"><b>Drafts</b> the query to the supplier or buyer</div></div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 12px; padding: 12px var(--gx) 0;">
+    <div class="card" style="gap: 10px;">
+      <div class="eb">How an engagement runs</div>
+      <div style="display: flex; gap: 8px; align-items: center;"><div class="mono" style="width: 60px;">Wk 1</div><div style="font-size: 13.5px;">Discovery: 200 of your real documents, every channel they arrive on</div></div>
+      <div style="display: flex; gap: 8px; align-items: center;"><div class="mono" style="width: 60px;">Wk 2–3</div><div style="font-size: 13.5px;">Extraction tuned on them; matching rules agreed with accounts</div></div>
+      <div style="display: flex; gap: 8px; align-items: center;"><div class="mono" style="width: 60px;">Wk 4–5</div><div style="font-size: 13.5px;">Live in parallel with the old way, then the old way stops</div></div>
+      <div style="display: flex; gap: 8px; align-items: center;"><div class="mono" style="width: 60px;">Monthly</div><div style="font-size: 13.5px;">Measure: straight-through rate, exceptions, minutes per document</div></div>
+      <div style="border-top: 1px solid #D4D3CB; padding-top: 10px; display: flex; justify-content: space-between; align-items: center;"><div><div class="mono">Typical</div><div style="font-weight: 700; font-size: 18px;">₹1.5–3 L · 3–5 weeks</div></div><a href="/pricing/" style="font-weight: 600; font-size: 13px;">Pricing →</a></div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <h2 class="h2">Honest comparison.</h2>
+      <table>
+        <tr><th></th><th>OCR tool</th><th>AP-automation SaaS</th><th>This</th></tr>
+        <tr><td>Reads Indian invoices, photos, WhatsApp</td><td>Text only, mixed results</td><td>Standard formats</td><td>Yes, tuned on yours</td></tr>
+        <tr><td>Checks against your PO and receipt</td><td>No</td><td>If you integrate</td><td>Yes, standard</td></tr>
+        <tr><td>Handles buyer POs and tech packs, not just invoices</td><td>No</td><td>No</td><td>Yes</td></tr>
+        <tr><td>Posts to Tally / your ERP</td><td>No</td><td>Some</td><td>Yes</td></tr>
+        <tr><td>Cost to start</td><td>Free–₹5K / month</td><td>₹15–40K / month</td><td>₹1.5–3 L, yours</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 56px var(--gx) 0;">
+    <div style="display: flex; flex-direction: column;">
+      <h2 class="h2" style="margin-bottom: 8px;">Questions accounts teams ask.</h2>
+      <div class="faq"><div class="q">How accurate is it?</div><div class="a">On clean PDFs, above 98% per field after tuning; on photos, lower — which is why every field carries a confidence score and anything below your threshold is held, not posted.</div></div>
+      <div class="faq"><div class="q">What if the supplier's format changes?</div><div class="a">It reads meaning, not positions, so a new layout usually just works; if a field is missed, it lands in the exception queue and the correction teaches it.</div></div>
+      <div class="faq"><div class="q">Does our data leave India?</div><div class="a">Processing runs in an Indian region; documents stay in your account and are not used to train anything shared.</div></div>
+    </div>
+    <div style="display: flex; flex-direction: column;">
+      <div class="faq" style="border-top: 0; padding-top: 44px;"><div class="q">Can it do GST and e-invoice checks?</div><div class="a">It verifies GSTIN, tax arithmetic and IRN presence; filing itself stays with your CA or Tally.</div></div>
+      <div class="faq"><div class="q">Who approves exceptions?</div><div class="a">Whoever you name, by threshold — a ₹2,000 rate difference to the buyer, a ₹2 L one to the owner. Every decision is logged.</div></div>
+      <div class="faq"><div class="q">We're not a factory. Does this apply?</div><div class="a">Yes — the same intake handles booking confirmations for stays, dealer orders, clinic bills. The document types change; the method doesn't.</div></div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 12px; padding: 56px var(--gx) 80px;">
+    <div class="card q" style="flex-direction: row; gap: 24px; align-items: center;"><div class="mono">Related</div><a href="/products/ai-workflow-automation/" style="font-weight: 600; font-size: 14px;">AI workflow automation →</a><a href="/products/inventory-management/" style="font-weight: 600; font-size: 14px;">Inventory &amp; warehouse →</a><a href="/work/garment-sourcing-erp/" style="font-weight: 600; font-size: 14px;">Case: garment sourcing ERP →</a></div>
+    <div class="dark" style="padding: 22px 24px; display: flex; flex-direction: column; gap: 10px;"><div style="font-weight: 700; font-size: 20px; color: #fff;">Send us 20 of your documents.</div><p class="p" style="font-size: 13.5px;">We'll run them on the call and show you the straight-through rate.</p><a class="btn" style="align-self: flex-start;" href="/contact/">Talk to us</a></div>
+  </div>
+  

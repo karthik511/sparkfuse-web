@@ -1,0 +1,15 @@
+---
+import Base from '../../layouts/Base.astro'; import Thumb from '../../components/Thumb.astro'; import CtaBand from '../../components/CtaBand.astro'; import '../../content/_shared.css';
+import { cases } from '../../data/site.js'; const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<Base title="Work — seven builds, enterprise and consumer | SparkFuse" description="Enterprise systems and consumer products, built for clients and run as our own. Every case: the old process, the new one, and what the AI actually does." section="work">
+  <div class="hero"><div class="eb">Work</div><h1 class="h1">Seven builds. <span class="g">Enterprise, consumer, and everything we run ourselves.</span></h1><p class="p" style="font-size: 16px;">Every case below: the old process, the new one, and what the AI actually does. Client engagements are anonymised; our own products are named as ours. Every screen is a mockup with fictional data.</p></div>
+  <div class="sec"><div class="grid3">{cases.map((c, i) => <a class={`card${c.live ? '' : ' q'}`} href={`${base}/work/${c.slug}/`}><Thumb i={i} /><div class="mono">{c.tag}</div><div class="t">{c.name}</div><div style="display: flex; gap: 18px; flex-wrap: wrap;">{c.nums.map(([n, l]) => <div><div class="num" style="font-size: 22px;">{n}</div><div class="mono" style="font-size: 9.5px;">{l}</div></div>)}</div></a>)}</div></div>
+  <div class="sec"><div class="grid4">
+    <div class="card q"><div class="eb">01</div><div class="t">The process gets rewritten first</div><div class="d">In every case the win came from changing how the work flows — the software just made the new flow possible.</div></div>
+    <div class="card q"><div class="eb">02</div><div class="t">AI orchestrates, it isn't a feature</div><div class="d">The AI plans, assigns, reads, scores and flags. It sits at the centre of the workflow, not in a chat box in the corner.</div></div>
+    <div class="card q"><div class="eb">03</div><div class="t">Built to be operated</div><div class="d">Every system has an owner's view: what's live, what's stuck, what it costs. Systems that can't be watched don't survive contact with a real business.</div></div>
+    <div class="card q"><div class="eb">04</div><div class="t">One person answerable</div><div class="d">Strategy, build and rollout on all seven ran through the founder. No coordination tax, no vendor gaps for the client to manage.</div></div>
+  </div></div>
+  <CtaBand h="Your process is the eighth case study." />
+</Base>

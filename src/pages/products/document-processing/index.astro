@@ -1,0 +1,13 @@
+---
+import Base from '../../../layouts/Base.astro';
+import raw from '../../../content/ProductDocuments.html?raw';
+import '../../../content/ProductDocuments.css';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const html = raw.replace(/href="\//g, `href="${base}/`);
+const title = "Invoice & purchase-order processing \u2014 AI reads the document, your ERP gets the data | SparkFuse";
+const description = "Supplier invoices, buyer POs and delivery notes read as they land, matched against the PO and receipt, posted to Tally. Built for a garment exporter.";
+---
+<Base title={title} description={description} section="products">
+  <Fragment set:html={html} />
+  <script>import '../../../scripts/documents.js';</script>
+</Base>

@@ -1,0 +1,13 @@
+---
+import Base from '../../../layouts/Base.astro';
+import raw from '../../../content/ProductMIS.html?raw';
+import '../../../content/ProductMIS.css';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const html = raw.replace(/href="\//g, `href="${base}/`);
+const title = "MIS dashboards \u2014 reports that compile themselves, governance that triggers itself | SparkFuse";
+const description = "Data in from phones, POS and cameras; compiled nightly; a digest per role by 7:30; governance rules that ask a named person a question with a deadline.";
+---
+<Base title={title} description={description} section="products">
+  <Fragment set:html={html} />
+  <script>import '../../../scripts/mis.js';</script>
+</Base>

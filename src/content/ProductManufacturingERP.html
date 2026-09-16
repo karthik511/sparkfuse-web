@@ -1,0 +1,177 @@
+
+
+  <!-- HERO + MOCK -->
+  <div style="display: flex; flex-direction: column; gap: 22px; padding: 44px var(--gx) 0;">
+    <div style="display: flex; align-items: center; gap: 12px;"><div class="mono">Products › Manufacturing ERP</div><div class="chip">ERP / CRM systems</div><div class="chip">Manufacturing</div><div class="chip">Plastics &amp; pipes</div><div class="chip">Pharma &amp; chemical</div></div>
+    <div style="display: grid; grid-template-columns: 1.05fr 1.5fr; gap: 56px; align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 20px; padding-top: 8px;">
+        <h1 class="h1">Manufacturing ERP software. <span class="g">Production planning, inventory and costing — fitted to your plant.</span></h1>
+        <p class="p" style="font-size: 16px;">For the factory that runs on Excel, WhatsApp and seventeen people re-typing the same numbers. One system for orders, planning, stock, vendors and costing — where the AI does the compiling, the chasing and the warning, and your people do the deciding.</p>
+        <p class="p" style="font-size: 14px;"><b style="color: #1B1B1B;">Built for a protective-products manufacturer in Pune.</b> About 70% is ready modules — orders, inventory &amp; traceability, planning, portals, dashboards. 30% is fitted to how your floor runs.</p>
+        <div style="display: flex; gap: 12px;"><a class="btn" href="/contact/">See it on a call</a><a class="btn2" href="/pricing/">How pricing works</a></div>
+        <div class="mono">Try it → move the three sliders on the right.</div>
+      </div>
+      <!-- THE MOCK: your numbers -->
+      <div style="display: flex; flex-direction: column; border: 1.5px solid #1B1B1B; background: #fff;">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 14px; background: #1B1B1B; color: #EFEEE9;">
+          <div class="mono" style="color: #EFEEE9;">Interactive mock · an estimate, not a quote</div>
+          <div class="mono" style="color: #8E8D87;">Based on what changed at the reference plant</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 250px 1fr; min-height: 440px;">
+          <div style="background: #F6F5F0; border-right: 1px solid #E1E0D9; padding: 18px 16px; display: flex; flex-direction: column; gap: 20px;">
+            <div class="mono" style="color: #1B1B1B;">Your numbers</div>
+            <div class="sl"><div class="lab"><div class="mono">Orders / month</div><div class="v"><span data-b="o.orders"></span></div></div><input type="range" min="50" max="2000" step="50" data-val="o.ordersRaw" data-act="setOrders"></div>
+            <div class="sl"><div class="lab"><div class="mono">Live SKUs</div><div class="v"><span data-b="o.skus"></span></div></div><input type="range" min="100" max="5000" step="100" data-val="o.skusRaw" data-act="setSkus"></div>
+            <div class="sl"><div class="lab"><div class="mono">People on data entry</div><div class="v"><span data-b="o.people"></span></div></div><input type="range" min="1" max="25" step="1" data-val="o.peopleRaw" data-act="setPeople"></div>
+            <div style="margin-top: auto; font-size: 11.5px; color: #7A7975; line-height: 1.4;">Assumptions: 60% of re-typing removed; 12% of SKUs non-moving at ₹8,000 average; ₹25,000/month per data-entry role. Your discovery replaces these with your figures.</div>
+          </div>
+          <div style="padding: 18px; display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; align-items: center; justify-content: space-between;"><div style="font-weight: 600; font-size: 13px;">What changes on your floor</div><div class="tag r">Estimate</div></div>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;">
+              <div class="kpi r"><div class="v"><span data-b="o.hours"></span> h</div><div class="mono">re-typing removed / month</div><div class="s"><span data-b="o.hoursNote"></span></div></div>
+              <div class="kpi"><div class="v"><span data-b="o.stock"></span></div><div class="mono">stock sitting still, made visible</div><div class="s"><span data-b="o.stockNote"></span></div></div>
+              <div class="kpi"><div class="v"><span data-b="o.otif"></span> days</div><div class="mono">warning before an OTIF breach</div><div class="s">Today: about 1 day, found too late to recover.</div></div>
+              <div class="kpi r"><div class="v"><span data-b="o.saving"></span></div><div class="mono">people-cost freed / year</div><div class="s">Redeployed to buying, planning and QC — not headcount cuts.</div></div>
+            </div>
+            <div style="display: flex; flex-direction: column;">
+              <div class="row" style="font-family: 'IBM Plex Mono', Menlo, monospace; font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: #7A7975;"><div>Where the numbers come from today</div><div>Now</div><div>With the system</div><div></div></div>
+              <div class="row"><div>Order intake &amp; acknowledgement</div><div style="color: #7A7975;">Email → Excel, by hand</div><div><b>Read by AI, one click</b></div><div class="tag g">Live wk 4</div></div>
+              <div class="row"><div>Stock position by location</div><div style="color: #7A7975;">Counted, weekly</div><div><b>Continuous, traceable</b></div><div class="tag g">Live wk 6</div></div>
+              <div class="row"><div>Vendor payment queries</div><div style="color: #7A7975;"><span data-b="o.vendorNow"></span></div><div><b>Vendor portal, self-served</b></div><div class="tag k">Phase 2</div></div>
+              <div class="row"><div>Quote cost estimate</div><div style="color: #7A7975;">One person's judgement</div><div><b>Costing model, shows working</b></div><div class="tag k">Phase 2</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REFERENCE BUILD -->
+  <div class="dark" style="margin: 56px var(--gx) 0; padding: 40px 48px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center;">
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div class="eb">The reference build</div>
+      <div style="font-weight: 700; font-size: 26px; line-height: 1.15; color: #fff;">Built for a protective-products manufacturer in Pune. <span style="color: #8E8D87;">Two days on site, fourteen people, nine sessions — then the system.</span></div>
+      <p class="p" style="font-size: 14px;">Seven departments, seventeen people on full-time data entry, and a buying team spending a third of its week chasing rather than buying. The build started with the process — what to automate, what to leave alone, which number to move — and only then the modules: inventory and material traceability first, customer and vendor portals, planning and dashboards, cost estimation added at the owner's instruction.</p>
+      <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 4px;">
+        <div class="li" style="color: #EFEEE9;">Ten modules, phased so every phase is usable on its own</div>
+        <div class="li" style="color: #EFEEE9;">Data brought in from the floor, not re-typed from it</div>
+        <div class="li" style="color: #EFEEE9;">A costing model that shows its working and learns from actual runs</div>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px;">
+      <div style="background: #232322; padding: 18px; border-top: 3px solid #D93A2B;"><div style="font-weight: 700; font-size: 30px; color: #fff;">₹3 Cr</div><div class="mono" style="color: #8E8D87;">of stock not moving, found in discovery</div></div>
+      <div style="background: #232322; padding: 18px; border-top: 3px solid #D93A2B;"><div style="font-weight: 700; font-size: 30px; color: #fff;">17</div><div class="mono" style="color: #8E8D87;">people on full-time data entry, before</div></div>
+      <div style="background: #232322; padding: 18px; border-top: 3px solid #D93A2B;"><div style="font-weight: 700; font-size: 30px; color: #fff;">1 → 8</div><div class="mono" style="color: #8E8D87;">days of warning before an OTIF breach</div></div>
+    </div>
+  </div>
+
+  <!-- MODULES (sections) -->
+  <div style="display: flex; flex-direction: column; gap: 22px; padding: 56px var(--gx) 0;">
+    <div style="display: flex; flex-direction: column; gap: 8px;"><div class="eb">Modules</div><h2 class="h2">What's in it. <span class="g">Each one usable on its own.</span></h2></div>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px;">
+      <div class="mod"><div class="n">M1</div><div class="h3">Inventory &amp; material traceability</div><p class="p" style="font-size: 13px;">Every lot from receipt to dispatch; stock by location, age and value; dead-stock flags with the ₹ attached.</p></div>
+      <div class="mod"><div class="n">M2</div><div class="h3">Orders &amp; customer portal</div><p class="p" style="font-size: 13px;">Orders read from email and portals, acknowledged in one click; customers see status without calling.</p></div>
+      <div class="mod"><div class="n">M3</div><div class="h3">Vendors &amp; procurement</div><p class="p" style="font-size: 13px;">Purchase orders, deliveries, payment status. A vendor portal that answers the "when is our payment" call.</p></div>
+      <div class="mod"><div class="n">M4</div><div class="h3">Production planning</div><p class="p" style="font-size: 13px;">Capacity, changeovers and priorities on one board; OTIF risk visible a week out, not a day.</p></div>
+      <div class="mod"><div class="n">M5</div><div class="h3">Cost estimation</div><p class="p" style="font-size: 13px;">A costing model under the estimator's judgement — repeatable, traceable, compared against what the run actually consumed.</p></div>
+      <div class="mod"><div class="n">M6</div><div class="h3">Quality inspection</div><p class="p" style="font-size: 13px;">Incoming, in-line and final checks on a phone; AQL pass/fail, defects logged, reports generated and sent.</p></div>
+      <div class="mod"><div class="n">M7</div><div class="h3">Dashboards &amp; digests</div><p class="p" style="font-size: 13px;">The owner's view and a morning digest per department; governance triggers when a number crosses a line.</p></div>
+      <div class="mod"><div class="n">M8</div><div class="h3">WhatsApp desk &amp; chasing</div><p class="p" style="font-size: 13px;">Vendor and customer threads read into the system; follow-ups drafted, escalated, closed.</p></div>
+    </div>
+  </div>
+
+  <!-- COST ESTIMATION SCREEN + THREE COLS -->
+  <div style="display: grid; grid-template-columns: 1.3fr 1fr; gap: 12px; padding: 16px var(--gx) 0;">
+    <div class="card q" style="gap: 12px;">
+      <div style="display: flex; justify-content: space-between; align-items: center;"><div class="eb">Cost estimation · a number that shows its working</div><div class="tag k">Static screen</div></div>
+      <div style="background: #fff; border: 1px solid #D4D3CB; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;"><div style="font-weight: 600; font-size: 13px;">Estimate · Safety helmet, ABS shell, 5,000 units</div><div class="mono">Deccan Protective · rev 3</div></div>
+        <div class="cost" style="font-family: 'IBM Plex Mono', Menlo, monospace; font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: #7A7975;"><div>Line</div><div>Rate</div><div>Per unit</div><div>vs last run</div></div>
+        <div class="cost"><div>ABS granules · 0.42 kg</div><div>₹186/kg</div><div>₹78.12</div><div style="color: #D93A2B;">+₹3.40 (rate ↑)</div></div>
+        <div class="cost"><div>Suspension &amp; strap set</div><div>₹31.00</div><div>₹31.00</div><div style="color: #7A7975;">—</div></div>
+        <div class="cost"><div>Moulding · 38 s cycle</div><div>₹640/hr</div><div>₹6.76</div><div style="color: #2E7D4F;">−₹0.40 (cycle ↓)</div></div>
+        <div class="cost"><div>Changeover · amortised</div><div>₹4,200/set-up</div><div>₹0.84</div><div style="color: #7A7975;">quantified for the first time</div></div>
+        <div class="cost"><div>Testing &amp; packing</div><div>—</div><div>₹4.10</div><div style="color: #7A7975;">—</div></div>
+        <div class="cost" style="border-bottom: 0; font-weight: 700;"><div>Cost per unit</div><div></div><div>₹120.82</div><div style="color: #D93A2B;">+2.5% vs rev 2</div></div>
+      </div>
+      <div class="p" style="font-size: 12.5px;">Nudge one material rate and the estimate re-prices line by line; after the run, actual consumption is written back so the next estimate is better.</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div class="card" style="gap: 10px;">
+        <div class="eb">Ready vs fitted</div>
+        <div style="display: flex; height: 14px;"><div style="width: 70%; background: #1B1B1B;"></div><div style="width: 30%; background: #D93A2B;"></div></div>
+        <div style="display: flex; justify-content: space-between;"><div class="mono">≈70% ready modules</div><div class="mono" style="color: #D93A2B;">≈30% fitted to you</div></div>
+        <div class="li">Fitted: your product families, units, routings and roles</div>
+        <div class="li">Fitted: which numbers trigger a warning, and to whom</div>
+        <div class="li g">Ready: orders, inventory, portals, planning board, digests, audit log</div>
+      </div>
+      <div class="card" style="gap: 10px;">
+        <div class="eb">What the AI actually does</div>
+        <div class="li"><b>Reads</b> orders, invoices and vendor messages into the system</div>
+        <div class="li"><b>Compiles</b> the reports nobody has time to compile</div>
+        <div class="li"><b>Warns</b> a week out — OTIF, stock-outs, ageing stock</div>
+        <div class="li"><b>Chases</b> vendors and customers in your team's voice</div>
+        <div class="li"><b>Estimates</b> cost with its working shown</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREENS + ENGAGEMENT -->
+  <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 12px; padding: 12px var(--gx) 0;">
+    <div class="card q" style="gap: 12px;">
+      <div class="eb">Screens</div>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px;">
+        <div class="screen" style="height: 170px;"><div class="top"><div class="dotc"></div><div class="dotc"></div><div class="dotc"></div></div><div style="padding: 10px; display: flex; flex-direction: column; gap: 6px;"><div class="mono" style="font-size: 9px;">Stock by age · Plant 2</div><div class="bar" style="width: 90%; background: #1B1B1B;"></div><div class="bar" style="width: 60%;"></div><div class="bar" style="width: 35%; background: #D93A2B;"></div><div class="bar" style="width: 20%; background: #D93A2B;"></div><div class="bar" style="width: 75%;"></div></div></div>
+        <div class="screen" style="height: 170px;"><div class="top"><div class="dotc"></div><div class="dotc"></div><div class="dotc"></div></div><div style="padding: 10px; display: flex; flex-direction: column; gap: 6px;"><div class="mono" style="font-size: 9px;">Planning board · week 39</div><div class="bar" style="width: 55%;"></div><div class="bar" style="width: 80%; background: #1B1B1B;"></div><div class="bar" style="width: 40%; background: #D93A2B;"></div><div class="bar" style="width: 70%;"></div><div class="bar" style="width: 65%;"></div></div></div>
+        <div class="screen" style="height: 170px;"><div class="top"><div class="dotc"></div><div class="dotc"></div><div class="dotc"></div></div><div style="padding: 10px; display: flex; flex-direction: column; gap: 6px;"><div class="mono" style="font-size: 9px;">Vendor portal · payment status</div><div class="bar" style="width: 85%;"></div><div class="bar" style="width: 85%; background: #1B1B1B;"></div><div class="bar" style="width: 50%;"></div><div class="bar" style="width: 30%; background: #D93A2B;"></div><div class="bar" style="width: 70%;"></div></div></div>
+      </div>
+      <div class="p" style="font-size: 12.5px;">Stock by age · planning board · vendor portal — mockups of systems we've built, with fictional data.</div>
+    </div>
+    <div class="card" style="gap: 10px;">
+      <div class="eb">How an engagement runs</div>
+      <div style="display: flex; gap: 8px; align-items: center;"><div class="mono" style="width: 60px;">Wk 1–2</div><div style="font-size: 13.5px;">Discovery on site: every department, the field workbook, the number we'll move</div></div>
+      <div style="display: flex; gap: 8px; align-items: center;"><div class="mono" style="width: 60px;">Wk 3–8</div><div style="font-size: 13.5px;">Phase 1 build — inventory &amp; traceability, orders — on your real data</div></div>
+      <div style="display: flex; gap: 8px; align-items: center;"><div class="mono" style="width: 60px;">Wk 9–12</div><div style="font-size: 13.5px;">Rollout in waves; then phase 2 (portals, planning, costing)</div></div>
+      <div style="display: flex; gap: 8px; align-items: center;"><div class="mono" style="width: 60px;">Monthly</div><div style="font-size: 13.5px;">Measure: OTIF, stock ageing, hours re-typed, quote turnaround</div></div>
+      <div style="border-top: 1px solid #D4D3CB; padding-top: 10px; display: flex; justify-content: space-between; align-items: center;"><div><div class="mono">Typical · phase 1</div><div style="font-weight: 700; font-size: 18px;">₹6–12 L · 8–12 weeks</div></div><a href="/pricing/" style="font-weight: 600; font-size: 13px;">Pricing →</a></div>
+    </div>
+  </div>
+
+  <!-- COMPARISON + FAQ -->
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 56px var(--gx) 0;">
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <h2 class="h2">Honest comparison.</h2>
+      <table>
+        <tr><th></th><th>Off-the-shelf ERP</th><th>Custom from scratch</th><th>This</th></tr>
+        <tr><td>Fits how your plant actually runs</td><td>You bend to it — "implement nahi hua"</td><td>Yes, in 6–9 months</td><td>Yes, phase 1 in 8–12 weeks</td></tr>
+        <tr><td>Reads emails, invoices and chats in</td><td>Rarely; manual entry</td><td>If you build it</td><td>Yes (ready module)</td></tr>
+        <tr><td>Runs light — one IT person is enough</td><td>Often needs a partner on retainer</td><td>Depends on your team</td><td>Yes, by design</td></tr>
+        <tr><td>Who is answerable when it doesn't stick</td><td>The reseller</td><td>Your dev team</td><td>One person, by name</td></tr>
+        <tr><td>Cost to start</td><td>₹3–15 L licences + implementation</td><td>₹25 L+</td><td>₹6–12 L, phase-cut</td></tr>
+      </table>
+      <p class="p" style="font-size: 13px;">If a standard ERP genuinely fits your process, we'll say so on the first call — and help you choose it.</p>
+    </div>
+    <div style="display: flex; flex-direction: column;">
+      <h2 class="h2" style="margin-bottom: 8px;">Questions plant owners ask.</h2>
+      <div class="faq"><div class="q">We already bought an ERP and nobody uses it. Why would this be different?</div><div class="a">Because the process gets redesigned first and the software is built around it — then rolled out by the people who built it, on your floor, until your team runs it. Software that bends the team to it is what gets abandoned.</div></div>
+      <div class="faq"><div class="q">Does it replace Tally?</div><div class="a">No. Tally stays your books; this runs the floor and posts to Tally. Same for an existing SAP or Busy setup.</div></div>
+      <div class="faq"><div class="q">Our data is in twenty spreadsheets. Can it be migrated?</div><div class="a">Yes — that's most of week 3. Sheets become the backup, not the system.</div></div>
+      <div class="faq"><div class="q">Can it start with one module?</div><div class="a">Yes. Inventory &amp; traceability is usually first because it finds money on day one. Every phase is usable alone.</div></div>
+      <div class="faq"><div class="q">We have one IT person. Is that enough?</div><div class="a">Yes. It's built to be light — cloud-hosted, no servers on site, your IT person trained to administer users and reports.</div></div>
+      <div class="faq"><div class="q">How is the AI kept from making a wrong call?</div><div class="a">It reads, compiles, warns and drafts. Anything that changes stock, price or a plan asks a person first — until you decide, per action, that it may act alone.</div></div>
+    </div>
+  </div>
+
+  <!-- RELATED + CTA -->
+  <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 12px; padding: 56px var(--gx) 80px;">
+    <div class="card q" style="flex-direction: row; gap: 24px; align-items: center;">
+      <div class="mono">Related</div>
+      <a href="/products/inventory-management/" style="font-weight: 600; font-size: 14px;">Inventory &amp; warehouse →</a>
+      <a href="/products/dealer-distributor-management/" style="font-weight: 600; font-size: 14px;">Dealer &amp; distributor management →</a>
+      <a href="/products/mis-dashboards/" style="font-weight: 600; font-size: 14px;">MIS dashboards →</a>
+      <a href="/industries/manufacturing/" style="font-weight: 600; font-size: 14px;">Industry: manufacturing →</a>
+    </div>
+    <div class="dark" style="padding: 22px 24px; display: flex; flex-direction: column; gap: 10px;"><div style="font-weight: 700; font-size: 20px; color: #fff;">Tell us your process.</div><p class="p" style="font-size: 13.5px;">One conversation, then a scoped proposal. Nothing locked in.</p><a class="btn" style="align-self: flex-start;" href="/contact/">Talk to us</a></div>
+  </div>
+
+  

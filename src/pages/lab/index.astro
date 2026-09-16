@@ -1,0 +1,9 @@
+---
+import Base from '../../layouts/Base.astro'; import CtaBand from '../../components/CtaBand.astro'; import '../../content/_shared.css';
+import { lab } from '../../data/site.js'; const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<Base title="Lab — measured notes from building and running AI systems | SparkFuse" description="Benchmarks, cost models and teardowns from our own builds, each with a number in it and a paragraph on what it means if you're buying." section="lab">
+  <div class="hero"><div class="eb">Lab</div><h1 class="h1">Notes with a number in them. <span class="g">From work we've actually had to run and pay for.</span></h1><p class="p" style="font-size: 16px;">Two a week: one benchmark or cost model, one build teardown. Each ends with what it means if you're buying.</p></div>
+  <div class="sec"><div class="grid2">{lab.map(n => <a class="card" href={`${base}/lab/${n.slug}/`}><div class="mono">{n.date}</div><div class="t" style="font-size: 19px;">{n.title}</div><div class="d">{n.tldr}</div><span style="font-weight: 600; font-size: 13px; color: var(--red);">Read →</span></a>)}</div></div>
+  <CtaBand />
+</Base>

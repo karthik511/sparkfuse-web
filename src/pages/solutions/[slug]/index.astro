@@ -1,0 +1,17 @@
+---
+import Base from '../../../layouts/Base.astro'; import Thumb from '../../../components/Thumb.astro'; import CtaBand from '../../../components/CtaBand.astro'; import '../../../content/_shared.css';
+import { hubs, products } from '../../../data/site.js';
+export function getStaticPaths() { return hubs.map(h => ({ params: { slug: h.slug }, props: { h } })); }
+const { h } = Astro.props; const base = import.meta.env.BASE_URL.replace(/\/$/, ''); const onTop = products.filter(p => p.hub === h.slug);
+---
+<Base title={`${h.name} — what we build with it, and what it's built from | SparkFuse`} description={`${h.line} Reusable parts, what's custom per client, what's shipped, and where it isn't a fit.`} section="solutions">
+  <div class="hero"><div class="mono">Solutions › {h.name}</div><h1 class="h1">{h.name}. <span class="g">{h.line}</span></h1></div>
+  <div class="sec"><div class="grid3">
+    <div class="card" style="gap: 10px;"><div class="eb">What it's made of</div>{h.parts.map(x => <div class="li">{x}</div>)}</div>
+    <div class="card" style="gap: 10px;"><div class="eb">What's custom per client</div><div style="display: flex; height: 14px;"><div style="width: 70%; background: var(--ink);"></div><div style="width: 30%; background: var(--red);"></div></div><div style="display: flex; justify-content: space-between;"><div class="mono">≈70% ready</div><div class="mono" style="color: var(--red);">≈30% fitted</div></div>{h.custom.map(x => <div class="li">{x}</div>)}</div>
+    <div class="card" style="gap: 10px;"><div class="eb">What we've shipped on it</div>{h.proof.map(x => <div class="li">{x}</div>)}<a href={`${base}/work/`} style="font-weight: 600; font-size: 13px;">See the work →</a></div>
+  </div></div>
+  {onTop.length > 0 && <div class="sec"><div style="display: flex; flex-direction: column; gap: 8px;"><div class="eb">Products on top</div><h2 class="h2">What you can buy on this capability.</h2></div><div class="grid4">{onTop.map((p, i) => <a class="card" href={`${base}/products/${p.slug}/`}><Thumb i={i} /><div class="t">{p.name}</div><div class="d">{p.line}</div></a>)}</div></div>}
+  <div class="sec"><div class="grid2"><div class="card q" style="gap: 10px;"><div class="mono">Good fit</div>{h.fit.map(x => <div class="li">{x}</div>)}</div><div class="card q" style="gap: 10px;"><div class="mono" style="color: var(--red);">We'll tell you so if</div>{h.nofit.map(x => <div class="li g">{x}</div>)}</div></div></div>
+  <CtaBand />
+</Base>

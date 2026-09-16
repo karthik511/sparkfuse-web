@@ -1,0 +1,24 @@
+
+    .eb { font-family: "IBM Plex Mono", Menlo, monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #D93A2B; }
+    .mono { font-family: "IBM Plex Mono", Menlo, monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #7A7975; }
+    .h1 { font-weight: 700; font-size: 46px; line-height: 1.06; letter-spacing: -.02em; margin: 0; }
+    .h1 .g { color: #7A7975; }
+    .h2 { font-weight: 700; font-size: 28px; line-height: 1.12; letter-spacing: -.015em; margin: 0; }
+    .p { color: #4A4A47; margin: 0; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; height: 48px; padding: 0 22px; background: #D93A2B; color: #fff; font-weight: 600; font-size: 14px; border-radius: 2px; }
+    .dark { background: #171716; color: #EFEEE9; }
+    .dark .p { color: #C9C8C1; }
+    .model { background: #fff; border: 1.5px solid #1B1B1B; padding: 28px; display: flex; flex-direction: column; gap: 18px; }
+    .price { font-weight: 700; font-size: 38px; line-height: 1; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+    .sub { font-family: "IBM Plex Mono", Menlo, monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #7A7975; }
+    input[type=range] { width: 100%; accent-color: #D93A2B; height: 28px; cursor: pointer; }
+    .stops { display: flex; justify-content: space-between; font-family: "IBM Plex Mono", Menlo, monospace; font-size: 10px; letter-spacing: .06em; text-transform: uppercase; color: #7A7975; }
+    .tog { display: flex; border: 1px solid #B9B8B0; }
+    .tog div { flex: 1; text-align: center; padding: 8px 6px; font-size: 12.5px; font-weight: 500; cursor: pointer; }
+    .tog div.on { background: #1B1B1B; color: #EFEEE9; }
+    .inc { display: flex; gap: 10px; align-items: flex-start; font-size: 13.5px; color: #1B1B1B; }
+    .inc::before { content: ""; width: 3px; height: 15px; background: #D93A2B; flex: none; margin-top: 4px; }
+    .faq { display: flex; flex-direction: column; gap: 6px; padding: 14px 0; border-top: 1px solid #D4D3CB; }
+    .faq .q { font-weight: 600; font-size: 15px; } .faq .a { color: #4A4A47; font-size: 14px; }
+    .tile { background: #E6E5DF; padding: 20px 22px; border-top: 3px solid #D93A2B; display: flex; flex-direction: column; gap: 8px; }
+  

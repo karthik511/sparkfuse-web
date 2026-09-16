@@ -1,0 +1,13 @@
+---
+import Base from '../../../layouts/Base.astro';
+import raw from '../../../content/CaseGarment.html?raw';
+import '../../../content/CaseGarment.css';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const html = raw.replace(/href="\//g, `href="${base}/`);
+const title = "Case study: garment sourcing ERP \u2014 the process, rewritten | SparkFuse";
+const description = "A Tiruppur sourcing business running 200+ orders out of spreadsheets, now on one system with an AI project manager. $2.18M live order book, 112 AI suggestions, 7 spreadsheets retired.";
+---
+<Base title={title} description={description} section="work">
+  <Fragment set:html={html} />
+  
+</Base>

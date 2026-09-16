@@ -1,0 +1,64 @@
+---
+import '../styles/global.css';
+const { title, description, section = '', noindex = true, schema = null, canonical = '' } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const u = (p) => `${base}${p}`;
+const links = [
+  ['Products', '/products/', 'products'],
+  ['Solutions', '/solutions/', 'solutions'],
+  ['Industries', '/industries/', 'industries'],
+  ['Work', '/work/', 'work'],
+  ['Lab', '/lab/', 'lab'],
+  ['Pricing', '/pricing/', 'pricing'],
+  ['About', '/about/', 'about'],
+];
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href={u('/favicon.svg')} type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+  {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+</head>
+<body>
+<div class="page">
+  <header class="nav">
+    <a class="brand" href={u('/')}><span class="mark"></span><span class="word">SparkFuse</span></a>
+    <nav class="links" aria-label="Main">
+      {links.map(([l, h, k]) => <a href={u(h)} class={k === section ? 'on' : ''}>{l}</a>)}
+    </nav>
+    <a class="cta" href={u('/contact/')}>Talk to us</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" data-burger><span></span></button>
+  </header>
+  <nav class="mnav" data-mnav aria-label="Mobile">
+    {links.map(([l, h]) => <a href={u(h)}>{l}</a>)}
+    <a href={u('/contact/')} style="color: var(--red); font-weight: 600;">Talk to us →</a>
+  </nav>
+  <main>
+    <slot />
+  </main>
+  <footer class="foot">
+    <div class="col"><div style="font-weight: 700; font-size: 18px; color: #fff;">SparkFuse</div><div>SparkFuse Business Solutions LLP · Bengaluru, India</div><div class="k" style="color: #8E8D87;">= Strategy + Build + Rollout + Monitoring</div></div>
+    <div class="col"><div class="k">Products</div><a href={u('/products/whatsapp-automation/')}>WhatsApp automation</a><a href={u('/products/manufacturing-erp/')}>Manufacturing ERP</a><a href={u('/products/inventory-management/')}>Inventory</a><a href={u('/products/document-processing/')}>Document processing</a><a href={u('/products/ai-workflow-automation/')}>AI workflow automation</a><a href={u('/products/ai-calling-agent/')}>AI calling agent</a></div>
+    <div class="col"><div class="k">More products</div><a href={u('/products/dealer-distributor-management/')}>Dealer &amp; distributor</a><a href={u('/products/real-estate-crm/')}>Real-estate CRM</a><a href={u('/products/garment-erp/')}>Garment ERP</a><a href={u('/products/mis-dashboards/')}>MIS dashboards</a><a href={u('/products/whatsapp-crm/')}>WhatsApp CRM</a><a href={u('/products/whatsapp-chatbot/')}>WhatsApp chatbot</a></div>
+    <div class="col"><div class="k">Industries</div><a href={u('/industries/manufacturing/')}>Manufacturing</a><a href={u('/industries/garment-and-textile/')}>Garment &amp; textile</a><a href={u('/industries/real-estate-and-construction/')}>Real estate</a><a href={u('/industries/distribution-and-dealers/')}>Distribution &amp; dealers</a></div>
+    <div class="col"><div class="k">Firm</div><a href={u('/services/ai-consulting/')}>AI consulting</a><a href={u('/services/app-development/')}>App development</a><a href={u('/work/')}>Work</a><a href={u('/lab/')}>Lab</a><a href={u('/pricing/')}>Pricing</a><a href={u('/about/')}>About</a><a href={u('/contact/')}>Contact</a></div>
+    <div class="legal"><span>© 2026 SparkFuse Business Solutions LLP</span><span>Every screen on this site is a mockup with fictional data. Client engagements are anonymised.</span></div>
+  </footer>
+</div>
+<script>
+  const b = document.querySelector('[data-burger]'); const m = document.querySelector('[data-mnav]');
+  b?.addEventListener('click', () => { const o = m.classList.toggle('open'); b.setAttribute('aria-expanded', String(o)); });
+</script>
+</body>
+</html>

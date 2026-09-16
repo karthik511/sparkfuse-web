@@ -1,0 +1,5 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const { h = 'Tell us the process that hurts.', p = 'One conversation, then a scoped proposal with a fixed number. Nothing locked in.', label = 'Talk to us' } = Astro.props;
+---
+<div class="dark cta-band"><div style="display: flex; flex-direction: column; gap: 6px;"><div style="font-weight: 700; font-size: 26px; color: #fff;">{h}</div><p class="p" style="font-size: 14px;">{p}</p></div><a class="btn" href={`${base}/contact/`}>{label}</a></div>

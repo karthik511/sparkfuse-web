@@ -1,0 +1,89 @@
+
+
+  <div style="display: flex; flex-direction: column; gap: 16px; padding: 56px var(--gx) 0; max-width: 900px;">
+    <div class="eb">Pricing</div>
+    <h1 class="h1">What similar work has cost. <span class="g">So you can decide whether to talk.</span></h1>
+    <p class="p" style="font-size: 16px; max-width: 62ch;">Every engagement starts with a discovery session on your floor; the number comes after that, not before. The ranges below are what comparable work has actually cost — move the sliders to find your shape.</p>
+  </div>
+
+  <!-- TWO MODELS -->
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding: 40px var(--gx) 0;">
+    <!-- PROJECT -->
+    <div class="model">
+      <div style="display: flex; flex-direction: column; gap: 4px;"><div class="eb">Project-based</div><div style="font-weight: 700; font-size: 22px;">A scoped build with a number attached.</div><p class="p" style="font-size: 13.5px;">Cut into phases. Each phase ends with something your team is already using — nothing depends on the phase after it.</p></div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline;"><div class="sub">Scope</div><div style="font-weight: 600; font-size: 14px;"><span data-b="proj.label"></span></div></div>
+        <input type="range" min="1" max="5" step="1" data-val="proj.value" data-act="setScope">
+        <div class="stops"><div>One workflow</div><div>One process</div><div>One dept.</div><div>Multi-dept.</div><div>Whole floor</div></div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <div class="sub">Timeline</div>
+        <div class="tog"><div data-cls="proj.stdClass" data-act="setStd">Standard</div><div data-cls="proj.fastClass" data-act="setFast">Accelerated · +25%</div></div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 16px; background: #EFEEE9;">
+        <div><div class="price"><span data-b="proj.range"></span></div><div class="sub" style="margin-top: 6px;">indicative range · fixed fee</div></div>
+        <div><div class="price"><span data-b="proj.weeks"></span></div><div class="sub" style="margin-top: 6px;">weeks to a working system</div></div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div class="sub">What this typically includes</div>
+        <div class="inc"><span data-b="proj.i1"></span></div>
+        <div class="inc"><span data-b="proj.i2"></span></div>
+        <div class="inc"><span data-b="proj.i3"></span></div>
+        <div class="inc"><span data-b="proj.i4"></span></div>
+      </div>
+      <div class="mono" style="font-size: 10px;">Example: <span data-b="proj.example"></span></div>
+    </div>
+
+    <!-- RETAINER -->
+    <div class="model">
+      <div style="display: flex; flex-direction: column; gap: 4px;"><div class="eb">Retainer</div><div style="font-weight: 700; font-size: 22px;">The founder and a team, every month.</div><p class="p" style="font-size: 13.5px;">For businesses that want continuous build and monitoring rather than one project — the process keeps getting rewritten as the business changes.</p></div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline;"><div class="sub">Capacity</div><div style="font-weight: 600; font-size: 14px;"><span data-b="ret.label"></span></div></div>
+        <input type="range" min="1" max="3" step="1" data-val="ret.value" data-act="setCap">
+        <div class="stops"><div>Light</div><div>Standard</div><div>Embedded</div></div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <div class="sub">Commitment</div>
+        <div class="tog"><div data-cls="ret.c3" data-act="setC3">3 months</div><div data-cls="ret.c6" data-act="setC6">6 months · −8%</div><div data-cls="ret.c12" data-act="setC12">12 months · −15%</div></div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 16px; background: #EFEEE9;">
+        <div><div class="price"><span data-b="ret.range"></span></div><div class="sub" style="margin-top: 6px;">per month · indicative</div></div>
+        <div><div class="price"><span data-b="ret.days"></span></div><div class="sub" style="margin-top: 6px;">founder days a month</div></div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div class="sub">What a month looks like</div>
+        <div class="inc"><span data-b="ret.i1"></span></div>
+        <div class="inc"><span data-b="ret.i2"></span></div>
+        <div class="inc"><span data-b="ret.i3"></span></div>
+        <div class="inc"><span data-b="ret.i4"></span></div>
+      </div>
+      <div class="mono" style="font-size: 10px;">Response time: <span data-b="ret.sla"></span></div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 40px var(--gx) 0;">
+    <div class="tile"><div class="eb">Which one is for you</div><div style="font-size: 14px;"><b>One clear process that hurts, with a number on it?</b> Project-based.</div><div style="font-size: 14px;"><b>Three or four systems you want to keep improving?</b> Retainer.</div><div style="font-size: 14px;"><b>Not sure?</b> Everyone starts with a project. Retainers usually follow one.</div></div>
+    <div class="tile"><div class="eb">Always included</div><div class="inc">Discovery session before any number is fixed</div><div class="inc">Phase cut-offs — stop after any phase, keep what's built</div><div class="inc">You own the code and the data, outright</div><div class="inc">No lock-in, no subscriptions, no retainer to keep a project alive</div></div>
+    <div class="tile"><div class="eb">Not included</div><div class="inc">Third-party usage (WhatsApp API, telephony minutes, model calls) — billed at cost, shown before go-live</div><div class="inc">Hardware (cameras, devices) — you buy, we specify</div><div class="inc">Things that should be an off-the-shelf tool — we'll say so</div></div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; padding: 48px var(--gx) 0;">
+    <div style="display: flex; flex-direction: column;">
+      <h2 class="h2" style="margin-bottom: 8px;">Questions about money.</h2>
+      <div class="faq"><div class="q">Why a range and not a price?</div><div class="a">Because the fitted 30% depends on your floor. After discovery you get one fixed number per phase; it doesn't move unless the scope does, in writing.</div></div>
+      <div class="faq"><div class="q">What does discovery cost?</div><div class="a">The first conversation is free. A full on-site discovery (one to two days, fourteen interviews, a written map) is priced on its own and credited against the first phase if you go ahead.</div></div>
+      <div class="faq"><div class="q">How do you bill a project?</div><div class="a">Per phase: part on start, the balance when the phase is live and your team is running it. Not on hours.</div></div>
+    </div>
+    <div style="display: flex; flex-direction: column;">
+      <div class="faq" style="border-top: 0;"><div class="q">Can a retainer be paused?</div><div class="a">Yes, with a month's notice. Monitoring of what's already live continues at a reduced rate so nothing you've built goes unwatched.</div></div>
+      <div class="faq"><div class="q">Do you charge for the modules you reuse?</div><div class="a">No. The ready 70% is why the fee is what it is. You pay for fitting, rollout and the outcome, not for re-building what already exists.</div></div>
+      <div class="faq"><div class="q">Who is on the team?</div><div class="a">The founder scopes, designs and leads every engagement; builders work under him. You never get handed to an account manager.</div></div>
+    </div>
+  </div>
+
+  <div class="dark" style="margin: 56px var(--gx) 80px; padding: 36px 48px; display: flex; align-items: center; justify-content: space-between; gap: 40px;">
+    <div style="display: flex; flex-direction: column; gap: 6px;"><div style="font-weight: 700; font-size: 26px; color: #fff;">Tell us the process that hurts.</div><p class="p" style="font-size: 14px;">One conversation, then a scoped proposal with a fixed number. Nothing locked in.</p></div>
+    <a class="btn" href="/contact/">Talk to us</a>
+  </div>
+
+  

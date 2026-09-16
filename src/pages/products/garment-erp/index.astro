@@ -1,0 +1,13 @@
+---
+import Base from '../../../layouts/Base.astro';
+import raw from '../../../content/ProductGarmentERP.html?raw';
+import '../../../content/ProductGarmentERP.css';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const html = raw.replace(/href="\//g, `href="${base}/`);
+const title = "Garment & textile ERP \u2014 sourcing, sampling, T&A and inspections | SparkFuse";
+const description = "One system the whole floor works from: POs and tech packs read in, a T&A per order that re-plans itself, inspections on a phone, a live order book. Our deepest reference.";
+---
+<Base title={title} description={description} section="products">
+  <Fragment set:html={html} />
+  <script>import '../../../scripts/garment.js';</script>
+</Base>

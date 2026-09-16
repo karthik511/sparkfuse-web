@@ -1,0 +1,13 @@
+---
+import Base from '../../../layouts/Base.astro';
+import raw from '../../../content/IndustryGarment.html?raw';
+import '../../../content/IndustryGarment.css';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const html = raw.replace(/href="\//g, `href="${base}/`);
+const title = "AI & ERP for garment exporters and buying houses | SparkFuse";
+const description = "From buyer PO to handover on one system. Our deepest reference: 200+ live orders, three buyers, twelve factories.";
+---
+<Base title={title} description={description} section="industries">
+  <Fragment set:html={html} />
+  
+</Base>
