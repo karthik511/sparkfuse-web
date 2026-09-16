@@ -1,5 +1,5 @@
 ---
-import Base from '../../../layouts/Base.astro'; import VoiceOps from '../../../components/demos/VoiceOps.astro'; import DemoSection from '../../../components/demos/DemoSection.astro';
+import Base from '../../../layouts/Base.astro'; import UseCaseStrip from '../../../components/UseCaseStrip.astro'; import VoiceOps from '../../../components/demos/VoiceOps.astro'; import DemoSection from '../../../components/demos/DemoSection.astro';
 import raw from '../../../content/IndustryRealEstate.html?raw';
 import '../../../content/IndustryRealEstate.css';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -9,6 +9,7 @@ const description = "Every lead called in 30 seconds, follow-ups run by the syst
 ---
 <Base title={title} description={description} section="industries">
   <div class="legacy" data-legacy><Fragment set:html={html} /></div>
+  <UseCaseStrip ind="real-estate-and-construction" />
   <DemoSection h="Every enquiry called in 30 seconds. Here is what your team sees." p="Live calls, the log with transcripts, and the agent script in plain language." eb="Indicative screens"><VoiceOps start="live" /></DemoSection>
   
 </Base>

@@ -1,5 +1,5 @@
 ---
-import Base from '../../../layouts/Base.astro'; import Ladder from '../../../components/demos/Ladder.astro'; import DemoSection from '../../../components/demos/DemoSection.astro';
+import Base from '../../../layouts/Base.astro'; import UseCaseStrip from '../../../components/UseCaseStrip.astro'; import Ladder from '../../../components/demos/Ladder.astro'; import DemoSection from '../../../components/demos/DemoSection.astro';
 import raw from '../../../content/IndustryDistribution.html?raw';
 import '../../../content/IndustryDistribution.css';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -9,6 +9,7 @@ const description = "Dealers ordering on their phones, one credit position, coll
 ---
 <Base title={title} description={description} section="industries">
   <div class="legacy" data-legacy><Fragment set:html={html} /></div>
+  <UseCaseStrip ind="distribution-and-dealers" />
   <DemoSection h="Collections that chase themselves." p="Slide the clock: reminder, chase, call, escalation, owner digest — the same ladder runs for dealer payments." eb="Interactive"><Ladder /></DemoSection>
   
 </Base>

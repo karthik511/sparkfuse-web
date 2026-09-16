@@ -1,0 +1,61 @@
+---
+// Product showcase: main stage + filmstrip + captions, auto-playing walkthrough, lightbox. Reads src/data/screens/<slug>.json.
+const { slug, h = 'The product, screen by screen.', p = 'Every screen below exists. Discovery decides which of them you get and how they are fitted to your process.', eb = 'Showcase' } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const mods = import.meta.glob('../data/screens/*.json', { eager: true }); const data = mods[`../data/screens/${slug}.json`]?.default;
+const src = f => `${base}/screens/${slug}/${f}`;
+---
+{data && <section class="sec showcase" data-showcase>
+  <div class="container">
+    <div class="split wide" style="align-items: end; margin-bottom: clamp(20px, 3vw, 32px);" data-io>
+      <div style="display: flex; flex-direction: column; gap: 10px;"><div class="eb">{eb}</div><h2 class="h2">{h}</h2><p class="lede" style="font-size: 16px;">{p}</p></div>
+      <div style="display: flex; gap: 10px; justify-self: end; align-items: center; flex-wrap: wrap;"><button class="btn2" data-play><span class="pi">▶</span> Play the tour</button><a class="btn3" href={src('loop.mp4')} download>Download loop (MP4)</a></div>
+    </div>
+    <div class="stage" data-io>
+      <div class="frame shot"><div class="chrome"><i></i><i></i><i></i><div class="url">{data.app.toLowerCase()}.sparkfuse.in · {data.client}</div><div class="live">Mock · fictional data</div></div>
+        <div class="img" data-stage><img src={src(data.screens[0].file + '.webp')} alt={data.screens[0].title} width="1440" height="900" loading="lazy" decoding="async" /><button class="zoom" data-zoom aria-label="Open full size">⤢</button></div>
+        <div class="capbar"><div class="prog"><i data-prog></i></div><div class="cap"><b data-captitle>{data.screens[0].title}</b><span data-caption>{data.screens[0].caption}</span></div><div class="mono" data-count>1 / {data.screens.length}</div></div>
+      </div>
+      <div class="strip" data-strip>{data.screens.map((s, i) => <button class={`th${i === 0 ? ' on' : ''}`} data-i={i} data-file={s.file} data-title={s.title} data-caption={s.caption} aria-label={s.title}><img src={src(s.file + '-thumb.webp')} alt="" width="480" height="300" loading="lazy" /><span>{s.title}</span></button>)}</div>
+    </div>
+  </div>
+  <dialog class="lightbox" data-lightbox><button class="x" data-close aria-label="Close">×</button><img src="" alt="" data-lbimg /><div class="lbcap" data-lbcap></div><button class="nv prev" data-prev aria-label="Previous">‹</button><button class="nv next" data-next aria-label="Next">›</button></dialog>
+</section>}
+
+<style is:global>
+  .showcase .stage { display: grid; grid-template-columns: 1fr 200px; gap: 14px; align-items: start; }
+  .showcase .frame.shot { box-shadow: var(--sh2); } .showcase .img { position: relative; background: #F6F5F0; } .showcase .img img { width: 100%; height: auto; display: block; aspect-ratio: 1440 / 900; transition: opacity .25s; } .showcase .img img.pop { animation: shotpop .35s var(--ease); } @keyframes shotpop { from { opacity: .35; transform: scale(.995); } }
+  .showcase .zoom { position: absolute; right: 12px; bottom: 12px; width: 36px; height: 36px; border-radius: 10px; border: 1px solid var(--line2); background: rgba(255,255,255,.92); font-size: 16px; cursor: pointer; }
+  .showcase .capbar { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: center; padding: 14px 18px; border-top: 1px solid var(--line); background: #fff; }
+  .showcase .prog { position: absolute; left: 0; top: -1px; right: 0; height: 2px; background: var(--line); } .showcase .prog i { display: block; height: 100%; width: 0; background: var(--red); transition: width .1s linear; }
+  .showcase .cap { display: flex; flex-direction: column; gap: 2px; font-size: 14px; color: var(--ink2); } .showcase .cap b { color: var(--ink); font-size: 15px; }
+  .showcase .strip { display: flex; flex-direction: column; gap: 8px; max-height: 620px; overflow: auto; padding-right: 2px; }
+  .showcase .th { display: flex; flex-direction: column; gap: 4px; padding: 0; border: 2px solid transparent; border-radius: 10px; background: transparent; cursor: pointer; text-align: left; font: inherit; color: var(--ink2); font-size: 12px; overflow: hidden; }
+  .showcase .th img { width: 100%; height: auto; display: block; border-radius: 8px; border: 1px solid var(--line); aspect-ratio: 16 / 10; object-fit: cover; } .showcase .th span { padding: 0 4px 4px; } .showcase .th.on { border-color: var(--red); } .showcase .th.on span { color: var(--ink); font-weight: 600; }
+  .showcase [data-play].on .pi::before { content: ""; } .showcase .pi { font-size: 11px; }
+  .lightbox { border: 0; padding: 0; background: rgba(12,12,11,.92); width: 100vw; height: 100vh; max-width: none; max-height: none; display: none; align-items: center; justify-content: center; flex-direction: column; gap: 14px; } .lightbox[open] { display: flex; }
+  .lightbox img { max-width: min(96vw, 1600px); max-height: 82vh; border-radius: 12px; box-shadow: 0 30px 80px rgba(0,0,0,.6); } .lightbox .lbcap { color: #EFEEE9; font-size: 14px; max-width: 900px; text-align: center; padding: 0 20px; }
+  .lightbox .x, .lightbox .nv { position: absolute; background: rgba(255,255,255,.12); color: #fff; border: 0; width: 44px; height: 44px; border-radius: 50%; font-size: 26px; cursor: pointer; } .lightbox .x { top: 18px; right: 18px; } .lightbox .nv { top: 50%; transform: translateY(-50%); } .lightbox .prev { left: 18px; } .lightbox .next { right: 18px; }
+  @media (max-width: 900px) { .showcase .stage { grid-template-columns: 1fr; } .showcase .strip { flex-direction: row; max-height: none; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 4px; } .showcase .th { flex: 0 0 150px; scroll-snap-align: start; } .showcase .capbar { grid-template-columns: 1fr; } }
+</style>
+
+<script>
+  document.querySelectorAll('[data-showcase]').forEach(root => {
+    const ths = [...root.querySelectorAll('.th')], img = root.querySelector('[data-stage] img'), ct = root.querySelector('[data-captitle]'), cp = root.querySelector('[data-caption]'), cnt = root.querySelector('[data-count]'), prog = root.querySelector('[data-prog]'), play = root.querySelector('[data-play]');
+    const lb = root.querySelector('[data-lightbox]'), lbimg = root.querySelector('[data-lbimg]'), lbcap = root.querySelector('[data-lbcap]');
+    let i = 0, timer = null, t0 = 0; const DUR = 4200;
+    const full = f => img.src.replace(/\/[^/]+\.webp$/, '/' + f + '.webp');
+    const show = n => { i = (n + ths.length) % ths.length; const t = ths[i]; const next = new Image(); next.src = full(t.dataset.file); next.onload = () => { img.src = next.src; img.alt = t.dataset.title; img.classList.remove('pop'); void img.offsetWidth; img.classList.add('pop'); }; ct.textContent = t.dataset.title; cp.textContent = t.dataset.caption; cnt.textContent = `${i + 1} / ${ths.length}`; ths.forEach((x, j) => x.classList.toggle('on', j === i)); t.scrollIntoView({ block: 'nearest', inline: 'nearest' }); if (lb.open) { lbimg.src = next.src; lbcap.textContent = t.dataset.title + ' — ' + t.dataset.caption; } };
+    const tick = () => { const k = Math.min(1, (performance.now() - t0) / DUR); prog.style.width = (k * 100) + '%'; if (k >= 1) { t0 = performance.now(); show(i + 1); } timer = requestAnimationFrame(tick); };
+    const start = () => { if (timer) return; play.classList.add('on'); play.innerHTML = '<span class="pi">❚❚</span> Pause'; t0 = performance.now(); timer = requestAnimationFrame(tick); };
+    const stop = () => { if (!timer) return; cancelAnimationFrame(timer); timer = null; prog.style.width = '0'; play.classList.remove('on'); play.innerHTML = '<span class="pi">▶</span> Play the tour'; };
+    play.addEventListener('click', () => timer ? stop() : start());
+    ths.forEach((t, n) => t.addEventListener('click', () => { stop(); show(n); }));
+    root.querySelector('[data-zoom]').addEventListener('click', () => { stop(); lbimg.src = img.src; lbcap.textContent = ct.textContent + ' — ' + cp.textContent; lb.showModal(); });
+    root.querySelector('[data-close]').addEventListener('click', () => lb.close()); lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
+    root.querySelector('[data-prev]').addEventListener('click', () => show(i - 1)); root.querySelector('[data-next]').addEventListener('click', () => show(i + 1));
+    document.addEventListener('keydown', e => { if (!lb.open) return; if (e.key === 'ArrowRight') show(i + 1); if (e.key === 'ArrowLeft') show(i - 1); });
+    // pause when off-screen; autoplay once when it first comes into view
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting && !root.dataset.seen) { root.dataset.seen = '1'; start(); } if (!e.isIntersecting) stop(); }), { threshold: .4 }); io.observe(root.querySelector('.stage'));
+  });
+</script>

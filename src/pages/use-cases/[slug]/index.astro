@@ -1,0 +1,35 @@
+---
+import Base from '../../../layouts/Base.astro'; import CtaBand from '../../../components/CtaBand.astro';
+import { usecases } from '../../../data/usecases.js'; import { products, industries, hubs } from '../../../data/site.js';
+export function getStaticPaths() { return usecases.map(uc => ({ params: { slug: uc.slug }, props: { uc } })); }
+const { uc } = Astro.props; const base = import.meta.env.BASE_URL.replace(/\/$/, ''); const u = p => `${base}${p}`;
+const prod = products.find(p => p.slug === uc.product), ind = industries.find(i => i.slug === uc.ind), hub = hubs.find(h => h.slug === uc.solution);
+const more = usecases.filter(x => x.slug !== uc.slug && (x.product === uc.product || x.ind === uc.ind)).slice(0, 3);
+const shot = (p, f) => `${base}/screens/${p}/${f}.webp`;
+const schema = { '@context': 'https://schema.org', '@type': 'HowTo', name: uc.title, step: uc.steps.map(([p, f, t], i) => ({ '@type': 'HowToStep', position: i + 1, text: t })) };
+---
+<Base title={`${uc.title} — use case | SparkFuse`} description={uc.scenario.slice(0, 155)} section="products" schema={schema}>
+  <section class="sec" style="padding-bottom: 0;">
+    <div class="container">
+      <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 22px;" data-io><a class="mono" href={u('/use-cases/')} style="color: var(--muted);">Use cases</a><span class="mono">›</span><span class="chip">{uc.tag}</span><a class="chip" href={u(`/industries/${ind.slug}/`)}>{ind.name}</a></div>
+      <div class="split wide" style="align-items: start;">
+        <div data-io style="display: flex; flex-direction: column; gap: 18px;"><h1 class="h1" style="font-size: clamp(30px, 4vw, 50px);">{uc.title}</h1><p class="lede">{uc.scenario}</p>
+          <div style="display: flex; gap: 20px; flex-wrap: wrap;">{[uc.num, uc.num2].filter(Boolean).map(([n, l]) => <div><div class="num" style="font-size: 32px;" data-count={n}>{n}</div><div class="mono">{l}</div></div>)}</div></div>
+        <div data-io class="grid2" style="gap: 12px;"><div class="card flat" style="gap: 8px;"><div class="eb">Who's involved</div>{uc.people.map(p => <div class="li">{p}</div>)}</div><div class="card flat" style="gap: 8px;"><div class="eb" style="color: var(--red);">The old way</div>{uc.before.map(p => <div class="li g">{p}</div>)}</div></div>
+      </div>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="container">
+      <div class="sec-head" data-io><div class="eb">What the system does</div><h2 class="h2">Step by step, on the actual screens.</h2></div>
+      <div class="ucsteps">{uc.steps.map(([p, f, t], i) => <div class="ucstep" data-io><div class="n"><span>{i + 1}</span></div><div class="txt"><p class="lede" style="font-size: 17px;">{t}</p></div><div class="frame shot"><div class="chrome"><i></i><i></i><i></i><div class="url">app.sparkfuse.in/{p}</div><div class="live">Mock · fictional data</div></div><img src={shot(p, f)} alt={t} width="1440" height="900" loading="lazy" decoding="async" /></div></div>)}</div>
+      <div class="dark band" data-io style="padding: clamp(28px, 4vw, 44px); margin-top: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px;"><div style="position: relative;"><div class="eb">What the AI did</div><p class="p" style="font-size: 16px; color: #EFEEE9;">{uc.ai}</p></div><div style="position: relative; display: flex; flex-direction: column; gap: 10px;"><div class="eb">Built on</div><a class="chip" href={u(`/products/${prod.slug}/`)} style="background: #fff; align-self: flex-start;">{prod.name} →</a><a class="chip" href={u(`/solutions/${hub.slug}/`)} style="background: #fff; align-self: flex-start;">{hub.name} →</a></div></div>
+    </div>
+  </section>
+  {more.length > 0 && <section class="sec" style="padding-top: 0;"><div class="container"><div class="sec-head" data-io style="margin-bottom: 20px;"><div class="eb">More scenarios</div></div><div class="grid3">{more.map(m => <a class="card hover" href={u(`/use-cases/${m.slug}/`)} data-io><div class="mono" style="color: var(--red);">{m.tag}</div><div class="t">{m.title}</div><div class="d">{m.scenario}</div></a>)}</div><div style="height: 48px;"></div><CtaBand h="Is this your floor?" p="Tell us the version that happens at your company. The first call is a working session, not a pitch." /></div></section>}
+  <style is:global>
+    .ucsteps { display: flex; flex-direction: column; gap: clamp(28px, 4vw, 48px); }
+    .ucstep { display: grid; grid-template-columns: 44px 1fr; gap: 16px 20px; align-items: start; } .ucstep .n span { width: 40px; height: 40px; border-radius: 50%; background: var(--red); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; } .ucstep .txt { max-width: 720px; } .ucstep .frame { grid-column: 2; box-shadow: var(--sh2); } .ucstep .frame img { width: 100%; height: auto; display: block; aspect-ratio: 1440 / 900; }
+    @media (max-width: 700px) { .ucstep { grid-template-columns: 1fr; } .ucstep .frame { grid-column: 1; } .dark.band[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; } }
+  </style>
+</Base>

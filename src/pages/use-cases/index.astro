@@ -1,0 +1,39 @@
+---
+import Base from '../../layouts/Base.astro'; import CtaBand from '../../components/CtaBand.astro';
+import { usecases } from '../../data/usecases.js'; import { products, industries, hubs } from '../../data/site.js';
+const base = import.meta.env.BASE_URL.replace(/\/$/, ''); const u = p => `${base}${p}`;
+const pn = Object.fromEntries(products.map(p => [p.slug, p.name])), inn = Object.fromEntries(industries.map(i => [i.slug, i.name])), hn = Object.fromEntries(hubs.map(h => [h.slug, h.name]));
+const shot = (uc) => `${base}/screens/${uc.steps[0][0]}/${uc.steps[0][1]}-thumb.webp`;
+---
+<Base title="Use cases — where AI fits in your business, scenario by scenario | SparkFuse" description="Real scenarios from the floor — a lead that says call me tomorrow, an invoice that doesn't match the PO, a visit no-show — and exactly what the system does, screen by screen." section="products">
+  <section class="sec" style="padding-bottom: 24px;">
+    <div class="container">
+      <div class="sec-head" data-io style="margin-bottom: 28px;"><div class="eb">Use cases</div><h1 class="h1">Where AI fits. <span class="g">One scenario at a time.</span></h1><p class="lede">Clients rarely ask for "AI". They ask what happens when a buyer says "call me tomorrow", or an invoice doesn't match the PO. Each use case below is that moment: who's involved, the old way, and what the system does — screen by screen.</p></div>
+      <div class="filters" data-io>
+        <div class="row2"><div class="chips"><span class="mono">Industry</span>{industries.map(i => <button class="chip" data-k="ind" data-v={i.slug}>{i.name}</button>)}</div></div>
+        <div class="row2"><div class="chips"><span class="mono">Product</span>{products.filter(p => usecases.some(x => x.product === p.slug)).map(p => <button class="chip" data-k="product" data-v={p.slug}>{p.name}</button>)}</div></div>
+        <div class="row2"><div class="chips"><span class="mono">Solution</span>{hubs.filter(h => usecases.some(x => x.solution === h.slug)).map(h => <button class="chip" data-k="solution" data-v={h.slug}>{h.name}</button>)}</div><button class="btn3" data-clear>Clear</button></div>
+      </div>
+    </div>
+  </section>
+  <section class="sec" style="padding-top: 0;">
+    <div class="container">
+      <div class="grid3" data-grid>{usecases.map(uc => <a class="card hover uc" href={u(`/use-cases/${uc.slug}/`)} data-ind={uc.ind} data-product={uc.product} data-solution={uc.solution} data-io><div class="shot"><img src={shot(uc)} alt="" width="480" height="300" loading="lazy" /></div><div class="mono"><span style="color: var(--red);">{uc.tag}</span> · {inn[uc.ind]}</div><div class="t">{uc.title}</div><div class="d">{uc.scenario}</div><div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px;"><span class="chip">{pn[uc.product]}</span><span class="chip">{hn[uc.solution]}</span></div></a>)}</div>
+      <div class="empty hidden" data-empty><div class="h3">No use case in that combination yet.</div><p class="p">Clear a filter — or tell us the scenario; that's how most of these were written.</p></div>
+      <div style="height: 48px;"></div>
+      <CtaBand h="Have a scenario that isn't here?" p="Describe the moment that hurts — who's involved, what usually goes wrong. We'll write back with what the system would do." />
+    </div>
+  </section>
+  <style>
+    .filters { display: flex; flex-direction: column; gap: 10px; padding: 16px 0; border-block: 1px solid var(--line); } .row2 { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .chips { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; } .chips .chip { cursor: pointer; } .chips .chip.on { background: var(--red); border-color: var(--red); color: #fff; }
+    .uc .shot { margin: -4px -4px 8px; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); } .uc .shot img { width: 100%; height: auto; display: block; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; } .uc.hide { display: none; } .empty { text-align: center; padding: 60px 0; }
+  </style>
+  <script>
+    const chips = [...document.querySelectorAll('.chips .chip')], cards = [...document.querySelectorAll('.uc')], empty = document.querySelector('[data-empty]'); const st = {};
+    const q = new URLSearchParams(location.search); ['ind', 'product', 'solution'].forEach(k => { if (q.get(k)) st[k] = q.get(k); });
+    const apply = () => { chips.forEach(c => c.classList.toggle('on', st[c.dataset.k] === c.dataset.v)); let n = 0; cards.forEach(c => { const ok = Object.entries(st).every(([k, v]) => !v || c.dataset[k] === v); c.classList.toggle('hide', !ok); if (ok) n++; }); empty.classList.toggle('hidden', n > 0); const u = new URL(location); ['ind', 'product', 'solution'].forEach(k => st[k] ? u.searchParams.set(k, st[k]) : u.searchParams.delete(k)); history.replaceState(null, '', u); };
+    chips.forEach(c => c.addEventListener('click', () => { st[c.dataset.k] = st[c.dataset.k] === c.dataset.v ? null : c.dataset.v; apply(); }));
+    document.querySelector('[data-clear]').addEventListener('click', () => { Object.keys(st).forEach(k => st[k] = null); apply(); }); apply();
+  </script>
+</Base>

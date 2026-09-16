@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import MiniUI from '../components/MiniUI.astro';
-import CtaBand from '../components/CtaBand.astro';
+import CtaBand from '../components/CtaBand.astro'; import UseCaseStrip from '../components/UseCaseStrip.astro';
 import { products, industries, cases, categories, featured } from '../data/site.js';
 const feat = featured.map(f => products.find(p => p.slug === f));
 import wa from '../data/products/whatsapp-automation.json';
@@ -77,6 +77,8 @@ const modules = ['WhatsApp Cloud API', 'Chase & escalation ladders', 'Email & po
     </div>
   </div>
 </section>
+
+<UseCaseStrip h="Where AI fits. One scenario at a time." p="Clients rarely ask for AI. They ask what happens when a buyer says call me tomorrow. Each use case is that moment, screen by screen." />
 
 <!-- METHOD -->
 <section class="sec">

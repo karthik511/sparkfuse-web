@@ -1,0 +1,14 @@
+---
+// "Use cases on this floor" strip for industry and solution pages. Filter by industry or solution slug.
+import { usecases } from '../data/usecases.js'; import { products } from '../data/site.js';
+const { ind, solution, h = 'Use cases on this floor.', p = 'Real moments, and what the system does at each — screen by screen.' } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, ''); const u = x => `${base}${x}`;
+const list = usecases.filter(x => (!ind || x.ind === ind) && (!solution || x.solution === solution)).slice(0, 3); const pn = Object.fromEntries(products.map(p => [p.slug, p.name]));
+const q = ind ? `?ind=${ind}` : solution ? `?solution=${solution}` : '';
+---
+{list.length > 0 && <section class="sec">
+  <div class="container">
+    <div class="split wide" style="align-items: end; margin-bottom: clamp(20px, 3vw, 32px);" data-io><div style="display: flex; flex-direction: column; gap: 10px;"><div class="eb">Use cases</div><h2 class="h2">{h}</h2><p class="lede" style="font-size: 16px;">{p}</p></div><a class="btn2" href={u(`/use-cases/${q}`)} style="justify-self: end;">All use cases <span class="arr">→</span></a></div>
+    <div class="grid3">{list.map(x => <a class="card hover" href={u(`/use-cases/${x.slug}/`)} data-io><div style="margin: -4px -4px 8px; border-radius: 10px; overflow: hidden; border: 1px solid var(--line);"><img src={u(`/screens/${x.steps[0][0]}/${x.steps[0][1]}-thumb.webp`)} alt="" width="480" height="300" loading="lazy" style="width: 100%; height: auto; display: block;" /></div><div class="mono"><span style="color: var(--red);">{x.tag}</span> · {pn[x.product]}</div><div class="t">{x.title}</div><div class="d">{x.scenario}</div></a>)}</div>
+  </div>
+</section>}

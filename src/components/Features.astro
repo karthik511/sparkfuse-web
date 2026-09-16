@@ -1,0 +1,21 @@
+---
+// Feature grid for a product: name, one line, Ready / Fitted / Add-on tag, grouped by stage. Data from src/data/features.js.
+import { features } from '../data/features.js';
+const { slug } = Astro.props; const f = features[slug]; const groups = f ? [...new Set(f.map(x => x.g))] : [];
+const tagc = { Ready: 'g', Fitted: 'r', 'Add-on': 'k' };
+---
+{f && <section class="sec" style="background: var(--surface); border-block: 1px solid var(--line);">
+  <div class="container">
+    <div class="split wide" style="align-items: end; margin-bottom: clamp(20px, 3vw, 32px);" data-io>
+      <div style="display: flex; flex-direction: column; gap: 10px;"><div class="eb">Features</div><h2 class="h2">What's in the box. <span class="g">And what gets fitted to you.</span></h2></div>
+      <div style="display: flex; gap: 8px; justify-self: end; flex-wrap: wrap;"><span class="ftag g">Ready · we operate it</span><span class="ftag r">Fitted · set to your process</span><span class="ftag k">Add-on</span></div>
+    </div>
+    <div class="fgroups">{groups.map(g => <div class="fgroup" data-io><div class="mono" style="color: var(--red);">{g}</div>{f.filter(x => x.g === g).map(x => <div class="feat"><div class="ft"><b>{x.n}</b><span class={`ftag ${tagc[x.t]}`}>{x.t}</span></div><div class="fd">{x.d}</div></div>)}</div>)}</div>
+  </div>
+</section>}
+<style is:global>
+  .fgroups { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; } .fgroup { display: flex; flex-direction: column; gap: 10px; }
+  .feat { background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; } .feat .ft { display: flex; justify-content: space-between; gap: 8px; align-items: flex-start; font-size: 14px; } .feat .fd { font-size: 13px; color: var(--ink2); line-height: 1.45; }
+  .ftag { font-family: var(--mono); font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase; padding: 3px 7px; border-radius: 999px; white-space: nowrap; flex: none; } .ftag.g { background: var(--ok-soft); color: var(--ok); } .ftag.r { background: var(--red-soft); color: var(--red-ink); } .ftag.k { background: var(--ink); color: #fff; }
+  @media (max-width: 1100px) { .fgroups { grid-template-columns: repeat(3, minmax(0, 1fr)); } } @media (max-width: 700px) { .fgroups { grid-template-columns: 1fr 1fr; } } @media (max-width: 480px) { .fgroups { grid-template-columns: 1fr; } }
+</style>

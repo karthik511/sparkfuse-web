@@ -34,7 +34,7 @@ const org = { '@context': 'https://schema.org', '@type': 'Organization', name: '
         <div class="m"><button type="button" class={section === 'products' ? 'on' : ''} aria-haspopup="true">Products <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
           <div class="menu mega" role="menu">
             {categories.map(c => <div class="col"><div class="k">{c}</div>{products.filter(p => p.cat === c).map(p => <a href={u(`/products/${p.slug}/`)} role="menuitem"><b>{p.name}</b></a>)}</div>)}
-            <a class="all" href={u('/products/')}>All products, with filters →</a>
+            <a class="all" href={u('/products/')}>All products, with filters →</a><a class="all" href={u('/use-cases/')} style="border-top: 0; margin-top: 0; padding-top: 6px;">Use cases — where AI fits, scenario by scenario →</a>
           </div>
         </div>
         <div class="m"><button type="button" class={section === 'solutions' ? 'on' : ''} aria-haspopup="true">Solutions <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
@@ -57,7 +57,7 @@ const org = { '@context': 'https://schema.org', '@type': 'Organization', name: '
     </div>
   </header>
   <nav class="mnav" data-mnav aria-label="Mobile">
-    <a href={u('/products/')}>Products</a><a href={u('/solutions/')}>Solutions</a><a href={u('/industries/')}>Industries</a><a href={u('/work/')}>Work</a><a href={u('/lab/')}>Lab</a><a href={u('/pricing/')}>Pricing</a><a href={u('/about/')}>About</a>
+    <a href={u('/products/')}>Products</a><a href={u('/use-cases/')}>Use cases</a><a href={u('/solutions/')}>Solutions</a><a href={u('/industries/')}>Industries</a><a href={u('/work/')}>Work</a><a href={u('/lab/')}>Lab</a><a href={u('/pricing/')}>Pricing</a><a href={u('/about/')}>About</a>
     <a href={u('/contact/')} style="color: var(--red); font-weight: 600;">Talk to us →</a>
   </nav>
   <main>
@@ -70,7 +70,7 @@ const org = { '@context': 'https://schema.org', '@type': 'Organization', name: '
         <div class="col"><div class="k">Products</div>{products.slice(0, 6).map(p => <a href={u(`/products/${p.slug}/`)}>{p.name}</a>)}</div>
         <div class="col"><div class="k">More products</div>{products.slice(6).map(p => <a href={u(`/products/${p.slug}/`)}>{p.name}</a>)}</div>
         <div class="col"><div class="k">Industries</div>{industries.map(i => <a href={u(`/industries/${i.slug}/`)}>{i.name}</a>)}<div class="k" style="margin-top: 12px;">Solutions</div>{hubs.slice(0, 4).map(h => <a href={u(`/solutions/${h.slug}/`)}>{h.name}</a>)}</div>
-        <div class="col"><div class="k">Firm</div><a href={u('/services/ai-consulting/')}>AI consulting</a><a href={u('/services/app-development/')}>App development</a><a href={u('/work/')}>Work</a><a href={u('/lab/')}>Lab</a><a href={u('/pricing/')}>Pricing</a><a href={u('/about/')}>About</a><a href={u('/contact/')}>Contact</a></div>
+        <div class="col"><div class="k">Firm</div><a href={u('/use-cases/')}>Use cases</a><a href={u('/services/ai-consulting/')}>AI consulting</a><a href={u('/services/app-development/')}>App development</a><a href={u('/work/')}>Work</a><a href={u('/lab/')}>Lab</a><a href={u('/pricing/')}>Pricing</a><a href={u('/about/')}>About</a><a href={u('/contact/')}>Contact</a></div>
       </div>
       <div class="legal"><span>© 2026 SparkFuse Business Solutions LLP</span><span>Every screen on this site is a mockup with fictional data. Client engagements are anonymised.</span></div>
     </div>

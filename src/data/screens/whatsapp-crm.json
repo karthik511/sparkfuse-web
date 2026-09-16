@@ -1,0 +1,48 @@
+{
+ "app": "LeadDesk",
+ "client": "Shubham Developers",
+ "screens": [
+  {
+   "file": "01-inbox",
+   "title": "Team inbox",
+   "caption": "Every WhatsApp conversation in one team inbox. The AI drafts the reply, the lead card on the right is written from the chat \u2014 nobody types it.",
+   "hl": null
+  },
+  {
+   "file": "02-today",
+   "title": "Today",
+   "caption": "The morning view: what needs a person today, what the system already did overnight, and where the pipeline stands.",
+   "hl": null
+  },
+  {
+   "file": "03-lead",
+   "title": "Lead \u00b7 Sneha Desai",
+   "caption": "A lead card written by the AI from the conversation \u2014 need, budget, source, next step \u2014 with the full history and every promise the ladder is holding.",
+   "hl": null
+  },
+  {
+   "file": "04-pipeline",
+   "title": "Pipeline",
+   "caption": "Leads move on their own as the chat progresses \u2014 a booked visit, a shared loan letter, a token \u2014 no drag-and-drop by anyone.",
+   "hl": null
+  },
+  {
+   "file": "05-ladder",
+   "title": "Follow-up ladder \u00b7 Visit booked",
+   "caption": "The ladder is the product: who is nudged, how, and when it stops being polite \u2014 set in plain language, in your team's voice, per stage.",
+   "hl": null
+  },
+  {
+   "file": "06-reports",
+   "title": "Reports",
+   "caption": "Reports compile themselves: source to token, response times, and where leads leak \u2014 by project, by person, by ad.",
+   "hl": null
+  },
+  {
+   "file": "07-mobile",
+   "title": "On the phone",
+   "caption": "The site team works from their phone: today's visits, the lead card before the buyer arrives, and one tap to log the outcome.",
+   "hl": null
+  }
+ ]
+}

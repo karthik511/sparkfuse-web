@@ -1,5 +1,5 @@
 ---
-import Base from '../../../layouts/Base.astro'; import MiniUI from '../../../components/MiniUI.astro'; import CtaBand from '../../../components/CtaBand.astro';
+import Base from '../../../layouts/Base.astro'; import MiniUI from '../../../components/MiniUI.astro'; import CtaBand from '../../../components/CtaBand.astro'; import UseCaseStrip from '../../../components/UseCaseStrip.astro';
 import VisionDemo from '../../../components/demos/VisionDemo.astro'; import VoiceOps from '../../../components/demos/VoiceOps.astro'; import VoiceAB from '../../../components/demos/VoiceAB.astro'; import AppShell from '../../../components/demos/AppShell.astro'; import Ladder from '../../../components/demos/Ladder.astro';
 import { hubs, products, cases, lab } from '../../../data/site.js';
 import docs from '../../../data/products/document-processing.json'; import mis from '../../../data/products/mis-dashboards.json';
@@ -55,6 +55,8 @@ const rel = (caseMap[h.slug] || []).map(s => cases.find(c => c.slug === s)).filt
       <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 20px;" data-io><span class="mono">Filter all products by this capability</span><a class="chip" href={u(`/products/?cat=${encodeURIComponent(onTop[0].cat)}`)}>{onTop[0].cat} →</a></div>
     </div>
   </section>}
+
+  <UseCaseStrip solution={h.slug} />
 
   {(rel.length > 0 || notes.length > 0) && <section class="sec" style="padding-top: 0;">
     <div class="container grid2">

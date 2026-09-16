@@ -1,5 +1,5 @@
 ---
-import Base from '../../../layouts/Base.astro'; import VisionDemo from '../../../components/demos/VisionDemo.astro'; import DemoSection from '../../../components/demos/DemoSection.astro';
+import Base from '../../../layouts/Base.astro'; import UseCaseStrip from '../../../components/UseCaseStrip.astro'; import VisionDemo from '../../../components/demos/VisionDemo.astro'; import DemoSection from '../../../components/demos/DemoSection.astro';
 import raw from '../../../content/IndustryManufacturing.html?raw';
 import '../../../content/IndustryManufacturing.css';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -9,6 +9,7 @@ const description = "Inventory, planning, dealers and documents for owner-led fa
 ---
 <Base title={title} description={description} section="industries">
   <div class="legacy" data-legacy><Fragment set:html={html} /></div>
+  <UseCaseStrip ind="manufacturing" />
   <DemoSection h="Cameras you already own, doing QC and security." p="Two recordings of our detection stack; a theft-detection scenario and a defect-scoring batch you can run." eb="Vision on the floor"><VisionDemo /></DemoSection>
   
 </Base>
