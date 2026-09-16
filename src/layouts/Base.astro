@@ -79,6 +79,14 @@ const org = { '@context': 'https://schema.org', '@type': 'Organization', name: '
 <script>
   const nav = document.querySelector('[data-nav]'); const b = document.querySelector('[data-burger]'); const m = document.querySelector('[data-mnav]');
   b?.addEventListener('click', () => { const o = m.classList.toggle('open'); b.setAttribute('aria-expanded', String(o)); });
+  // hover-intent menus: open on hover, hold for a moment after leaving, click toggles (touch / keyboard)
+  document.querySelectorAll('.nav .m').forEach(m => { let t; const btn = m.querySelector('button');
+    m.addEventListener('mouseenter', () => { clearTimeout(t); document.querySelectorAll('.nav .m.open').forEach(x => x !== m && x.classList.remove('open')); m.classList.add('open'); });
+    m.addEventListener('mouseleave', () => { t = setTimeout(() => m.classList.remove('open'), 220); });
+    btn?.addEventListener('click', e => { e.preventDefault(); clearTimeout(t); const o = m.classList.toggle('open'); document.querySelectorAll('.nav .m.open').forEach(x => x !== m && x.classList.remove('open')); btn.setAttribute('aria-expanded', String(o)); });
+  });
+  document.addEventListener('click', e => { if (!e.target.closest('.nav .m')) document.querySelectorAll('.nav .m.open').forEach(x => x.classList.remove('open')); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') document.querySelectorAll('.nav .m.open').forEach(x => x.classList.remove('open')); });
   const onScroll = () => nav?.classList.toggle('scrolled', window.scrollY > 8); onScroll(); addEventListener('scroll', onScroll, { passive: true });
   // scroll reveals
   const ios = [...document.querySelectorAll('[data-io]')]; ios.forEach((el, i) => { el.style.transitionDelay = (Math.min(i % 6, 5) * 70) + 'ms'; });
