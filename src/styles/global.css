@@ -274,12 +274,12 @@ a.card:hover, .card.hover:hover { transform: translateY(-3px); box-shadow: var(-
 .mock .wa button[type=submit] { flex: none; }
 .mock > [style*="grid-template-columns"] { align-items: stretch; }
 /* every mock is height-capped; columns scroll inside instead of growing the page (grid is a child or grandchild of .mock) */
-.mock > [style*="grid-template-columns"], .mock > div > [style*="grid-template-columns"] { height: 540px; max-height: 70vh; min-height: 0 !important; grid-template-rows: 100%; overflow: hidden; }
+.mock > [style*="grid-template-columns"], .mock > div > [style*="grid-template-columns"] { height: min(560px, 72vh) !important; min-height: 0 !important; max-height: none !important; grid-template-rows: 100%; overflow: hidden; }
 .mock > [style*="grid-template-columns"] > *, .mock > div > [style*="grid-template-columns"] > * { min-height: 0; overflow: auto; overscroll-behavior: contain; }
 .mock > [style*="grid-template-columns"] > .wa, .mock > div > [style*="grid-template-columns"] > .wa, .mock > [style*="grid-template-columns"] > :has(> .wa), .mock > div > [style*="grid-template-columns"] > :has(> .wa) { overflow: hidden; display: flex; flex-direction: column; }
 .mock [style*="grid-template-columns"] > :has(> .wa) > .wa { flex: 1; min-height: 0; }
 .mock .wa .msgs { scroll-behavior: smooth; }
-@media (max-width: 900px) { .mock > [style*="grid-template-columns"], .mock > div > [style*="grid-template-columns"] { height: auto; max-height: none; grid-template-rows: none; } .mock > [style*="grid-template-columns"] > *, .mock > div > [style*="grid-template-columns"] > * { max-height: 460px; } .mock > [style*="grid-template-columns"] > .wa, .mock > div > [style*="grid-template-columns"] > .wa, .mock > [style*="grid-template-columns"] > :has(> .wa), .mock > div > [style*="grid-template-columns"] > :has(> .wa) { height: 460px; } }
+@media (max-width: 900px) { .mock > [style*="grid-template-columns"], .mock > div > [style*="grid-template-columns"] { height: auto !important; max-height: none; grid-template-rows: none; } .mock > [style*="grid-template-columns"] > *, .mock > div > [style*="grid-template-columns"] > * { max-height: 460px; } .mock > [style*="grid-template-columns"] > .wa, .mock > div > [style*="grid-template-columns"] > .wa, .mock > [style*="grid-template-columns"] > :has(> .wa), .mock > div > [style*="grid-template-columns"] > :has(> .wa) { height: 460px; } }
 
 .nav .menu.mega { grid-template-columns: repeat(4, minmax(0, 1fr)); min-width: 820px; gap: 10px; }
 .nav .menu.mega .col { display: flex; flex-direction: column; gap: 2px; } .nav .menu.mega .k { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--red); padding: 8px 12px 6px; }
