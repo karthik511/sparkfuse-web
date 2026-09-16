@@ -330,3 +330,6 @@ a.card:hover, .card.hover:hover { transform: translateY(-3px); box-shadow: var(-
 @media (max-width: 1000px) { .duo { max-width: 560px; } }
 .founder-band.split.wide { grid-template-columns: 1.1fr 1fr; } @media (max-width: 1000px) { .founder-band.split.wide { grid-template-columns: 1fr; } }
 .legacy .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: end; } .legacy .duo .founder-fig { height: auto !important; }
+.legacy .thumb.shot { height: auto; padding: 0; overflow: hidden; border-radius: 10px; border: 1px solid var(--line); background: #fff; } .legacy .thumb.shot img { width: 100%; height: auto; display: block; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+.legacy .frame.legacyshot { box-shadow: var(--sh2); } .legacy .frame.legacyshot img { width: 100%; height: auto; display: block; }
+.thumb.shot { height: auto; padding: 0; overflow: hidden; border-radius: 10px; border: 1px solid var(--line); background: #fff; }

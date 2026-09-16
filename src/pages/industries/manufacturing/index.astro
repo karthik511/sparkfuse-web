@@ -1,14 +1,14 @@
 ---
-import Base from '../../../layouts/Base.astro'; import UseCaseStrip from '../../../components/UseCaseStrip.astro'; import VisionDemo from '../../../components/demos/VisionDemo.astro'; import DemoSection from '../../../components/demos/DemoSection.astro';
+import Base from '../../../layouts/Base.astro'; import { fixLegacy } from '../../../lib/legacyfix.js'; import UseCaseStrip from '../../../components/UseCaseStrip.astro'; import VisionDemo from '../../../components/demos/VisionDemo.astro'; import DemoSection from '../../../components/demos/DemoSection.astro';
 import raw from '../../../content/IndustryManufacturing.html?raw';
 import '../../../content/IndustryManufacturing.css';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const html = raw.replace(/href="\//g, `href="${base}/`).replace(/src="\//g, `src="${base}/`);
+const html = raw.replace(/href="\//g, `href="${base}/`).replace(/src="\//g, `src="${base}/`); const fixed = fixLegacy(html, base);
 const title = "AI & ERP for manufacturers \u2014 one system for the plant that runs on Excel | SparkFuse";
 const description = "Inventory, planning, dealers and documents for owner-led factories with one IT person. Built from a ten-module programme at a Pune manufacturer.";
 ---
 <Base title={title} description={description} section="industries">
-  <div class="legacy" data-legacy><Fragment set:html={html} /></div>
+  <div class="legacy" data-legacy><Fragment set:html={fixed} /></div>
   <UseCaseStrip ind="manufacturing" />
   <DemoSection h="Cameras you already own, doing QC and security." p="Two recordings of our detection stack; a theft-detection scenario and a defect-scoring batch you can run." eb="Vision on the floor"><VisionDemo /></DemoSection>
   
