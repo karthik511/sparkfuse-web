@@ -8,7 +8,7 @@ export function makeComposer(wa, onSend, placeholder = 'Type a message…') {
   const input = bar.querySelector('input');
   const send = () => { const t = input.value.trim(); if (!t) return; input.value = ''; onSend(t); };
   form.addEventListener('submit', e => { e.preventDefault(); send(); });
-  input.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); send(); } });
+  input.addEventListener('keydown', e => { if (e.key === 'Enter' || e.code === 'Enter' || e.code === 'NumpadEnter' || e.keyCode === 13) { e.preventDefault(); send(); } });
   return input;
 }
 export function bubble(wa, text, me = true, meta = '') {
