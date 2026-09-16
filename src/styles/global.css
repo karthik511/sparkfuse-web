@@ -131,7 +131,7 @@ a.card:hover, .card.hover:hover { transform: translateY(-3px); box-shadow: var(-
 .mock [style*="border: 1.5px solid #1B1B1B"] { border: 0 !important; background: transparent !important; }
 .mock [style*="background: #1B1B1B; color: #EFEEE9"] { display: none !important; }
 .mock [style*="color: #D93A2B"] { color: var(--red) !important; }
-.mock .wa { background: #ECE5DD; display: flex; flex-direction: column; height: 100%; min-height: 460px; }
+.mock .wa { background: #ECE5DD; display: flex; flex-direction: column; height: 100%; min-height: 0; }
 .mock .wa .hd { background: #075E54; color: #fff; padding: 12px 14px; display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; }
 .mock .wa .av { width: 30px; height: 30px; border-radius: 50%; background: #128C7E; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; }
 .mock .wa .msgs { padding: 14px; display: flex; flex-direction: column; gap: 8px; flex: 1 1 0; min-height: 0; overflow-y: auto; }
@@ -273,8 +273,13 @@ a.card:hover, .card.hover:hover { transform: translateY(-3px); box-shadow: var(-
 .mock .wa input.f { font-size: 13px; }
 .mock .wa button[type=submit] { flex: none; }
 .mock > [style*="grid-template-columns"] { align-items: stretch; }
-.mock > [style*="grid-template-columns"] > div:last-child { overflow: auto; max-height: 560px; }
-.mock > [style*="grid-template-columns"] > .wa, .mock > [style*="grid-template-columns"] > div:first-child:has(.wa) { max-height: 560px; }
+/* every mock is height-capped; columns scroll inside instead of growing the page (grid is a child or grandchild of .mock) */
+.mock > [style*="grid-template-columns"], .mock > div > [style*="grid-template-columns"] { height: 540px; max-height: 70vh; min-height: 0 !important; grid-template-rows: 100%; overflow: hidden; }
+.mock > [style*="grid-template-columns"] > *, .mock > div > [style*="grid-template-columns"] > * { min-height: 0; overflow: auto; overscroll-behavior: contain; }
+.mock > [style*="grid-template-columns"] > .wa, .mock > div > [style*="grid-template-columns"] > .wa, .mock > [style*="grid-template-columns"] > :has(> .wa), .mock > div > [style*="grid-template-columns"] > :has(> .wa) { overflow: hidden; display: flex; flex-direction: column; }
+.mock [style*="grid-template-columns"] > :has(> .wa) > .wa { flex: 1; min-height: 0; }
+.mock .wa .msgs { scroll-behavior: smooth; }
+@media (max-width: 900px) { .mock > [style*="grid-template-columns"], .mock > div > [style*="grid-template-columns"] { height: auto; max-height: none; grid-template-rows: none; } .mock > [style*="grid-template-columns"] > *, .mock > div > [style*="grid-template-columns"] > * { max-height: 460px; } .mock > [style*="grid-template-columns"] > .wa, .mock > div > [style*="grid-template-columns"] > .wa, .mock > [style*="grid-template-columns"] > :has(> .wa), .mock > div > [style*="grid-template-columns"] > :has(> .wa) { height: 460px; } }
 
 .nav .menu.mega { grid-template-columns: repeat(4, minmax(0, 1fr)); min-width: 820px; gap: 10px; }
 .nav .menu.mega .col { display: flex; flex-direction: column; gap: 2px; } .nav .menu.mega .k { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--red); padding: 8px 12px 6px; }
