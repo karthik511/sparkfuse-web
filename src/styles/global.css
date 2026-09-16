@@ -322,6 +322,6 @@ a.card:hover, .card.hover:hover { transform: translateY(-3px); box-shadow: var(-
 /* reference-band tiles: numbers scale with the tile, words go smaller */
 .dark.band .num { font-size: clamp(26px, 2.6vw, 38px); overflow-wrap: anywhere; } .dark.band .num.word { font-size: clamp(20px, 2vw, 26px); line-height: 1.15; }
 /* product hero: text first, mock full width below */
-.phero { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(24px, 4vw, 56px); align-items: end; margin-bottom: clamp(24px, 3vw, 40px); }
+.phero { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(24px, 4vw, 56px); align-items: start; margin-bottom: clamp(24px, 3vw, 40px); }
 @media (max-width: 900px) { .phero { grid-template-columns: 1fr; } }
 .mock .x > div:first-child { gap: 12px; align-items: flex-start !important; } .mock .x .tag { flex: none; white-space: nowrap; }
