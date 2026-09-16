@@ -19,20 +19,22 @@ const fitted = (d.fitted || []).filter(x => /^Fitted/.test(x)); const ready = (d
       {hub && <a class="chip" href={u(`/solutions/${hub.slug}/`)}>{hub.name}</a>}
       {(d.chips || []).slice(1).map(c => <span class="chip">{c}</span>)}
     </div>
-    <div class="split wide" style="align-items: start;">
-      <div style="display: flex; flex-direction: column; gap: 22px;">
-        <h1 class="h1">{d.h1} <span class="g" set:html={d.h1g} /></h1>
+    <div class="phero">
+      <div style="display: flex; flex-direction: column; gap: 18px;">
+        <h1 class="h1" style="font-size: clamp(32px, 4.4vw, 58px);">{d.h1} <span class="g" set:html={d.h1g} /></h1>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 18px;">
         <p class="lede" set:html={d.lede} />
         <p class="p" style="font-size: 15px;" set:html={d.semi} />
         <div style="display: flex; gap: 12px; flex-wrap: wrap;"><a class="btn red" href={u('/contact/')}>See it on a call <span class="arr">→</span></a><a class="btn2" href={u('/pricing/')}>How pricing works</a></div>
-        <div class="mono" style="color: var(--red);">{d.tryit}</div>
       </div>
-      <div class="glow" data-io>
-        <div class="frame mock">
-          <div class="chrome"><i></i><i></i><i></i><div class="url">app.sparkfuse.in/{d.slug}</div><div class="live">Interactive mock</div></div>
-          <Fragment set:html={mock} />
-        </div>
+    </div>
+    <div class="glow" data-io>
+      <div class="frame mock">
+        <div class="chrome"><i></i><i></i><i></i><div class="url">app.sparkfuse.in/{d.slug}</div><div class="live">Interactive mock</div></div>
+        <Fragment set:html={mock} />
       </div>
+      <div class="mono" style="color: var(--red); margin-top: 14px;">{d.tryit}</div>
     </div>
   </div>
 </section>
@@ -48,7 +50,7 @@ const fitted = (d.fitted || []).filter(x => /^Fitted/.test(x)); const ready = (d
         <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 6px;">{(d.ref_li || []).map(x => <div class="li" set:html={x} />)}</div>
       </div>
       <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; position: relative;">
-        {(d.ref_nums || []).map(([n, l]) => <div style="background: var(--dark2); border: 1px solid #2A2A27; border-radius: 14px; padding: 22px 18px; display: flex; flex-direction: column; gap: 8px;"><div class="num" style="color: #fff;" data-count={n}>{n}</div><div class="mono" style="color: var(--dark-muted);">{l}</div></div>)}
+        {(d.ref_nums || []).map(([n, l]) => <div style="background: var(--dark2); border: 1px solid #2A2A27; border-radius: 14px; padding: 22px 18px; display: flex; flex-direction: column; gap: 8px;"><div class={`num${/^[\d₹$]/.test(n) ? '' : ' word'}`} style="color: #fff;" data-count={n}>{n}</div><div class="mono" style="color: var(--dark-muted);">{l}</div></div>)}
       </div>
     </div>
   </div>

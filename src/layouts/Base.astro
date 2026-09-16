@@ -88,6 +88,17 @@ const org = { '@context': 'https://schema.org', '@type': 'Organization', name: '
   document.addEventListener('click', e => { if (!e.target.closest('.nav .m')) document.querySelectorAll('.nav .m.open').forEach(x => x.classList.remove('open')); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') document.querySelectorAll('.nav .m.open').forEach(x => x.classList.remove('open')); });
   const onScroll = () => nav?.classList.toggle('scrolled', window.scrollY > 8); onScroll(); addEventListener('scroll', onScroll, { passive: true });
+  // mobile: turn two-column mocks into tabs (chat | panel) so they stay contained
+  const has = (el, q) => el.matches(q) || el.querySelector(q); const label = el => has(el, '.wa') ? 'Chat' : has(el, '.phone') ? 'Phone' : has(el, '.doc') ? 'Document' : has(el, '.col') ? 'Pipeline' : has(el, '.tr, .line') ? 'Call' : has(el, '.bin') ? 'Bins' : has(el, '.out') ? 'Outlets' : has(el, '.kpi') ? 'Dashboard' : 'Screen';
+  document.querySelectorAll('.frame.mock > [style*="grid-template-columns"], .frame.mock > div[style*="flex-direction: column"] > [style*="grid-template-columns"]').forEach(g => {
+    const kids = [...g.children].filter(k => k.tagName === 'DIV'); if (kids.length !== 2) return; g.dataset.mocktabs = '';
+    const bar = document.createElement('div'); bar.className = 'mocktabs'; const names = [label(kids[0]), kids[1].querySelector('.sys, .kv, .task, .draft, .sug, .fld, .dg') ? 'What the AI did' : 'Panel'];
+    kids.forEach((k, i) => { const b = document.createElement('button'); b.type = 'button'; b.textContent = names[i]; b.className = i === 0 ? 'on' : ''; b.addEventListener('click', () => { kids.forEach((x, j) => x.classList.toggle('mt-hide', j !== i)); [...bar.children].forEach((x, j) => x.classList.toggle('on', j === i)); }); bar.appendChild(b); });
+    const apply = () => { const m = matchMedia('(max-width: 900px)').matches; kids.forEach((x, j) => x.classList.toggle('mt-hide', m && j !== [...bar.children].findIndex(b => b.classList.contains('on')))); };
+    g.parentElement.insertBefore(bar, g); apply(); matchMedia('(max-width: 900px)').addEventListener('change', apply);
+    // when the AI panel fills in on mobile, flip to it once
+    new MutationObserver(() => { if (matchMedia('(max-width: 900px)').matches && !bar.dataset.flipped && kids[1].querySelector('.reveal')) { bar.dataset.flipped = '1'; setTimeout(() => bar.children[1].click(), 900); } }).observe(kids[1], { subtree: true, attributes: true, attributeFilter: ['class'] });
+  });
   // scroll reveals
   const ios = [...document.querySelectorAll('[data-io]')]; ios.forEach((el, i) => { el.style.transitionDelay = (Math.min(i % 6, 5) * 70) + 'ms'; });
   const show = el => el.classList.add('in');

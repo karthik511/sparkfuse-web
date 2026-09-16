@@ -274,12 +274,12 @@ a.card:hover, .card.hover:hover { transform: translateY(-3px); box-shadow: var(-
 .mock .wa button[type=submit] { flex: none; }
 .mock > [style*="grid-template-columns"] { align-items: stretch; }
 /* every mock is height-capped; columns scroll inside instead of growing the page (grid is a child or grandchild of .mock) */
-.mock > [style*="grid-template-columns"], .mock > div > [style*="grid-template-columns"] { height: min(560px, 72vh) !important; min-height: 0 !important; max-height: none !important; grid-template-rows: 100%; overflow: hidden; }
-.mock > [style*="grid-template-columns"] > *, .mock > div > [style*="grid-template-columns"] > * { min-height: 0; overflow: auto; overscroll-behavior: contain; }
-.mock > [style*="grid-template-columns"] > .wa, .mock > div > [style*="grid-template-columns"] > .wa, .mock > [style*="grid-template-columns"] > :has(> .wa), .mock > div > [style*="grid-template-columns"] > :has(> .wa) { overflow: hidden; display: flex; flex-direction: column; }
+.mock > [style*="grid-template-columns"], .mock > div[style*="flex-direction: column"] > [style*="grid-template-columns"] { height: min(560px, 72vh) !important; min-height: 0 !important; max-height: none !important; grid-template-rows: 100%; overflow: hidden; }
+.mock > [style*="grid-template-columns"] > *, .mock > div[style*="flex-direction: column"] > [style*="grid-template-columns"] > * { min-height: 0; min-width: 0; overflow-y: auto; overflow-x: hidden; }
+.mock > [style*="grid-template-columns"] > .wa, .mock > div[style*="flex-direction: column"] > [style*="grid-template-columns"] > .wa, .mock > [style*="grid-template-columns"] > :has(> .wa), .mock > div[style*="flex-direction: column"] > [style*="grid-template-columns"] > :has(> .wa) { overflow: hidden; display: flex; flex-direction: column; }
 .mock [style*="grid-template-columns"] > :has(> .wa) > .wa { flex: 1; min-height: 0; }
 .mock .wa .msgs { scroll-behavior: smooth; }
-@media (max-width: 900px) { .mock > [style*="grid-template-columns"], .mock > div > [style*="grid-template-columns"] { height: auto !important; max-height: none; grid-template-rows: none; } .mock > [style*="grid-template-columns"] > *, .mock > div > [style*="grid-template-columns"] > * { max-height: 460px; } .mock > [style*="grid-template-columns"] > .wa, .mock > div > [style*="grid-template-columns"] > .wa, .mock > [style*="grid-template-columns"] > :has(> .wa), .mock > div > [style*="grid-template-columns"] > :has(> .wa) { height: 460px; } }
+@media (max-width: 900px) { .mock > [style*="grid-template-columns"], .mock > div[style*="flex-direction: column"] > [style*="grid-template-columns"] { height: auto !important; max-height: none; grid-template-rows: none; } .mock > [style*="grid-template-columns"] > *, .mock > div[style*="flex-direction: column"] > [style*="grid-template-columns"] > * { max-height: 460px; } .mock > [style*="grid-template-columns"] > .wa, .mock > div[style*="flex-direction: column"] > [style*="grid-template-columns"] > .wa, .mock > [style*="grid-template-columns"] > :has(> .wa), .mock > div[style*="flex-direction: column"] > [style*="grid-template-columns"] > :has(> .wa) { height: 460px; } }
 
 .nav .menu.mega { grid-template-columns: repeat(4, minmax(0, 1fr)); min-width: 820px; gap: 10px; }
 .nav .menu.mega .col { display: flex; flex-direction: column; gap: 2px; } .nav .menu.mega .k { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--red); padding: 8px 12px 6px; }
@@ -292,3 +292,36 @@ a.card:hover, .card.hover:hover { transform: translateY(-3px); box-shadow: var(-
 .founder-fig figcaption { position: absolute; left: 16px; bottom: 14px; color: #fff; z-index: 1; font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; opacity: .9; }
 .legacy .founder-fig { aspect-ratio: 4 / 5; height: auto !important; }
 .mock .sys2 { align-self: center; font-size: 11.5px; background: #FFF6D6; color: #5B4A12; border-radius: 8px; padding: 6px 10px; max-width: 92%; text-align: center; }
+
+/* mocks were drawn at ~900px; scale their contents down where the frame is narrower, and never let a column scroll sideways */
+.hero-split .mock > div[style*="flex-direction: column"], .hero-split .mock > [style*="grid-template-columns"] { zoom: .88; }
+@media (max-width: 1400px) { .hero-split .mock > div[style*="flex-direction: column"], .split.wide .mock > div[style*="flex-direction: column"], .hero-split .mock > [style*="grid-template-columns"], .split.wide .mock > [style*="grid-template-columns"] { zoom: .8; } }
+@media (max-width: 1000px) { .mock > div[style*="flex-direction: column"], .mock > [style*="grid-template-columns"] { zoom: 1; } }
+.mock [style*="grid-template-columns"] > * > * { max-width: 100%; }
+.mock .task { flex-wrap: wrap; } .mock .task .who { margin-left: auto; white-space: nowrap; }
+.mock .sys .sec > * { min-width: 0; overflow-wrap: anywhere; }
+.mock .draft, .mock .dg, .mock .doc { overflow-wrap: anywhere; }
+/* mobile: two-column mocks become tabbed (see Base.astro mock tabs) */
+.frame { max-width: 100%; } .mock > div { min-width: 0; } .frame.mock { overflow: hidden; }
+.mocktabs { display: none; }
+@media (max-width: 900px) {
+  .mocktabs { display: flex; gap: 4px; padding: 8px 10px 0; background: var(--bg); border-bottom: 1px solid var(--line); }
+  .mocktabs button { flex: 1; height: 34px; border: 0; border-radius: 8px 8px 0 0; background: transparent; font: inherit; font-size: 12.5px; font-weight: 600; color: var(--muted); cursor: pointer; }
+  .mocktabs button.on { background: #fff; color: var(--ink); box-shadow: inset 0 -2px 0 var(--red); }
+  .mock [data-mocktabs] > .mt-hide { display: none !important; }
+  .mock > [style*="grid-template-columns"], .mock > div[style*="flex-direction: column"] > [style*="grid-template-columns"] { height: min(520px, 70vh) !important; grid-template-rows: 100%; }
+  .mock > [style*="grid-template-columns"] > *, .mock > div[style*="flex-direction: column"] > [style*="grid-template-columns"] > * { max-height: none; }
+  .mock > [style*="grid-template-columns"] > .wa, .mock > div[style*="flex-direction: column"] > [style*="grid-template-columns"] > .wa, .mock > [style*="grid-template-columns"] > :has(> .wa), .mock > div[style*="flex-direction: column"] > [style*="grid-template-columns"] > :has(> .wa) { height: 100%; }
+  .vops .main, .apps .main { max-height: min(520px, 70vh); overflow-y: auto; overflow-x: hidden; }
+  .vab .body { max-height: min(560px, 75vh); overflow: auto; }
+}
+
+/* extras: "Screens" thumbnails use .bar as plain bars, not gantt bars */
+.mock .screen .bar { position: static; height: 6px; border-radius: 3px; background: var(--line2); }
+.mock .screen { height: auto !important; min-height: 120px; }
+/* reference-band tiles: numbers scale with the tile, words go smaller */
+.dark.band .num { font-size: clamp(26px, 2.6vw, 38px); overflow-wrap: anywhere; } .dark.band .num.word { font-size: clamp(20px, 2vw, 26px); line-height: 1.15; }
+/* product hero: text first, mock full width below */
+.phero { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(24px, 4vw, 56px); align-items: end; margin-bottom: clamp(24px, 3vw, 40px); }
+@media (max-width: 900px) { .phero { grid-template-columns: 1fr; } }
+.mock .x > div:first-child { gap: 12px; align-items: flex-start !important; } .mock .x .tag { flex: none; white-space: nowrap; }
