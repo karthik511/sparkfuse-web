@@ -5,5 +5,5 @@ import { hubs } from '../../data/site.js'; const base = import.meta.env.BASE_URL
 <Base title="Solutions — what we build with, and what it's built from | SparkFuse" description="Seven capabilities, each one shipped: ERP/CRM systems, WhatsApp and process automation, voice AI, document AI, dashboards, vision AI, custom models." section="solutions">
   <div class="hero"><div class="eb">Solutions</div><h1 class="h1">What it's made of. <span class="g">A capability is only worth listing if it has shipped.</span></h1><p class="p" style="font-size: 16px;">Seven capability hubs. Each page names the reusable parts, what's custom per client, what's been shipped on it, and where it isn't a fit.</p></div>
   <div class="sec"><div class="grid3">{hubs.map(h => <a class="card" href={`${base}/solutions/${h.slug}/`}><div class="t" style="font-size: 18px;">{h.name}</div><div class="d">{h.line}</div><span style="font-weight: 600; font-size: 13px; color: var(--red);">Open →</span></a>)}</div></div>
-  <CtaBand />
+  <div class="container" style="padding-top: clamp(48px, 6vw, 80px);"><CtaBand /></div>
 </Base>

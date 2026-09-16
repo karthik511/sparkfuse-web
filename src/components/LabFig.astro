@@ -1,0 +1,27 @@
+---
+// SVG illustration for a Lab note, drawn from the note's `fig` spec. Types: bars, compare, flow, timeline, stat. Layout is computed here; the template just draws.
+const { fig, size = 'card' } = Astro.props; const W = 640, H = size === 'hero' ? 300 : 260;
+const col = { r: 'var(--red)', k: 'var(--ink)', '': '#9A9A94' };
+const fmt = v => v >= 1000 ? v.toLocaleString('en-IN') : (Number.isInteger(v) ? String(v) : v.toFixed(2).replace(/0$/, ''));
+const wrap = (s, n) => s.split(' ').reduce((acc, w) => { const cur = acc[acc.length - 1]; if (cur !== undefined && (cur + ' ' + w).length - n < 1) acc[acc.length - 1] = cur + ' ' + w; else acc.push(w); return acc; }, []);
+let bars = [], cmp = [], flow = [], tl = [], stat = [];
+if (fig.type === 'bars') { const max = Math.max(...fig.rows.map(r => r[1])); bars = fig.rows.map(([l, v, c], i) => { const y = 62 + i * ((H - 80) / fig.rows.length); const bw = Math.max(6, (v / max) * 300); return { l, y, bw, fill: col[c], tx: 290 + bw + 8, txt: (fig.unit === '₹' ? '₹' : '') + fmt(v) + (fig.unit === '%' ? '%' : '') }; }); }
+if (fig.type === 'compare') cmp = fig.rows.map(([a, b, v], i) => ({ a, b, y: 62 + i * ((H - 80) / fig.rows.length), c: v === 'good' ? '#1E8E5A' : v === 'weak' ? '#B7791F' : '#D93A2B' }));
+if (fig.type === 'flow') { const cw = (W - 48) / fig.nodes.length; flow = fig.nodes.map((n, i) => ({ n, x: 24 + i * cw, cw, hot: i === fig.hot, arrow: i + 1 !== fig.nodes.length, lines: wrap(n, 13) })); }
+if (fig.type === 'timeline') tl = fig.steps.map(([t, l], i) => ({ t, x: 40 + i * ((W - 80) / (fig.steps.length - 1)), last: i + 1 === fig.steps.length, lines: wrap(l, 14) }));
+if (fig.type === 'stat') { const cw = (W - 48) / fig.items.length; stat = fig.items.map(([n, l], i) => ({ n, l: l.toUpperCase(), x: 24 + i * cw, cw, fs: n.length > 6 ? 22 : 30, fill: i === 0 ? '#D93A2B' : '#1B1B1B' })); }
+const mid = H / 2;
+---
+<svg class={`labfig ${size}`} viewBox={`0 0 ${W} ${H}`} xmlns="http://www.w3.org/2000/svg" role="img" aria-label={fig.title} preserveAspectRatio="xMidYMid meet">
+  <rect width={W} height={H} rx="14" fill="#FFFFFF" />
+  <text x="24" y="34" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="1.2" fill="#8E8D87">{fig.title.toUpperCase()}</text>
+  {bars.map(b => <g><text x="24" y={b.y + 13} font-family="Poppins, sans-serif" font-size="12.5" font-weight="500" fill="#1B1B1B">{b.l}</text><rect x="290" y={b.y} width={b.bw} height="18" rx="4" fill={b.fill} /><text x={b.tx} y={b.y + 13} font-family="IBM Plex Mono, monospace" font-size="12" fill="#1B1B1B">{b.txt}</text></g>)}
+  {cmp.map(r => <g><rect x="24" y={r.y} width="10" height="18" rx="3" fill={r.c} /><text x="44" y={r.y + 13} font-family="Poppins, sans-serif" font-size="12.5" font-weight="500" fill="#1B1B1B">{r.a}</text><text x="330" y={r.y + 13} font-family="IBM Plex Mono, monospace" font-size="11.5" fill={r.c}>{r.b}</text></g>)}
+  {flow.map(f => <g><rect x={f.x + 4} y={mid - 26} width={f.cw - 16} height="52" rx="10" fill={f.hot ? '#FDECEA' : '#F6F5F0'} stroke={f.hot ? '#D93A2B' : '#E1E0D9'} stroke-width="1.5" />{f.lines.map((ln, j) => <text x={f.x + f.cw / 2 - 4} y={mid + 4 + (j - (f.lines.length - 1) / 2) * 13} text-anchor="middle" font-family="Poppins, sans-serif" font-size="10.5" font-weight="600" fill="#1B1B1B">{ln}</text>)}{f.arrow && <path d={`M${f.x + f.cw - 12} ${mid} l8 0 m-3 -3 l3 3 l-3 3`} stroke="#9A9A94" stroke-width="1.5" fill="none" />}</g>)}
+  {fig.type === 'timeline' && <line x1="40" y1={mid + 6} x2={W - 40} y2={mid + 6} stroke="#E1E0D9" stroke-width="2" />}
+  {tl.map(s => <g><circle cx={s.x} cy={mid + 6} r="7" fill={s.last ? '#D93A2B' : '#1B1B1B'} /><text x={s.x} y={mid - 16} text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#8E8D87">{s.t}</text>{s.lines.map((ln, j) => <text x={s.x} y={mid + 34 + j * 14} text-anchor="middle" font-family="Poppins, sans-serif" font-size="11" font-weight="500" fill="#1B1B1B">{ln}</text>)}</g>)}
+  {stat.map(s => <g><rect x={s.x + 4} y="58" width={s.cw - 16} height={H - 84} rx="12" fill="#F6F5F0" /><text x={s.x + 20} y={mid + 8} font-family="Poppins, sans-serif" font-size={s.fs} font-weight="700" fill={s.fill} letter-spacing="-1">{s.n}</text><text x={s.x + 20} y={mid + 34} font-family="IBM Plex Mono, monospace" font-size="10.5" letter-spacing="1" fill="#8E8D87">{s.l}</text></g>)}
+</svg>
+<style is:global>
+  .labfig { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+</style>

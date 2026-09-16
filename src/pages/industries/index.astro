@@ -6,5 +6,5 @@ import { industries } from '../../data/site.js'; const base = import.meta.env.BA
   <div class="hero"><div class="eb">Industries</div><h1 class="h1">People like you. <span class="g">The same five problems, every visit.</span></h1><p class="p" style="font-size: 16px;">Each page opens with a client's own words, lists what we hear on that floor, and points at the products that fit. Hospitality and restaurants follow as their cases go live.</p></div>
   <div class="sec"><div class="grid2">{industries.map(i => <a class="card" href={`${base}/industries/${i.slug}/`}><div class="t" style="font-size: 20px;">{i.name}</div><div class="d">{i.line}</div><span style="font-weight: 600; font-size: 13px; color: var(--red);">Open →</span></a>)}</div></div>
   <div class="sec"><div class="grid2"><div class="card q"><div class="eb">Hospitality &amp; stays</div><div class="d">Bookings, owner payouts and finance for a 45-property operator — page follows the build.</div></div><div class="card q"><div class="eb">Restaurants &amp; food</div><div class="d">A four-layer governance system for a multi-outlet group — see <a href={`${base}/products/mis-dashboards/`}>MIS dashboards</a>.</div></div></div></div>
-  <CtaBand />
+  <div class="container" style="padding-top: clamp(48px, 6vw, 80px);"><CtaBand /></div>
 </Base>

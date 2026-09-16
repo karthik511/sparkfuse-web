@@ -1,9 +1,37 @@
 ---
-import Base from '../../layouts/Base.astro'; import CtaBand from '../../components/CtaBand.astro'; import '../../content/_shared.css';
-import { lab } from '../../data/site.js'; const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+import Base from '../../layouts/Base.astro'; import CtaBand from '../../components/CtaBand.astro'; import LabFig from '../../components/LabFig.astro';
+import { labNotes, labTags } from '../../data/lab.js'; const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const notes = [...labNotes].sort((a, b) => b.date.localeCompare(a.date)); const [lead, ...rest] = notes;
+const d = s => new Date(s).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 ---
 <Base title="Lab — measured notes from building and running AI systems | SparkFuse" description="Benchmarks, cost models and teardowns from our own builds, each with a number in it and a paragraph on what it means if you're buying." section="lab">
-  <div class="hero"><div class="eb">Lab</div><h1 class="h1">Notes with a number in them. <span class="g">From work we've actually had to run and pay for.</span></h1><p class="p" style="font-size: 16px;">Two a week: one benchmark or cost model, one build teardown. Each ends with what it means if you're buying.</p></div>
-  <div class="sec"><div class="grid2">{lab.map(n => <a class="card" href={`${base}/lab/${n.slug}/`}><div class="mono">{n.date}</div><div class="t" style="font-size: 19px;">{n.title}</div><div class="d">{n.tldr}</div><span style="font-weight: 600; font-size: 13px; color: var(--red);">Read →</span></a>)}</div></div>
-  <CtaBand />
+  <section class="sec" style="padding-bottom: 24px;">
+    <div class="container">
+      <div class="sec-head" data-io style="margin-bottom: 28px;"><div class="eb">Lab</div><h1 class="h1">Notes with a number in them. <span class="g">From work we've actually had to run and pay for.</span></h1><p class="lede">Benchmarks, cost models and teardowns — what went wrong, what was measured, and what it means if you're buying. Client names are removed; the numbers are real.</p></div>
+      <div class="chips" data-io><button class="chip on" data-tag="all">All · {notes.length}</button>{labTags.map(t => <button class="chip" data-tag={t}>{t} · {notes.filter(n => n.tag === t).length}</button>)}</div>
+    </div>
+  </section>
+  <section class="sec" style="padding-top: 0;">
+    <div class="container">
+      <a class="card hover lead note" href={`${base}/lab/${lead.slug}/`} data-tag={lead.tag} data-io>
+        <div class="fig"><LabFig fig={lead.fig} /></div>
+        <div class="body"><div class="mono"><span style="color: var(--red);">{lead.tag}</span> · {d(lead.date)} · Latest</div><div class="t" style="font-size: 26px;">{lead.title}</div><div class="d" style="font-size: 15.5px;">{lead.tldr}</div><span class="btn3">Read the note <span class="arr">→</span></span></div>
+      </a>
+      <div class="grid3" data-grid style="margin-top: 20px;">
+        {rest.map(n => <a class="card hover note" href={`${base}/lab/${n.slug}/`} data-tag={n.tag} data-io><div class="fig"><LabFig fig={n.fig} /></div><div class="mono"><span style="color: var(--red);">{n.tag}</span> · {d(n.date)}</div><div class="t">{n.title}</div><div class="d">{n.tldr}</div><span class="btn3" style="font-size: 14px;">Read <span class="arr">→</span></span></a>)}
+      </div>
+      <div style="height: 48px;"></div>
+      <CtaBand h="Have a number you can’t explain?" p="Send us the process behind it. Most of these notes started as a client’s unexplained number." />
+    </div>
+  </section>
+  <style>
+    .chips { display: flex; gap: 8px; flex-wrap: wrap; } .chips .chip { cursor: pointer; } .chips .chip.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .note .fig { margin: -4px -4px 8px; } .note.hide { display: none; } .note .btn3 { align-self: flex-start; }
+    .lead { display: grid; grid-template-columns: 1.1fr 1fr; gap: 28px; align-items: center; } .lead .body { display: flex; flex-direction: column; gap: 12px; } .lead .fig { margin: 0; }
+    @media (max-width: 900px) { .lead { grid-template-columns: 1fr; } }
+  </style>
+  <script>
+    const chips = [...document.querySelectorAll('.chips .chip')], notes = [...document.querySelectorAll('.note')];
+    chips.forEach(c => c.addEventListener('click', () => { chips.forEach(x => x.classList.toggle('on', x === c)); notes.forEach(n => n.classList.toggle('hide', c.dataset.tag !== 'all' && n.dataset.tag !== c.dataset.tag)); }));
+  </script>
 </Base>

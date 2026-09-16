@@ -37,9 +37,4 @@ export const cases = [
   { slug: 'companion-model', tag: 'Case 06 · Fine-tuned model', name: 'A model we fine-tuned ourselves.', nums: [['3,000', 'MAU within days'], ['Own', 'product'], ['Guardrails', 'built in']], live: false },
   { slug: 'creator-platform', tag: 'Case 07 · Consumer scale', name: 'A creator platform, end to end.', nums: [['27,000', 'downloads'], ['6,700', 'MAU'], ['~50%', 'MoM growth']], live: false },
 ];
-export const lab = [
-  { slug: 'voice-agent-cost', title: 'Cutting a voice agent’s cost from ₹3.80 to under ₹1 per minute', date: '2026-09-16', tldr: 'A live speech-to-speech API was 96% of a ₹1.95 L monthly bill at ₹3.79 per call-minute. A cascaded pipeline — VAD → speech-to-text per utterance → a text model → text-to-speech per sentence — reproduces the behaviour at ≈₹0.76–0.81 a minute. No GPUs.' },
-  { slug: 'asr-bake-off', title: 'Which speech model actually understands a Punjabi caller? A 125-call bake-off', date: '2026-09-16', tldr: 'Raw word-error rate is misleading on code-mixed Hindi — most of a self-hosted model’s “45% WER” was Devanagari-vs-Roman spelling. Judged on meaning, the hosted models won and a GPU plan was cancelled on evidence.' },
-  { slug: 'two-rail-learning-app', title: 'Why a voice-first learning app needs two rails, not one', date: '2026-09-16', tldr: 'About 80% of a learner’s minutes are practice with a known target sentence — that can run on the phone at near-zero cost. Only the open conversation rail needs a server. Split them and a ₹299/month price works.' },
-  { slug: 'ai-is-the-project-manager', title: 'The AI is the project manager, not a chat box in the corner', date: '2026-09-16', tldr: 'In a garment exporter’s ERP the AI builds every order’s plan, creates the tasks, reads emails and portals, and flags what needs a human today: 112 suggestions raised, 196 exceptions flagged, zero tasks written by a manager.' },
-];
+export { labNotes as lab } from './lab.js';
