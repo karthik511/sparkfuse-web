@@ -81,8 +81,11 @@ const org = { '@context': 'https://schema.org', '@type': 'Organization', name: '
   b?.addEventListener('click', () => { const o = m.classList.toggle('open'); b.setAttribute('aria-expanded', String(o)); });
   const onScroll = () => nav?.classList.toggle('scrolled', window.scrollY > 8); onScroll(); addEventListener('scroll', onScroll, { passive: true });
   // scroll reveals
-  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px', threshold: .08 });
-  document.querySelectorAll('[data-io]').forEach((el, i) => { el.style.transitionDelay = (Math.min(i % 6, 5) * 70) + 'ms'; io.observe(el); });
+  const ios = [...document.querySelectorAll('[data-io]')]; ios.forEach((el, i) => { el.style.transitionDelay = (Math.min(i % 6, 5) * 70) + 'ms'; });
+  const show = el => el.classList.add('in');
+  const check = () => { const vh = innerHeight; ios.forEach(el => { if (el.classList.contains('in')) return; const r = el.getBoundingClientRect(); if (r.top < vh * .95 && r.bottom > 0) show(el); }); };
+  if ('IntersectionObserver' in window) { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } }), { rootMargin: '0px 0px -5% 0px', threshold: .05 }); ios.forEach(el => io.observe(el)); }
+  check(); addEventListener('scroll', check, { passive: true }); addEventListener('resize', check); setTimeout(check, 300); setTimeout(check, 1500);
   // count-ups
   const co = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; co.unobserve(e.target); const el = e.target; const raw = el.dataset.count; const num = parseFloat(raw.replace(/[^\d.]/g, '')); if (isNaN(num)) return; const pre = raw.match(/^[^\d]*/)[0], suf = raw.match(/[^\d.]*$/)[0]; const dec = (raw.split('.')[1] || '').replace(/[^\d]/g, '').length; const t0 = performance.now(), dur = 1100; const step = t => { const k = Math.min(1, (t - t0) / dur); const v = num * (1 - Math.pow(1 - k, 3)); el.textContent = pre + v.toLocaleString('en-IN', { minimumFractionDigits: dec, maximumFractionDigits: dec }) + suf; if (k < 1) requestAnimationFrame(step); }; requestAnimationFrame(step); }), { threshold: .5 });
   document.querySelectorAll('[data-count]').forEach(el => co.observe(el));

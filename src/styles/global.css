@@ -261,3 +261,5 @@ a.card:hover, .card.hover:hover { transform: translateY(-3px); box-shadow: var(-
 .legacy [style*="border-top: 3px solid #D93A2B"] { border-top: 0 !important; }
 .legacy [style*="border: 1.5px solid #1B1B1B"] { border: 1px solid var(--line) !important; border-radius: 16px; box-shadow: var(--sh1); }
 .legacy .wf, .legacy .tree { display: none; }
+
+@media (max-width: 640px) { .frame .bar .live { display: none; } .frame .bar .url { max-width: 60%; } .nav .in { height: 64px; } }

@@ -14,7 +14,7 @@ const modules = ['WhatsApp Cloud API', 'Chase & escalation ladders', 'Email & po
 
 <!-- HERO -->
 <section class="hero-sec">
-  <div class="container split" style="align-items: center; grid-template-columns: 1fr 1.1fr;">
+  <div class="container split hero-split" style="align-items: center;">
     <div style="display: flex; flex-direction: column; gap: 24px;">
       <div class="eb" data-io>AI &amp; process consulting · Bengaluru</div>
       <h1 class="h1" data-io style="font-size: clamp(38px, 4.4vw, 58px);">The AI-run system your business couldn't find as a product.</h1>
@@ -165,6 +165,8 @@ const modules = ['WhatsApp Cloud API', 'Chase & escalation ladders', 'Email & po
 <style>
   .hero-sec { padding-block: clamp(48px, 7vw, 96px) clamp(40px, 5vw, 64px); position: relative; }
   .hero-sec::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 50% at 80% 10%, rgba(224,64,46,.10), transparent 70%), linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: auto, 48px 48px, 48px 48px; mask-image: radial-gradient(70% 70% at 60% 30%, #000 30%, transparent 100%); opacity: .55; z-index: -1; }
+  .hero-split { grid-template-columns: 1fr 1.1fr; }
+  @media (max-width: 1000px) { .hero-split { grid-template-columns: 1fr; } }
   .hint { text-align: center; margin-top: 14px; font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
   .proof { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px; padding: 28px 0; border-block: 1px solid var(--line); }
   .proof > div { display: flex; flex-direction: column; gap: 6px; }

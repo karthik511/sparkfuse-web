@@ -1,11 +1,12 @@
 ---
-import Base from '../../layouts/Base.astro'; import Thumb from '../../components/Thumb.astro'; import CtaBand from '../../components/CtaBand.astro'; import '../../content/_shared.css';
+import Base from '../../layouts/Base.astro'; import MiniUI from '../../components/MiniUI.astro'; import CtaBand from '../../components/CtaBand.astro'; import '../../content/_shared.css';
 import { products } from '../../data/site.js';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const kinds = { 'whatsapp-automation': 'chat', 'whatsapp-crm': 'crm', 'whatsapp-chatbot': 'bot', 'manufacturing-erp': 'kpi', 'inventory-management': 'bins', 'document-processing': 'doc', 'ai-workflow-automation': 'flow', 'ai-calling-agent': 'call', 'dealer-distributor-management': 'order', 'real-estate-crm': 'pipe', 'garment-erp': 'gantt', 'mis-dashboards': 'mis' };
 ---
 <Base title="Products — semi-custom systems built from proven modules | SparkFuse" description="Twelve systems we've built for someone, each about 70% ready modules and 30% fitted to how you run. Every page has a mock you can play with." section="products">
   <div class="hero"><div class="eb">Products</div><h1 class="h1">What you were searching for. <span class="g">Fitted to how you run.</span></h1><p class="p" style="font-size: 16px;">Each of these is a system we've built for someone. About 70% is ready modules we already operate; 30% is fitted to your process in discovery. Every page has an interactive mock — type into it, drag it, play it.</p></div>
-  <div class="sec"><div class="grid4">{products.map((p, i) => <a class="card" href={`${base}/products/${p.slug}/`}><Thumb i={i} /><div class="t">{p.name}</div><div class="d">{p.line}</div><span style="font-weight: 600; font-size: 13px; color: var(--red);">See the page →</span></a>)}</div></div>
+  <div class="sec"><div class="grid3">{products.map((p, i) => <a class="card hover" href={`${base}/products/${p.slug}/`} data-io><MiniUI kind={kinds[p.slug]} /><div class="t">{p.name}</div><div class="d">{p.line}</div><span style="font-weight: 600; font-size: 13px; color: var(--red);">See the page →</span></a>)}</div></div>
   <div class="sec"><div class="grid2"><div class="card q"><div class="eb">Coming as proof lands</div><div class="t">Hotel, guest-house &amp; homestay management</div><div class="d">Bookings, owner payouts and finance for multi-property operators — page ships when the 45-property build is live.</div></div><div class="card q"><div class="eb">Not a product page, on purpose</div><div class="t">Vision AI, quality inspection, call analytics</div><div class="d">Capabilities people are shown, not ones they search for. They live under Solutions and inside the ERP and calling pages.</div></div></div></div>
   <CtaBand />
 </Base>
