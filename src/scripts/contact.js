@@ -7,7 +7,7 @@ const box = document.querySelector('.fld')?.closest('[style*="border: 1.5px soli
     `<input type="hidden" name="searched" id="c-searched" /><div style="display:flex;align-items:center;gap:12px;margin-top:4px;flex-wrap:wrap"><button type="submit" class="btn" style="border:0;cursor:pointer">Send</button><a class="mono" data-wa href="#" target="_blank" rel="noopener">or message us on WhatsApp</a></div><div class="mono" style="font-size:9.5px">No newsletter, no sales sequence. One human reply.</div><div data-ok class="hidden" style="background:#E7F3EC;color:#2E7D4F;padding:10px 12px;font-size:13.5px">Thanks — your email client should have opened with the message. If it didn't, WhatsApp us instead.</div>`;
   box.replaceChildren(form);
   try { document.getElementById('c-searched').value = document.referrer || ''; } catch (e) {}
-  const WA = document.body.dataset.wa || ''; const TO = document.body.dataset.email || 'hello@sparkfuse.in';
+  const WA = document.body.dataset.wa || ''; const TO = document.body.dataset.email || 'business@sparkfuse.in';
   const wa = form.querySelector('[data-wa]'); wa.href = WA ? `https://wa.me/${WA}` : '#';
   form.addEventListener('submit', e => { e.preventDefault(); const d = Object.fromEntries(new FormData(form)); const body = `Business: ${d.business}\nTeam: ${d.team}\nPhone: ${d.phone}\n\nThe workflow that hurts:\n${d.pain}`; const subject = `Process that hurts — ${d.name}`;
     if (WA) wa.href = `https://wa.me/${WA}?text=${encodeURIComponent(subject + '\n' + body)}`;
