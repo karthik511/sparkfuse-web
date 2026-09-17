@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro'; import CtaBand from '../../componen
 const base = import.meta.env.BASE_URL.replace(/\/$/, ''); const u = p => `${base}${p}`;
 const team = [
   { n: 'Karthik Narayan', r: 'Solutions Architect &amp; CPO · leads every engagement', b: 'MBA, IIM Amritsar. Big 4 consulting; technology leadership at a proptech unicorn; founded and ran an independent technology venture. Architects every solution, owns the product, and answers for the result.', img: 'founder-portrait-sm.jpg', ini: 'KN' },
-  { n: 'Akhil', r: 'Chief Business Officer', b: 'MBA, IIM Amritsar. A founder himself before SparkFuse; marketing and growth is his craft. Owns the commercial side — who we work with, how engagements are scoped and priced, and the growth number after go-live. Your second phone number at SparkFuse.', img: 'akhil-sm.jpg', ini: 'A' },
+  { n: 'Akhil Chaudhary', r: 'Chief Business Officer', b: 'MBA, IIM Amritsar. A founder himself before SparkFuse; marketing and growth is his craft. Owns the commercial side — who we work with, how engagements are scoped and priced, and the growth number after go-live. Your second phone number at SparkFuse.', img: 'akhil-sm.jpg', ini: 'A' },
 ];
 const title = 'About SparkFuse — a consulting practice that builds, and runs what it builds';
 const description = 'Boutique AI and process consultancy in Bengaluru, led by two IIM Amritsar founders, grown out of the AI products it operates.';
@@ -18,7 +18,7 @@ const description = 'Boutique AI and process consultancy in Bengaluru, led by tw
           <p class="lede">SparkFuse Business Solutions LLP is a boutique AI and process consultancy in Bengaluru. Two IIM Amritsar founders — Karthik on solutions and product, Akhil on business and growth — grew it out of one consulting practice (strategy, build, rollout and monitoring for owner-led Indian businesses) and out of the AI products that practice built and still operates. The products are why the advice is grounded: every module we recommend is one we've had to run, support and pay for ourselves.</p>
           <div style="display: flex; gap: 12px; flex-wrap: wrap;"><a class="btn red" href={u('/contact/')}>Tell us the process that hurts <span class="arr">→</span></a><a class="btn2" href={u('/services/ai-consulting/')}>The method</a></div>
         </div>
-        <div data-io class="duo" style="width: 100%; justify-self: end;"><figure class="founder-fig"><img src={u('/media/founder.jpg')} alt="Karthik Narayan, Solutions Architect and CPO, at a client's office" width="720" height="900" loading="eager" /><figcaption class="mono">Karthik · Solutions Architect &amp; CPO</figcaption></figure><figure class="founder-fig"><img src={u('/media/akhil.jpg')} alt="Akhil, Chief Business Officer" width="720" height="900" loading="eager" /><figcaption class="mono">Akhil · CBO</figcaption></figure></div>
+        <div data-io class="duo" style="width: 100%; justify-self: end;"><figure class="founder-fig"><img src={u('/media/founder.jpg')} alt="Karthik Narayan, Solutions Architect and CPO, at a client's office" width="720" height="900" loading="eager" /><figcaption class="mono">Karthik · Solutions Architect &amp; CPO</figcaption></figure><figure class="founder-fig"><img src={u('/media/akhil.jpg')} alt="Akhil Chaudhary, Chief Business Officer" width="720" height="900" loading="eager" /><figcaption class="mono">Akhil · CBO</figcaption></figure></div>
       </div>
     </div>
   </section>
@@ -35,7 +35,7 @@ const description = 'Boutique AI and process consultancy in Bengaluru, led by tw
         <div class="eb">Background</div>
         <h2 class="h2">Two IIM Amritsar founders, <span class="g">product and growth.</span></h2>
         <p class="p"><b>Karthik</b> — Solutions Architect &amp; CPO. Consulting at a Big 4 firm; technology leadership at a leading Indian proptech unicorn. Founded and ran an independent technology venture; built and operates three AI products — a calling platform used by 400+ businesses, a vision tool for service centres, and a fine-tuned consumer companion.</p>
-        <p class="p"><b>Akhil</b> — Chief Business Officer. A founder himself before SparkFuse; marketing and growth is his craft. Owns who we work with, how engagements are scoped and priced, and the growth number after go-live.</p>
+        <p class="p"><b>Akhil Chaudhary</b> — Chief Business Officer. A founder himself before SparkFuse; marketing and growth is his craft. Owns who we work with, how engagements are scoped and priced, and the growth number after go-live.</p>
         <div class="grid3" style="gap: 12px;">{[['20+', 'projects delivered'], ['7', 'systems in production'], ['5', 'industries, this year']].map(([n, l]) => <div class="card flat" style="gap: 4px;"><div class="num" data-count={n}>{n}</div><div class="mono">{l}</div></div>)}</div>
       </div>
     </div>

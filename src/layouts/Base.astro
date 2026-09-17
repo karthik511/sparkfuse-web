@@ -4,7 +4,7 @@ import { products, hubs, industries, categories } from '../data/site.js';
 const { title, description, section = '', noindex = true, schema = null } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const u = (p) => `${base}${p}`;
-const org = { '@context': 'https://schema.org', '@type': 'Organization', name: 'SparkFuse Business Solutions LLP', url: 'https://sparkfuse.in', address: { '@type': 'PostalAddress', addressLocality: 'Bengaluru', addressCountry: 'IN' } };
+const org = { '@context': 'https://schema.org', '@type': 'Organization', name: 'SparkFuse Business Solutions LLP', url: 'https://sparkfuse.in', telephone: '+91-96861-71447', email: 'hello@sparkfuse.in', contactPoint: [{ '@type': 'ContactPoint', telephone: '+91-96861-71447', contactType: 'sales', areaServed: 'IN', availableLanguage: ['en', 'hi'] }], address: { '@type': 'PostalAddress', addressLocality: 'Bengaluru', addressCountry: 'IN' } };
 ---
 <!doctype html>
 <html lang="en">
@@ -25,7 +25,7 @@ const org = { '@context': 'https://schema.org', '@type': 'Organization', name: '
   <script type="application/ld+json" set:html={JSON.stringify(org)} />
   {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
 </head>
-<body>
+<body data-wa="917795450196" data-email="hello@sparkfuse.in">
 <div class="page">
   <header class="nav" data-nav>
     <div class="container in">
@@ -66,7 +66,7 @@ const org = { '@context': 'https://schema.org', '@type': 'Organization', name: '
   <footer class="foot">
     <div class="container">
       <div class="cols">
-        <div class="col"><div style="font-weight: 700; font-size: 20px; color: #fff; letter-spacing: -.02em;">SparkFuse</div><div>SparkFuse Business Solutions LLP · Bengaluru, India</div><div class="k" style="color: #76756E; margin-top: 8px;">= Strategy + Build + Rollout + Monitoring</div></div>
+        <div class="col"><div style="font-weight: 700; font-size: 20px; color: #fff; letter-spacing: -.02em;">SparkFuse</div><div>SparkFuse Business Solutions LLP · Bengaluru, India</div><a href="https://wa.me/917795450196" target="_blank" rel="noopener">WhatsApp +91 77954 50196</a><a href="tel:+919686171447">Call +91 96861 71447</a><a href="mailto:hello@sparkfuse.in">hello@sparkfuse.in</a><div class="k" style="color: #76756E; margin-top: 8px;">= Strategy + Build + Rollout + Monitoring</div></div>
         <div class="col"><div class="k">Products</div>{products.slice(0, 6).map(p => <a href={u(`/products/${p.slug}/`)}>{p.name}</a>)}</div>
         <div class="col"><div class="k">More products</div>{products.slice(6).map(p => <a href={u(`/products/${p.slug}/`)}>{p.name}</a>)}</div>
         <div class="col"><div class="k">Industries</div>{industries.map(i => <a href={u(`/industries/${i.slug}/`)}>{i.name}</a>)}<div class="k" style="margin-top: 12px;">Solutions</div>{hubs.slice(0, 4).map(h => <a href={u(`/solutions/${h.slug}/`)}>{h.name}</a>)}</div>
