@@ -1,7 +1,7 @@
-// Contact form → posts to FormSubmit (AJAX), which emails business@sparkfuse.in. No mail client, no page reload.
-// First-ever submission triggers a one-time activation email to the inbox; after that every submission is delivered.
+// Contact form → posts to Web3Forms (access key on <body data-w3key>), which emails business@sparkfuse.in and CCs the founders. No mail client, no reload.
+// Falls back to FormSubmit if no key is configured; either way a failure offers a pre-filled WhatsApp message.
 const box = document.querySelector('.fld')?.closest('[style*="border: 1.5px solid #1B1B1B"]'); if (box) {
-  const TO = document.body.dataset.email || 'business@sparkfuse.in'; const WA = document.body.dataset.wa || '';
+  const TO = document.body.dataset.email || 'business@sparkfuse.in'; const WA = document.body.dataset.wa || ''; const KEY = document.body.dataset.w3key || ''; const CC = document.body.dataset.cc || '';
   const F = [['name', 'Your name', 'text'], ['business', 'Business and city', 'text'], ['team', 'Team size', 'select'], ['pain', 'The workflow costing you the most right now', 'textarea'], ['phone', 'Phone / WhatsApp', 'tel'], ['email', 'Email (optional)', 'email']];
   const form = document.createElement('form'); form.style.cssText = 'display:flex;flex-direction:column;gap:14px'; form.setAttribute('aria-label', 'Contact form'); form.noValidate = false;
   const css = 'width:100%;height:46px;background:#fff;border:1px solid #B9B8B0;padding:0 12px;font:14px Poppins,sans-serif;color:#1B1B1B;border-radius:0';
@@ -16,9 +16,11 @@ const box = document.querySelector('.fld')?.closest('[style*="border: 1.5px soli
     e.preventDefault(); if (!form.reportValidity()) return; const d = Object.fromEntries(new FormData(form)); if (d._honey) return;
     ok.classList.add('hidden'); err.classList.add('hidden'); send.disabled = true; send.textContent = 'Sending…';
     if (WA) wa.href = `https://wa.me/${WA}?text=${encodeURIComponent(`Enquiry from ${d.name}\n` + summary(d))}`;
-    const payload = { name: d.name, business: d.business, team: d.team, phone: d.phone, email: d.email, pain: d.pain, page: d.page, _subject: `Website enquiry — ${d.name}${d.business ? ' · ' + d.business : ''}`, _template: 'table', _captcha: 'false', _replyto: d.email || undefined };
+    const subject = `Website enquiry — ${d.name}${d.business ? ' · ' + d.business : ''}`;
+    const payload = KEY ? { access_key: KEY, subject, from_name: 'SparkFuse website', name: d.name, business: d.business, team_size: d.team, phone: d.phone, email: d.email || undefined, workflow_that_hurts: d.pain, page: d.page, ccemail: CC || undefined, replyto: d.email || undefined, botcheck: '' }
+      : { name: d.name, business: d.business, team: d.team, phone: d.phone, email: d.email, pain: d.pain, page: d.page, _subject: subject, _template: 'table', _captcha: 'false', _cc: CC || undefined, _replyto: d.email || undefined };
     try {
-      const r = await fetch(`https://formsubmit.co/ajax/${TO}`, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(payload) });
+      const r = await fetch(KEY ? 'https://api.web3forms.com/submit' : `https://formsubmit.co/ajax/${TO}`, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(payload) });
       const j = await r.json().catch(() => ({}));
       if (r.ok && (j.success === 'true' || j.success === true)) { ok.innerHTML = `<b>Sent.</b> Thanks, ${d.name.split(' ')[0]} — you'll hear from us within a business day. Faster: <a href="${wa.href}" target="_blank" rel="noopener">WhatsApp us</a>.`; ok.classList.remove('hidden'); form.reset(); send.textContent = 'Sent ✓'; }
       else throw new Error(j.message || 'Could not send');

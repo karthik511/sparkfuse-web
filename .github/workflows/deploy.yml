@@ -20,6 +20,7 @@ jobs:
         env:
           SITE_URL: https://sparkfuse.in
           BASE_PATH: ""
+          PUBLIC_W3FORMS_KEY: ${{ secrets.W3FORMS_KEY }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
